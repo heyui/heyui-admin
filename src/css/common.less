@@ -1,0 +1,49 @@
+// @import "~heyui/themes/common.less";
+@import "../../heyui/themes/common.less";
+
+body{
+  background: #F4F3F8;
+}
+.app-header {
+  height: 40px;
+  position: absolute;
+  left: 150px;
+  background: @white-color;
+  box-shadow: @box-shadow;
+  right: 0;
+}
+
+@menu-color: #3B4054;
+
+.app-left {
+  overflow-y: auto;
+  width: 150px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0px;
+  background: @menu-color;
+
+  .app-menu-header{
+    height: 40px;
+  }
+  .h-menu-dark{
+    font-size: 13px;
+    color: #a7c6dc;
+    background: @menu-color;
+    .h-menu-li-selected{
+      background: darken(@menu-color, 10%);
+    }
+    .h-menu-ul{
+      background: darken(@menu-color, 5%);
+    }
+  }
+}
+.app-body {
+  position: absolute;
+  left: 150px;
+  right: 0;
+  bottom: 0px;
+  top: 40px;
+}

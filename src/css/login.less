@@ -1,0 +1,54 @@
+@import "~heyui/themes/common.less";
+
+body{
+  background: url(../../static/images/bg.jpg);
+  background-size: cover;
+}
+#page-login{
+  text-align: center;
+  .login-container{
+    width: 500px;
+    height: 370px;
+    .middle();
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.63);
+    padding: 80px 85px;
+    
+    >div{
+      margin: 20px 0;
+
+      label{
+        margin-right: 10px;
+        line-height: 35px;
+        font-size: 18px;
+        color: @gray-color;
+      }
+
+      input {
+        font-size: 16px;
+        padding: 8px 0 8px 8px;
+        height: 40px;
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid @gray1-color;
+
+        &:focus{
+          box-shadow: none;
+          border-bottom-color: @green-color;
+        }
+      }
+
+      button{
+        font-size: 18px;
+      }
+
+      &.login-title{
+        font-size: 22px;
+        color: @gray-color;
+        margin: -20px 0 0;
+      }
+    }
+  }
+}
