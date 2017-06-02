@@ -1,11 +1,11 @@
 {
-  "name": "heyui-template",
+  "name": "heyui-demo",
   "version": "0.0.1",
-  "description": "A UI components Library.",
+  "description": "HeyUI components framework demo.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heyui/heyui.git"
+    "url": "git+https://github.com/heyui/heyui-demo.git"
   },
   "homepage": "http://www.heyui.top/",
   "keywords": [
@@ -21,7 +21,7 @@
     "hey-global": "^0.0.1",
     "hey-log": "^0.0.4",
     "hey-utils": "^0.0.15",
-    "heyui": "^0.0.61",
+    "heyui": "^0.0.62",
     "jquery": "^3.2.1",
     "js-model": "^1.1.11",
     "manba": "^0.0.19",
@@ -29,15 +29,10 @@
     "vue-router": "^2.5.3"
   },
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb-base": "^9.0.0",
-    "eslint-plugin-html": "^1.5.5",
-    "eslint-plugin-import": "^2.0.1",
-    "eslint-plugin-vue": "^0.1.1"
   },
   "readmeFilename": "README.md",
   "scripts": {
-    "build": "hey b"
+    "build": "hey build"
   },
   "browserslist": [
     "ie >= 9"
