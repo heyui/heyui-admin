@@ -5,16 +5,13 @@
         <span class="h-panel-title">坐席管理</span>
       </div>
       <div class="h-panel-body">
-        <Table :columns="columns"
-           :datas="list">
-          <template scope="props" slot="tr">
-              <td>{{props.data.name}}</td>
-              <td>{{props.data.age}}</td>
-              <td>{{props.data.address}}</td>
-              <td>
-                <button class="h-btn h-btn-s h-btn-red" @click="remove(datas1, props.data)"><i class="h-icon-trash"></i></button>
-              </td>
-            </tr>
+        <Table :columns="columns" :datas="list">
+          <template scope="props">
+              <td>{{props.data.agentNo}}</td>
+              <td>{{props.data.agentGroup}}</td>
+              <td>{{props.data.extensionNo}}</td>
+              <td>{{props.data.role | dictMapping('role')}}</td>
+              <td>{{props.data.presenceStatus | dictMapping('presenceStatus')}}</td>
           </template>
         </Table>
         <Loading :loading="loading"></Loading>
@@ -23,6 +20,7 @@
   </div>
 </template>
 <script>
+import AgentList from 'model/list/AgentList';
 
 export default {
   data() {
@@ -43,7 +41,14 @@ export default {
   },
   methods: {
     getData() {
-      this.loading = false;
+      R.List.agentList().then(resp=>{
+        if(resp._status == 200){
+          this.list = AgentList.parse(resp._body);
+        }else{
+          this.$Message.error("取数失败");
+        }
+        this.loading = false;
+      });
     }
   }
 }

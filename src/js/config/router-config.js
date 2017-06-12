@@ -16,9 +16,9 @@ const initRouter = ()=>{
       name: 'equipmentList',
       component: (resolve) => require(['components/modules/equipment-list'], resolve)
     }, {
-      path: '/citSearch',
-      name: 'citSearch',
-      component: (resolve) => require(['components/modules/cit-search'], resolve)
+      path: '/ctiSearch',
+      name: 'ctiSearch',
+      component: (resolve) => require(['components/modules/cti-search'], resolve)
     }, {
       path: '/report',
       name: 'report',
@@ -37,7 +37,7 @@ const initRouter = ()=>{
     // if (titleConfig[to.name]) {
     //   document.title = titleConfig[to.name] + ' - 应用';
     // } else {
-      document.title = '应用';
+      document.title = 'CTI管理系统';
     // }
     next();
   })

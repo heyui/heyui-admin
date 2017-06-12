@@ -4,7 +4,7 @@
   
     </div>
     <Menu :datas="menus"
-          @click="trigger" ref='menu'></Menu>
+          @onclick="trigger" ref='menu'></Menu>
   </div>
 </template>
 <script>

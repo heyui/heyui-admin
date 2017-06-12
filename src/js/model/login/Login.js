@@ -1,4 +1,4 @@
 export default new Model({
-  name: '',
+  agentNo: '',
   password: ''
 })

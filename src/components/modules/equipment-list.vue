@@ -7,14 +7,14 @@
       <div class="h-panel-body">
         <Table :columns="columns"
            :datas="list">
-          <template scope="props" slot="tr">
-              <td>{{props.data.name}}</td>
-              <td>{{props.data.age}}</td>
-              <td>{{props.data.address}}</td>
-              <td>
-                <button class="h-btn h-btn-s h-btn-red" @click="remove(datas1, props.data)"><i class="h-icon-trash"></i></button>
-              </td>
-            </tr>
+          <template scope="props">
+            <td>{{props.data.extensionNo}}</td>
+            <td>{{props.data.outNumber}}</td>
+            <td>{{props.data.phoneType | dictMapping('phoneType')}}</td>
+            <td>{{props.data.phoneStatus | dictMapping('phoneStatus')}}</td>
+            <td>{{props.data.callerNumber}}</td>
+            <td>{{props.data.calleeNumber}}</td>
+            <td>{{props.data.callStartTime}}</td>
           </template>
         </Table>
         <Loading :loading="loading"></Loading>
@@ -24,13 +24,15 @@
 </template>
 <script>
 
+import ExtensionList from 'model/list/ExtensionList';
+
 export default {
   data() {
     return {
       columns: [
         { title: '分机号' },
         { title: '直线号码' },
-        { title: '分级类型' },
+        { title: '话机类型' },
         { title: '话机状态' },
         { title: '主叫号码' },
         { title: '被叫号码' },
@@ -45,7 +47,14 @@ export default {
   },
   methods: {
     getData() {
-      this.loading = false;
+      R.List.extensionList().then(resp=>{
+        if(resp._status == 200){
+          this.list = ExtensionList.parse(resp._body);
+        }else{
+          this.$Message.error("取数失败");
+        }
+        this.loading = false;
+      });
     }
   }
 }

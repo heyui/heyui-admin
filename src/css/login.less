@@ -1,22 +1,31 @@
-@import "~heyui/themes/common.less";
-
 body{
   background: url(../../static/images/bg.jpg);
   background-size: cover;
+  font-family: "Proxima Nova", "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", Arial, sans-serif;
+}
+div{
+  box-sizing: border-box;
+}
+
+input, button{
+  font: inherit;
+  letter-spacing: 2px;
 }
 #page-login{
   text-align: center;
   .login-container{
-    width: 500px;
-    height: 370px;
-    .middle();
+    width: 600px;
+    height: 420px;
+    position: absolute;
+    box-sizing: border-box;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: rgba(255, 255, 255, 0.63);
-    padding: 80px 85px;
+    padding: 90px 116px;
     
     >div{
-      margin: 20px 0;
+      margin: 30px 0;
 
       label{
         margin-right: 10px;
@@ -33,21 +42,39 @@ body{
         border: none;
         border-radius: 0;
         border-bottom: 1px solid @gray1-color;
+        outline: none;
+        box-sizing: border-box;
+        transition: 0.3s;
+        font-weight: 200;
 
         &:focus{
           box-shadow: none;
-          border-bottom-color: @green-color;
+          border-bottom-color: #FF3266;
         }
       }
 
       button{
         font-size: 18px;
+        border: none;
+        background: #FF3266;
+        width: 100%;
+        color: #FFF;
+        transition: .3s;
+        line-height: 1.8;
+        border-radius: 3px;
+        cursor: pointer;
+        outline: none;
+        &:hover{
+          background: lighten(#FF3266, 5%);
+        }
       }
 
       &.login-title{
-        font-size: 22px;
+        font-size: 30px;
         color: @gray-color;
-        margin: -20px 0 0;
+        line-height: 1;
+        margin: -10px 0 30px;
+        font-weight: 200;
       }
     }
   }

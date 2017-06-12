@@ -18,18 +18,18 @@
   },
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.16.2",
     "hey-global": "^0.0.1",
     "hey-log": "^0.0.4",
     "hey-utils": "^0.0.15",
-    "heyui": "^0.0.62",
-    "jquery": "^3.2.1",
+    "heyui": "0.0.77",
     "js-model": "^1.1.11",
     "manba": "^0.0.19",
-    "vue": "^2.3.3",
+    "qs": "^6.4.0",
+    "vue": "^2.3.2",
     "vue-router": "^2.5.3"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "readmeFilename": "README.md",
   "scripts": {
     "build": "hey build"

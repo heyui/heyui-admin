@@ -20,7 +20,7 @@ const menuConfig = [
     children: [
       {
         title: '通话查询',
-        key: 'citSearch'
+        key: 'ctiSearch'
       },
       {
         title: '系统报表',

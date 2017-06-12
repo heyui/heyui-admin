@@ -33,9 +33,8 @@ export default {
   methods: {
     trigger(data) {
       if (data == 'logout') {
-        R.Login.logout().then(() => {
-          window.location = '/login.html';
-        });
+        Utils.removeLocal('Auth');
+        window.location = '/login.html';
       }
     }
   }

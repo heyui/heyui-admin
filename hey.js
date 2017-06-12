@@ -1,5 +1,5 @@
 module.exports = {
-  port: 9010,
+  port: 9011,
   root: "dist",
   webpack: {
     publicPath: "/",
@@ -15,7 +15,8 @@ module.exports = {
     },
     commonTrunk: {
       common:[
-        "jquery",
+        "heyui/themes/common.less",
+        "axios",
         "manba",
         "js-model",
         "./src/js/common/utils",
@@ -38,7 +39,7 @@ module.exports = {
       "Model": "js-model",
       "G": 'hey-global',
       "log": 'hey-log',
-      "$": 'jquery',
+      "axios": 'axios',
       "R": './src/js/common/request'
     },
     devServer: {

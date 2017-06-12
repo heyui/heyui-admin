@@ -5,14 +5,14 @@
         <span class="h-panel-title">系统参数</span>
       </div>
       <div class="h-panel-body">
-        <Form label-position="left" :label-width="150" >
-          <FormItem label="Max CPS">100</FormItem>
-          <FormItem label="Max Session">100</FormItem>
-          <FormItem label="网关IP">172.16.52.100</FormItem>
-          <FormItem label="CTI服务器IP">100</FormItem>
-          <FormItem label="CTI服务器端口">100</FormItem>
-          <FormItem label="FreeSWITCH IP">100</FormItem>
-          <FormItem label="FreeSWITCH端口">100</FormItem>
+        <Form label-position="left" :label-width="150" readonly>
+          <FormItem label="Max CPS">{{config.maxCps}}</FormItem>
+          <FormItem label="Max Session">{{config.maxSession}}</FormItem>
+          <FormItem label="网关IP">{{config.gatewayIp}}</FormItem>
+          <FormItem label="CTI服务器IP">{{config.ctiIp}}</FormItem>
+          <FormItem label="CTI服务器端口">{{config.ctiPort}}</FormItem>
+          <FormItem label="FreeSWITCH IP">{{config.freeswitchIp}}</FormItem>
+          <FormItem label="FreeSWITCH端口">{{config.freeswitchPort}}</FormItem>
         </Form>
         <Loading :loading="loading"></Loading>
       </div>
@@ -21,12 +21,29 @@
 </template>
 <script>
 
+import Config from 'model/list/Config';
+
 export default {
   data() {
     return {
-      loading: false
+      loading: true,
+      config: Config.parse({})
     }
   },
-  methods: {}
+  mounted() {
+    this.getData();
+  },
+  methods: {
+    getData(){
+      R.List.config().then(resp=>{
+        if(resp._status == 200){
+          this.config = Config.parse(resp._body);
+        }else{
+          this.$Message.error("取数失败");
+        }
+        this.loading = false;
+      });
+    }
+  }
 }
 </script>
