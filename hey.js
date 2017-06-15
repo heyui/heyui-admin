@@ -1,5 +1,5 @@
 module.exports = {
-  port: 9011,
+  port: 9012,
   root: "dist",
   webpack: {
     publicPath: "/",

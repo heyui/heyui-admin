@@ -1,39 +1,44 @@
-body{
-  background: url(../../static/images/bg.jpg);
-  background-size: cover;
+body {
   font-family: "Proxima Nova", "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", Arial, sans-serif;
 }
-div{
+
+div {
   box-sizing: border-box;
 }
 
-input, button{
+input,
+button {
   font: inherit;
   letter-spacing: 2px;
 }
-#page-login{
+
+#page-login {
   text-align: center;
-  .login-container{
-    width: 600px;
-    height: 420px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: linear-gradient(to bottom right, #ed1d2d, #6b4268, #283785);
+  .login-container {
+    width: 400px;
     position: absolute;
     box-sizing: border-box;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.63);
-    padding: 90px 116px;
-    
-    >div{
+    background: #FFF;
+    padding: 120px 40px 60px;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.18);
+    border-radius: 3px;
+    >div {
       margin: 30px 0;
-
-      label{
+      label {
         margin-right: 10px;
         line-height: 35px;
         font-size: 18px;
         color: @gray-color;
       }
-
       input {
         font-size: 16px;
         padding: 8px 0 8px 8px;
@@ -41,40 +46,50 @@ input, button{
         width: 100%;
         border: none;
         border-radius: 0;
-        border-bottom: 1px solid @gray1-color;
+        border-bottom: 1px solid #d3d3d3;
+        box-shadow: inset 0 0 0 1000px #fff;
         outline: none;
         box-sizing: border-box;
-        transition: 0.3s;
-        font-weight: 200;
-
-        &:focus{
-          box-shadow: none;
-          border-bottom-color: #FF3266;
-        }
-      }
-
-      button{
-        font-size: 18px;
-        border: none;
-        background: #FF3266;
-        width: 100%;
-        color: #FFF;
         transition: .3s;
-        line-height: 1.8;
-        border-radius: 3px;
-        cursor: pointer;
-        outline: none;
-        &:hover{
-          background: lighten(#FF3266, 5%);
+        font-weight: 200;
+        &:focus {
+          border-bottom-color: #EA2436;
+          box-shadow: inset 0 0 0 1000px #fff;
         }
       }
-
-      &.login-title{
+      &.login-title {
         font-size: 30px;
-        color: @gray-color;
+        color: #1d1d1d;
         line-height: 1;
-        margin: -10px 0 30px;
+        margin: -16px 0px 40px;
         font-weight: 200;
+      }
+    }
+  }
+  .buttonDiv {
+    padding-top: 18px;
+    position: relative;
+    svg {
+      border-radius: 2px;
+    }
+    p {
+      cursor: pointer;
+      transition: .2s;
+      position: absolute;
+      top: 18px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      height: 48px;
+      color: #FFF;
+      line-height: 48px;
+      box-shadow: 0 20px 20px -10px #ED919C, 0 0px 20px 0px #ffd3d8;
+      font-size: 19px;
+      opacity: .7;
+      border-radius: 2px;
+      background: linear-gradient(to right, #ed1d2d, #be2a42, #283785);
+      &:hover {
+        opacity: 1;
       }
     }
   }

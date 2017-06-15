@@ -5,11 +5,6 @@ import VueRouter from 'vue-router';
 import heyuiConfig from './js/config/heyui-config';
 import routerConfig from './js/config/router-config';
 
-let auth = Utils.getLocal2Json("Auth");
-if(!auth){
-  HeyUI.$Message.error("未登录");
-  window.location = '/login.html';
-}
 require('./css/common.less');
 
 

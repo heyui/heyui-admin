@@ -34,7 +34,7 @@ let ajax = {
       url,
       method: 'GET',
     };
-    if (param) {
+    if (param) {;
       params.params = param;
     }
     return this.ajax(params, extendParam);
@@ -82,9 +82,19 @@ let ajax = {
         this.addRequest(url);
       }
     }
-    let header = { "author": this.HEADER};
+    let header = {
+      "author": this.HEADER,
+      Authorization: Utils.getLocal("token"),
+    };
     let defaultParam = {
-      headers: header
+      headers: header,
+      responseType: 'json',
+      validateStatus: function (status) {
+        return true;
+      },
+      paramsSerializer: (params) => {
+        return qs.stringify(params, { allowDots: true })
+      }
     };
     if (params.crossDomain) {
       defaultParam.headers = {};
@@ -94,30 +104,22 @@ let ajax = {
     return new Promise((resolve) => {
       return axios.request(params).then((response) => {
         that.deleteRequest(params.url);
-        if(response.status != 200){
-          HeyUI.$Message.error('通讯异常')
-        }
         let data = response.data;
-        if (data._status == 401) {
-          window.top.location = "/login.html";
-          return;
-        }
-        if (data._status == 500) {
-          HeyUI.$Message.error('后台异常');
-        } else if (data._status == 404) {
-          HeyUI.$Message.error('请求不存在');
-        } else if (data._status != 200) {
-          HeyUI.$Message.error(data._msg);
+        if(response.status != 200){
+          if (response.status == 401) {
+            window.top.location = "/login.html";
+            return;
+          }
+          if (response.status == 500) {
+            HeyUI.$Message.error('后台异常');
+          } else if (response.status == 404) {
+            HeyUI.$Message.error('请求不存在');
+          } else if (response.status != 200) {
+            HeyUI.$Message.error(data.message);
+          }
         }
         resolve(data);
-      }).catch((err) => {
-        that.deleteRequest(params.url);
-        HeyUI.$Message.error('通讯异常');
-        resolve({
-          _status: -1,
-          _body: {}
-        });
-      });
+      })
     });
   },
   getContextPath: function() {
@@ -127,9 +129,4 @@ let ajax = {
     return result;
   }
 };
-
-axios.options({
-  responseType: 'json'
-});
-
 module.exports = ajax;

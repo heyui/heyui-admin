@@ -1,14 +1,16 @@
 <template>
   <div id="page-login">
     <div class="login-container">
-      <div class="login-title">CTI电话管理系统</div>
+      <div class="login-title">管理系统</div>
       <div class="login-name">
-        <input type="text" v-model="login.agentNo" placeholder="用户名"/>
+        <input type="text" v-model="login.username" placeholder="用户名"/>
       </div>
       <div class="login-password" v-model="login.password">
         <input type="password" v-model="login.password" placeholder="密码" @keyup.enter="submit"/>
       </div>
-      <div><Button :block="true" color="green" @click.native="submit" :loading="loading">登录</Button></div>
+      <div class="buttonDiv">
+        <p @click="submit" ><i class="h-loading" v-if="loading"></i>登录</p>
+      </div>
     </div>
   </div>
 </template>
@@ -19,10 +21,7 @@ import Login from 'model/login/Login';
 export default {
   data() {
     return {
-      login: Login.parse({
-        agentNo: '',
-        password: ''
-      }),
+      login: Login.parse({}),
       loading: false
     }
   },
@@ -32,8 +31,7 @@ export default {
       R.Login.login(Login.dispose(this.login)).then(resp=>{
         if(resp._status == 200){
           let msg = resp._body;
-          msg.password = this.login.password;
-          Utils.saveLocal("Auth", msg);
+          Utils.saveLocal("token", msg.value);
           window.location = '/';
         }
         this.loading = false;
