@@ -42,8 +42,8 @@ export default {
   methods: {
     getData() {
       R.List.agentList().then(resp=>{
-        if(resp._status == 200){
-          this.list = AgentList.parse(resp._body);
+        if(resp.status == 200){
+          this.list = AgentList.parse(resp.body);
         }else{
           this.$Message.error("取数失败");
         }

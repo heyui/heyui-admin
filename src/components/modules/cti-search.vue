@@ -29,10 +29,6 @@
             <td>{{props.data.endTime}}</td>
             <td>{{props.data.duration}}</td>
             <td>{{props.data.billsec}}</td>
-            <td><audio v-if="props.data.recordUrl" :src="props.data.recordUrl" preload="none" controls="controls">
-                Your browser does not support the audio element.
-                </audio>
-                <span v-else>无</span></td>
           </template>
         </Table>
         <Loading :loading="loading"></Loading>
@@ -51,7 +47,7 @@ export default {
   data() {
     return {
       columns: [
-        { title: 'Call ID' , width: 200, fixed: 'left'},
+        { title: 'Call ID' , width: 300, fixed: 'left'},
         { title: '坐席号' , width: 100},
         { title: '分机号' , width: 100},
         { title: '直线号码', width: 100 },
@@ -60,8 +56,7 @@ export default {
         { title: '通话开始时间', width: 150 },
         { title: '通话结束时间', width: 150 },
         { title: '总时长', width: 100 },
-        { title: '计费时长', width: 100 },
-        { title: '录音', width: 280 }
+        { title: '计费时长', width: 100 }
       ],
       list: [],
       loading: true,
@@ -86,10 +81,10 @@ export default {
       this.loading = true;
       let param = Utils.extend({pageNum: this.page.page, pageSize: this.page.size}, CallSearch.dispose(this.search))
       R.List.recordList(param).then(resp=>{
-        if(resp._status == 200){
-          this.list = CallList.parse(resp._body);
-          this.page.page = resp._meta.page;
-          this.page.total = resp._meta.total;
+        if(resp.status == 200){
+          this.list = CallList.parse(resp.body);
+          this.page.page = resp.meta.page;
+          this.page.total = resp.meta.total;
         }
         this.loading = false;
       });

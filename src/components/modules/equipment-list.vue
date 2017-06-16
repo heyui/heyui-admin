@@ -48,8 +48,8 @@ export default {
   methods: {
     getData() {
       R.List.extensionList().then(resp=>{
-        if(resp._status == 200){
-          this.list = ExtensionList.parse(resp._body);
+        if(resp.status == 200){
+          this.list = ExtensionList.parse(resp.body);
         }else{
           this.$Message.error("取数失败");
         }

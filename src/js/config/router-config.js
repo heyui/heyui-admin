@@ -37,7 +37,7 @@ const initRouter = ()=>{
     // if (titleConfig[to.name]) {
     //   document.title = titleConfig[to.name] + ' - 应用';
     // } else {
-      document.title = 'CTI管理系统';
+      document.title = '管理系统';
     // }
     next();
   })

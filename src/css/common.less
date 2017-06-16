@@ -21,20 +21,19 @@ body{
   right: 0;
   bottom: 0;
   top: 0px;
-  background: @menu-color;
+  background: linear-gradient(to bottom, #d41944, #6b4268, #443156);
 
   .app-menu-header{
     height: 40px;
   }
   .h-menu-dark{
     font-size: 13px;
-    color: #a7c6dc;
-    background: @menu-color;
+    background: transparent;
     .h-menu-li-selected{
-      background: darken(@menu-color, 10%);
+      background: rgba(255, 255, 255, 0.27);
     }
     .h-menu-ul{
-      background: darken(@menu-color, 5%);
+      background: rgba(255, 255, 255, 0.07);
     }
   }
 }

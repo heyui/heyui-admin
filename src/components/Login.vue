@@ -29,8 +29,8 @@ export default {
     submit() {
       this.loading = true;
       R.Login.login(Login.dispose(this.login)).then(resp=>{
-        if(resp._status == 200){
-          let msg = resp._body;
+        if(resp.status == 200){
+          let msg = resp.body;
           Utils.saveLocal("token", msg.value);
           window.location = '/';
         }
