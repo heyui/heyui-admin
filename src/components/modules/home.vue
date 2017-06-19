@@ -60,7 +60,8 @@
           <p v-font="16">1、下载</p>
           <p>前往github下载，<a href="https://github.com/heyui/heyui-demo">https://github.com/heyui/heyui-demo</a></p>
           <p><code>git clone https://github.com/heyui/heyui-demo.git 自己项目名 </code></p>
-
+          <p>将git地址转换为自己项目的git地址</p>
+          <p><code>git remote set-url origin 自己的git地址<br/>git push</code></p>
           <p v-font="16">2、安装hey-cli工具</p>
           <p>可以在npm下载，<a href="https://www.npmjs.com/package/hey-cli">https://www.npmjs.com/package/hey-cli</a>，如果您已经安装，请忽略这一步。</p>
           <p><code>npm install -g hey-cli</code></p>
