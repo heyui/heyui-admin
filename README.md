@@ -6,7 +6,7 @@
 
 ##在线demo
 
-地址：[http://demo.heyui.top/(http://demo.heyui.top/)
+地址：[http://demo.heyui.top/](http://demo.heyui.top/)
 
 ## Install
 
