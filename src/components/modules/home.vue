@@ -30,7 +30,7 @@
           </Col>
           <Col :width="6" class="text-center">
             <div v-height="100"></div>
-            <h-circle :percent="100" :stroke-width="10" :size="100" color="green" v-tooltip ref-el="demo2" placement="right" theme="white">
+            <h-circle :percent="100" :stroke-width="10" :size="100" color="green" v-tooltip ref-el="demo3" placement="right" theme="white">
               <div v-height="5"></div>
               <p class="dark-color" v-font="13">目前达成比例</p>
               <p class="gray-color"><span class="primary-color" v-font="16">{{parseInt(123*26/100)}}</span>/<span>123</span></p>
@@ -52,12 +52,43 @@
       </div>
       </Col>
       <Col :width="24">
-      <div class="h-panel" v-height="200">
-      </div>
-      </Col>
-      <Col :width="24">
-      <div class="h-panel" v-height="400">
-        
+      <div class="h-panel">
+        <div class="h-panel-bar">
+          <span class="h-panel-title">搭建顺序</span>
+        </div>
+        <div class="h-panel-body demo-doc">
+          <p v-font="16">1、下载</p>
+          <p>前往github下载，<a href="https://github.com/heyui/heyui-demo">https://github.com/heyui/heyui-demo</a></p>
+          <p><code>git clone https://github.com/heyui/heyui-demo.git 自己项目名 </code></p>
+
+          <p v-font="16">2、安装hey-cli工具</p>
+          <p>可以在npm下载，<a href="https://www.npmjs.com/package/hey-cli">https://www.npmjs.com/package/hey-cli</a>，如果您已经安装，请忽略这一步。</p>
+          <p><code>npm install -g hey-cli</code></p>
+
+          <p v-font="16">2、安装依赖</p>
+          <p><code>npm install</code></p>
+          <p>本项目有以下依赖包：</p>
+          <ul>
+            <li><a target="_blank" href="https://www.npmjs.com/package/axios">axios</a>: 异步数据加载</li>
+            <li><a target="_blank" href="https://www.npmjs.com/package/hey-global">hey-global</a>: 全局变量控制</li>
+            <li><a target="_blank" href="https://www.npmjs.com/package/hey-log">hey-log</a>: console.log简写工具</li>
+            <li><a target="_blank" href="https://www.npmjs.com/package/hey-utils">hey-utils</a>: 通用utils</li>
+            <li><a target="_blank" href="https://www.npmjs.com/package/heyui">heyui</a>: HeyUI库</li>
+            <li><a target="_blank" href="https://www.npmjs.com/package/js-model">js-model</a>: 前端数据模型工具</li>
+            <li><a target="_blank" href="https://www.npmjs.com/package/manba">manba</a>: 日期工具库</li>
+            <li><a target="_blank" href="https://www.npmjs.com/package/qs">qs</a>: 数据处理工具</li>
+            <li><a target="_blank" href="https://www.npmjs.com/package/vue">vue</a>: Vue</li>
+            <li><a target="_blank" href="https://www.npmjs.com/package/vue-router">vue-router</a>: vue-router</li>
+          </ul>
+
+          <p v-font="16">2、启动项目</p>
+          <p>项目的配置在文件hey.js中，具体请参考代码与hey-cli配置规则。</p>
+          <p><code>hey dev</code></p>
+
+          <p v-font="16">2、打包项目</p>
+          <p><code>hey build</code></p>
+
+        </div>
       </div>
       </Col>
     </Row>
@@ -70,6 +101,14 @@
       </div>
     </div>
     <div tmpl="demo2">
+      <div v-padding="20">
+        <p>占值：70%</p>
+        <p>占值：70%</p>
+        <p>占值：70%</p>
+        <p>占值：70%</p>
+      </div>
+    </div>
+    <div tmpl="demo3">
       <div v-padding="20">
         <p>占值：70%</p>
         <p>占值：70%</p>
