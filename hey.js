@@ -25,11 +25,13 @@ module.exports = {
         'hey-log',
         "heyui",
         "vue",
+        "vuex",
         "vue-router"
       ]
     },
     alias: {
       model: './src/js/model/',
+      js: './src/js/',
       components: './src/components/',
     },
     global: {

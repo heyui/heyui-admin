@@ -19,12 +19,18 @@ export default {
   },
   watch: {
     $route() {
-      if (this.$route.name) {
-        this.$refs.menu.select(this.$route.name);
-      }
+      this.menuSelect();
     }
   },
+  mounted() {
+    this.menuSelect();
+  },
   methods: {
+    menuSelect() {
+    if (this.$route.name) {
+      this.$refs.menu.select(this.$route.name);
+    }
+    },
     trigger(data) {
       this.$router.push({ name: data.key });
     }

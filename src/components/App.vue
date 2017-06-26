@@ -1,26 +1,53 @@
 <template>
   <div id="app">
-    <appHead></appHead>
-    <div class="app-container">
-      <div class="app-left">
-        <appMenu></appMenu>
+    <template v-if="!loading">
+      <appHead></appHead>
+      <div class="app-container">
+        <div class="app-left">
+          <appMenu></appMenu>
+        </div>
+        <div class="app-body">
+          <router-view></router-view>
+        </div>
       </div>
-      <div class="app-body">
-        <router-view></router-view>
-      </div>
-    </div>
+    </template>
   </div>
 </template>
 <script>
 
+import store from 'js/vuex/store';
 import appHead from './app/app-header';
 import appMenu from './app/app-menu';
 export default {
   data() {
     return {
+      loading: true
     }
   },
-  methods: {},
+  store,
+  mounted() {
+    this.$Loading("加载中");
+    R.User.info().then((resp)=>{
+      if(resp.status == 200){
+        store.dispatch('updateAccount', resp.body);
+        this.initDict();
+      }
+    })
+  },
+  methods: {
+    initDict() {
+      R.Dict.get().then((resp)=>{
+        if(resp.status == 200){
+          let dicts = resp.body;
+          for(let dict of dicts){
+            HeyUI.addDict(dict.name, dict.data);
+          }
+        }
+        this.loading = false;
+        this.$Loading.close();
+      });
+    }
+  },
   components: {
     appHead,
     appMenu

@@ -16,11 +16,12 @@
     <div class="float-right app-header-info">
       <DropdownMenu class-name="app-header-dropdown"
                     :datas="infoMenu"
-                    @onclick="trigger"><span>个人信息</span></DropdownMenu>
+                    @onclick="trigger"><span>{{User.name}}</span></DropdownMenu>
     </div>
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 
 export default {
   data() {
@@ -29,6 +30,11 @@ export default {
         { key: 'logout', title: '退出登录', icon: 'h-icon-outbox' },
       ]
     }
+  },
+  computed: {
+    ...mapState({
+      User: 'User'
+    })
   },
   methods: {
     trigger(data) {
