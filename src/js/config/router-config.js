@@ -6,27 +6,19 @@ const initRouter = ()=>{
     routes: [{
       path: '/',
       name: 'home',
-      component: (resolve) => require(['components/modules/home'], resolve)
+      component: (resolve) => require(['components/welcome/home'], resolve)
     }, {
-      path: '/seatList',
-      name: 'seatList',
-      component: (resolve) => require(['components/modules/seat-list'], resolve)
+      path: '/list',
+      name: 'list',
+      component: (resolve) => require(['components/demo-modules/list'], resolve)
     }, {
-      path: '/equipmentList',
-      name: 'equipmentList',
-      component: (resolve) => require(['components/modules/equipment-list'], resolve)
-    }, {
-      path: '/ctiSearch',
-      name: 'ctiSearch',
-      component: (resolve) => require(['components/modules/cti-search'], resolve)
-    }, {
-      path: '/report',
-      name: 'report',
-      component: (resolve) => require(['components/modules/report'], resolve)
+      path: '/search',
+      name: 'search',
+      component: (resolve) => require(['components/demo-modules/report'], resolve)
     }, {
       path: '/system',
       name: 'system',
-      component: (resolve) => require(['components/modules/system'], resolve)
+      component: (resolve) => require(['components/demo-modules/system'], resolve)
     }]
   };
 

@@ -1,32 +1,60 @@
 body{
   background: #F4F3F8;
 }
+
+@topHeight: 40px;
 .app-header {
-  height: 40px;
+  height: @topHeight;
   position: absolute;
-  left: 150px;
   background: @white-color;
   box-shadow: @box-shadow;
   right: 0;
   z-index: 1;
 }
 
-@menu-color: #3B4054;
+.app-body {
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+  top: 40px;
+  overflow: auto;
+}
 
-.app-left {
+
+@menu-color: #3B4054;
+.app-menu{
   overflow-y: auto;
-  width: 150px;
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   top: 0px;
-  background: #6b4268;
+  background: @menu-color;
 
   .app-menu-header{
     height: 40px;
+    line-height: 40px;
+    text-overflow: clip;
+    overflow: hidden;
+    white-space: nowrap;
+    >a{
+      color: @white-color;
+      font-size: 20px;
+    }
+    &-image{
+      position: relative;
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      box-sizing: content-box;
+      margin: 10px 10px 10px 20px;
+      background: url(http://www.heyui.top/static/images/logo.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      float: left;
+    }
   }
-  .h-menu-dark{
+  .sys-menu{
     font-size: 13px;
     background: transparent;
     .h-menu-li-selected{
@@ -37,15 +65,78 @@ body{
     }
   }
 }
-.app-body {
-  position: absolute;
-  left: 150px;
-  right: 0;
-  bottom: 0px;
-  top: 40px;
-  overflow: auto;
+
+
+.app-header{
+  &-menu-toggle {
+    line-height: 40px;
+    width: 80px;
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 20px;
+  }
+
+  &-info {
+    line-height: 40px;
+    margin-right: 20px;
+    >span{
+      display: inline-block;
+      float: left;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  }
+
+  &-dropdown{
+    padding: 0 10px 0 20px;
+    &:hover, &.@{pop-ref-prefix}{
+      background: @gray3-color;
+    }
+  }
 }
 
+@menuWidth: 150px;
+@miniMenuWidth: 50px;
+#app{
+  .app-header,.app-body{
+    left: @menuWidth;
+    transition: left .2s ease-in-out;
+  }
+  .app-menu{
+    width: @menuWidth;
+    transition: width .2s ease-in-out;
+  }
+  .h-menu-show{
+    text-overflow: clip;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 14px;
+    padding: 15px 20px;
+  }
+  &.hide-menu{
+    .app-header,.app-body{
+      left: @miniMenuWidth;
+    }
+    .app-menu{
+      width: @miniMenuWidth;
+    }
+    .app-menu-header-image{
+      margin-left: 15px;
+    }
+    .app-menu-header-word{
+      display: none;
+    }
+    .h-menu-show{
+      padding: 15px;
+      &-icon{
+        font-size: 20px;
+      }
+      &-desc{
+        display: none;
+      }
+    }
+  }
+}
 
 .demo-doc{
   p {

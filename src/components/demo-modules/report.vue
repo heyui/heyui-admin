@@ -2,7 +2,7 @@
   <div class="app-seat-list" v-padding="20">
     <div class="h-panel">
       <div class="h-panel-bar">
-        <span class="h-panel-title">系统报表</span>
+        <span class="h-panel-title">查询</span>
       </div>
       <div class="h-panel-bar">
         <Form :label-width="120" mode="inline" :readonly="true">

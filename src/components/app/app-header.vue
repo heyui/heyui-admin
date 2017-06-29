@@ -1,19 +1,11 @@
-<style lang="less">
-.app-header-info {
-  line-height: 40px;
-  margin-right: 20px;
-}
-
-.app-header-dropdown{
-  padding: 0 10px 0 20px;
-  &:hover, &.@{pop-ref-prefix}{
-    background: @gray3-color;
-  }
-}
-</style>
 <template>
   <div class="app-header">
+    <div class="app-header-menu-toggle text-hover" @click="togglemenu">
+      <i class="h-icon-menu"></i>
+    </div>
     <div class="float-right app-header-info">
+      
+      <span><a v-font="20" href="https://github.com/heyui/heyui-demo" target="_blank"><i class="h-icon-github"></i></a></span>
       <DropdownMenu class-name="app-header-dropdown"
                     :datas="infoMenu"
                     @onclick="trigger"><span>{{User.name}}</span></DropdownMenu>
@@ -22,6 +14,7 @@
 </template>
 <script>
 import { mapState } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   data() {
@@ -33,15 +26,22 @@ export default {
   },
   computed: {
     ...mapState({
-      User: 'User'
+      User: 'User',
+      showMenu: 'showMenu'
     })
   },
   methods: {
+    ...mapActions([
+      'updateMenu'
+    ]),
     trigger(data) {
       if (data == 'logout') {
         Utils.removeLocal('Auth');
         window.location = '/login.html';
       }
+    },
+    togglemenu() {
+      this.updateMenu(!this.showMenu);
     }
   }
 }

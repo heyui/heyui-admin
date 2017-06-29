@@ -2,7 +2,7 @@
   <div class="app-seat-list" v-padding="20">
     <div class="h-panel">
       <div class="h-panel-bar">
-        <span class="h-panel-title">坐席管理</span>
+        <span class="h-panel-title">列表</span>
       </div>
       <div class="h-panel-body">
         <Table :columns="columns" :datas="list">

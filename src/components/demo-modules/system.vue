@@ -2,7 +2,7 @@
   <div class="app-detail" v-padding="20">
     <div class="h-panel">
       <div class="h-panel-bar">
-        <span class="h-panel-title">系统参数</span>
+        <span class="h-panel-title">参数</span>
       </div>
       <div class="h-panel-body">
         <Form label-position="left" :label-width="150" readonly>

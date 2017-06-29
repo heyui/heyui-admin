@@ -5,28 +5,14 @@ const menuConfig = [
     icon: 'h-icon-home'
   },
   {
-    title: '坐席管理',
-    key: 'seatList',
-    icon: 'h-icon-setting'
-  },
-  {
-    title: '设备管理',
-    key: 'equipmentList',
+    title: '列表展示',
+    key: 'list',
     icon: 'h-icon-setting'
   },
   {
     title: '报表查询',
     icon: 'h-icon-search',
-    children: [
-      {
-        title: '通话查询',
-        key: 'ctiSearch'
-      },
-      {
-        title: '系统报表',
-        key: 'report'
-      }
-    ]
+    key: 'search'
   },
   {
     title: '系统参数',
