@@ -19,6 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.16.2",
+    "concat-stream": "^1.6.0",
     "hey-global": "^0.0.1",
     "hey-log": "^0.0.7",
     "hey-utils": "0.0.16",
@@ -26,6 +27,9 @@
     "js-model": "^1.1.11",
     "manba": "^0.0.19",
     "qs": "^6.4.0",
+    "stream": "0.0.2",
+    "trumpet": "^1.7.2",
+    "url": "^0.11.0",
     "vue": "^2.3.2",
     "vue-router": "^2.5.3",
     "vuex": "^2.3.1"
