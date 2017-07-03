@@ -13,7 +13,7 @@
       <div class="h-panel" v-height="280" v-padding="30">
         <Row>
           <Col :width="11" class="text-center">
-            <h-circle :percent="76" :stroke-width="10" :size="200" v-tooltip ref-el="demo1" placement="right" theme="white">
+            <h-circle :percent="76" :stroke-width="10" :size="200" v-tooltip ref-el="demo1" placement="right">
               <p class="gray-color" v-font="28">122,332,98</p>
               <div v-height="5"></div>
               <p class="dark-color" v-font="13">目前达成比例</p>
@@ -22,7 +22,7 @@
           </Col>
           <Col :width="7" class="text-center">
             <div v-height="100"></div>
-            <h-circle :percent="26" :stroke-width="10" :size="100" color="red" v-tooltip ref-el="demo2" placement="right" theme="white">
+            <h-circle :percent="26" :stroke-width="10" :size="100" color="red" v-tooltip ref-el="demo2" placement="right">
               <div v-height="5"></div>
               <p class="dark-color" v-font="13">目前达成比例</p>
               <p class="gray-color"><span class="primary-color" v-font="16">{{parseInt(123*26/100)}}</span>/<span>123</span></p>
@@ -30,7 +30,7 @@
           </Col>
           <Col :width="6" class="text-center">
             <div v-height="100"></div>
-            <h-circle :percent="100" :stroke-width="10" :size="100" color="green" v-tooltip ref-el="demo3" placement="right" theme="white">
+            <h-circle :percent="100" :stroke-width="10" :size="100" color="green" v-tooltip ref-el="demo3" placement="right">
               <div v-height="5"></div>
               <p class="dark-color" v-font="13">目前达成比例</p>
               <p class="gray-color"><span class="primary-color" v-font="16">{{parseInt(123*26/100)}}</span>/<span>123</span></p>

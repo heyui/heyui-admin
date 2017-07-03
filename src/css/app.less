@@ -1,3 +1,6 @@
+@import (less) "~heyui/themes/common.less";
+@import (less) "./login.less";
+
 body{
   background: #F4F3F8;
 }
@@ -31,7 +34,7 @@ body{
   top: 0px;
   background: @menu-color;
 
-  .app-menu-header{
+  &-header{
     height: 90px;
     line-height: 90px;
     text-overflow: clip;
@@ -41,6 +44,19 @@ body{
     >a{
       color: @white-color;
       font-size: 25px;
+    }
+
+    &-word{
+      font-size: 40px;
+      width: 80%;
+      display: inline-block;
+      line-height: 1;
+      transition: .2s;
+      font-family: monospace;
+      color: @gray1-color;
+      &:hover{
+        color: @white-color;
+      }
     }
   }
   .sys-menu{
@@ -109,11 +125,8 @@ body{
     .app-menu{
       width: @miniMenuWidth;
     }
-    .app-menu-header-image{
-      margin-left: 15px;
-    }
     .app-menu-header-word{
-      display: none;
+      font-size: 36px;  
     }
     .h-menu-show{
       padding: 15px;

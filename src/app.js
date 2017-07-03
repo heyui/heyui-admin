@@ -5,7 +5,7 @@ import VueRouter from 'vue-router';
 import heyuiConfig from './js/config/heyui-config';
 import routerConfig from './js/config/router-config';
 
-require('./css/common.less');
+require('./css/app.less');
 
 
 
