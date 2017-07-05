@@ -21,7 +21,7 @@
 </template>
 <script>
 
-import Config from 'model/list/Config';
+import Config from 'model/demo/Config';
 
 export default {
   data() {
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     getData(){
-      R.List.config().then(resp=>{
+      R.Demo.config().then(resp=>{
         if(resp.status == 200){
           this.config = Config.parse(resp.body);
         }else{

@@ -20,7 +20,7 @@
   </div>
 </template>
 <script>
-import AgentList from 'model/list/AgentList';
+import AgentList from 'model/demo/AgentList';
 
 export default {
   data() {
@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     getData() {
-      R.List.agentList().then(resp=>{
+      R.Demo.agentList().then(resp=>{
         if(resp.status == 200){
           this.list = AgentList.parse(resp.body);
         }else{

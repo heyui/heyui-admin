@@ -2,13 +2,7 @@
 </style>
 <template>
   <div class="app-menu">
-    <div class="app-menu-header">
-      <a href="http://www.heyui.top" target="_blank">
-        <span class="app-menu-header-image"></span>
-        <span class="app-menu-header-word">HEYUI</span>
-      </a>
-    </div>
-    <Menu :datas="menus" @onclick="trigger" ref='menu' class="sys-menu"></Menu>
+    <Menu :datas="menus" @onclick="trigger" ref='menu' class-name="h-menu-white"></Menu>
   </div>
 </template>
 <script>

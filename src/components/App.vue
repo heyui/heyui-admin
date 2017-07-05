@@ -1,10 +1,12 @@
 <template>
-  <div id="app" :class="{'hide-menu': !showMenu}">
+  <div id="app">
     <template v-if="!loading">
       <appHead></appHead>
-      <appMenu></appMenu>
-      <div class="app-body">
-        <router-view></router-view>
+      <div class="app-container">
+        <appMenu></appMenu>
+        <div class="app-body">
+          <router-view></router-view>
+        </div>
       </div>
     </template>
   </div>
@@ -14,7 +16,6 @@
 import store from 'js/vuex/store';
 import appHead from './app/app-header';
 import appMenu from './app/app-menu';
-import { mapState } from 'vuex'
 
 export default {
   data() {
@@ -30,11 +31,6 @@ export default {
         store.dispatch('updateAccount', resp.body);
         this.initDict();
       }
-    })
-  },
-  computed: {
-    ...mapState({
-      showMenu: 'showMenu'
     })
   },
   methods: {

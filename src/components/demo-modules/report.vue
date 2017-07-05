@@ -40,8 +40,8 @@
 </template>
 <script>
 
-import ReportList from 'model/list/ReportList';
-import ReportSearch from 'model/list/ReportSearch';
+import ReportList from 'model/demo/ReportList';
+import ReportSearch from 'model/demo/ReportSearch';
 
 export default {
   data() {
@@ -105,7 +105,7 @@ export default {
     getData() {
       this.loading = true;
       let param = Utils.extend({pageNum: this.page.page, pageSize: this.page.size}, ReportSearch.dispose({startDate: this.search.start, endDate: this.search.end}))
-      R.List.reportList(param).then(resp=>{
+      R.Demo.reportList(param).then(resp=>{
         if(resp.status == 200){
           this.list = ReportList.parse(resp.body);
           this.page.page = resp.meta.page;

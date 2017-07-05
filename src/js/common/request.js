@@ -21,7 +21,7 @@ const Request = {
       return Ajax.post("/logout", param);
     }
   },
-  List: {
+  Demo: {
     agentList(){
       return Ajax.get('/agent/list');
     },

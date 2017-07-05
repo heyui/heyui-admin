@@ -5,26 +5,46 @@ body{
   background: #F4F3F8;
 }
 
-@topHeight: 40px;
-.app-header {
-  height: @topHeight;
-  position: absolute;
-  background: @white-color;
-  box-shadow: @box-shadow;
-  right: 0;
-  z-index: 1;
+@menuWidth: 160px;
+@miniMenuWidth: 50px;
+@topHeight: 50px;
+#app{
+
+  .app-header {
+    height: @topHeight;
+    position: absolute;
+    background: @white-color;
+    box-shadow: @box-shadow;
+    right: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .app-container{
+    top: @topHeight;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0px;
+  }
+
+  .app-body {
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    top: 0;
+    overflow: auto;
+    left: @menuWidth;
+  }
+
+  .app-menu{
+    width: @menuWidth;
+    transition: width .2s ease-in-out;
+  }
 }
 
-.app-body {
-  position: absolute;
-  right: 0;
-  bottom: 0px;
-  top: 40px;
-  overflow: auto;
-}
 
-
-@menu-color: #3B4054;
+@menu-color: #FFF;
 .app-menu{
   overflow-y: auto;
   position: absolute;
@@ -32,6 +52,7 @@ body{
   right: 0;
   bottom: 0;
   top: 0px;
+  padding-top: 20px;
   background: @menu-color;
 
   &-header{
@@ -59,11 +80,11 @@ body{
       }
     }
   }
-  .sys-menu{
-    font-size: 13px;
-    background: transparent;
+  .h-menu-white{
+    color: @dark-color;
     .h-menu-li-selected{
-      background: rgba(255, 255, 255, 0.27);
+      background: @primary-color;
+      color: #FFF;
     }
     .h-menu-ul{
       background: rgba(255, 255, 255, 0.07);
@@ -73,16 +94,38 @@ body{
 
 
 .app-header{
-  &-menu-toggle {
-    line-height: 40px;
-    width: 80px;
+
+  &-title{
+    line-height: @topHeight;
+    font-size: 18px;
+    padding: 0px 20px;
     display: inline-block;
-    margin-left: 20px;
-    font-size: 20px;
+  }
+
+  &-menus{
+    display: inline-block;
+    line-height: @topHeight;
+    vertical-align: top;
+    >div {
+      display: inline-block;
+      font-size: 15px;
+      padding: 0 25px;
+      color: @dark-color;
+      &:hover{
+        color: @primary-color;
+      }
+      +div {
+        margin-left: 5px;
+      }
+      &.@{tabs-prefix}-selected{
+        color: @white-color;
+        background-color: @primary-color;
+      }
+    }
   }
 
   &-info {
-    line-height: 40px;
+    line-height: @topHeight;
     margin-right: 20px;
     >span{
       display: inline-block;
@@ -101,45 +144,7 @@ body{
   }
 }
 
-@menuWidth: 150px;
-@miniMenuWidth: 50px;
-#app{
-  .app-header,.app-body{
-    left: @menuWidth;
-    transition: left .2s ease-in-out;
-  }
-  .app-menu{
-    width: @menuWidth;
-    transition: width .2s ease-in-out;
-  }
-  .h-menu-show{
-    text-overflow: clip;
-    overflow: hidden;
-    white-space: nowrap;
-    font-size: 14px;
-    padding: 15px 20px;
-  }
-  &.hide-menu{
-    .app-header,.app-body{
-      left: @miniMenuWidth;
-    }
-    .app-menu{
-      width: @miniMenuWidth;
-    }
-    .app-menu-header-word{
-      font-size: 36px;  
-    }
-    .h-menu-show{
-      padding: 15px;
-      &-icon{
-        font-size: 20px;
-      }
-      &-desc{
-        display: none;
-      }
-    }
-  }
-}
+
 
 .demo-doc{
   p {
