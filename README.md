@@ -25,7 +25,14 @@ hey dev
 ```
 
 项目即启动成功。  
-访问[http://localhost:9010](http://localhost:9010)查看系统
+访问[http://localhost:9012](http://localhost:9012)查看系统
+
+
+### 部署
+
+```
+hey build
+```
 
 ## Dependencies
 

@@ -1,6 +1,6 @@
 <template>
   <div class="app-header">
-    <div class="app-header-title"><a href="/">HEYUI</a></div>
+    <div class="app-header-title"><a href="http://www.heyui.top">HEYUI</a></div>
     <div class="float-right app-header-info">
       <span><a v-font="20" href="https://github.com/heyui/heyui-demo" target="_blank"><i class="h-icon-github"></i></a></span>
       <DropdownMenu class-name="app-header-dropdown"
