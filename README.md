@@ -24,8 +24,7 @@ npm install
 hey dev
 ```
 
-项目即启动成功。  
-访问[http://localhost:9012](http://localhost:9012)查看系统
+项目即启动成功，访问[http://localhost:9012](http://localhost:9012)查看系统
 
 
 ### 部署
