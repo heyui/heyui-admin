@@ -4,9 +4,9 @@
 本项目是利用heyui搭建的基础企业应用架构demo，里面集成了一系列的项目处理方案。
 我们可以直接通过本项目改造成你想要系统。
 
-##在线demo
+## 在线demo
 
-地址：[http://demo.heyui.top/](http://demo.heyui.top/)
+在线demo：[http://demo.heyui.top](http://demo.heyui.top)
 
 ## Install
 
