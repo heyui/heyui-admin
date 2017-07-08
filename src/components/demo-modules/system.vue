@@ -6,13 +6,13 @@
       </div>
       <div class="h-panel-body">
         <Form label-position="left" :label-width="150" readonly>
-          <FormItem label="Max CPS">{{config.maxCps}}</FormItem>
-          <FormItem label="Max Session">{{config.maxSession}}</FormItem>
-          <FormItem label="网关IP">{{config.gatewayIp}}</FormItem>
-          <FormItem label="CTI服务器IP">{{config.ctiIp}}</FormItem>
-          <FormItem label="CTI服务器端口">{{config.ctiPort}}</FormItem>
-          <FormItem label="FreeSWITCH IP">{{config.freeswitchIp}}</FormItem>
-          <FormItem label="FreeSWITCH端口">{{config.freeswitchPort}}</FormItem>
+          <FormItem label="信息1">{{config.maxCps}}</FormItem>
+          <FormItem label="信息2">{{config.maxSession}}</FormItem>
+          <FormItem label="信息3">{{config.gatewayIp}}</FormItem>
+          <FormItem label="信息4">{{config.ctiIp}}</FormItem>
+          <FormItem label="信息5">{{config.ctiPort}}</FormItem>
+          <FormItem label="信息6">{{config.freeswitchIp}}</FormItem>
+          <FormItem label="信息7">{{config.freeswitchPort}}</FormItem>
         </Form>
         <Loading :loading="loading"></Loading>
       </div>
@@ -36,7 +36,7 @@ export default {
   methods: {
     getData(){
       R.Demo.config().then(resp=>{
-        if(resp.status == 200){
+        if(resp.ok){
           this.config = Config.parse(resp.body);
         }else{
           this.$Message.error("取数失败");

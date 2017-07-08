@@ -106,7 +106,7 @@ export default {
       this.loading = true;
       let param = Utils.extend({pageNum: this.page.page, pageSize: this.page.size}, ReportSearch.dispose({startDate: this.search.start, endDate: this.search.end}))
       R.Demo.reportList(param).then(resp=>{
-        if(resp.status == 200){
+        if(resp.ok){
           this.list = ReportList.parse(resp.body);
           this.page.page = resp.meta.page;
           this.page.total = resp.meta.total;

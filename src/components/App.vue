@@ -27,7 +27,7 @@ export default {
   mounted() {
     this.$Loading("加载中");
     R.User.info().then((resp)=>{
-      if(resp.status == 200){
+      if(resp.ok){
         store.dispatch('updateAccount', resp.body);
         this.initDict();
       }
@@ -36,7 +36,7 @@ export default {
   methods: {
     initDict() {
       R.Dict.get().then((resp)=>{
-        if(resp.status == 200){
+        if(resp.ok){
           let dicts = resp.body;
           for(let dict of dicts){
             HeyUI.addDict(dict.name, dict.data);
