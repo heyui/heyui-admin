@@ -7,10 +7,11 @@ import routerConfig from './js/config/router-config';
 
 require('./css/app.less');
 
+//HeyUI已经设定为全局变量，无需引用
+//设定全局变量请参考根目录下的hey.js文件
 
 
 heyuiConfig();
-
 Vue.use(VueRouter);
 Vue.use(HeyUI);
 
