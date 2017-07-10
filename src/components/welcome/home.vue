@@ -66,7 +66,7 @@
           <p>可以在npm下载，<a href="https://www.npmjs.com/package/hey-cli">https://www.npmjs.com/package/hey-cli</a>，如果您已经安装，请忽略这一步。</p>
           <p><code>npm install -g hey-cli</code></p>
 
-          <p v-font="16">2、安装依赖</p>
+          <p v-font="16">3、安装依赖</p>
           <p><code>npm install</code></p>
           <p>本项目有以下依赖包：</p>
           <ul>
@@ -80,6 +80,15 @@
             <li><a target="_blank" href="https://www.npmjs.com/package/qs">qs</a>: 数据处理工具</li>
             <li><a target="_blank" href="https://www.npmjs.com/package/vue">vue</a>: Vue</li>
             <li><a target="_blank" href="https://www.npmjs.com/package/vue-router">vue-router</a>: vue-router</li>
+          </ul>
+
+          <p v-font="16">4、修改相关项</p>
+          <ul>
+            <li>修改hey.js文件中的端口号，以及proxy反向代理地址。</li>
+            <li>修改app-header文件中的项目名，以及删除github链接。</li>
+            <li>修改menu-config.js文件中的目录配置</li>
+            <li>修改router-config.js文件中的router配置</li>
+            <li>修改static/images/logo.ico文件</li>
           </ul>
 
           <p v-font="16">2、启动项目</p>

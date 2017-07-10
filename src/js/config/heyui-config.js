@@ -1,5 +1,6 @@
 import dictConfig from './dict-config';
 import autocompleteConfig from './autocomplete-config';
+import treeConfig from './tree-config';
 
 const heyuiConfig = () => {
   
@@ -12,7 +13,7 @@ const heyuiConfig = () => {
 
   let tree = treeConfig();
   HeyUI.config("tree.configs", tree);
-  
+
   HeyUI.config('menu', {
     titleName: 'title',
     keyName: 'key',
