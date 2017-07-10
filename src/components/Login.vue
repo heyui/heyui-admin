@@ -5,7 +5,7 @@
       <div class="login-name">
         <input type="text" v-model="login.username" placeholder="用户名"/>
       </div>
-      <div class="login-password" v-model="login.password">
+      <div class="login-password">
         <input type="password" v-model="login.password" placeholder="密码" @keyup.enter="submit"/>
       </div>
       <div class="buttonDiv">

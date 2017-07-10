@@ -1,5 +1,4 @@
-
-
+@gradient-color: #ed1d2d;
 #page-login {
   font: inherit;
   letter-spacing: 2px;
@@ -9,7 +8,7 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: linear-gradient(to bottom right, #ed1d2d, #e27b31, #FDA729);
+  background: linear-gradient(to bottom right, @gradient-color, fade(@primary-color, 80%), @primary-color);
   .login-container {
     width: 400px;
     position: absolute;
@@ -73,11 +72,11 @@
       height: 48px;
       color: #FFF;
       line-height: 48px;
-      box-shadow: 0 20px 20px -10px #ED919C, 0 0px 20px 0px #ffd3d8;
+      box-shadow: 0 20px 20px -10px fade(@gradient-color, 40%), 0 0px 20px 0px fade(@primary-color, 50%);
       font-size: 19px;
       opacity: .7;
       border-radius: 2px;
-      background: linear-gradient(to right, #ed1d2d, #e27b31, #FDA729);
+      background: linear-gradient(to right, @gradient-color, fade(@primary-color, 50%), @primary-color);
       &:hover {
         opacity: 1;
       }

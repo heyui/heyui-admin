@@ -105,17 +105,21 @@ let ajax = {
       return axios.request(params).then((response) => {
         that.deleteRequest(params.url);
         let data = response.data;
-        if(response.status != 200){
-          if (response.status == 401) {
+        let status = response.status;
+        if( status == 200){
+          status = data.status;
+        }
+        if(status != 200){
+          if (status == 401) {
             window.top.location = "/login.html";
             return;
           }
-          if (response.status == 500) {
+          if (status == 500) {
             HeyUI.$Message.error('后台异常');
-          } else if (response.status == 404) {
+          } else if (status == 404) {
             HeyUI.$Message.error('请求不存在');
-          } else if (response.status != 200) {
-            HeyUI.$Message.error(data.message);
+          } else if (status != 200) {
+            HeyUI.$Message.error(data._msg || '请求异常');
           }
         }
         data.ok = data.status == 200;
