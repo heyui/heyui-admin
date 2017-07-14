@@ -7,6 +7,8 @@ const heyuiConfig = () => {
   dictConfig();
   HeyUI.config('dict.keyName', "key");
   HeyUI.config('dict.titleName', "title");
+  // HeyUI.config('page.small', true);
+  HeyUI.config('page.sizes', [12]);
 
   let autocomplete = autocompleteConfig();
   HeyUI.config("autocomplete.configs", autocomplete);

@@ -1,7 +1,7 @@
 import qs from 'qs';
 let ajax = {
   PREFIX: "/api",
-  HEADER: "heyui",
+  HEADER: Utils.getAuthor() || "heyui",
   requestingApi: new Set(),
   changeHeader(header) {
     this.HEADER = header;
