@@ -19,6 +19,11 @@ const menuConfig = [
         key: 'search'
       },
       {
+        title: '表单',
+        icon: 'h-icon-search',
+        key: 'form'
+      },
+      {
         title: '系统参数',
         key: 'system',
         icon: 'h-icon-setting'
