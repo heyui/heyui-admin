@@ -15,7 +15,6 @@ module.exports = {
     },
     commonTrunk: {
       common:[
-        "axios",
         "manba",
         "js-model",
         "./src/js/common/utils",
@@ -40,7 +39,6 @@ module.exports = {
       "Model": "js-model",
       "G": 'hey-global',
       "log": 'hey-log',
-      "axios": 'axios',
       "R": './src/js/common/request'
     },
     devServer: {
