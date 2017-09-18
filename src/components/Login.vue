@@ -32,7 +32,7 @@ export default {
         if(resp.ok){
           let msg = resp.body;
           Utils.saveLocal("token", msg.value);
-          window.location = '/';
+          this.$router.replace('/');
         }
         this.loading = false;
       });

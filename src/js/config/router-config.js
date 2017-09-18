@@ -9,8 +9,8 @@ const initRouter = ()=>{
       component: (resolve) => require(['components/welcome/home'], resolve)
     }, {
       path: '/login',
-      name: 'list',
-      component: (resolve) => require(['components/Login'], resolve)
+      name: 'login',
+      component: (resolve) => require(['components/login'], resolve)
     }, {
       path: '/list',
       name: 'list',

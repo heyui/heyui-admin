@@ -20,10 +20,10 @@ let list = [
   { id: 32, title: "三级-2", parent: "3" },
   { id: 33, title: "三级-3", parent: "3" }
 ];
-
 export default function(){
   return {
     simple: {
+      title: '测试',
       keyName: 'id',
       parentName: 'parent',
       titleName: 'title',

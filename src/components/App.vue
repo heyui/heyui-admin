@@ -1,11 +1,16 @@
 <template>
   <div id="app">
     <template v-if="!loading">
-      <appHead></appHead>
-      <div class="app-container">
-        <appMenu></appMenu>
-        <div class="app-body">
-          <router-view></router-view>
+      <template v-if="$route.name == 'login'">
+        <router-view></router-view>
+      </template>
+      <div v-else>
+        <appHead></appHead>
+        <div class="app-container">
+          <appMenu></appMenu>
+          <div class="app-body">
+            <router-view></router-view>
+          </div>
         </div>
       </div>
     </template>
@@ -26,8 +31,8 @@ export default {
   store,
   mounted() {
     this.$Loading("加载中");
-    R.User.info().then((resp)=>{
-      if(resp.ok){
+    R.User.info().then((resp) => {
+      if (resp.ok) {
         store.dispatch('updateAccount', resp.body);
         this.initDict();
       }
@@ -35,10 +40,10 @@ export default {
   },
   methods: {
     initDict() {
-      R.Dict.get().then((resp)=>{
-        if(resp.ok){
+      R.Dict.get().then((resp) => {
+        if (resp.ok) {
           let dicts = resp.body;
-          for(let dict of dicts){
+          for (let dict of dicts) {
             HeyUI.addDict(dict.name, dict.data);
           }
         }

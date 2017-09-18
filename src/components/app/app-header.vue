@@ -30,7 +30,7 @@ export default {
     trigger(data) {
       if (data == 'logout') {
         Utils.removeLocal('Auth');
-        window.location = '/login.html';
+        this.$router.replace('/login');
       }
     }
   }

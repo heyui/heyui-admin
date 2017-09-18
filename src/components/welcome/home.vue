@@ -14,26 +14,26 @@
         <Row>
           <Col :width="11" class="text-center">
             <h-circle :percent="76" :stroke-width="10" :size="200" v-tooltip ref-el="demo1" placement="right">
-              <p class="gray-color" v-font="28">122,332,98</p>
+              <div class="gray-color" v-font="28">122,332,98</div>
               <div v-height="5"></div>
-              <p class="dark-color" v-font="13">目前达成比例</p>
-              <p class="gray-color"><span class="primary-color" v-font="16">{{parseInt(123*76/100)}}</span>/<span>123</span></p>
+              <div class="dark-color" v-font="13">目前达成比例</div>
+              <div class="gray-color"><span class="primary-color" v-font="16">{{parseInt(123*76/100)}}</span>/<span>123</span></div>
             </h-circle>
           </Col>
           <Col :width="7" class="text-center">
             <div v-height="100"></div>
             <h-circle :percent="26" :stroke-width="10" :size="100" color="red" v-tooltip ref-el="demo2" placement="right">
               <div v-height="5"></div>
-              <p class="dark-color" v-font="13">目前达成比例</p>
-              <p class="gray-color"><span class="primary-color" v-font="16">{{parseInt(123*26/100)}}</span>/<span>123</span></p>
+              <div class="dark-color" v-font="13">目前达成比例</div>
+              <div class="gray-color"><span class="primary-color" v-font="16">{{parseInt(123*26/100)}}</span>/<span>123</span></div>
             </h-circle>
           </Col>
           <Col :width="6" class="text-center">
             <div v-height="100"></div>
             <h-circle :percent="100" :stroke-width="10" :size="100" color="green" v-tooltip ref-el="demo3" placement="right">
               <div v-height="5"></div>
-              <p class="dark-color" v-font="13">目前达成比例</p>
-              <p class="gray-color"><span class="primary-color" v-font="16">{{parseInt(123*26/100)}}</span>/<span>123</span></p>
+              <div class="dark-color" v-font="13">目前达成比例</div>
+              <div class="gray-color"><span class="primary-color" v-font="16">{{parseInt(123*26/100)}}</span>/<span>123</span></div>
             </h-circle>
           </Col>
         </Row>
@@ -104,26 +104,26 @@
     </Row>
     <div tmpl="demo1">
       <div v-padding="20">
-        <p>占值：70%</p>
-        <p>占值：70%</p>
-        <p>占值：70%</p>
-        <p>占值：70%</p>
+        <div>占值：70%</div>
+        <div>占值：70%</div>
+        <div>占值：70%</div>
+        <div>占值：70%</div>
       </div>
     </div>
     <div tmpl="demo2">
       <div v-padding="20">
-        <p>占值：70%</p>
-        <p>占值：70%</p>
-        <p>占值：70%</p>
-        <p>占值：70%</p>
+        <div>占值：70%</div>
+        <div>占值：70%</div>
+        <div>占值：70%</div>
+        <div>占值：70%</div>
       </div>
     </div>
     <div tmpl="demo3">
       <div v-padding="20">
-        <p>占值：70%</p>
-        <p>占值：70%</p>
-        <p>占值：70%</p>
-        <p>占值：70%</p>
+        <div>占值：70%</div>
+        <div>占值：70%</div>
+        <div>占值：70%</div>
+        <div>占值：70%</div>
       </div>
     </div>
   </div>

@@ -19,6 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.16.2",
+    "fetch-jsonp": "^1.1.3",
     "hey-global": "0.0.1",
     "hey-log": "0.0.8",
     "hey-utils": "0.0.23",
