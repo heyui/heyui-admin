@@ -12,21 +12,9 @@ const initRouter = ()=>{
       name: 'login',
       component: (resolve) => require(['components/login'], resolve)
     }, {
-      path: '/list',
-      name: 'list',
-      component: (resolve) => require(['components/demo-modules/list'], resolve)
-    }, {
       path: '/form',
       name: 'form',
       component: (resolve) => require(['components/demo-modules/form'], resolve)
-    }, {
-      path: '/search',
-      name: 'search',
-      component: (resolve) => require(['components/demo-modules/report'], resolve)
-    }, {
-      path: '/system',
-      name: 'system',
-      component: (resolve) => require(['components/demo-modules/system'], resolve)
     }]
   };
 

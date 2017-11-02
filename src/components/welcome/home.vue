@@ -88,7 +88,7 @@
             <li>修改app-header文件中的项目名，以及删除github链接。</li>
             <li>修改menu-config.js文件中的目录配置</li>
             <li>修改router-config.js文件中的router配置</li>
-            <li>修改static/images/logo.ico文件</li>
+            <li>修改src/images/logo.ico文件</li>
           </ul>
 
           <p v-font="16">2、启动项目</p>

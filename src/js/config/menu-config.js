@@ -9,24 +9,9 @@ const menuConfig = [
     icon: 'h-icon-star-on',
     children: [
       {
-        title: '列表展示',
-        key: 'list',
-        icon: 'h-icon-setting'
-      },
-      {
-        title: '报表查询',
-        icon: 'h-icon-search',
-        key: 'search'
-      },
-      {
         title: '表单',
         icon: 'h-icon-search',
         key: 'form'
-      },
-      {
-        title: '系统参数',
-        key: 'system',
-        icon: 'h-icon-setting'
       }
     ]
   }
