@@ -12,7 +12,7 @@
 
 ### 下载
 ```
-git clone https://github.com/heyui/heyui-demo.git
+git clone https://github.com/heyui/heyui-demo.git project-name
 ```
 
 ### 启动
