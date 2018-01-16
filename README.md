@@ -1,18 +1,18 @@
-# HeyUI-demo
-企业应用架构demo
+# HeyUI-Admin
+企业应用架构
 
-本项目是利用heyui搭建的基础企业应用架构demo，里面集成了一系列的项目处理方案。
+本项目是利用heyui搭建的基础企业应用架构，里面集成了一系列的项目处理方案。
 我们可以直接通过本项目改造成你想要系统。
 
-## 在线demo
+## 在线示例
 
-在线demo：[http://demo.heyui.top](http://demo.heyui.top)
+在线示例：[http://admin.heyui.top](http://admin.heyui.top)
 
 ## Install
 
 ### 下载
 ```
-git clone https://github.com/heyui/heyui-demo.git project-name
+git clone https://github.com/heyui/heyui-admin.git project-name
 ```
 
 ### 启动

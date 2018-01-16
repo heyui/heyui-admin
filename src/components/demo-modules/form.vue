@@ -2,7 +2,7 @@
   <div class="app-form" v-padding="20">
     <div class="h-panel">
       <div class="h-panel-bar">
-        <span class="h-panel-title">列表</span>
+        <span class="h-panel-title">Form</span>
       </div>
       <div class="h-panel-body">
         <div v-height="50">
@@ -11,7 +11,7 @@
         <Form :label-width="110" :mode="mode" :model="data" :rules="validationRules" ref="form">
           <FormItem label="输入框" prop="input">
             <input type="text" v-model="data.input" placeholder="限制输入30个字" v-wordlimit='30' />
-            <template slot="error" scope="props">
+            <template slot="error" slot-scope="props">
               <!-- *type*: base, combine, async -->
               <span class="link" v-if="props.type == 'async'">+++++++错误的特殊提示+++++++</span>
             </template>

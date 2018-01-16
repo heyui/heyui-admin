@@ -1,5 +1,6 @@
 import axios from 'axios';
 import qs from 'qs';
+
 let ajax = {
   PREFIX: "/api",
   HEADER: Utils.getAuthor() || "heyui",
@@ -69,7 +70,7 @@ let ajax = {
     }, extendParam);
   },
   ajax: function(param, extendParam) {
-    let params = Utils.extend({ isRepeat: false }, param, extendParam||{});
+    let params = Utils.extend({ repeatable: false }, param, extendParam||{});
     params.crossDomain = params.url.indexOf("http") === 0;
     let url = params.url;
     if (!params.crossDomain) {
@@ -79,7 +80,7 @@ let ajax = {
       if (this.isRequesting(url)) {
         return new Promise((resolve, reject)=>{reject()});
       }
-      if (params.isRepeat === false) {
+      if (params.repeatable === false) {
         this.addRequest(url);
       }
     }
@@ -125,6 +126,11 @@ let ajax = {
         }
         data.ok = data.status == 200;
         resolve(data);
+      }).catch((err) => {
+        that.deleteRequest(params.url);
+        resolve({
+          ok: false
+        });
       })
     });
   },
