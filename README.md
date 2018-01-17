@@ -29,9 +29,8 @@ hey dev
 
 ## 开发
 
-### 按需修改配置  
-**1、/hey.js，**  
-修改后端地址
+### 1、按需修改配置  
+/hey.js，修改反向代理地址  
 
 ```js
 devServer: {
@@ -45,13 +44,9 @@ devServer: {
 },
 ```
 
-**2、/js/config/router-config.js**  
-修改router的配置，当然在config文件夹中的所有配置都可以按照自己的需求修改。
+### 2、文件结构说明
 
-
-### 文件结构说明
-
-![目录结构](https://i.jihui.io/o_1c41c6if849hqrfb0h1sjn90db.png)
+<img src="https://i.jihui.io/o_1c41c6if849hqrfb0h1sjn90db.png" alt="目录结构" style="width: 400px;max-width:100%;">
 
 ## 部署
 
@@ -61,10 +56,10 @@ hey build
 
 ## Dependencies
 
-- vue
-- vue-router
-- 控制全局变量: [hey-global](https://www.npmjs.com/package/hey-global)
-- 简写console.log -> log: [hey-log](https://www.npmjs.com/package/hey-log)
-- 基础utils库: [hey-utils](https://www.npmjs.com/package/hey-utils)
-- 前端数据模型工具：[js-model](https://www.npmjs.com/package/js-model)
-- 简洁的js日期处理: [manba](https://www.npmjs.com/package/manba)
+- [vue](https://cn.vuejs.org/v2/guide/)
+- [vue-router](https://router.vuejs.org/)
+- [hey-global](https://www.npmjs.com/package/hey-global): 控制全局变量
+- [hey-log](https://www.npmjs.com/package/hey-log): 简写console.log -> log
+- [hey-utils](https://www.npmjs.com/package/hey-utils): 基础utils库
+- [js-model](https://www.npmjs.com/package/js-model): 前端数据模型工具
+- [manba](https://www.npmjs.com/package/manba): 简洁的js日期工具:
