@@ -2,14 +2,11 @@ module.exports = {
   port: 9012,
   root: "dist",
   webpack: {
+    console: true,
     publicPath: "/",
     output: {
       "./index.html": {
         entry: "./src/app",
-        commons:['common']
-      },
-      "./login.html": {
-        entry: "./src/login",
         commons:['common']
       }
     },
