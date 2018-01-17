@@ -27,7 +27,33 @@ hey dev
 项目即启动成功，访问[http://localhost:9012](http://localhost:9012)查看系统
 
 
-### 部署
+## 开发
+
+### 按需修改配置  
+**1、/hey.js，**  
+修改后端地址
+
+```js
+devServer: {
+  "proxy": {
+    "/api": {
+      //反向代理的地址
+      "target": "http://umock.ch-un.com"
+    }
+  },
+  historyApiFallback: true
+},
+```
+
+**2、/js/config/router-config.js**  
+修改router的配置，当然在config文件夹中的所有配置都可以按照自己的需求修改。
+
+
+### 文件结构说明
+
+![目录结构](https://i.jihui.io/o_1c41c6if849hqrfb0h1sjn90db.png)
+
+## 部署
 
 ```
 hey build
