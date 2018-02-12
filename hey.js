@@ -50,5 +50,5 @@ module.exports = {
     externals: {
     }
   },
-  copy: ['static/images/*']
+  copy: ['static/images/*','call/*']
 };

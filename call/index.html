@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>叫号系统</title>
+  <link rel="stylesheet" href="index.css">
+  
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="prev-button">上一个</div>
+      <div class="screen"></div>
+      <div class="next-button">下一个</div>
+    </div>
+    <div class="buttons">
+      <div><span>1</span></div>
+      <div><span>2</span></div>
+      <div><span>3</span></div>
+      <div><span>4</span></div>
+      <div><span>5</span></div>
+      <div><span>6</span></div>
+      <div><span>7</span></div>
+      <div><span>8</span></div>
+      <div><span>9</span></div>
+      <div><span>0</span></div>
+      <div class="reset"><span>重置</span></div>
+      <div><span>0</span></div>
+    </div>
+    <div class="footer">
+      <div class="prev-call">呼叫<br/>上一个</div>
+      <div class="call">呼叫</div>
+      <div class="next-call">呼叫<br/>下一个</div>
+    </div>
+  </div>
+  <audio src="./audio/1.mp3" id="audio1"></audio>
+  <audio src="./audio/2.mp3" id="audio2"></audio>
+  <audio src="./audio/3.mp3" id="audio3"></audio>
+  <audio src="./audio/4.mp3" id="audio4"></audio>
+  <audio src="./audio/5.mp3" id="audio5"></audio>
+  <audio src="./audio/6.mp3" id="audio6"></audio>
+  <audio src="./audio/7.mp3" id="audio7"></audio>
+  <audio src="./audio/8.mp3" id="audio8"></audio>
+  <audio src="./audio/9.mp3" id="audio9"></audio>
+
+  <audio src="./audio/10.mp3" id="audio10"></audio>
+  <audio src="./audio/11.mp3" id="audio11"></audio>
+  <audio src="./audio/12.mp3" id="audio12"></audio>
+  <audio src="./audio/13.mp3" id="audio13"></audio>
+  <audio src="./audio/14.mp3" id="audio14"></audio>
+  <audio src="./audio/15.mp3" id="audio15"></audio>
+  <audio src="./audio/16.mp3" id="audio16"></audio>
+  <audio src="./audio/17.mp3" id="audio17"></audio>
+  <audio src="./audio/18.mp3" id="audio18"></audio>
+  <audio src="./audio/19.mp3" id="audio19"></audio>
+
+  <audio src="./audio/20.mp3" id="audio20"></audio>
+  <audio src="./audio/21.mp3" id="audio21"></audio>
+  <audio src="./audio/22.mp3" id="audio22"></audio>
+  <audio src="./audio/23.mp3" id="audio23"></audio>
+  <audio src="./audio/24.mp3" id="audio24"></audio>
+  <audio src="./audio/25.mp3" id="audio25"></audio>
+  <audio src="./audio/26.mp3" id="audio26"></audio>
+  <audio src="./audio/27.mp3" id="audio27"></audio>
+  <audio src="./audio/28.mp3" id="audio28"></audio>
+  <audio src="./audio/29.mp3" id="audio29"></audio>
+
+  <audio src="./audio/30.mp3" id="audio30"></audio>
+</body>
+<script src="./utils.js"></script>
+<script src="./jquery.min.js"></script>
+<script>
+  var today = Math.floor(new Date().getTime()/(1000*60*60*24));
+  var index = Number(Utils.getLocal(today)) || 1;
+  var oldIndex = index;
+  var buttons = {
+    prev: $(".prev-button"),
+    screen: $(".screen"),
+    next: $(".next-button"),
+    buttons: $(".buttons"),
+    prevCall: $(".prev-call"),
+    nextCall: $(".next-call"),
+    call: $(".call"),
+  };
+  function call() {
+    var audio = $('#audio'+index);
+    var oldAudio = $('#audio'+oldIndex);
+    if(oldAudio.length){
+      oldAudio[0].pause();
+      oldAudio[0].currentTime = 0;
+    }
+    if(audio.length){
+      audio[0].play();
+    }
+  }
+
+  function saveIndex(isCall, noJudge) {
+    if(!noJudge){
+      if(index > 30){
+        index = 1;
+      } else if(index <= 0){
+        index = 30;
+      }
+    }
+    var s = Utils.padLeft(index, 2);
+    buttons.screen.text(s);
+    Utils.saveLocal(today, index);
+    if (isCall) {
+      call();
+    }
+  }
+  buttons.prev.on('click', function(){
+    oldIndex = index;
+    index -= 1;
+    isClickedNumber = false;
+    saveIndex();
+  });
+  buttons.next.on('click', function(){
+    oldIndex = index;
+    index += 1;
+    isClickedNumber = false;
+    saveIndex();
+  });
+  var isClickedNumber = false;
+  buttons.buttons.on('click', 'div', function(event){
+    oldIndex = index;
+    if($(event.currentTarget).hasClass('reset')){
+      index = 1;
+      saveIndex();
+      return;
+    }
+    var number = parseInt(event.target.innerText);
+    if(isClickedNumber == false){
+      index = number;
+      isClickedNumber = true;
+    } else {
+      index = index* 10 + number;
+      isClickedNumber = false;
+    }
+    saveIndex(false, true);
+  });
+  buttons.call.on('click', function(){
+    call();
+  });
+  buttons.prevCall.on('click', function(){
+    oldIndex = index;
+    index -= 1;
+    isClickedNumber = false;
+    saveIndex(true);
+  });
+  buttons.nextCall.on('click', function(){
+    oldIndex = index;
+    index += 1;
+    isClickedNumber = false;
+    saveIndex(true);
+  });
+
+
+  saveIndex();
+</script>
+</html>
