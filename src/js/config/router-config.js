@@ -15,6 +15,10 @@ const initRouter = ()=>{
       path: '/form',
       name: 'form',
       component: (resolve) => require(['components/demo-modules/form'], resolve)
+    }, {
+      path: '/autocomplete1',
+      name: 'autocomplete1',
+      component: (resolve) => require(['components/demo-modules/autocomplete1'], resolve)
     }]
   };
 

@@ -16,6 +16,16 @@ const loadData = function (filter, callback) {
   });
 }
 
+const baiduLoadData = function (filter, callback) {
+  jsonp(`http://suggestion.baidu.com/su?wd=${filter}&p=3&cb=callback`,{
+    jsonpCallbackFunction: 'callback',
+  })
+  .then(response => response.json())
+  .then((d) => {
+    callback(d.s);
+  });
+}
+
 export default function(){
   return {
     simple: {
@@ -23,6 +33,17 @@ export default function(){
       keyName: 'id',
       titleName: 'name',
       minWord: 1
+    },
+    baidu: {
+      loadData: baiduLoadData,
+      // (keyword, callback) {
+      //   let list = [];
+      //   for(let i=0; i< 8; i++) {
+      //     list.push(`${keyword}${i+1}`);
+      //   }
+      //   return callback(list);
+      // },
+      minWord: 0
     }
   }
 };
