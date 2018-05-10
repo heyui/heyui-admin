@@ -12,6 +12,7 @@
             <router-view></router-view>
           </div>
         </div>
+        <SourceLink></SourceLink>
       </div>
     </template>
   </div>
@@ -21,6 +22,7 @@
 import store from 'js/vuex/store';
 import appHead from './app/app-header';
 import appMenu from './app/app-menu';
+import SourceLink from './common/SourceLink';
 
 export default {
   data() {
@@ -54,7 +56,8 @@ export default {
   },
   components: {
     appHead,
-    appMenu
+    appMenu,
+    SourceLink
   }
 }
 </script>

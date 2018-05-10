@@ -36,14 +36,37 @@ export default function(){
     },
     baidu: {
       loadData: baiduLoadData,
-      // (keyword, callback) {
-      //   let list = [];
-      //   for(let i=0; i< 8; i++) {
-      //     list.push(`${keyword}${i+1}`);
-      //   }
-      //   return callback(list);
-      // },
       minWord: 0
+    },
+    company: {
+      loadData(filter, next) {
+        let list = [];
+        for(let i = 0; i < 10; i++) {
+          list.push({
+            id: `${i}`,
+            name: `${filter}${i}`
+          })
+        }
+        next(list)
+      },
+      keyName: 'id',
+      titleName: 'name'
+    },
+    account: {
+      loadData(filter, next) {
+        let list = [];
+        let companyId = this.companyId;
+        let companyName = this.companyName;
+        for(let i = 0; i < 10; i++) {
+          list.push({
+            id: `${companyId}-account${i}`,
+            name: `${companyName}-account${filter}${i}`
+          })
+        }
+        next(list)
+      },
+      keyName: 'id',
+      titleName: 'name'
     }
   }
 };

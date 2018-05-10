@@ -19,6 +19,14 @@ const initRouter = ()=>{
       path: '/autocomplete1',
       name: 'autocomplete1',
       component: (resolve) => require(['components/demo-modules/autocomplete1'], resolve)
+    }, {
+      path: '/autocomplete2',
+      name: 'autocomplete2',
+      component: (resolve) => require(['components/demo-modules/autocomplete2'], resolve)
+    }, {
+      path: '/autocomplete3',
+      name: 'autocomplete3',
+      component: (resolve) => require(['components/demo-modules/autocomplete3'], resolve)
     }]
   };
 

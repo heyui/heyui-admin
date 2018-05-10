@@ -16,7 +16,7 @@
           border-color: @primary-color;  
         }
         .h-autocomplete .h-autocomplete-show .h-icon-loading, .h-autocomplete .h-autocomplete-show > .h-icon-close{
-          bottom: 12px;
+          display: none;
         }
       }
     }
