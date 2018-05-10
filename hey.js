@@ -50,5 +50,5 @@ module.exports = {
     externals: {
     }
   },
-  copy: ['static/images/*','call/*']
+  copy: ['static/images/*','call/*','./baidu_verify_7O2vpVMzwg.html']
 };
