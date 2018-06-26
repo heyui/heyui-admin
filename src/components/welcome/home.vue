@@ -57,16 +57,16 @@
           <span class="h-panel-title">搭建顺序</span>
         </div>
         <div class="h-panel-body demo-doc">
-          <p v-font="16">1、下载</p>
+          <p v-font="16">下载</p>
           <p>前往github下载，<a href="https://github.com/heyui/heyui-demo">https://github.com/heyui/heyui-demo</a></p>
           <p><code>git clone https://github.com/heyui/heyui-demo.git 自己项目名 </code></p>
           <p>将git地址转换为自己项目的git地址</p>
           <p><code>git remote set-url origin 自己的git地址<br/>git push</code></p>
-          <p v-font="16">2、安装hey-cli工具</p>
+          <p v-font="16">安装hey-cli工具</p>
           <p>可以在npm下载，<a href="https://www.npmjs.com/package/hey-cli">https://www.npmjs.com/package/hey-cli</a>，如果您已经安装，请忽略这一步。</p>
           <p><code>npm install -g hey-cli</code></p>
 
-          <p v-font="16">3、安装依赖</p>
+          <p v-font="16">安装依赖</p>
           <p><code>npm install</code></p>
           <p>本项目有以下依赖包：</p>
           <ul>
@@ -81,23 +81,11 @@
             <li><a target="_blank" href="https://www.npmjs.com/package/vue">vue</a>: Vue</li>
             <li><a target="_blank" href="https://www.npmjs.com/package/vue-router">vue-router</a>: vue-router</li>
           </ul>
-
-          <p v-font="16">4、修改相关项</p>
-          <ul>
-            <li>修改hey.js文件中的端口号，以及proxy反向代理地址。</li>
-            <li>修改app-header文件中的项目名，以及删除github链接。</li>
-            <li>修改menu-config.js文件中的目录配置</li>
-            <li>修改router-config.js文件中的router配置</li>
-            <li>修改src/images/logo.ico文件</li>
-          </ul>
-
-          <p v-font="16">2、启动项目</p>
+          <p v-font="16">启动项目</p>
           <p>项目的配置在文件hey.js中，具体请参考代码与hey-cli配置规则。</p>
           <p><code>hey dev</code></p>
-
-          <p v-font="16">2、打包项目</p>
+          <p v-font="16">打包项目</p>
           <p><code>hey build</code></p>
-
         </div>
       </div>
       </Col>

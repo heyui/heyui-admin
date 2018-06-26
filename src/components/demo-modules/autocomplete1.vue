@@ -14,9 +14,15 @@
         }
         .h-autocomplete-show{
           border-color: @primary-color;  
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
         }
         .h-autocomplete .h-autocomplete-show .h-icon-loading, .h-autocomplete .h-autocomplete-show > .h-icon-close{
           display: none;
+        }
+        .h-btn.h-btn-primary{
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
         }
       }
     }
