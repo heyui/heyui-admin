@@ -1,0 +1,43 @@
+{
+  "title" : "HeyUI Admin Document",
+  "author" : "vvpvvp",
+  "description" : "HeyUI Admin 相关文档",
+  "language" : "zh-hans",
+  "links" : {
+    "sidebar" : {
+        "Home" : "http://admin.heyui.top"
+    }
+  },
+  "styles": {
+    "website": "styles/website.css"
+  },
+  "plugins": [
+    "-search",
+    "search-pro",
+    "advanced-emoji",
+    "github",
+    "github-buttons",
+    "splitter",
+    "-sharing",
+    "anchors",
+    "copy-code-button"
+  ],
+  "pluginsConfig": {
+    "search-pro": {
+        "cutWordLib": "nodejieba",
+        "defineWord" : ["Gitbook Use"]
+    },
+    "github": {
+      "url": "https://github.com/heyui/heyui-admin"
+    },
+    "github-buttons": {
+      "buttons": [{
+        "user": "heyui",
+        "repo": "heyui-admin",
+        "type": "star",
+        "size": "large",
+        "count": true
+      }]
+    }
+  }
+}
