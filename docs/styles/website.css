@@ -1,3 +1,101 @@
 a.btn.pull-right.js-toolbar-action[aria-label='GitHub'] {
-  font-size: 30px;
+  font-size: 20px;
+}
+
+.book-summary ul.summary li a.gitbook-link {
+  display: none;
+}
+
+a, p a code, .book-summary ul.summary li.active > a {
+  color: #3eaf7c;
+}
+
+button.copy-code-button {
+  background: #f7f7f7 !important;
+  color: #454545 !important;
+  font-size: 12px;
+  padding: 3px 10px !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.book-summary {
+  background: none;
+}
+
+.book-summary ul.summary li.divider {
+  display: none;
+}
+.book-header {
+  position: fixed;
+  right: 0;
+  height: 51px;
+  left: 300px;
+  background: #FFF;
+  border-bottom: 1px solid #EEE;
+}
+
+.page-wrapper {
+  padding-top: 60px;
+}
+
+div#book-search-input {
+  position: fixed;
+  background: #FFF;
+  z-index: 2;
+  width: 300px;
+  top: 0;
+  left: 0;
+}
+
+.book-summary {
+  padding-top: 60px;
+}
+
+.book-summary ul.summary li.chapter > a {
+  margin-left: 20px;
+  color: #505d6b;
+}
+
+.markdown-section blockquote {
+  border-bottom-right-radius: 2px;
+  border-left: 4px solid #f66;
+  border-top-right-radius: 2px;
+  margin: 2em 0;
+  padding: 12px 24px 12px 30px;
+  color: #34495e;
+  position: relative;
+}
+
+.markdown-section blockquote p {
+  margin-bottom: 0;
+}
+
+.markdown-section blockquote::after {
+  background-color: #f66;
+  border-radius: 100%;
+  color: #fff;
+  content: "!";
+  font-family: Dosis,Source Sans Pro,Helvetica Neue,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  left: -12px;
+  line-height: 20px;
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  top: 14px;
+}
+
+.book-summary ul.summary li {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.book-summary ul.summary li.header {
+  color: #364149;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 10px;
 }

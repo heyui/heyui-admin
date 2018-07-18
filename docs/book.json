@@ -5,7 +5,7 @@
   "language" : "zh-hans",
   "links" : {
     "sidebar" : {
-        "Home" : "http://admin.heyui.top"
+        "在线Demo" : "http://admin.heyui.top"
     }
   },
   "styles": {
@@ -15,8 +15,8 @@
     "-search",
     "search-pro",
     "advanced-emoji",
-    "github",
     "github-buttons",
+    "github",
     "splitter",
     "-sharing",
     "anchors",
@@ -35,7 +35,7 @@
         "user": "heyui",
         "repo": "heyui-admin",
         "type": "star",
-        "size": "large",
+        "size": "normal",
         "count": true
       }]
     }
