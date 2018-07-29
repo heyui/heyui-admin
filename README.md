@@ -1,42 +1,127 @@
-# HeyUI-Admin
-企业应用架构
+<p align="center">
+  <img width="320" src="http://7xpm14.com1.z0.glb.clouddn.com/logo.png">
+</p>
 
-本项目是利用heyui搭建的基础企业应用架构，里面集成了一系列的项目处理方案。
-我们可以直接通过本项目改造成你想要系统。
+<p align="center">
+  <a href="https://github.com/vuejs/vue">
+    <img src="https://img.shields.io/badge/vue-2.5.16-brightgreen.svg" alt="vue">
+  </a>
+  <a href="https://github.com/heyui/heyui">
+    <img src="https://img.shields.io/badge/heyui-1.6.0-brightgreen.svg" alt="element-ui">
+  </a>
+  <a href="https://github.com/heyui/heyui-admin/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
+  </a>
+</p>
 
-## 在线示例
+简体中文 | [English](./README_en.md)
 
-在线示例：[http://admin.heyui.top](http://admin.heyui.top)
 
-## Install
+## 介绍
 
-### 下载
+heyui-admin是一个成熟的企业应用解决方案，它基于vue和heyui组件库。
+
+- [在线预览](http://admin.heyui.top)
+
+- [文档](https://heyui.github.io/heyui-admin)
+
+**这是一个成熟的前端开发解决方案，你可以使用这个项目完成所有的前端开发工作。**
+
+## 准备
+
+这个项目基于一下依赖:
+- [hey-ui](https://github.com/ElemeFE/element)
+- [vue](https://cn.vuejs.org/index.html)
+- [vuex](https://vuex.vuejs.org/zh-cn/)
+- [vue-router](https://router.vuejs.org/zh-cn/)
+- [axios](https://github.com/axios/axios)
+- [js-model](https://www.npmjs.com/package/js-model)
+- [manba](https://www.npmjs.com/package/manba)
+- [hey-utils](https://www.npmjs.com/package/hey-utils)
+- [hey-global](https://www.npmjs.com/package/hey-global)
+- [hey-log](https://www.npmjs.com/package/hey-log)
+
+提前了解和学习这些知识将大大有助于这个项目的使用。
+
+
+## 功能
+
 ```
-git clone https://github.com/heyui/heyui-admin.git project-name
+- Js
+  - 通用
+    - 封装axios
+    - 所有的请求js文件
+    - 通用方法
+  - js模型
+  - 配置
+    - 路由配置
+    - heyui配置
+    - 字典配置
+    - 菜单配置
+    - 图表风格配置
+  - vue
+    - 通用组件
+    - filters
+    - directives
+  - vuex
+    - store
+
+- 框架组件
+  - App
+  - App头部
+  - App左侧菜单
+
+- 组件
+  - 登录
+  - 仪表盘
+  - 创建表单
+  - 表格
+  - 数据列表
+  - 详情页面
+  - 详情弹框
+  - 个人中心
+  - 选择地址组件
+  - 剪贴板
+  - Markdown编辑器
+  - 富文本编辑器Editor
+  - 头部消息
+  - 全局搜索
+  - 图表
+  - 使用七牛上传
+  - 自定义上传
+  - 登出
+
+- 错误页面
+  - 401
+  - 404
 ```
 
-### 启动
-建议使用脚手架[hey-cli](https://github.com/heyui/hey-cli)开发项目。
+## 开始
 
-```
+**我们建议使用[hey-cli](https://github.com/heyui/hey-cli)脚手架。**
+
+```bash
+# clone the project
+git clone https://github.com/heyui/heyui-admin.git
+
+# install dependency
 npm install
 
+# develop, 你需要首先安装 hey-cli
 hey dev
 ```
 
-项目即启动成功，访问[http://localhost:9012](http://localhost:9012)查看系统
-
+系统将自动打开页面 http://localhost:9012, 或者你可以通过 hey.conf.js 文件修改端口号.
 
 ## 开发
 
-### 1、按需修改配置  
-/hey.js，修改反向代理地址  
+**hey.js**，将反向代理地址修改至真正的项目后端地址.
 
 ```js
 devServer: {
   "proxy": {
     "/api": {
-      //反向代理的地址
+      //proxy address
       "target": "http://umock.ch-un.com"
     }
   },
@@ -44,22 +129,23 @@ devServer: {
 },
 ```
 
-### 2、文件结构说明
+## 构建
 
-<img src="https://i.jihui.io/o_1c41c6if849hqrfb0h1sjn90db.png" alt="目录结构" style="width: 400px;max-width:100%;">
-
-## 部署
+我们建议所有构建环境使用相同的代码，具体方案请参考开发文档。
 
 ```
+# build
 hey build
 ```
 
-## Dependencies
+## 浏览器支持
 
-- [vue](https://cn.vuejs.org/v2/guide/)
-- [vue-router](https://router.vuejs.org/)
-- [hey-global](https://www.npmjs.com/package/hey-global): 控制全局变量
-- [hey-log](https://www.npmjs.com/package/hey-log): 简写console.log -> log
-- [hey-utils](https://www.npmjs.com/package/hey-utils): 基础utils库
-- [js-model](https://www.npmjs.com/package/js-model): 前端数据模型工具
-- [manba](https://www.npmjs.com/package/manba): 简洁的js日期工具:
+现代浏览器以及 Internet Explorer 9+.
+
+**系统已经自动安装配置好polyfill.**
+
+## License
+
+[MIT](https://github.com/heyui/heyui-admin/blob/master/LICENSE)
+
+Copyright (c) 2018-present Lan (vvpvvp)
