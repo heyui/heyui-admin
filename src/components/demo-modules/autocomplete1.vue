@@ -2,9 +2,9 @@
   .autocomplete-baidu{
     .middle-container{
       margin: 20% auto;
-      width: 500px;
+      max-width: 500px;
       .search-container{
-        width: 500px;
+        max-width: 500px;
         height: 40px;
         display: flex;
         input{

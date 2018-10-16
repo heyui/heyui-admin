@@ -5,7 +5,7 @@
 <template>
   <div class="autocomplete-complex-demos" v-padding="20">
     <div class="h-panel"  v-padding="40">
-      <Form v-width="400" :labelWidth="100">
+      <Form style="max-width: 400px" :labelWidth="100">
         <FormItem label="公司信息" readonly>
           {{companyId}}/{{companyName}}
         </FormItem>
