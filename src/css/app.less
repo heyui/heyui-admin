@@ -7,42 +7,46 @@ body{
   color: #333333;
 }
 
-@menuWidth: 180px;
+@menuWidth: 240px;
 @miniMenuWidth: 50px;
 @topHeight: 50px;
+@logoHeight: 80px;
 #app{
-
   .app-header {
     height: @topHeight;
     position: absolute;
-    background: @white-color;
-    box-shadow: @box-shadow;
     right: 0;
-    left: 0;
+    left: @menuWidth;
     z-index: 1;
-  }
-
-  .app-container{
-    top: @topHeight;
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0px;
   }
 
   .app-body {
     position: absolute;
     right: 0;
     bottom: 0px;
-    top: 0;
+    top: @topHeight;
     overflow: auto;
     left: @menuWidth;
   }
 
   .app-menu{
+    top: @logoHeight;
     width: @menuWidth;
     transition: width .2s ease-in-out;
   }
+
+  .app-logo{
+    line-height: @logoHeight;
+    height: @logoHeight;
+    width: @menuWidth;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: fantasy;
+    padding: 0px 20px;
+    position: absolute;
+    background: #FFF;
+  }
+  
 }
 
 
@@ -57,36 +61,18 @@ body{
   padding-top: 20px;
   background: @menu-color;
 
-  &-header{
-    height: 90px;
-    line-height: 90px;
-    text-overflow: clip;
-    overflow: hidden;
-    text-align: center;
-    white-space: nowrap;
-    >a{
-      color: @white-color;
-      font-size: 25px;
-    }
-
-    &-word{
-      font-size: 40px;
-      width: 80%;
-      display: inline-block;
-      line-height: 1;
-      transition: .2s;
-      font-family: monospace;
-      color: @gray1-color;
-      &:hover{
-        color: @white-color;
-      }
-    }
-  }
   .h-menu-white{
+    font-size: 14px;
     color: @dark-color;
+    .h-menu-li .h-menu-show:after {
+      content: none;
+    }
     .h-menu-li-selected{
-      background: @primary-color;
-      color: #FFF;
+      background: none;
+      font-weight: bold;
+    }
+    > li >.h-menu-show {
+      font-size: 15px;
     }
     .h-menu-ul{
       background: rgba(255, 255, 255, 0.07);
@@ -95,14 +81,8 @@ body{
 }
 
 
-.app-header{
 
-  &-title{
-    line-height: @topHeight;
-    font-size: 25px;
-    padding: 0px 20px;
-    display: inline-block;
-  }
+.app-header{
 
   &-menus{
     display: inline-block;
@@ -145,29 +125,6 @@ body{
     }
   }
 }
-
-
-
-.demo-doc{
-  p {
-    margin: 15px 0;
-  }
-
-  code{
-    padding: 10px;
-    background: @gray2-color;
-    border-radius: 2px;
-    display: block;
-  }
-  li{
-    margin: 10px 10px 10px 30px;
-    list-style: square;
-  }
-  a{
-    display: inline-block;
-  }
-}
-
 
 
 @media (max-width: 992px) {

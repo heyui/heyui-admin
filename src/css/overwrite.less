@@ -1,6 +1,15 @@
-.h-dropdownmenu-item {
-  padding: 10px 15px;
+.h-panel{
+  border: none;
+  &-bar {
+    padding: 16px 16px;
+    border-bottom: none;
+  }
+  &-bar &-title {
+    font-weight: bold;
+  }
+  &-bar+&-body{
+    padding-top: 0;
+  }
 }
-.h-menu-li > ul > li > div {
-  padding-left: 40px;
-}
+
+

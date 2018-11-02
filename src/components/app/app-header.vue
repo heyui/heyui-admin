@@ -1,6 +1,5 @@
 <template>
   <div class="app-header">
-    <div class="app-header-title"><a href="http://www.heyui.top">HEY UI</a></div>
     <div class="float-right app-header-info">
       <span><a v-font="20" href="https://github.com/heyui/heyui-admin" target="_blank"><i class="h-icon-github"></i></a></span>
       <i class="h-split"></i>

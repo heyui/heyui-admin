@@ -5,12 +5,11 @@
         <router-view></router-view>
       </template>
       <div v-else>
+        <div class="app-logo"><router-link to="/">HeyuiAdmin</router-link></div>
         <appHead></appHead>
-        <div class="app-container">
-          <appMenu></appMenu>
-          <div class="app-body">
-            <router-view></router-view>
-          </div>
+        <appMenu></appMenu>
+        <div class="app-body">
+          <router-view></router-view>
         </div>
         <SourceLink></SourceLink>
       </div>
