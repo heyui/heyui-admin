@@ -1,4 +1,40 @@
 <style lang="less">
+
+@menu-color: #FFF;
+.app-menu{
+  overflow-y: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0px;
+  padding-top: 20px;
+  background: @menu-color;
+
+  .h-menu-white{
+    font-size: 14px;
+    color: rgba(49, 58, 70, 0.8);
+    .h-menu-li .h-menu-show:after {
+      content: none;
+    }
+    .h-menu-li-selected{
+      background: none;
+    }
+    > li >.h-menu-show {
+      font-size: 15px;
+      .h-menu-show-icon {
+        font-size: 20px;
+      }
+    }
+    .h-menu-ul{
+      background: rgba(255, 255, 255, 0.07);
+    }
+    .h-menu-li > ul > li > div {
+      padding-left: 54px;  
+    }
+  }
+}
+
 </style>
 <template>
   <div class="app-menu">

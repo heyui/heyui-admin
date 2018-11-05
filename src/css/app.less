@@ -1,10 +1,12 @@
 @import (less) "~heyui/themes/common.less";
 @import (less) "./login.less";
 @import (less) "./overwrite.less";
+@import (less) "./fonts/font.less";
 
 body{
-  background: #F4F3F8;
-  color: #333333;
+  background: #f3f6f8;
+  color: #212529;
+  font-weight: 400;
 }
 
 @menuWidth: 240px;
@@ -27,6 +29,7 @@ body{
     top: @topHeight;
     overflow: auto;
     left: @menuWidth;
+    padding: 20px;
   }
 
   .app-menu{
@@ -41,45 +44,15 @@ body{
     width: @menuWidth;
     font-size: 22px;
     font-weight: bold;
-    font-family: fantasy;
     padding: 0px 20px;
     position: absolute;
     background: #FFF;
+    a {
+      color: #74777F;
+    }
   }
   
 }
-
-
-@menu-color: #FFF;
-.app-menu{
-  overflow-y: auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0px;
-  padding-top: 20px;
-  background: @menu-color;
-
-  .h-menu-white{
-    font-size: 14px;
-    color: @dark-color;
-    .h-menu-li .h-menu-show:after {
-      content: none;
-    }
-    .h-menu-li-selected{
-      background: none;
-      font-weight: bold;
-    }
-    > li >.h-menu-show {
-      font-size: 15px;
-    }
-    .h-menu-ul{
-      background: rgba(255, 255, 255, 0.07);
-    }
-  }
-}
-
 
 
 .app-header{

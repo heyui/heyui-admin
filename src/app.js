@@ -1,18 +1,19 @@
-import Vue from 'vue';
-import App from './components/App.vue';
-import VueRouter from 'vue-router';
+import Vue from 'vue/dist/vue.esm.js';
+import App from 'components/App.vue';
 
-import heyuiConfig from './js/config/heyui-config';
-import routerConfig from './js/config/router-config';
+import heyuiConfig from 'js/config/heyui-config';
+import routerConfig from 'js/config/router-config';
+import 'js/vue/components';
 
 require('./css/app.less');
+
+import 'wijmo/styles/wijmo.css'
 
 //HeyUI已经设定为全局变量，无需引用
 //设定全局变量请参考根目录下的hey.js文件
 
 
 heyuiConfig();
-Vue.use(VueRouter);
 Vue.use(HeyUI);
 
 const router = routerConfig(); 

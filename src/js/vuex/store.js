@@ -1,5 +1,5 @@
+import Vue from 'vue/dist/vue.esm.js';
 import Vuex from 'vuex';
-import Vue from 'vue';
 
 Vue.use(Vuex);
 

@@ -29,8 +29,10 @@
     "qs": "^6.4.0",
     "url": "^0.11.0",
     "vue": "^2.5.16",
+    "vue-echarts": "^3.1.3",
     "vue-router": "^2.5.3",
-    "vuex": "^2.3.1"
+    "vuex": "^2.3.1",
+    "wijmo": "^5.20182.524"
   },
   "devDependencies": {
     "eslint": "^3.8.1",

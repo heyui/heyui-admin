@@ -1,4 +1,7 @@
+import Vue from 'vue/dist/vue.esm.js';
 import VueRouter from 'vue-router';
+
+Vue.use(VueRouter);
 
 const initRouter = ()=>{
   const routerParam = {

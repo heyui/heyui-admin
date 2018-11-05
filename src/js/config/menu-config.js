@@ -1,15 +1,17 @@
 const menuConfig = [
   {
     title: '首页',
-    key: 'home'
+    key: 'home',
+    icon: 'icon-air-play',
+    count: 1
   },
   {
     title: '表单',
     key: 'form-folder',
+    icon: 'icon-paper',
     children: [
       {
         title: '表单',
-        icon: 'h-icon-search',
         key: 'form'
       }
     ]
@@ -17,20 +19,18 @@ const menuConfig = [
   {
     title: 'AutoComplete',
     key: 'AutoComplete-folder',
+    icon: 'icon-disc',
     children: [
       {
         title: '百度搜索',
-        icon: 'h-icon-search',
         key: 'autocomplete1'
       },
       {
         title: '场景应用',
-        icon: 'h-icon-complete',
         key: 'autocomplete2'
       },
       {
         title: '复杂场景',
-        icon: 'h-icon-user',
         key: 'autocomplete3'
       }
     ]
