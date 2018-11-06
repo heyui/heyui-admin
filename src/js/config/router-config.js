@@ -1,9 +1,9 @@
-import Vue from 'vue/dist/vue.esm.js';
+import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-const initRouter = ()=>{
+const initRouter = () => {
   const routerParam = {
     mode: 'history',
     routes: [{
@@ -40,7 +40,7 @@ const initRouter = ()=>{
     // if (titleConfig[to.name]) {
     //   document.title = titleConfig[to.name] + ' - 应用';
     // } else {
-      // document.title = '管理系统';
+    // document.title = '管理系统';
     // }
     next();
   })

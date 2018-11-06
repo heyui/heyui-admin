@@ -1,4 +1,4 @@
-import Vue from 'vue/dist/vue.esm.js';
+import Vue from 'vue';
 import Vuex from 'vuex';
 
 Vue.use(Vuex);
@@ -9,18 +9,18 @@ export default new Vuex.Store({
     showMenu: true
   },
   mutations: {
-    updateAccount(state, data){
+    updateAccount(state, data) {
       state.User = data;
     },
-    updateMenu(state, isShow){
+    updateMenu(state, isShow) {
       state.showMenu = isShow;
     }
   },
   actions: {
-    updateAccount(context, data){
+    updateAccount(context, data) {
       context.commit('updateAccount', data)
     },
-    updateMenu(context, data){
+    updateMenu(context, data) {
       context.commit('updateMenu', data)
     }
   },

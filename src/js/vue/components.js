@@ -1,4 +1,4 @@
-import Vue from 'vue/dist/vue.esm.js';
+import Vue from 'vue';
 // import Qiniu from 'components/common/qiniu';
 // Vue.component('Qiniu', Qiniu);
 

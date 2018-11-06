@@ -35,11 +35,10 @@
     "wijmo": "^5.20182.524"
   },
   "devDependencies": {
-    "eslint": "^3.8.1",
-    "eslint-config-airbnb-base": "^9.0.0",
-    "eslint-plugin-html": "^1.5.5",
-    "eslint-plugin-import": "^2.0.1",
-    "eslint-plugin-vue": "^0.1.1"
+    "eslint": "^5.8.0",
+    "eslint-plugin-html": "^4.0.6",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-vue": "^4.7.1"
   },
   "readmeFilename": "README.md",
   "scripts": {

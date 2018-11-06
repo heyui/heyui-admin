@@ -1,4 +1,4 @@
-import Vue from 'vue/dist/vue.esm.js';
+import Vue from 'vue';
 import App from 'components/App.vue';
 
 import heyuiConfig from 'js/config/heyui-config';
