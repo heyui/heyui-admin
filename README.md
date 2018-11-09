@@ -12,22 +12,22 @@
   </a>
 </p>
 
-简体中文 | [English](./README_en.md)
+[简体中文](./README_zh.md) | English
 
 
-## 介绍
+## Introduction
 
-heyui-admin是一个成熟的企业应用解决方案，它基于vue2.0和heyui组件库的后台管理系统。
+heyui-admin is a mature enterprise application solution. It based on vue and use the UI Toolkit heyui.
 
-- [在线预览](http://admin.heyui.top)
+- [Online Preview](http://admin.heyui.top)
 
-- [文档](https://heyui.github.io/heyui-admin)
+- [Documentation](https://heyui.github.io/heyui-admin-site)
 
-<span style="color: red">这是一个成熟的前端开发解决方案，你可以使用这个架构完成几乎90%的前端开发工作。</span>
+**This is a mature front-end solution. You can use this project to complete all front-end development work.**
 
-## 准备
+## Preparation
 
-项目基于一下依赖:
+The project is based on:
 - [hey-ui](https://github.com/ElemeFE/element)
 - [vue](https://cn.vuejs.org/index.html)
 - [vuex](https://vuex.vuejs.org/zh-cn/)
@@ -39,85 +39,88 @@ heyui-admin是一个成熟的企业应用解决方案，它基于vue2.0和heyui�
 - [hey-global](https://www.npmjs.com/package/hey-global)
 - [hey-log](https://www.npmjs.com/package/hey-log)
 
-提前了解和学习这些知识将大大有助于这个项目的使用。
+Understanding and learning this knowledge in advance will greatly help the use of this project.
 
 
-## 功能
+## Features
 
 ```
 - Js
-  - 通用 / common
-    - 封装axios / ajax
-    - 封装所有的请求 / request
-    - 通用方法 / utils
-  - Js模型/model
-  - 配置 / config
-    - 路由配置 / router-config
-    - heyui配置 / router-config
-    - 字典配置 / dict-config
-    - 树配置 / tree-config
-    - 菜单配置 / menu-config
-    - 图表风格配置 / echart-config
-  - vue / vue
-    - 通用组件 / components
-    - 通用filters / filters
-    - 通用directives / directives
-  - vuex / vuex
+  - common
+    - package axios
+    - all requests
+    - common utils
+  - js modal
+  - config
+    - router config
+    - heyui config
+    - dict config
+    - menu config
+  - vue
+    - components
+    - filters
+    - directives
+  - vuex
     - store
 
-- 框架组件
+- FrameComponent
   - App
-  - App头部
-  - App左侧菜单
-  - router-view
+  - App Header
+    - Messages
+    - Global Search
+  - App Menu
+  - Login
 
-- 组件
-  - 登录
-  - 仪表盘
-  - 创建表单
-  - 表格
-  - 数据列表
-  - 详情页面
-  - 详情弹框
-  - 个人中心
-  - 选择地址组件
-  - 剪贴板
-  - Markdown编辑器
-  - 富文本编辑器Editor
-  - 头部消息
-  - 全局搜索
-  - 图表
-  - 使用七牛上传
-  - 自定义上传
-  - 登出
+- Components
+  - Dashbord
+  - Icons
+  - Detail
+    - Basic Page
+    - Detail Page
+  - Form
+    - Basic Form
+    - Create Form
+  - Table
+    - Basic Table
+    - Search Table
+    - Detail Modal
+  - Components
+    - AddressPicker
+    - Clipboard
+    - Markdown
+    - Rich Text Editor
+    - Chart
+  - Personal Center
+    - Basic Info
+    - Security Setting
+    - Account Binding
+  - Logout
 
-- 错误页面
+- Error Page
   - 401
   - 404
 ```
 
-## 开始
+## Getting started
 
-**我们建议使用[hey-cli](https://github.com/heyui/hey-cli)脚手架。**
+**Recommend to use of scaffolding [hey-cli](https://github.com/heyui/hey-cli).**
 
 ```bash
 # clone the project
 git clone https://github.com/heyui/heyui-admin.git
 
-cd heyui-admin
-
 # install dependency
 npm install
 
-# develop, 你需要首先安装 hey-cli
+# develop, you have installed hey-cli
 hey dev
 ```
 
-系统将自动打开页面 http://localhost:9012, 或者你可以通过 hey.conf.js 文件修改端口号.
+This will automatically open http://localhost:9012, or you can change the port in hey.conf.js file.
 
-## 开发
+## Develop
 
-**hey.conf.js**，将反向代理地址修改至真正的项目后端地址.
+**hey.conf.js**，modify the reverse proxy address to the back end address of the real project.
 
 ```js
 devServer: {
@@ -131,20 +134,17 @@ devServer: {
 },
 ```
 
-## 构建
-
-我们建议所有构建环境使用相同的代码，具体方案请参考开发文档。
-
+## Build
+We recommend that all environments use the same set of code, and refer to the documentation for specific solutions.
 ```
 # build
 hey build
 ```
+## Browser Support
 
-## 浏览器支持
+Modern browsers and Internet Explorer 9+.
 
-现代浏览器以及 Internet Explorer 9+.
-
-**系统已经自动安装配置好polyfill.**
+**The system has been configured to install polyfill.**
 
 ## License
 

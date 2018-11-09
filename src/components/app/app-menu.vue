@@ -14,11 +14,11 @@
   .h-menu-white{
     font-size: 14px;
     color: rgba(49, 58, 70, 0.8);
-    .h-menu-li .h-menu-show:after {
-      content: none;
-    }
     .h-menu-li-selected{
-      background: none;
+      background-color: rgba(226, 246, 247, 0.4);
+      .h-menu-show:after {
+        width: 4px;
+      }
     }
     > li >.h-menu-show {
       font-size: 15px;
