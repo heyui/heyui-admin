@@ -7,29 +7,33 @@ const initRouter = () => {
   const routerParam = {
     mode: 'history',
     routes: [{
-      path: '/',
-      name: 'home',
-      component: (resolve) => require(['components/welcome/home'], resolve)
-    }, {
       path: '/login',
       name: 'login',
       component: (resolve) => require(['components/login'], resolve)
     }, {
-      path: '/form',
-      name: 'form',
-      component: (resolve) => require(['components/demo-modules/form'], resolve)
-    }, {
-      path: '/autocomplete1',
-      name: 'autocomplete1',
-      component: (resolve) => require(['components/demo-modules/autocomplete1'], resolve)
-    }, {
-      path: '/autocomplete2',
-      name: 'autocomplete2',
-      component: (resolve) => require(['components/demo-modules/autocomplete2'], resolve)
-    }, {
-      path: '/autocomplete3',
-      name: 'autocomplete3',
-      component: (resolve) => require(['components/demo-modules/autocomplete3'], resolve)
+      path: '/',
+      component: (resolve) => require(['components/app/app-frame'], resolve),
+      children: [{
+        path: '/',
+        name: 'home',
+        component: (resolve) => require(['components/welcome/home'], resolve)
+      }, {
+        path: '/form',
+        name: 'form',
+        component: (resolve) => require(['components/demo-modules/form'], resolve)
+      }, {
+        path: '/autocomplete1',
+        name: 'autocomplete1',
+        component: (resolve) => require(['components/demo-modules/autocomplete1'], resolve)
+      }, {
+        path: '/autocomplete2',
+        name: 'autocomplete2',
+        component: (resolve) => require(['components/demo-modules/autocomplete2'], resolve)
+      }, {
+        path: '/autocomplete3',
+        name: 'autocomplete3',
+        component: (resolve) => require(['components/demo-modules/autocomplete3'], resolve)
+      }]
     }]
   };
 

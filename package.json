@@ -35,7 +35,7 @@
     "wijmo": "^5.20182.524"
   },
   "devDependencies": {
-    "eslint": "^5.8.0",
+    "eslint": "^5.9.0",
     "eslint-plugin-html": "^4.0.6",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-vue": "^4.7.1"

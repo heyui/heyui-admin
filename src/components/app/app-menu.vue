@@ -8,7 +8,6 @@
   right: 0;
   bottom: 0;
   top: 0px;
-  padding-top: 20px;
   background: @menu-color;
 
   .h-menu-white{
