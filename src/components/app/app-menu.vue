@@ -2,19 +2,13 @@
 
 @menu-color: #FFF;
 .app-menu{
-  overflow-y: auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0px;
   background: @menu-color;
 
   .h-menu-white{
     font-size: 14px;
     color: rgba(49, 58, 70, 0.8);
     .h-menu-li-selected{
-      background-color: rgba(226, 246, 247, 0.4);
+      background-color: rgb(240, 246, 255);
       .h-menu-show:after {
         width: 4px;
       }

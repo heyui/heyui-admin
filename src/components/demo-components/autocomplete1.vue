@@ -29,7 +29,7 @@
   }
 </style>
 <template>
-  <div v-padding="20" class="autocomplete-baidu">
+  <div class="frame-page autocomplete-baidu">
     <div class="middle-container">
       <div class="search-container">
         <AutoComplete class="flex1" placeholder=" " :mustMatch="false" config="baidu" v-model="keyword" type="title" @change="trigger"></AutoComplete>

@@ -3,7 +3,7 @@
   }
 </style>
 <template>
-  <div class="autocomplete-complex-demos" v-padding="20">
+  <div class="autocomplete-complex-demos frame-page">
     <div class="h-panel"  v-padding="40">
       <Form style="max-width: 400px" :labelWidth="100">
         <FormItem label="公司信息" readonly>

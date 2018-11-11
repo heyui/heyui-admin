@@ -72,9 +72,9 @@ Understanding and learning this knowledge in advance will greatly help the use o
   - Login
 
 - Components
-  - Dashbord
+  - Dashboard
   - Icons
-  - Detail
+  - Info
     - Basic Page
     - Detail Page
   - Form
@@ -97,8 +97,9 @@ Understanding and learning this knowledge in advance will greatly help the use o
   - Logout
 
 - Error Page
-  - 401
+  - 403
   - 404
+  - 500
 ```
 
 ## Getting started

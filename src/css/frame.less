@@ -1,0 +1,71 @@
+@menuWidth: 240px;
+@miniMenuWidth: 50px;
+@topHeight: 60px;
+@frame-box-shadow: rgba(29, 35, 41, 0.05);
+
+#app{
+  .app-header {
+    height: @topHeight;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    padding-left: @menuWidth;
+    background: #FFF;
+    box-shadow: 2px 0 10px 0 @frame-box-shadow;
+    line-height: @topHeight;
+  }
+
+  .app-body {
+    // right: 0;
+    // bottom: 0px;
+    top: 0;
+    padding-top: @topHeight;
+    // overflow: auto;
+    padding-left: @menuWidth;
+    height: 100vh;
+    position: relative;
+  }
+
+  .app-menu{
+    padding-top: @topHeight + 20px;
+    top: 0;
+    width: @menuWidth;
+    transition: width .2s ease-in-out;
+    overflow-y: auto;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    bottom: 0;
+    box-shadow: 2px 0 10px 0 @frame-box-shadow;
+  }
+
+  .app-logo{
+    box-shadow: 2px 2px 8px 0 @frame-box-shadow;
+    z-index: 2;
+    line-height: @topHeight;
+    height: @topHeight;
+    width: @menuWidth;
+    position: fixed;
+    background: #FFF;
+  }
+  
+}
+
+
+
+
+@media (max-width: 992px) {
+  #app {
+    .app-menu {
+      position: relative;
+      width: auto;
+    }
+    .app-body {
+      position: relative;
+      overflow: initial;
+      left: 0;
+    }
+  }
+}

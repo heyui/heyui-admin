@@ -28,6 +28,10 @@ const baiduLoadData = function (filter, callback) {
 
 export default function(){
   return {
+    globalSearch: {
+      loadData: baiduLoadData,
+      minWord: 0
+    },
     simple: {
       loadData,
       keyName: 'id',

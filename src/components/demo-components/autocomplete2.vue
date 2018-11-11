@@ -9,7 +9,7 @@
   }
 </style>
 <template>
-  <div class="autocomplete-full-demos" v-padding="20">
+  <div class="autocomplete-full-demos frame-page">
     <div class="h-panel"  v-padding="40">
       <h4>默认Key模式</h4>
       <p>option可以传递一些业务参数，针对于选择数据的时候。</p>

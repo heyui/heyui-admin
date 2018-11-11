@@ -1,39 +1,120 @@
-<template>
-  <div class="app-header">
-    <div class="float-right app-header-info">
-      <span><a v-font="20" href="https://github.com/heyui/heyui-admin" target="_blank"><i class="h-icon-github"></i></a></span>
-      <i class="h-split"></i>
-      <DropdownMenu class-name="app-header-dropdown" placement="bottom-end"
-                    :datas="infoMenu"
-                    @onclick="trigger"><span>{{User.name}}</span></DropdownMenu>
-    </div>
-  </div>
-</template>
-<script>
-import { mapState } from 'vuex'
-import { mapActions } from 'vuex'
+<style lang="less">
+.app-header {
+  color: rgba(49, 58, 70, 0.8);
 
-export default {
-  data() {
-    return {
-      infoMenu: [
-        { key: 'info', title: '个人信息', icon: 'h-icon-user' },
-        { key: 'logout', title: '退出登录', icon: 'h-icon-outbox' },
-      ]
+  .h-autocomplete {
+    line-height: 1.5;
+    float: left;
+    margin-top: 15px;
+    margin-right: 20px;
+    &-show,&-show:hover, &-show.focusing {
+      outline: none;
+      box-shadow: none;
+      border-color: transparent;
+      border-radius: 0;
     }
-  },
-  computed: {
-    ...mapState({
-      User: 'User'
-    })
-  },
-  methods: {
-    trigger(data) {
-      if (data == 'logout') {
-        Utils.removeLocal('Auth');
-        this.$router.replace('/login');
+    &-show.focusing{
+      border-bottom: 1px solid #eee;
+    }
+  }
+  &-info &-icon-item {
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    padding: 0 15px;
+    margin-right: 10px;
+    &:hover {
+      background: @hover-background-color;
+    }
+    i {
+      font-size: 18px;
+    }
+    a {
+      color: inherit;
+    }
+  }
+
+  &-dropdown{
+    float: right;
+    padding: 0 20px 0 15px;
+    .h-icon-down {
+      right: 20px;
+    }
+    cursor: pointer;
+    &:hover, &.h-pop-trigger {
+      background: @hover-background-color;
+    }
+    &-dropdown {
+      padding: 5px 0;
+      .h-dropdownmenu-item {
+        padding: 8px 20px;
+      }
+    }
+  }
+
+  &-menus{
+    display: inline-block;
+    vertical-align: top;
+    >div {
+      display: inline-block;
+      font-size: 15px;
+      padding: 0 25px;
+      color: @dark-color;
+      &:hover{
+        color: @primary-color;
+      }
+      +div {
+        margin-left: 5px;
+      }
+      &.h-tab-selected{
+        color: @white-color;
+        background-color: @primary-color;
       }
     }
   }
 }
+</style>
+
+<template>
+  <div class="app-header">
+    <div class="float-right app-header-info">
+      <AutoComplete v-model="searchText" config="globalSearch" placeholder="全局搜索.."></AutoComplete>
+      <div class="app-header-icon-item">
+        <Badge :count="2"><i class="h-icon-bell"></i></Badge>
+      </div>
+      <div class="app-header-icon-item" v-tooltip content="说明文档" theme="white">
+        <a href="https://github.com/heyui/heyui-admin" target="_blank"><i class="h-icon-help"></i></a>
+      </div>
+      <DropdownMenu className="app-header-dropdown" trigger="hover" offset="0 5" :width="150" placement="bottom-end" :datas="infoMenu" @onclick="trigger"><span>{{User.name}}</span></DropdownMenu>
+    </div>
+  </div>
+</template>
+<script>
+import { mapState } from "vuex";
+import { mapActions } from "vuex";
+
+export default {
+  data() {
+    return {
+      searchText: '',
+      infoMenu: [
+        { key: "info", title: "个人信息", icon: "h-icon-user" },
+        { key: "logout", title: "退出登录", icon: "h-icon-outbox" }
+      ]
+    };
+  },
+  computed: {
+    ...mapState({
+      User: "User"
+    })
+  },
+  methods: {
+    trigger(data) {
+      if (data == "logout") {
+        Utils.removeLocal("Auth");
+        this.$router.replace("/login");
+      }
+    }
+  }
+};
 </script>

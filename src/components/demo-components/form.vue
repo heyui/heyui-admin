@@ -1,5 +1,5 @@
 <template>
-  <div class="app-form" v-padding="20">
+  <div class="app-form frame-page">
     <div class="h-panel">
       <div class="h-panel-bar">
         <span class="h-panel-title">Form</span>

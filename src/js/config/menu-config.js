@@ -1,9 +1,14 @@
 const menuConfig = [
   {
-    title: '首页',
+    title: 'Dashboard',
     key: 'home',
-    icon: 'icon-air-play',
+    icon: 'icon-monitor',
     count: 1
+  },
+  {
+    title: 'Icons',
+    key: 'icons',
+    icon: 'icon-heart'
   },
   {
     title: '表单',
@@ -32,6 +37,25 @@ const menuConfig = [
       {
         title: '复杂场景',
         key: 'autocomplete3'
+      }
+    ]
+  },
+  {
+    title: '错误页面',
+    key: 'error-pages',
+    icon: 'icon-circle-cross',
+    children: [
+      // {
+      //   title: '403',
+      //   key: 'permissionError'
+      // },
+      {
+        title: '404',
+        key: 'notfoundError'
+      },
+      {
+        title: '500',
+        key: 'systemError'
       }
     ]
   }
