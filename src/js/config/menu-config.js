@@ -45,10 +45,10 @@ const menuConfig = [
     key: 'error-pages',
     icon: 'icon-circle-cross',
     children: [
-      // {
-      //   title: '403',
-      //   key: 'permissionError'
-      // },
+      {
+        title: '403',
+        key: 'permissionError'
+      },
       {
         title: '404',
         key: 'notfoundError'
