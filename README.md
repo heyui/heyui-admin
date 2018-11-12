@@ -90,10 +90,9 @@ Understanding and learning this knowledge in advance will greatly help the use o
     - Markdown
     - Rich Text Editor
     - Chart
-  - Personal Center
-    - Basic Info
+  - Account Center
+    - Account Setting
     - Security Setting
-    - Account Binding
   - Logout
 
 - Error Page
