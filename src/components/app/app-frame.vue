@@ -6,10 +6,12 @@
       <appLogo></appLogo>
       <appHead></appHead>
       <appMenu></appMenu>
+      <SysTabs></SysTabs>
       <div class="app-body">
+        <keep-alive>
           <router-view></router-view>
+        </keep-alive>
       </div>
-      <SourceLink></SourceLink>
     </template>
   </div>
 </template>
@@ -18,8 +20,7 @@
 import appHead from './app-header';
 import appMenu from './app-menu';
 import appLogo from './app-logo';
-import SourceLink from '../common/SourceLink';
-
+import SysTabs from '../common/SysTabs/SysTabs';
 import store from 'js/vuex/store';
 
 export default {
@@ -59,7 +60,7 @@ export default {
     appHead,
     appMenu,
     appLogo,
-    SourceLink
+    SysTabs
   }
 };
 </script>
