@@ -1,7 +1,7 @@
 const menuConfig = [
   {
     title: 'Dashboard',
-    key: 'home',
+    key: 'Home',
     icon: 'icon-monitor',
     count: 1
   },

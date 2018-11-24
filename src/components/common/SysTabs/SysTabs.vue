@@ -1,15 +1,14 @@
 <style lang="less">
 .sys-tabs-vue{
   // position: relative;
-  border-top: 1px solid #F0F0F0;
-  border-bottom: 1px solid #F0F0F0;
   right: 0;
   position: fixed;
   height: 45px;
   top: 60px;
   left: 240px;
-  background: #eee;
+  background: #f0f1f2;
   user-select: none;
+  z-index: 3;
   .close-con{
     position: absolute;
     right: 0;
@@ -28,15 +27,85 @@
     right: 0;
     top: 0;
     bottom: 0;
-    box-shadow: 0px 0 3px 2px rgba(100,100,100,.1) inset;
     .tabs-body{
-      height: ~"calc(100% - 1px)";
-      display: inline-block;
-      padding: 1px 4px 0;
-      position: absolute;
-      overflow: visible;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
       white-space: nowrap;
-      transition: left .3s ease;
+      border-bottom: 3px solid #FFF;
+      padding: 8px 8px 0;
+    }
+    .tabs-item {
+      line-height: 36px;
+      padding: 0 15px;
+      position: relative;
+      max-width: 160px;
+      flex: 1;
+      border-radius: 8px 8px 0 0;
+      margin-left: -1px;
+      margin-right: -1px;
+      &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 10px;
+        bottom: 10px;
+        border-right: 1px solid #b5b5b5;
+      }
+      &-title {
+        font-size: 13px;
+        overflow: hidden;
+        margin-right: 15px;
+      }
+      &.tabs-item-chosen, &:hover {
+        z-index: 1;
+        &:after,&:before {
+          content: '';
+          bottom: 0;
+          position: absolute;
+          top:auto;
+          border-right: none;
+        }
+        &:after {
+          width: 0;
+          height: 0;
+          border-bottom: 10px solid white;
+          border-right: 10px solid transparent;
+          right: -3px;
+          z-index: 3;
+        }
+        &:before {
+          width: 0;
+          height: 0;
+          border-bottom: 10px solid white;
+          border-left: 10px solid transparent;
+          left: -3px;
+          z-index: 3;
+        }
+      }
+      &:hover {
+        background: #f8f9f9;
+        &:after {
+          border-bottom: 10px solid #f8f9f9;
+        }
+        &:before {
+          border-bottom: 10px solid #f8f9f9;
+        }
+      }
+      &.tabs-item-chosen {
+        background: #FFF;
+      }
+      &-close {
+        font-size: 12px;
+        position: absolute;
+        right: 10px;
+        top: 13px;
+        color: #666;
+        cursor: pointer;
+        &:hover{
+          color: #333;
+        }
+      }
     }
   }
   .contextmenu {
@@ -63,10 +132,10 @@
 <template>
   <div class="sys-tabs-vue">
     <div class="tabs-container" ref="scrollOuter">
-      <div ref="scrollBody" class="tabs-body" :style="{left: tagBodyLeft + 'px'}">
-        <span v-for="(item, index) of list" :key="`sys-tab-${index}`" @click="handleClick(item)" :class="{'chosen': isCurrentTab(item)}">
-          <span>{{showTitleInside(item)}}</span>
-          <span class="h-icon-close" @click.stop="handleClose(item)"></span>
+      <div class="tabs-body">
+        <span v-for="(item, index) of tagList" :key="`sys-tab-${index}`" @click="handleClick(item)" class="tabs-item" :class="{'tabs-item-chosen': isCurrentTab(item)}">
+          <div class="tabs-item-title">{{item.meta.title}}</div>
+          <span class="tabs-item-close h-icon-close" @click.stop="handleClose(item)"></span>
         </span>
       </div>
     </div>
@@ -74,17 +143,11 @@
 </template>
 
 <script>
-import { showTitle, routeEqual } from './utils'
+import {showTitle, routeEqual, isExsit} from './utils'
 export default {
   name: 'TagsNav',
   props: {
     value: Object,
-    list: {
-      type: Array,
-      default () {
-        return []
-      }
-    }
   },
   data () {
     return {
@@ -98,6 +161,10 @@ export default {
     }
   },
   methods: {
+    init() {
+      this.tagList = Utils.getLocal2Json('SYS_TABS') || [];
+      this.addTab(this.$route);
+    },
     beforeClose() {
       return this.$Confirm('确定要关闭这一页吗');
     },
@@ -109,28 +176,53 @@ export default {
           }
         })
       } else {
-        this.close(current)
+        this.close(current);
       }
     },
     close (route) {
-      let res = this.list.filter(item => !routeEqual(route, item))
-      this.$emit('on-close', res, undefined, route)
+      let index = this.tagList.indexOf(route);
+      this.tagList.splice(index, 1);
+      let newroute = null;
+      if (this.isCurrentTab(route)) {
+        if(this.tagList.length > index) {
+          newroute = this.tagList[index]
+        } else if (this.tagList.length > 0) {
+          newroute = this.tagList[index-1]
+        } else {
+          this.$router.replace({name: 'Home'});
+        }
+        if(newroute)this.$router.replace(newroute);
+      }
+      this.saveLocal();
     },
     handleClick (item) {
-      this.$emit('input', item)
+      this.$router.push(item);
     },
     showTitleInside (item) {
       return showTitle(item, this)
     },
     isCurrentTab (item) {
       return routeEqual(this.currentRouteObj, item)
+    },
+    addTab(route) {
+      const { name, query, params, meta } = route
+      let routeObj = { name, query, params, meta: meta || {} };
+      if (!isExsit(routeObj, this.tagList)) {
+        this.tagList.push(routeObj);
+        this.saveLocal();
+      }
+    },
+    saveLocal() {
+      Utils.saveLocal('SYS_TABS', this.tagList);
     }
+  },
+  mounted() {
+    this.init();
   },
   watch: {
     '$route' (to) {
+      this.addTab(to);
     }
-  },
-  mounted () {
   }
 }
 </script>

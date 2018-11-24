@@ -16,7 +16,6 @@ const hasOneOf = (targetarr, arr) => {
   return targetarr.some(_ => arr.indexOf(_) > -1)
 }
 
-
 /**
  * @param {*} obj1 对象
  * @param {*} obj2 对象
@@ -105,6 +104,15 @@ export const getBreadCrumbList = (route, homeRoute) => {
   return [{...homeItem, to: homeRoute.path}, ...res]
 }
 
+export const isExsit = (obj, list) => {
+  for (let route of list) {
+    if(routeEqual(route, obj)) {
+      return true;
+    }
+  }
+  return false;
+}
+
 export const getRouteTitleHandled = (route) => {
   let router = {...route}
   let meta = {...route.meta}
@@ -121,13 +129,8 @@ export const getRouteTitleHandled = (route) => {
 }
 
 export const showTitle = (item, vm) => {
-  let { title, __titleIsFunction__ } = item.meta
+  let { title } = item.meta
   if (!title) return
-  if (vm.$config.useI18n) {
-    if (title.includes('{{') && title.includes('}}') && vm.$config.useI18n) title = title.replace(/({{[\s\S]+?}})/, (m, str) => str.replace(/{{([\s\S]*)}}/, (m, _) => vm.$t(_.trim())))
-    else if (__titleIsFunction__) title = item.meta.title
-    else title = vm.$t(item.name)
-  } else title = (item.meta && item.meta.title) || item.name
   return title
 }
 

@@ -10,7 +10,7 @@
 
 <template>
   <div class="source-link-vue">
-    <a :href="src" target="blank" v-if="$route.name != 'home'">查看源代码</a>
+    <a :href="src" target="blank" v-if="$route.name != 'Home'">查看源代码</a>
   </div>
 </template>
 <script>
