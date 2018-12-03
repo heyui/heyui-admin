@@ -6,7 +6,7 @@
       <appLogo></appLogo>
       <appHead></appHead>
       <appMenu></appMenu>
-      <SysTabs></SysTabs>
+      <SysTabs homePage="Home"></SysTabs>
       <div class="app-body">
         <keep-alive>
           <router-view></router-view>

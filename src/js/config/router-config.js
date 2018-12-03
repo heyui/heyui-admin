@@ -14,15 +14,15 @@ const initRouter = () => {
       path: '/',
       component: (resolve) => require(['components/app/app-frame'], resolve),
       children: [{
-        path: '/home',
+        path: '',
         name: 'Home',
         component: (resolve) => require(['components/welcome/home'], resolve),
-        meta: {title: '首页'}
+        meta: {title: '首页', icon: 'icon-monitor'}
       }, {
         path: '/form',
         name: 'form',
         component: (resolve) => require(['components/demo-components/form'], resolve),
-        meta: {title: '表单'}
+        meta: {title: '表单', icon: 'icon-paper'}
       }, {
         path: '/autocomplete1',
         name: 'autocomplete1',
@@ -42,12 +42,12 @@ const initRouter = () => {
         path: '/icons',
         name: 'icons',
         component: (resolve) => require(['components/demo-components/icons'], resolve),
-        meta: {title: '图表列表'}
+        meta: {title: '图表列表', icon: 'icon-grid'}
       }, {
         path: '/formBasic',
         name: 'formBasic',
         component: (resolve) => require(['components/demo-components/form/basic'], resolve),
-        meta: {title: '基础表单'}
+        meta: {title: '基础表单', icon: 'icon-paper'}
       }, {
         path: '/formCreate',
         name: 'formCreate',
@@ -72,7 +72,7 @@ const initRouter = () => {
         path: '/accountBasic',
         name: 'accountBasic',
         component: (resolve) => require(['components/demo-components/account/account-setting'], resolve),
-        meta: {title: '用户信息'}
+        meta: {title: '用户信息', icon: 'icon-head'}
       }, {
         path: '/accountSecurity',
         name: 'accountSecurity',
@@ -120,7 +120,7 @@ const initRouter = () => {
         meta: {title: '权限错误'}
       }, 
       {
-        path: '/404',
+        path: '*',
         name: 'notfoundError',
         component: (resolve) => require(['components/error-pages/404'], resolve),
         meta: {title: '页面找不到'}

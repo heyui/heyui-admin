@@ -134,8 +134,11 @@
     <div class="tabs-container" ref="scrollOuter">
       <div class="tabs-body">
         <span v-for="(item, index) of tagList" :key="`sys-tab-${index}`" @click="handleClick(item)" class="tabs-item" :class="{'tabs-item-chosen': isCurrentTab(item)}">
-          <div class="tabs-item-title">{{item.meta.title}}</div>
-          <span class="tabs-item-close h-icon-close" @click.stop="handleClose(item)"></span>
+          <div class="tabs-item-title">
+            <span :class="item.meta.icon"></span>
+            <span>{{item.meta.title}}</span>
+          </div>
+          <span class="tabs-item-close h-icon-close" @click.stop="handleClose(item)" v-if="homePage!=item.name"></span>
         </span>
       </div>
     </div>
@@ -148,6 +151,7 @@ export default {
   name: 'TagsNav',
   props: {
     value: Object,
+    homePage: String
   },
   data () {
     return {
@@ -205,6 +209,7 @@ export default {
       return routeEqual(this.currentRouteObj, item)
     },
     addTab(route) {
+      if(!route.name) return;
       const { name, query, params, meta } = route
       let routeObj = { name, query, params, meta: meta || {} };
       if (!isExsit(routeObj, this.tagList)) {
