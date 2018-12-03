@@ -100,10 +100,15 @@
         position: absolute;
         right: 10px;
         top: 13px;
-        color: #666;
+        color: #999;
         cursor: pointer;
+        border-radius: 50%;
+        padding: 4px;
+        margin: -4px;
+        transform: scale(0.8);
         &:hover{
           color: #333;
+          background: #e4e4e4;
         }
       }
     }
