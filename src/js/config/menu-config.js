@@ -22,6 +22,25 @@ const menuConfig = [
     ]
   },
   {
+    title: '扩展组件',
+    key: 'Advance-folder',
+    icon: 'icon-bar-graph-2',
+    children: [
+      {
+        title: '图表',
+        key: 'chart'
+      },
+      {
+        title: 'Markdown编辑器',
+        key: 'markdownEditor'
+      },
+      {
+        title: '富文本编辑器',
+        key: 'ricktextEditor'
+      }
+    ]
+  },
+  {
     title: 'AutoComplete',
     key: 'AutoComplete-folder',
     icon: 'icon-disc',
@@ -37,6 +56,17 @@ const menuConfig = [
       {
         title: '复杂场景',
         key: 'autocomplete3'
+      }
+    ]
+  },
+  {
+    title: '系统设置',
+    key: 'sys-setting',
+    icon: 'icon-cog',
+    children: [
+      {
+        title: '系统设置',
+        key: 'setting'
       }
     ]
   },

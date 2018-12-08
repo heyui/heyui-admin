@@ -6,7 +6,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     User: {},
-    showMenu: true
+    showMenu: true,
+    showSystab: Utils.getLocal('SETTING_SYSTAB') || false,
   },
   mutations: {
     updateAccount(state, data) {
@@ -14,6 +15,9 @@ export default new Vuex.Store({
     },
     updateMenu(state, isShow) {
       state.showMenu = isShow;
+    },
+    updateSystab(state, isShow) {
+      state.showSystab = isShow;
     }
   },
   actions: {
@@ -22,6 +26,10 @@ export default new Vuex.Store({
     },
     updateMenu(context, data) {
       context.commit('updateMenu', data)
+    },
+    updateSystab(context, data) {
+      Utils.saveLocal('SETTING_SYSTAB', data);
+      context.commit('updateSystab', data)
     }
   },
   getters: {
@@ -30,6 +38,9 @@ export default new Vuex.Store({
     },
     showMenu: state => {
       return state.showMenu
+    },
+    showSystab: state => {
+      return state.showSystab
     }
   }
 })

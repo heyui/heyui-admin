@@ -6,7 +6,7 @@
   height: 45px;
   top: 60px;
   left: 240px;
-  background: #f0f1f2;
+  background: #f3f6f8;
   user-select: none;
   z-index: 3;
   .close-con{

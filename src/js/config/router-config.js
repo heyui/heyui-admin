@@ -109,6 +109,11 @@ const initRouter = () => {
         component: (resolve) => require(['components/demo-components/components/richtext-editor'], resolve),
         meta: {title: '富文本编辑器'}
       }, {
+        path: '/setting',
+        name: 'setting',
+        component: (resolve) => require(['components/setting/setting'], resolve),
+        meta: {title: '系统设置'}
+      }, {
         path: '/systemError',
         name: 'systemError',
         component: (resolve) => require(['components/error-pages/500'], resolve),

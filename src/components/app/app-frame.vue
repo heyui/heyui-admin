@@ -6,7 +6,7 @@
       <appLogo></appLogo>
       <appHead></appHead>
       <appMenu></appMenu>
-      <SysTabs homePage="Home"></SysTabs>
+      <SysTabs v-if="showSystab" homePage="Home"></SysTabs>
       <div class="app-body">
         <keep-alive>
           <router-view></router-view>
@@ -22,6 +22,7 @@ import appMenu from './app-menu';
 import appLogo from './app-logo';
 import SysTabs from '../common/SysTabs/SysTabs';
 import store from 'js/vuex/store';
+import { mapState } from "vuex";
 
 export default {
   data() {
@@ -55,7 +56,9 @@ export default {
       });
     }
   },
-  computed: {},
+  computed: {
+    ...mapState(['showSystab'])
+  },
   components: {
     appHead,
     appMenu,

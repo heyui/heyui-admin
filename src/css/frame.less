@@ -9,22 +9,26 @@
     position: fixed;
     right: 0;
     left: 0;
-    z-index: 1;
+    z-index: 3;
     padding-left: @menuWidth;
     background: #FFF;
     box-shadow: 2px 0 10px 0 @frame-box-shadow;
     line-height: @topHeight;
   }
 
+
+
   .app-body {
-    // right: 0;
-    // bottom: 0px;
     top: 0;
-    padding-top: @topHeight + 45px;
-    // overflow: auto;
+    padding-top: @topHeight;
     padding-left: @menuWidth;
     height: 100vh;
+    z-index: 1;
     position: relative;
+  }
+
+  .sys-tabs-vue+.app-body {
+    padding-top: @topHeight + 45px;
   }
 
   .app-menu{
@@ -36,14 +40,14 @@
     position: fixed;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 3;
     bottom: 0;
     box-shadow: 2px 0 10px 0 @frame-box-shadow;
   }
 
   .app-logo{
     box-shadow: 2px 2px 8px 0 @frame-box-shadow;
-    z-index: 2;
+    z-index: 4;
     line-height: @topHeight;
     height: @topHeight;
     width: @menuWidth;
