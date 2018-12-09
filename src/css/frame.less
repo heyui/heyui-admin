@@ -19,12 +19,13 @@
 
 
   .app-body {
-    top: 0;
-    padding-top: @topHeight;
-    padding-left: @menuWidth;
-    min-height: 100vh;
+    top: @topHeight;
+    left: @menuWidth;
     z-index: 1;
-    position: relative;
+    overflow: auto;
+    bottom: 0;
+    right: 0;
+    position: fixed;
   }
 
   .sys-tabs-vue+.app-body {
@@ -77,7 +78,8 @@
     .app-body {
       position: relative;
       overflow: initial;
-      padding-left: 0;
+      left: 0;
+      top: 0;
     }
   }
 }

@@ -125,8 +125,13 @@ const initRouter = () => {
         meta: {title: '权限错误'}
       }, 
       {
-        path: '*',
+        path: '/notfoundError',
         name: 'notfoundError',
+        component: (resolve) => require(['components/error-pages/404'], resolve),
+        meta: {title: '页面找不到'}
+      }, 
+      {
+        path: '*',
         component: (resolve) => require(['components/error-pages/404'], resolve),
         meta: {title: '页面找不到'}
       }]
@@ -147,13 +152,16 @@ const initRouter = () => {
   router.afterEach(() => {
     HeyUI.$LoadingBar.success();
     Vue.nextTick(() => {
-      HeyUI.$ScrollIntoView(document.querySelector('.app-body'), {
-        time: 0,
-        align:{
-          top: 0,
-          topOffset: 0,
-        },
-      })
+      if(document.querySelector('.app-body')) {
+        document.querySelector('.app-body').scrollTop = 0;
+      }
+      // HeyUI.$ScrollIntoView(document.querySelector('.app-body'), {
+      //   time: 0,
+      //   align:{
+      //     top: 0,
+      //     topOffset: 0,
+      //   },
+      // })
     });
     window._hmt.push(['_trackPageview', window.location.pathname]);
   });
