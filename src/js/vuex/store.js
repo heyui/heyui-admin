@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     User: {},
     showMenu: true,
-    showSystab: Utils.getLocal('SETTING_SYSTAB') || false,
+    showSystab: Utils.getLocal('SETTING_SYSTAB') === 'true',
   },
   mutations: {
     updateAccount(state, data) {
@@ -17,6 +17,7 @@ export default new Vuex.Store({
       state.showMenu = isShow;
     },
     updateSystab(state, isShow) {
+      Utils.saveLocal('SETTING_SYSTAB', isShow);
       state.showSystab = isShow;
     }
   },
@@ -28,7 +29,6 @@ export default new Vuex.Store({
       context.commit('updateMenu', data)
     },
     updateSystab(context, data) {
-      Utils.saveLocal('SETTING_SYSTAB', data);
       context.commit('updateSystab', data)
     }
   },

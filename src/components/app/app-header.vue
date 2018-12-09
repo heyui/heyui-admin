@@ -7,6 +7,7 @@
     float: left;
     margin-top: 15px;
     margin-right: 20px;
+    width: 120px;
     &-show,&-show:hover, &-show.focusing {
       outline: none;
       box-shadow: none;

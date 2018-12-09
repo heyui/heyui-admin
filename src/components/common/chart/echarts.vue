@@ -58,18 +58,6 @@ export default {
     }
   },
   computed: {
-    width: {
-      cache: false,
-      get () {
-        return this.delegateGet('width', 'getWidth')
-      }
-    },
-    height: {
-      cache: false,
-      get () {
-        return this.delegateGet('height', 'getHeight')
-      }
-    },
     isDisposed: {
       cache: false,
       get () {

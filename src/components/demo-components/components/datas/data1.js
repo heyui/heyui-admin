@@ -1,13 +1,9 @@
 export default {
-  title : {
-      text: '未来一周气温变化',
-      subtext: '纯属虚构'
-  },
   tooltip : {
       trigger: 'axis'
   },
   legend: {
-      data:['最高气温','最低气温']
+      data:['最高价','最低价']
   },
   toolbox: {
       show : true,
@@ -31,13 +27,13 @@ export default {
       {
           type : 'value',
           axisLabel : {
-              formatter: '{value} °C'
+              formatter: '{value} K'
           }
       }
   ],
   series : [
       {
-          name:'最高气温',
+          name:'最高价',
           type:'line',
           data:[11, 11, 15, 13, 12, 13, 10],
           markPoint : {
@@ -46,6 +42,7 @@ export default {
                   {type : 'min', name: '最小值'}
               ]
           },
+          smooth: true,
           markLine : {
               data : [
                   {type : 'average', name: '平均值'}
@@ -53,9 +50,10 @@ export default {
           }
       },
       {
-          name:'最低气温',
+          name:'最低价',
           type:'line',
           data:[1, -2, 2, 5, 3, 2, 0],
+          smooth: true,
           markPoint : {
               data : [
                   {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}

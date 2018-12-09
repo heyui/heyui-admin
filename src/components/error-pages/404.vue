@@ -8,7 +8,7 @@
     .background-image {
       background: url(../../images/404.png);
       height: 300px;
-      width: 500px;
+      max-width: 500px;
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
