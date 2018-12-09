@@ -137,18 +137,24 @@ const initRouter = () => {
 
   router.beforeEach((to, from, next) => {
     HeyUI.$LoadingBar.start();
-    // if (titleConfig[to.name]) {
-    //   document.title = titleConfig[to.name] + ' - 应用';
-    // } else {
-    // document.title = '管理系统';
-    // }
+    if (to.meta && to.meta.title) {
+      document.title = to.meta.title + ' - 管理应用';
+    } else {
+      document.title = '管理系统';
+    }
     next();
   })
   router.afterEach(() => {
     HeyUI.$LoadingBar.success();
-    // Vue.nextTick(() => {
-    //   $('.app-body').scrollTop(0);
-    // });
+    Vue.nextTick(() => {
+      HeyUI.$ScrollIntoView(document.querySelector('.app-body'), {
+        time: 0,
+        align:{
+          top: 0,
+          topOffset: 0,
+        },
+      })
+    });
     window._hmt.push(['_trackPageview', window.location.pathname]);
   });
   return router;

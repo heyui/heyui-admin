@@ -8,9 +8,9 @@
       <appMenu></appMenu>
       <SysTabs v-if="showSystab" homePage="Home"></SysTabs>
       <div class="app-body">
-        <keep-alive>
+        <!-- <keep-alive> -->
           <router-view></router-view>
-        </keep-alive>
+        <!-- </keep-alive> -->
       </div>
     </template>
   </div>

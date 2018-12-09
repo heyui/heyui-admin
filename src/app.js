@@ -7,7 +7,7 @@ import 'js/vue/components';
 
 require('./css/app.less');
 
-import 'wijmo/styles/wijmo.css'
+process.env.NODE_ENV == 'development' && require('./mock')
 
 //HeyUI已经设定为全局变量，无需引用
 //设定全局变量请参考根目录下的hey.js文件

@@ -1,13 +1,13 @@
 {
-  "name": "heyui-demo",
-  "version": "0.0.1",
-  "description": "HeyUI components framework demo.",
+  "name": "heyui-admin",
+  "version": "1.0.0",
+  "description": "HeyUI components framework.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heyui/heyui-demo.git"
+    "url": "git+https://github.com/heyui/heyui-admin.git"
   },
-  "homepage": "http://www.heyui.top/",
+  "homepage": "http://admin.heyui.top/",
   "keywords": [
     "vue",
     "ui",
@@ -27,12 +27,12 @@
     "heyui": "^1.12.4",
     "js-model": "^1.4.2",
     "manba": "^1.2.6",
+    "mockjs": "^1.0.1-beta3",
     "qs": "^6.4.0",
     "url": "^0.11.0",
     "vue": "^2.5.16",
     "vue-router": "^2.5.3",
-    "vuex": "^2.3.1",
-    "wijmo": "^5.20182.524"
+    "vuex": "^2.3.1"
   },
   "devDependencies": {
     "eslint": "^5.9.0",
@@ -42,7 +42,8 @@
   },
   "readmeFilename": "README.md",
   "scripts": {
-    "build": "hey build"
+    "build": "hey build",
+    "dev": "hey dev"
   },
   "browserslist": [
     "ie >= 9"
