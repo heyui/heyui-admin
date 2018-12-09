@@ -4,6 +4,23 @@
 @import (less) "./frame.less";
 
 
+.font-size(@var, @size) {
+  .font@{var} {
+    font-size: @size !important;
+  }
+}
+
+.font-size(12, 12px);
+.font-size(13, 13px);
+.font-size(14, 14px);
+.font-size(15, 15px);
+.font-size(16, 16px);
+.font-size(18, 18px);
+.font-size(20, 20px);
+.font-size(22, 22px);
+.font-size(28, 28px);
+
+
 body{
   background: #f3f6f8;
   color: #212529;

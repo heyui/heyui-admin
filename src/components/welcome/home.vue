@@ -6,6 +6,15 @@
       height: 350px;
     }
   }
+
+
+  .home-part-body2 {
+    height: 420px;
+    .echarts {
+      height: 420px;
+    }
+  }
+
   .progress-div {
     .h-progress {
       margin: 25px 0;
@@ -41,9 +50,9 @@
           </div>
           <div class="h-panel-body progress-div home-part-body">
             <p><Progress :percent="99" color="green"><span slot="title">订单状态</span><span slot="text">4个</span></Progress></p>
-            <p><Progress :percent="88" color="yellow"><span slot="title">订单状态</span><span slot="text">0个</span></Progress></p>
+            <p><Progress :percent="88" color="blue"><span slot="title">订单状态</span><span slot="text">0个</span></Progress></p>
             <p><Progress :percent="55" color="red"><span slot="title">订单状态</span><span slot="text">0个</span></Progress></p>
-            <p><Progress :percent="77" color="yellow"><span slot="title">订单状态</span><span slot="text">0个</span></Progress></p>
+            <p><Progress :percent="77" color="blue"><span slot="title">订单状态</span><span slot="text">0个</span></Progress></p>
             <p><Progress :percent="66" color="yellow"><span slot="title">订单状态</span><span slot="text">0个</span></Progress></p>
           </div>
         </div>
@@ -54,7 +63,7 @@
           <div class="h-panel-bar">
             <div class="h-panel-title">数据比例</div>
           </div>
-          <div class="home-part-body">
+          <div class="home-part-body2">
             <Chart :options="data2"></Chart>
           </div>
         </div>
@@ -65,18 +74,44 @@
           <div class="h-panel-bar">
             <div class="h-panel-title">数据比例</div>
           </div>
-          <div class="h-panel-body home-part-body">
-            <h-circle :percent="76" :stroke-width="10" :size="200">
-              <div class="gray-color" v-font="28">122,332,98</div>
-              <div v-height="5"></div>
-              <div class="dark-color" v-font="13">目前达成比例</div>
-              <div class="gray-color"><span class="primary-color" v-font="16">{{parseInt(123*76/100)}}</span>/<span>123</span></div>
-            </h-circle>
-            <h-circle :percent="26" :stroke-width="10" :size="118" color="red">
-              <div v-height="5"></div>
-              <div class="dark-color" v-font="13">目前达成比例</div>
-              <div class="gray-color"><span class="primary-color" v-font="16">{{parseInt(123*26/100)}}</span>/<span>123</span></div>
-            </h-circle>
+          <div class="h-panel-body home-part-body2">
+            <Row :space="20">
+              <Col :width="10" class="text-right">
+                <h-circle :percent="76" :stroke-width="10" :size="90">
+                  <p><span class="font28">{{parseInt(123*76/100)}}</span><span class="gray-color"> / 123</span></p>
+                </h-circle>
+              </Col>
+              <Col :width="14">
+                <p v-height="15"></p>
+                <p class="gray-color">目前达成比例</p>
+                <p v-height="10"></p>
+                <p class="dark-color font22">122,332,98</p>
+              </Col>
+              <p class="clearfix"></p>
+              <Col :width="10" class="text-right">
+                <h-circle :percent="99" :stroke-width="10" :size="90"  color="green">
+                  <p><span class="font28">{{parseInt(123*76/100)}}</span><span class="gray-color"> / 123</span></p>
+                </h-circle>
+              </Col>
+              <Col :width="14">
+                <p v-height="15"></p>
+                <p class="gray-color">目前达成比例</p>
+                <p v-height="10"></p>
+                <p class="dark-color font22">122,332,98</p>
+              </Col>
+              <p class="clearfix"></p>
+              <Col :width="10" class="text-right">
+                <h-circle :percent="22" :stroke-width="10" :size="90" color="red">
+                  <p><span class="font28">{{parseInt(123*76/100)}}</span><span class="gray-color"> / 123</span></p>
+                </h-circle>
+              </Col>
+              <Col :width="14">
+                <p v-height="15"></p>
+                <p class="gray-color">目前达成比例</p>
+                <p v-height="10"></p>
+                <p class="dark-color font22">122,332,98</p>
+              </Col>
+            </Row>
           </div>
         </div>
       </Col>
