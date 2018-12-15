@@ -3,3 +3,4 @@ import Vue from 'vue';
 
 // Vue.component('Qiniu', Qiniu);
 Vue.component('Chart', (resolve) => require(['components/common/chart'], resolve));
+Vue.component('RichTextEditor', (resolve) => require(['components/common/RichTextEditor'], resolve));
