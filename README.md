@@ -85,11 +85,11 @@ Understanding and learning this knowledge in advance will greatly help the use o
     - Search Table
     - Detail Modal
   - Components
-    - AddressPicker
-    - Clipboard
-    - Markdown
-    - Rich Text Editor
     - Chart
+    - Rich Text Editor
+    - Markdown Editor
+    - Code Editor
+    - Clipboard
   - Account Center
     - Account Setting
     - Security Setting

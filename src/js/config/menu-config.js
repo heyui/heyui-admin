@@ -31,12 +31,16 @@ const menuConfig = [
         key: 'chart'
       },
       {
-        title: 'Markdown编辑器',
-        key: 'markdownEditor'
-      },
-      {
         title: '富文本编辑器',
         key: 'ricktextEditor'
+      },
+      {
+        title: '代码编辑器',
+        key: 'codeEditor'
+      },
+      {
+        title: 'Markdown编辑器',
+        key: 'markdownEditor'
       }
     ]
   },

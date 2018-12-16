@@ -33,6 +33,8 @@ export default {
   },
   mounted () {
     this.editor = new WangEditor(this.$el);
+    // 开启图片复制
+    this.editor.customConfig.uploadImgShowBase64 = true;
     this.editor.customConfig.onchange = (html) => {
       let text = this.editor.txt.text()
       if (this.cache) localStorage.editorCache = html

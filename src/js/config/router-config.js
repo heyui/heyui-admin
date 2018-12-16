@@ -99,6 +99,11 @@ const initRouter = () => {
         component: (resolve) => require(['components/demo-components/components/chart'], resolve),
         meta: {title: '图表'}
       }, {
+        path: '/codeEditor',
+        name: 'codeEditor',
+        component: (resolve) => require(['components/demo-components/components/code-editor'], resolve),
+        meta: {title: '代码编辑器'}
+      }, {
         path: '/markdownEditor',
         name: 'markdownEditor',
         component: (resolve) => require(['components/demo-components/components/markdown-editor'], resolve),

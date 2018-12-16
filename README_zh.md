@@ -86,11 +86,11 @@ heyui-admin是一个成熟的企业应用解决方案，它基于vue2.0和heyui�
     - 搜索
     - 详情弹框
   - Components
-    - 选择地址组件
-    - 剪贴板
-    - Markdown编辑器
-    - 富文本编辑器Editor
     - 图表
+    - 富文本编辑器Editor
+    - 代码编辑器
+    - Markdown编辑器
+    - 剪贴板
   - 个人中心
     - 基本信息
     - 安全中心
