@@ -27,6 +27,7 @@
     "hey-utils": "^0.4.0",
     "heyui": "^1.12.4",
     "js-model": "^1.4.2",
+    "lodash.debounce": "^4.0.8",
     "manba": "^1.2.6",
     "marked": "^0.5.2",
     "qs": "^6.4.0",
