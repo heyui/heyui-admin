@@ -4,7 +4,7 @@
       <div class="h-panel-bar">
         <span class="h-panel-title">Form</span>
       </div>
-      <div class="h-panel-body" style="padding: 40px 80px 40px 40px;">
+      <div class="h-panel-body" style="padding: 40px;">
         <div v-height="50">
           <SwitchList :datas="modeParam" v-model="mode" :small="true"></SwitchList>
         </div>
