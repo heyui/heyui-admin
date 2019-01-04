@@ -10,6 +10,7 @@
         <Form :labelWidth="100" readonly>
           <FormItem label="开启多Tab">
             <h-switch v-model="showSystab"></h-switch>
+            <span>开启过后需要在 app-frame 中打开 keep-alive 才能开启页面缓存</span>
           </FormItem>
         </Form>
       </div>

@@ -36,6 +36,7 @@
       padding: 8px 8px 0;
     }
     .tabs-item {
+      transition: .2s;
       line-height: 36px;
       padding: 0 15px;
       position: relative;
@@ -96,6 +97,7 @@
         background: #FFF;
       }
       &-close {
+        transition: .2s;
         font-size: 12px;
         position: absolute;
         right: 10px;
