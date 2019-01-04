@@ -16,8 +16,10 @@
   }
 
   .progress-div {
+    >p {
+      padding: 15px 0;
+    }
     .h-progress {
-      margin: 25px 0;
       &-title {
         color: @dark2-color;
         font-size: 18px;
