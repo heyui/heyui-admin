@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     User: {},
-    showMenu: true,
+    collapseMenu: false,
     showSystab: Utils.getLocal('SETTING_SYSTAB') === 'true',
   },
   mutations: {
@@ -14,7 +14,7 @@ export default new Vuex.Store({
       state.User = data;
     },
     updateMenu(state, isShow) {
-      state.showMenu = isShow;
+      state.collapseMenu = isShow;
     },
     updateSystab(state, isShow) {
       Utils.saveLocal('SETTING_SYSTAB', isShow);
@@ -36,8 +36,8 @@ export default new Vuex.Store({
     account: state => {
       return state.User
     },
-    showMenu: state => {
-      return state.showMenu
+    collapseMenu: state => {
+      return state.collapseMenu
     },
     showSystab: state => {
       return state.showSystab

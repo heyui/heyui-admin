@@ -1,9 +1,8 @@
 <style lang='less'>
 </style>
 <template>
-  <div class="app-frame">
+  <div class="app-frame" :class="{'app-collapse-menu': collapseMenu}">
     <template v-if="!loading">
-      <appLogo></appLogo>
       <appHead></appHead>
       <appMenu></appMenu>
       <SysTabs v-if="showSystab" homePage="Home"></SysTabs>
@@ -19,7 +18,6 @@
 
 import appHead from './app-header';
 import appMenu from './app-menu';
-import appLogo from './app-logo';
 import SysTabs from '../common/SysTabs/SysTabs';
 import store from 'js/vuex/store';
 import { mapState } from "vuex";
@@ -57,12 +55,11 @@ export default {
     }
   },
   computed: {
-    ...mapState(['showSystab'])
+    ...mapState(['showSystab', 'collapseMenu'])
   },
   components: {
     appHead,
     appMenu,
-    appLogo,
     SysTabs
   }
 };

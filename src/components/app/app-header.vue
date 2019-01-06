@@ -78,6 +78,7 @@
 
 <template>
   <div class="app-header">
+    <div style="width:100px;float:left;"><Button :icon="collapseMenu ? 'icon-align-right':'icon-align-left'" size="l" noBorder class="font20" @click="collapseMenu=!collapseMenu"></Button></div>
     <div class="float-right app-header-info">
       <AutoComplete v-model="searchText" config="globalSearch" placeholder="全局搜索.."></AutoComplete>
       <div class="app-header-icon-item">
@@ -104,9 +105,15 @@ export default {
     };
   },
   computed: {
-    ...mapState({
-      User: "User"
-    })
+    ...mapState(['User']),
+    collapseMenu: {
+      get () {
+        return this.$store.state.collapseMenu;
+      },
+      set (value) {
+        this.$store.commit('updateMenu', value)
+      }
+    }
   },
   methods: {
     trigger(data) {

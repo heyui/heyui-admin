@@ -4,7 +4,7 @@
 .app-menu{
   background: @menu-color;
 
-  .h-menu-white{
+  .h-menu{
     font-size: 14px;
     color: rgba(49, 58, 70, 0.8);
     .h-menu-li-selected{
@@ -19,24 +19,34 @@
         font-size: 20px;
       }
     }
-    .h-menu-ul{
-      background: rgba(255, 255, 255, 0.07);
-    }
-    .h-menu-li > ul > li > div {
-      padding-left: 54px;  
-    }
+    // .h-menu-ul{
+    //   background: rgba(255, 255, 255, 0.07);
+    // }
+    // .h-menu-li > ul > li > div {
+    //   padding-left: 54px;  
+    // }
+  }
+  .h-menu-show {
+    height: 50px;
+    line-height: 50px;
+  }
+  .h-menu.h-menu-size-collapse > .h-menu-li > .h-menu-show .h-menu-show-icon {
+    font-size: 20px;
   }
 }
 
 </style>
 <template>
   <div class="app-menu">
-    <Menu :datas="menus" @onclick="trigger" ref='menu' class-name="h-menu-white"></Menu>
+    <appLogo></appLogo>
+    <Menu :datas="menus" :inlineCollapsed="collapseMenu" @onclick="trigger" ref='menu' class-name="h-menu-white"></Menu>
   </div>
 </template>
 <script>
 
 import menuConfig from '../../js/config/menu-config';
+import { mapState } from "vuex";
+import appLogo from './app-logo';
 
 export default {
   data() {
@@ -52,6 +62,9 @@ export default {
   mounted() {
     this.menuSelect();
   },
+  computed: {
+    ...mapState(['collapseMenu'])
+  },
   methods: {
     menuSelect() {
       if (this.$route.name) {
@@ -61,6 +74,9 @@ export default {
     trigger(data) {
       this.$router.push({ name: data.key });
     }
+  },
+  components: {
+    appLogo
   }
 }
 </script>

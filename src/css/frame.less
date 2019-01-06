@@ -1,4 +1,5 @@
 @menuWidth: 240px;
+@collapseMenuWidth: 65px;
 @miniMenuWidth: 50px;
 @topHeight: 60px;
 @frame-box-shadow: rgba(29, 35, 41, 0.05);
@@ -36,7 +37,7 @@
     padding-top: @topHeight + 20px;
     top: 0;
     width: @menuWidth;
-    transition: width .2s ease-in-out;
+    transition: width .6s;
     overflow-y: auto;
     position: fixed;
     left: 0;
@@ -47,13 +48,36 @@
   }
 
   .app-logo{
-    box-shadow: 2px 2px 8px 0 @frame-box-shadow;
+    box-shadow: -2px 2px 8px 0 @frame-box-shadow;
     z-index: 4;
     line-height: @topHeight;
     height: @topHeight;
-    width: @menuWidth;
-    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
     background: #FFF;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: padding .6s;
+  }
+
+  .app-collapse-menu {
+    .app-menu {
+      overflow: initial;
+      width: @collapseMenuWidth;
+      transition:  0.6s width;
+    }
+    .app-logo{
+      padding-left: 2px;
+    }
+    .app-body {
+      left: @collapseMenuWidth;
+    }
+
+    .app-header{
+      padding-left: @collapseMenuWidth;
+    }
   }
   
 }
@@ -61,7 +85,7 @@
 
 
 
-@media (max-width: 992px) {
+@media (max-width: 600px) {
   #app {
     .app-menu {
       position: relative;
