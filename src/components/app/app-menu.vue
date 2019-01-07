@@ -19,16 +19,6 @@
         font-size: 20px;
       }
     }
-    // .h-menu-ul{
-    //   background: rgba(255, 255, 255, 0.07);
-    // }
-    // .h-menu-li > ul > li > div {
-    //   padding-left: 54px;  
-    // }
-  }
-  .h-menu-show {
-    height: 50px;
-    line-height: 50px;
   }
   .h-menu.h-menu-size-collapse > .h-menu-li > .h-menu-show .h-menu-show-icon {
     font-size: 20px;
