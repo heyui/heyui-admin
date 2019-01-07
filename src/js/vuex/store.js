@@ -14,6 +14,7 @@ export default new Vuex.Store({
       state.User = data;
     },
     updateMenu(state, isShow) {
+      G.trigger('page_resize');
       state.collapseMenu = isShow;
     },
     updateSystab(state, isShow) {

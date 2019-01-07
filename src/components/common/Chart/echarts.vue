@@ -50,11 +50,15 @@ export default {
     options: Object,
     initOptions: Object,
     group: String,
-    autoResize: Boolean
+    autoResize: {
+      type: Boolean,
+      default: true
+    }
   },
   data () {
     return {
-      chart: null
+      chart: null,
+      listener: null
     }
   },
   computed: {
@@ -167,6 +171,11 @@ export default {
           chart.resize()
         }, 100, { leading: true })
         window.addEventListener('resize', this.__resizeHanlder)
+        this.listener = G.addlistener('page_resize', ()=> {
+          setTimeout(() => {
+            chart.resize()
+          }, 600);
+        });
       }
 
       this.chart = chart
@@ -174,6 +183,7 @@ export default {
     destroy () {
       if (this.autoResize) {
         window.removeEventListener('resize', this.__resizeHanlder)
+        G.removelistener(this.listener);
       }
       this.dispose()
       this.chart = null
