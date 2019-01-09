@@ -17,12 +17,16 @@
   </div>
 </body>
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?dc337e576ecea81b5da68a42b8e7f75a";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+// baidu 统计
+
+if(window.location.hostname == 'admin.heyui.top'){
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?dc337e576ecea81b5da68a42b8e7f75a";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+}
 </script>
 </html>

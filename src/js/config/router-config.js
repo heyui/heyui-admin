@@ -168,7 +168,10 @@ const initRouter = () => {
       //   },
       // })
     });
-    window._hmt.push(['_trackPageview', window.location.pathname]);
+    // baidu 统计
+    if( window._hmt) {
+      window._hmt.push(['_trackPageview', window.location.pathname]);
+    }
   });
   return router;
 }
