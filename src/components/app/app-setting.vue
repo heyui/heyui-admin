@@ -12,9 +12,13 @@
             <h-switch small v-model="showSystab"></h-switch>
             <p>开启过后需要在 app-frame 中打开 keep-alive 才能开启页面缓存</p>
           </FormItem>
+        </Form>
+        <Form :labelWidth="100" readonly>
           <FormItem label="固定 Header">
             <h-switch small v-model="headerFixed"></h-switch>
           </FormItem>
+        </Form>
+        <Form :labelWidth="100" readonly>
           <FormItem label="固定侧边菜单">
             <h-switch small v-model="siderFixed"></h-switch>
           </FormItem>

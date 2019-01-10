@@ -1,9 +1,12 @@
 <style lang='less'>
   .page-404-vue {
-    position: relative;
+    position: absolute;
+    left: 50%;
     top: 50%;
     margin-top: -200px;
+    margin-left: -150px;
     height: 300px;
+    width: 300px;
     text-align: center;
     .background-image {
       background: url(../../images/404.png);

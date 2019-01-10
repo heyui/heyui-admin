@@ -1,9 +1,6 @@
 <style lang="less">
 
-@menu-color: #FFF;
 .app-menu{
-  background: @menu-color;
-
   .h-menu{
     font-size: 14px;
     color: rgba(49, 58, 70, 0.8);
@@ -18,10 +15,16 @@
       .h-menu-show-icon {
         font-size: 20px;
       }
+      .h-menu-show-desc{
+        transition: opacity 0.1s cubic-bezier(0.645, 0.045, 0.355, 1), width 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
     }
   }
-  .h-menu.h-menu-size-collapse > .h-menu-li > .h-menu-show .h-menu-show-icon {
-    font-size: 20px;
+  .h-menu.h-menu-size-collapse > .h-menu-li > .h-menu-show {
+    padding-left: 24px;
+    .h-menu-show-icon {
+      font-size: 20px;
+    }
   }
 }
 
@@ -29,7 +32,7 @@
 <template>
   <div class="app-menu">
     <appLogo></appLogo>
-    <Menu :datas="menus" :inlineCollapsed="collapseMenu" @onclick="trigger" ref='menu' class-name="h-menu-white"></Menu>
+    <Menu :datas="menus" :inlineCollapsed="siderCollapsed" @onclick="trigger" ref='menu' class-name="h-menu-white"></Menu>
   </div>
 </template>
 <script>
@@ -53,7 +56,7 @@ export default {
     this.menuSelect();
   },
   computed: {
-    ...mapState(['collapseMenu'])
+    ...mapState(['siderCollapsed'])
   },
   methods: {
     menuSelect() {

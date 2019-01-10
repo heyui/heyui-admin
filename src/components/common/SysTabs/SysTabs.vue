@@ -4,8 +4,8 @@
   right: 0;
   position: fixed;
   height: 45px;
-  top: 60px;
-  left: 240px;
+  top: @layout-header-height;
+  left: @layout-sider-width;
   background: #f3f6f8;
   user-select: none;
   z-index: 3;

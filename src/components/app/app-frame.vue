@@ -1,18 +1,18 @@
 <style lang='less'>
 </style>
 <template>
-  <div class="app-frame" :class="{'app-collapse-menu': collapseMenu}">
-    <template v-if="!loading">
-      <appHead></appHead>
-      <appMenu></appMenu>
-      <SysTabs v-if="showSystab" homePage="Home"></SysTabs>
-      <div class="app-body">
+  <Layout class="app-frame" v-if="!loading" :siderCollapsed="siderCollapsed" :siderFixed="siderFixed">
+    <Sider theme="white"><appMenu></appMenu></Sider>
+    <Layout :headerFixed="headerFixed">
+      <HHeader theme="white"><appHead></appHead></HHeader>
+      <Content>
+        <SysTabs v-if="showSystab" homePage="Home"></SysTabs>
         <!-- <keep-alive> -->
-          <router-view></router-view>
+        <router-view></router-view>
         <!-- </keep-alive> -->
-      </div>
-    </template>
-  </div>
+      </Content>
+    </Layout>
+  </Layout>
 </template>
 <script>
 
@@ -55,7 +55,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['showSystab', 'collapseMenu'])
+    ...mapState(['showSystab', 'siderCollapsed', 'headerFixed', 'siderFixed'])
   },
   components: {
     appHead,
