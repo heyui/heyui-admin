@@ -7,9 +7,6 @@ export default new Vuex.Store({
   state: {
     User: {},
     siderCollapsed: false,
-    showSystab: false,
-    headerFixed: false,
-    siderFixed: false,
   },
   mutations: {
     updateAccount(state, data) {
@@ -19,15 +16,6 @@ export default new Vuex.Store({
       G.trigger('page_resize');
       state.siderCollapsed = isShow;
     },
-    updateSystab(state, isShow) {
-      state.showSystab = isShow;
-    },
-    updateHeaderFixed(state, isShow) {
-      state.headerFixed = isShow;
-    },
-    updateSiderFixed(state, isShow) {
-      state.siderFixed = isShow;
-    }
   },
   actions: {
     updateAccount(context, data) {
@@ -35,15 +23,6 @@ export default new Vuex.Store({
     },
     updateSiderCollapse(context, data) {
       context.commit('updateSiderCollapse', data)
-    },
-    updateSystab(context, data) {
-      context.commit('updateSystab', data)
-    },
-    updateHeaderFixed(context, data) {
-      context.commit('updateHeaderFixed', data)
-    },
-    updateSiderFixed(context, data) {
-      context.commit('updateSiderFixed', data)
     }
   },
   getters: {
@@ -52,15 +31,6 @@ export default new Vuex.Store({
     },
     siderCollapsed: state => {
       return state.siderCollapsed
-    },
-    showSystab: state => {
-      return state.showSystab
-    },
-    headerFixed: state => {
-      return state.headerFixed
-    },
-    siderFixed: state => {
-      return state.siderFixed
     }
   }
 })

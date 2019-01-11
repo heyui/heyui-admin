@@ -15,6 +15,19 @@
       padding-left: 5px;
     }
   }
+
+  .h-layout-header-fixed {
+    .sys-tabs-vue {
+      position: fixed;
+      top: @layout-header-height;
+      right: 0;
+      z-index: 2;
+      left: @layout-sider-width;
+    }
+    .sys-tabs-vue + .h-layout-content {
+      top: 45px;
+    }
+  }
   
 }
 

@@ -156,18 +156,8 @@ const initRouter = () => {
   })
   router.afterEach(() => {
     HeyUI.$LoadingBar.success();
-    Vue.nextTick(() => {
-      if(document.querySelector('.app-body')) {
-        document.querySelector('.app-body').scrollTop = 0;
-      }
-      // HeyUI.$ScrollIntoView(document.querySelector('.app-body'), {
-      //   time: 0,
-      //   align:{
-      //     top: 0,
-      //     topOffset: 0,
-      //   },
-      // })
-    });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
     // baidu 统计
     if( window._hmt) {
       window._hmt.push(['_trackPageview', window.location.pathname]);

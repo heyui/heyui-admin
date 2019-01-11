@@ -1,21 +1,28 @@
 <style lang='less'>
 </style>
 <template>
-  <Layout class="app-frame" v-if="!loading" :siderCollapsed="siderCollapsed" :siderFixed="siderFixed">
+<div>
+  <Layout class="app-frame" v-if="!loading" :siderCollapsed="siderCollapsed" :siderFixed="layoutConfig.siderFixed">
     <Sider theme="white"><appMenu></appMenu></Sider>
-    <Layout :headerFixed="headerFixed">
-      <HHeader theme="white"><appHead></appHead></HHeader>
+    <Layout :headerFixed="layoutConfig.headerFixed">
+      <HHeader theme="white"><appHead @openSetting="openSetting=true" :layoutConfig="layoutConfig"></appHead></HHeader>
+      <SysTabs v-if="layoutConfig.showSystab" homePage="Home"></SysTabs>
       <Content>
-        <SysTabs v-if="showSystab" homePage="Home"></SysTabs>
         <!-- <keep-alive> -->
         <router-view></router-view>
         <!-- </keep-alive> -->
       </Content>
     </Layout>
   </Layout>
+  <Modal v-model="openSetting">
+    <appSetting :layoutConfig="layoutConfig"></appSetting>
+  </Modal>
+</div>
 </template>
 <script>
 
+
+import appSetting from "./app-setting";
 import appHead from './app-header';
 import appMenu from './app-menu';
 import SysTabs from '../common/SysTabs/SysTabs';
@@ -25,7 +32,13 @@ import { mapState } from "vuex";
 export default {
   data() {
     return {
-      loading: true
+      loading: true,
+      openSetting: false,
+      layoutConfig: {
+        showSystab: false,
+        headerFixed: false,
+        siderFixed: false,
+      }
     };
   },
   mounted() {
@@ -52,15 +65,19 @@ export default {
         this.loading = false;
         this.$Loading.close();
       });
+    },
+    updateLayoutConfig({key, value}) {
+      this.layoutConfig[key] = value;
     }
   },
   computed: {
-    ...mapState(['showSystab', 'siderCollapsed', 'headerFixed', 'siderFixed'])
+    ...mapState(['siderCollapsed'])
   },
   components: {
     appHead,
     appMenu,
-    SysTabs
+    SysTabs,
+    appSetting
   }
 };
 </script>

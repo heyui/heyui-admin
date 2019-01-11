@@ -1,10 +1,10 @@
 <style lang='less'>
-.app-setting-vue {
+.setting-vue {
 
 }
 </style>
 <template>
-  <div class="app-setting-vue frame-page">
+  <div class="setting-vue frame-page">
     <div class="h-panel">
       <div class="h-panel-body">
         <Form :labelWidth="120" readonly>

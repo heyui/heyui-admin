@@ -1,14 +1,10 @@
 <style lang="less">
 .sys-tabs-vue{
-  // position: relative;
-  right: 0;
-  position: fixed;
+  position: relative;
   height: 45px;
-  top: @layout-header-height;
-  left: @layout-sider-width;
   background: #f3f6f8;
   user-select: none;
-  z-index: 3;
+  z-index: 1;
   .close-con{
     position: absolute;
     right: 0;
