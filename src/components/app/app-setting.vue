@@ -1,13 +1,11 @@
-<style lang='less'>
-.app-setting-vue {
 
-}
-</style>
 <template>
   <div class="app-setting-vue">
     <div class="h-modal-header">系统布局配置</div>
     <div class="h-panel">
       <div class="h-panel-body">
+        <p class="dark-color"><i class="h-icon-info blue-color"></i> 所有的配置都在 app-frame.vue 文件内，根据你需求设置排版方式。</p>
+        <p style="height: 10px"></p>
         <Form :labelWidth="120" readonly>
           <FormItem label="固定 Header">
             <h-switch small v-model="layoutConfig.headerFixed" @input="updateHeaderFixed"></h-switch>
@@ -17,7 +15,7 @@
           </FormItem>
           <FormItem label="开启多Tab">
             <h-switch small v-model="layoutConfig.showSystab"></h-switch>
-            <p>开启过后需要在 app-frame 中打开 keep-alive 才能开启页面缓存</p>
+            <span class="dark-color">开启后，在 app-frame 中打开 keep-alive 才能开启页面缓存</span>
           </FormItem>
         </Form>
       </div>

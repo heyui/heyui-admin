@@ -93,8 +93,8 @@
       <div class="app-header-icon-item">
         <Badge :count="2"><i class="h-icon-bell"></i></Badge>
       </div>
-      <div class="app-header-icon-item" v-tooltip content="说明文档" theme="white">
-        <a href="https://github.com/heyui/heyui-admin" target="_blank"><i class="h-icon-help"></i></a>
+      <div class="app-header-icon-item" v-tooltip content="说明文档" theme="white" @click="goGithub">
+        <i class="h-icon-help"></i>
       </div>
       <DropdownMenu className="app-header-dropdown" trigger="hover" offset="0 5" :width="150" placement="bottom-end" :datas="infoMenu" @onclick="trigger"><span>{{User.name}}</span></DropdownMenu>
     </div>
@@ -125,6 +125,9 @@ export default {
     }
   },
   methods: {
+    goGithub() {
+      window.open('https://github.com/heyui/heyui-admin');
+    },
     trigger(data) {
       if (data == "logout") {
         Utils.removeLocal("Auth");
