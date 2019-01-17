@@ -69,8 +69,12 @@ const menuConfig = [
     icon: 'icon-cog',
     children: [
       {
-        title: '系统设置',
-        key: 'setting'
+        title: '个人中心',
+        key: 'accountBasic'
+      },
+      {
+        title: '安全设置',
+        key: 'accountSecurity'
       }
     ]
   },

@@ -113,7 +113,7 @@ let ajax = {
         }
         if(status != 200){
           if (status == 401) {
-            window.top.location = "/login.html";
+            window.top.location = "/login";
             return;
           }
           if (status == 500) {
