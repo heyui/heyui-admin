@@ -11,8 +11,8 @@
         <!-- <keep-alive> -->
         <router-view></router-view>
         <!-- </keep-alive> -->
-        <appFooter></appFooter>
       </Content>
+      <HFooter><appFooter></appFooter></HFooter>
     </Layout>
   </Layout>
   <Modal v-model="openSetting">
