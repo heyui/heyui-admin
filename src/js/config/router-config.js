@@ -35,13 +35,13 @@ const initRouter = () => {
         name: 'notfoundError',
         component: (resolve) => require(['components/error-pages/404'], resolve),
         meta: {title: '页面找不到'}
-      }, 
+      },
+      ...demoComponents, 
       {
         path: '*',
         component: (resolve) => require(['components/error-pages/404'], resolve),
         meta: {title: '页面找不到'}
-      },
-      ...demoComponents]
+      }]
     }]
   };
 
