@@ -11,6 +11,7 @@
         <!-- <keep-alive> -->
         <router-view></router-view>
         <!-- </keep-alive> -->
+        <appFooter></appFooter>
       </Content>
     </Layout>
   </Layout>
@@ -25,6 +26,7 @@
 import appSetting from "./app-setting";
 import appHead from './app-header';
 import appMenu from './app-menu';
+import appFooter from './app-footer';
 import SysTabs from '../common/SysTabs/SysTabs';
 import store from 'js/vuex/store';
 import { mapState } from "vuex";
@@ -77,6 +79,7 @@ export default {
     appHead,
     appMenu,
     SysTabs,
+    appFooter,
     appSetting
   }
 };
