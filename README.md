@@ -1,4 +1,4 @@
-# HeyUI-Admin
+<h1 align="center"> HeyUI-Admin </h1>
 
 <p align="center">
   <a href="https://github.com/vuejs/vue">
@@ -12,8 +12,13 @@
   </a>
 </p>
 
-[简体中文](./README_zh.md) | English
+<div align="center">
 
+![image](https://user-images.githubusercontent.com/8186664/51449312-6cc17c00-1d66-11e9-9ec2-33e0ed703af9.png)
+
+</div>
+
+[简体中文](./README_zh.md) | English
 
 ## Introduction
 
@@ -28,6 +33,7 @@ heyui-admin is a mature enterprise application solution. It based on vue and use
 ## Preparation
 
 The project is based on:
+
 - [hey-ui](https://github.com/ElemeFE/element)
 - [vue](https://cn.vuejs.org/index.html)
 - [vuex](https://vuex.vuejs.org/zh-cn/)
@@ -40,7 +46,6 @@ The project is based on:
 - [hey-log](https://www.npmjs.com/package/hey-log)
 
 Understanding and learning this knowledge in advance will greatly help the use of this project.
-
 
 ## Features
 
@@ -135,11 +140,14 @@ devServer: {
 ```
 
 ## Build
+
 We recommend that all environments use the same set of code, and refer to the documentation for specific solutions.
+
 ```
 # build
 hey build
 ```
+
 ## Browser Support
 
 Modern browsers and Internet Explorer 9+.
