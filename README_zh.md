@@ -1,4 +1,4 @@
-# HeyUI-Admin
+<h1 align="center"> HeyUI-Admin </h1>
 
 <p align="center">
   <a href="https://github.com/vuejs/vue">
@@ -12,22 +12,28 @@
   </a>
 </p>
 
-简体中文 | [English](./README.md)
+<div align="center">
 
+![image](https://user-images.githubusercontent.com/8186664/51449312-6cc17c00-1d66-11e9-9ec2-33e0ed703af9.png)
+
+</div>
+
+简体中文 | [English](./README.md)
 
 ## 介绍
 
-heyui-admin是一个成熟的企业应用解决方案，它基于vue2.0和heyui组件库的后台管理系统。
+heyui-admin 是一个成熟的企业应用解决方案，它基于 vue2.0 和 heyui 组件库的后台管理系统。
 
 - [在线预览](http://admin.heyui.top)
 
 - [文档](https://heyui.github.io/heyui-admin)
 
-<span style="color: red">这是一个成熟的前端开发解决方案，你可以使用这个架构完成几乎90%的前端开发工作。</span>
+<span style="color: red">这是一个成熟的前端开发解决方案，你可以使用这个架构完成几乎 90%的前端开发工作。</span>
 
 ## 准备
 
 项目基于一下依赖:
+
 - [hey-ui](https://github.com/ElemeFE/element)
 - [vue](https://cn.vuejs.org/index.html)
 - [vuex](https://vuex.vuejs.org/zh-cn/)
@@ -40,7 +46,6 @@ heyui-admin是一个成熟的企业应用解决方案，它基于vue2.0和heyui�
 - [hey-log](https://www.npmjs.com/package/hey-log)
 
 提前了解和学习这些知识将大大有助于这个项目的使用。
-
 
 ## 功能
 
@@ -150,7 +155,7 @@ hey build
 
 现代浏览器以及 Internet Explorer 9+.
 
-**系统已经自动安装配置好polyfill.**
+**系统已经自动安装配置好 polyfill.**
 
 ## License
 
