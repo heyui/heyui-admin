@@ -34,7 +34,7 @@ heyui-admin 是一个成熟的企业应用解决方案，它基于 vue2.0 和 he
 
 项目基于一下依赖:
 
-- [hey-ui](https://github.com/ElemeFE/element)
+- [hey-ui](https://www.heyui.top/)
 - [vue](https://cn.vuejs.org/index.html)
 - [vuex](https://vuex.vuejs.org/zh-cn/)
 - [vue-router](https://router.vuejs.org/zh-cn/)
