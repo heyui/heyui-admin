@@ -34,7 +34,7 @@ heyui-admin is a mature enterprise application solution. It based on vue and use
 
 The project is based on:
 
-- [hey-ui](https://github.com/ElemeFE/element)
+- [hey-ui](https://www.heyui.top/)
 - [vue](https://cn.vuejs.org/index.html)
 - [vuex](https://vuex.vuejs.org/zh-cn/)
 - [vue-router](https://router.vuejs.org/zh-cn/)
