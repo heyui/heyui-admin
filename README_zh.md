@@ -32,7 +32,7 @@ heyui-admin 是一个成熟的企业应用解决方案，它基于 vue2.0 和 he
 
 ## 准备
 
-项目基于一下依赖:
+项目基于以下依赖:
 
 - [hey-ui](https://www.heyui.top/)
 - [vue](https://cn.vuejs.org/index.html)
