@@ -3,7 +3,7 @@
 <template>
 <div>
   <Layout class="app-frame" v-if="!loading" :siderCollapsed="siderCollapsed" :siderFixed="layoutConfig.siderFixed">
-    <Sider theme="white"><appMenu></appMenu></Sider>
+    <Sider :theme="layoutConfig.siderTheme"><appMenu :theme="layoutConfig.siderTheme"></appMenu></Sider>
     <Layout :headerFixed="layoutConfig.headerFixed">
       <HHeader theme="white"><appHead @openSetting="openSetting=true" :layoutConfig="layoutConfig"></appHead></HHeader>
       <SysTabs v-if="layoutConfig.showSystab" homePage="Home"></SysTabs>
@@ -15,15 +15,15 @@
       <HFooter><appFooter></appFooter></HFooter>
     </Layout>
   </Layout>
-  <Modal v-model="openSetting">
-    <appSetting :layoutConfig="layoutConfig"></appSetting>
+  <Modal v-model="openSetting" type="drawer-right">
+    <appLayoutSetting :layoutConfig="layoutConfig"></appLayoutSetting>
   </Modal>
 </div>
 </template>
 <script>
 
 
-import appSetting from "./app-setting";
+import appLayoutSetting from "./modules/app-layout-setting";
 import appHead from './app-header';
 import appMenu from './app-menu';
 import appFooter from './app-footer';
@@ -37,6 +37,7 @@ export default {
       loading: true,
       openSetting: false,
       layoutConfig: {
+        siderTheme: 'white',
         showSystab: false,
         headerFixed: false,
         siderFixed: false,
@@ -80,7 +81,7 @@ export default {
     appMenu,
     SysTabs,
     appFooter,
-    appSetting
+    appLayoutSetting
   }
 };
 </script>

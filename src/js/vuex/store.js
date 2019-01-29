@@ -6,6 +6,9 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     User: {},
+    msgCount: {
+      messages: 2
+    },
     siderCollapsed: false,
   },
   mutations: {
@@ -16,6 +19,9 @@ export default new Vuex.Store({
       G.trigger('page_resize');
       state.siderCollapsed = isShow;
     },
+    updateMsgCount(state, data) {
+      state.msgCount = data;
+    }
   },
   actions: {
     updateAccount(context, data) {
@@ -23,6 +29,9 @@ export default new Vuex.Store({
     },
     updateSiderCollapse(context, data) {
       context.commit('updateSiderCollapse', data)
+    },
+    updateMsgCount(context, data) {
+      context.commit('updateMsgCount', data)
     }
   },
   getters: {
@@ -31,6 +40,9 @@ export default new Vuex.Store({
     },
     siderCollapsed: state => {
       return state.siderCollapsed
-    }
+    },
+    msgCount: state => {
+      return state.msgCount
+    },
   }
 })

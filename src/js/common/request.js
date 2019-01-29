@@ -12,6 +12,9 @@ const Request = {
     },
   },
   Home: {
+    getMessageList() {
+      return Ajax.get(`/home/messages`);
+    }
   },
   Login: {
     login(param){

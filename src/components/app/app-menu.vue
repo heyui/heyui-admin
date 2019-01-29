@@ -3,9 +3,7 @@
 .app-menu{
   .h-menu{
     font-size: 14px;
-    color: rgba(49, 58, 70, 0.8);
     .h-menu-li-selected{
-      background-color: rgb(240, 246, 255);
       .h-menu-show:after {
         width: 4px;
       }
@@ -26,13 +24,20 @@
       font-size: 20px;
     }
   }
+  .h-menu.h-menu-white {
+    color: rgba(49, 58, 70, 0.8);
+    .h-menu-li-selected{
+      background-color: rgb(240, 246, 255);
+    }
+  }
+
 }
 
 </style>
 <template>
   <div class="app-menu">
     <appLogo></appLogo>
-    <Menu :datas="menus" :inlineCollapsed="siderCollapsed" @onclick="trigger" ref='menu' class-name="h-menu-white"></Menu>
+    <Menu :datas="menus" :inlineCollapsed="siderCollapsed" @onclick="trigger" ref='menu' :className="`h-menu-${theme}`"></Menu>
   </div>
 </template>
 <script>
@@ -42,6 +47,9 @@ import { mapState } from "vuex";
 import appLogo from './app-logo';
 
 export default {
+  props: {
+    theme: String
+  },
   data() {
     return {
       menus: menuConfig
