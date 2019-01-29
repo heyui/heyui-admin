@@ -52,12 +52,12 @@ export default [{
   path: '/accountBasic',
   name: 'accountBasic',
   component: (resolve) => require(['components/demo-components/account/account-setting'], resolve),
-  meta: {title: '用户信息', icon: 'icon-head'}
+  meta: {title: '个人中心', icon: 'icon-head'}
 }, {
   path: '/accountSecurity',
   name: 'accountSecurity',
   component: (resolve) => require(['components/demo-components/account/security-setting'], resolve),
-  meta: {title: '用户安全'}
+  meta: {title: '安全设置'}
 }, {
   path: '/infoBasic',
   name: 'infoBasic',
