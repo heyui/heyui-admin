@@ -11,7 +11,7 @@
 
 <template>
   <div class="app-footer">
-    Copyright © 2019 <a href="https://www.heyui.top" target="_blank">HeyUI</a>
+    Copyright © 2019 vvpvvp · <a href="https://www.heyui.top" target="_blank">HeyUI</a>
   </div>
 </template>
 <script>
