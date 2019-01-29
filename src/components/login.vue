@@ -17,7 +17,7 @@
     .login-content {
       letter-spacing: 2px;
       background: #FFF;
-      padding: 120px 40px 40px;
+      padding: 120px 40px 60px;
       box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.18);
       border-radius: 3px;
       box-sizing: border-box;
@@ -55,33 +55,28 @@
           font-weight: 200;
         }
       }
+      > .buttonDiv {
+        margin-top: 45px;
+        .h-btn {
+          padding: 12px 0;
+          font-size: 18px;
+          opacity: .8;
+          background: @gradient-color;
+          border-color: @gradient-color;
+          &:hover {
+            opacity: 1;
+            background: @gradient-color;
+            border-color: @gradient-color;
+          }
+        }
+      }
     }
     .copyright {
       letter-spacing: 1px;
       margin-top: 10px;
       color: #FFF;
-    }
-  }
-  .buttonDiv {
-    padding-top: 18px;
-    position: relative;
-    svg {
-      border-radius: 2px;
-    }
-    p {
-      cursor: pointer;
-      transition: .2s;
-      margin: 0 auto;
-      text-align: center;
-      height: 48px;
-      line-height: 48px;
-      font-size: 19px;
-      opacity: .7;
-      border-radius: 40px;
-      background: @gradient-color;
-      color: #FFF;
-      &:hover {
-        opacity: 1;
+      a {
+        color: #FFF;
       }
     }
   }
@@ -100,10 +95,10 @@
           <input type="password" v-model="login.password" placeholder="密码" @keyup.enter="submit"/>
         </div>
         <div class="buttonDiv">
-          <p @click="submit" ><i class="h-loading" v-if="loading"></i>登录</p>
+          <Button :loading="loading" block color="primary" size="l" @click="submit">登录</Button>
         </div>
       </div>
-      <p class="copyright">2018 © HeyUI. - heyui.top</p>
+      <p class="copyright"> Copyright © 2019 HeyUI. - <a href="https://www.heyui.top/">heyui.top</a></p>
     </div>
   </div>
 </template>

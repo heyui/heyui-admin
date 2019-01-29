@@ -3,6 +3,9 @@
   text-align: center;
   padding: 10px 0 30px;
   color: @dark-color;
+  a {
+    color: @dark-color;
+  }
 }
 </style>
 
