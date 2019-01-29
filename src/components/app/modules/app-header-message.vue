@@ -52,7 +52,7 @@
 }
 </style>
 <template>
-  <DropdownCustom class="app-header-message-vue" placement="bottom-end" className="app-message-dropdown" :toggleIcon="false" ref="remindDropdown">
+  <DropdownCustom class="app-header-message-vue" placement="bottom-end" className="app-message-dropdown" :toggleIcon="false" ref="messageDropdown">
     <div class="app-header-icon-item">
       <Badge :count="msgCount.messages">
         <i class="h-icon-bell"></i>
@@ -98,7 +98,7 @@ export default {
       }
     },
     goMessageDetail() {
-
+      this.$refs.messageDropdown.hide();
     }
   },
   computed: {
