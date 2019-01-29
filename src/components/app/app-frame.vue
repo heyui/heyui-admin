@@ -39,8 +39,8 @@ export default {
       layoutConfig: {
         siderTheme: 'white',
         showSystab: false,
-        headerFixed: false,
-        siderFixed: false,
+        headerFixed: true,
+        siderFixed: true,
       }
     };
   },

@@ -36,27 +36,32 @@ Mock.mock('/api/logout', "post", {
   "status": 200
 });
 
-Mock.mock('/home/messages', "get", {
+Mock.mock('/api/home/messages', "get", {
   "status": 200,
   "body": [{
     "id": 1,
+    "isReaded": false,
     "title": "任务名称1",
-    "title": "你需要在某年某月完成某某任务",
+    "description": "你需要在某年某月完成某某任务",
   },{
     "id": 2,
+    "isReaded": false,
     "title": "任务名称2",
-    "title": "你需要在某年某月完成某某任务",
+    "description": "你需要在某年某月完成某某任务",
   },{
     "id": 3,
+    "isReaded": true,
     "title": "任务名称3",
-    "title": "你需要在某年某月完成某某任务",
+    "description": "你需要在某年某月完成某某任务",
   },{
     "id": 4,
+    "isReaded": true,
     "title": "任务名称4",
-    "title": "你需要在某年某月完成某某任务",
+    "description": "你需要在某年某月完成某某任务",
   },{
     "id": 5,
+    "isReaded": true,
     "title": "任务名称5",
-    "title": "你需要在某年某月完成某某任务",
+    "description": "你需要在某年某月完成某某任务",
   }]
 });

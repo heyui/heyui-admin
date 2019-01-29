@@ -2,16 +2,19 @@
   border: none;
   &-title {
     font-weight: bold;
+    color: @dark-color;
   }
   &-bar {
     padding: 15px 25px;
-    border-bottom: none;
-
+  }
+  &-bar-s {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    .h-panel-title {
+      font-size: 15px;
+    }
   }
   &-body {
     padding: 25px;
-  }
-  &-bar + &-body{
-    padding-top: 0px;
   }
 }

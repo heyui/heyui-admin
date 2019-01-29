@@ -32,7 +32,7 @@
   <div class="frame-page autocomplete-baidu">
     <div class="middle-container">
       <div class="search-container">
-        <AutoComplete class="flex1" placeholder=" " :mustMatch="false" config="baidu" v-model="keyword" type="title" @change="trigger"></AutoComplete>
+        <AutoComplete class="flex1" :showDropdownWhenNoResult="false" placeholder=" " :mustMatch="false" config="baidu" v-model="keyword" type="title" @change="trigger"></AutoComplete>
         <Button color="primary" @click="go">百度一下</Button>
       </div>
     </div>

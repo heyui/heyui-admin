@@ -43,6 +43,7 @@
 
   &-dropdown{
     float: right;
+    margin-left: 10px;
     padding: 0 20px 0 15px;
     .h-icon-down {
       right: 20px;
@@ -90,9 +91,7 @@
       <div class="app-header-icon-item" v-tooltip content="系统布局配置" theme="white" @click="showSettingModal">
         <i class="icon-content-left"></i>
       </div>
-      <div class="app-header-icon-item">
-        <Badge :count="2"><i class="h-icon-bell"></i></Badge>
-      </div>
+      <appHeaderMessage></appHeaderMessage>
       <div class="app-header-icon-item" v-tooltip content="说明文档" theme="white" @click="goGithub">
         <i class="h-icon-help"></i>
       </div>
@@ -102,8 +101,12 @@
 </template>
 <script>
 import { mapState } from "vuex";
+import appHeaderMessage from './modules/app-header-message'
 
 export default {
+  components: {
+    appHeaderMessage
+  },
   data() {
     return {
       searchText: '',

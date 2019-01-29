@@ -37,7 +37,7 @@
       <div class="h-panel-body">
         <Form class="setting-form" :labelWidth="120" labelPosition="left" readonly>
           <FormItem label="Sider风格">
-            <SwitchList v-model="layoutConfig.siderTheme" small :datas="{'white': '白色', 'dark': '深色'}"></SwitchList>
+            <SwitchList v-model="layoutConfig.siderTheme" small :datas="{'white': '白色', 'dark': '暗色'}"></SwitchList>
           </FormItem>
           <FormItem label="固定 Header">
             <h-switch small v-model="layoutConfig.headerFixed"></h-switch>

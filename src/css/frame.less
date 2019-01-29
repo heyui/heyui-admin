@@ -1,4 +1,4 @@
-@frame-box-shadow: rgba(29, 35, 41, 0.05);
+@frame-box-shadow: rgba(0,21,41,.08);
 
 #app{
   .app-frame {
@@ -7,7 +7,10 @@
 
   .h-layout-sider{
     z-index: 2;
-    box-shadow: 2px 0 10px 0 @frame-box-shadow;
+    box-shadow: 0 1px 4px @frame-box-shadow;
+  }
+  .h-layout-header{
+    box-shadow: 0px 1px 4px 0 @frame-box-shadow;
   }
 
   .h-layout-sider-collapsed {
