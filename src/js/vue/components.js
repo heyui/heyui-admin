@@ -1,7 +1,7 @@
 import Vue from 'vue';
-// import Qiniu from 'components/common/qiniu';
+import Qiniu from 'components/common/qiniu';
 
-// Vue.component('Qiniu', Qiniu);
+Vue.component('Qiniu', Qiniu);
 Vue.component('Chart', (resolve) => require(['components/common/Chart'], resolve));
 Vue.component('CodeEditor', (resolve) => require(['components/common/CodeEditor'], resolve));
 Vue.component('RichTextEditor', (resolve) => require(['components/common/RichTextEditor'], resolve));

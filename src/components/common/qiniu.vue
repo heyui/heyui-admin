@@ -9,7 +9,7 @@
 
 import qiniujs from 'qiniu-js-es6';
 import pluploadjs from 'plupload-es6';
-import utils from 'hey-utils';
+
 
 export default {
   props: {
@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     deletefile(index) {
-      let value = utils.copy(this.value);
+      let value = Utils.copy(this.value);
       value.splice(index, 1);
       this.$emit("input", value);
     },
@@ -50,7 +50,7 @@ export default {
       let param = {
         runtimes: 'html5',
         browse_button: this.$refs.uploader.getBrowseButton(),
-        uptoken_url: 'http://demo.heyui.top/api/uptoken',
+        uptoken_url: 'http://admin.heyui.top/api/uptoken',
         domain: 'http://oroc6hc3j.bkt.clouddn.com',
         chunk_size: '4mb',
         unique_names: true,
@@ -122,7 +122,7 @@ export default {
         param.drop_element = this.$refs.uploader.getDropElement();
       }
 
-      utils.extend(param, this.options);
+      Utils.extend(param, this.options);
       let muti = this.showType == 'files' || this.showType == 'images';
       param.multi_selection = muti;
       qiniujs.Qiniu.uploader(param);

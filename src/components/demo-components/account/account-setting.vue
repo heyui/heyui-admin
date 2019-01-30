@@ -1,43 +1,50 @@
 <style lang='less'>
 .account-setting-vue {
-
 }
 </style>
 <template>
   <div class="account-setting-vue frame-page">
     <Row :space="30">
-      <Col :xs='24' :sm='24' :md='8' :lg='8' :xl='8'>
-        <div class="h-panel">
-          <div class="home-part-body">
-            用户信息
-          </div>
-        </div>
+      <Col :xs='24' :sm='24' :md='6' :lg='6' :xl='6'>
+        <AccountInfoShow :account="account"></AccountInfoShow>
       </Col>
-      <Col :xs='24' :sm='24' :md='16' :lg='16' :xl='16'>
+      <Col :xs='24' :sm='24' :md='18' :lg='18' :xl='18'>
         <div class="h-panel">
           <div class="h-panel-tabs-bar">
             <Tabs v-model="tab" :datas="tabs"></Tabs>
           </div>
-          <AccountInfo v-if="tab == 'info'"></AccountInfo>
-
+          <AccountInfo v-if="tab == 'info'" :account="account"></AccountInfo>
         </div>
       </Col>
     </Row>
   </div>
 </template>
 <script>
-import AccountInfo from './modules/account-info'
+import AccountInfo from './modules/account-info';
+import AccountInfoShow from './modules/account-info-show';
+
 export default {
   components: {
-    AccountInfo
+    AccountInfo,
+    AccountInfoShow
   },
   data() {
     return {
       tabs: {
-        info: '个人信息',
+        info: '基本设置',
         team: '团队成员'
       },
-      tab: 'info'
+      tab: 'info',
+      account: {
+        avatar: require("../../../images/avatar.png"),
+        name: 'vvpvvp',
+        desc: '执着于理想，纯粹于当下',
+        email: 'HeyUI@some.com',
+        org: '某某公司',
+        dept: '某某部门',
+        title: '前端开发工程师',
+        location: '上海市',
+      }
     }
   },
   mounted() {
