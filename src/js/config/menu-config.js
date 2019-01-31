@@ -74,7 +74,7 @@ const menuConfig = [
       },
       {
         title: '安全设置',
-        key: 'accountSecurity'
+        key: 'securitySetting'
       }
     ]
   },

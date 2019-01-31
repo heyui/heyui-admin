@@ -17,7 +17,7 @@
 
   .progress-div {
     >p {
-      padding: 18px 0;
+      padding: 8px 0;
     }
     .h-progress {
       &-title {
@@ -84,9 +84,7 @@
                 </h-circle>
               </Col>
               <Col :width="14">
-                <p v-height="15"></p>
                 <p class="gray-color">目前达成比例</p>
-                <p v-height="10"></p>
                 <p class="dark-color font22">122,332,98</p>
               </Col>
               <p class="clearfix"></p>
@@ -96,9 +94,7 @@
                 </h-circle>
               </Col>
               <Col :width="14">
-                <p v-height="15"></p>
                 <p class="gray-color">目前达成比例</p>
-                <p v-height="10"></p>
                 <p class="dark-color font22">122,332,98</p>
               </Col>
               <p class="clearfix"></p>
@@ -108,9 +104,7 @@
                 </h-circle>
               </Col>
               <Col :width="14">
-                <p v-height="15"></p>
                 <p class="gray-color">目前达成比例</p>
-                <p v-height="10"></p>
                 <p class="dark-color font22">122,332,98</p>
               </Col>
             </Row>

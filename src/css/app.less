@@ -21,6 +21,10 @@
 .font-size(22, 22px);
 .font-size(28, 28px);
 
+.font-bold {
+  font-weight: bold;
+}
+
 
 body{
   background: #f3f6f8;
@@ -29,12 +33,33 @@ body{
 }
 
 p {
-  margin: 0;
+  margin: 10px 0;
 }
 
-.frame-page {
+.frame-page, .frame-flex-page {
   margin: 30px;
   .clearfix;
+  &.frame-flex-page {
+    display: flex;
+    padding: 20px 0;
+  }
+  .frame-left {
+    width: 224px;
+    border-right: @border;
+    margin-right: -1px;
+  }
+  .frame-main {
+    flex: 1;
+    border-left: @border;
+    padding: 8px 40px;
+    .subframe-title {
+      font-size: 20px;
+      color: rgba(0,0,0,.85);
+      line-height: 28px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+  }
 }
 
 [class^="icon-"], [class*=" icon-"] {
@@ -45,6 +70,20 @@ p {
 .echarts {
   height: 400px;
   overflow: hidden;
+}
+
+.common-list-container {
+  .common-list-item {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    align-items: center;
+    display: flex;
+    padding: 12px 0;
+    border-bottom: @border;
+    .common-list-meta {
+      flex: 1;
+    }
+  }
 }
 
 .empty-placeholder {

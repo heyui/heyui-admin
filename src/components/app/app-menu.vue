@@ -26,9 +26,6 @@
   }
   .h-menu.h-menu-white {
     color: rgba(49, 58, 70, 0.8);
-    .h-menu-li-selected{
-      background-color: rgb(240, 246, 255);
-    }
   }
 
 }
@@ -37,7 +34,7 @@
 <template>
   <div class="app-menu">
     <appLogo></appLogo>
-    <Menu :datas="menus" :inlineCollapsed="siderCollapsed" @onclick="trigger" ref='menu' :className="`h-menu-${theme}`"></Menu>
+    <Menu :datas="menus" :inlineCollapsed="siderCollapsed" @click="trigger" ref='menu' :className="`h-menu-${theme}`"></Menu>
   </div>
 </template>
 <script>
@@ -73,6 +70,7 @@ export default {
       }
     },
     trigger(data) {
+      if(data.children.length > 0) return;
       this.$router.push({ name: data.key });
     }
   },
