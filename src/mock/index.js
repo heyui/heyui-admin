@@ -7,7 +7,14 @@ Mock.setup({
 Mock.mock('/api/account/info', "get", {
   "status": 200,
   "body": {
-    "name": "moni"
+    name: 'vvpvvp',
+    desc: '执着于理想，纯粹于当下',
+    email: 'HeyUI@some.com',
+    org: '某某公司',
+    dept: '某某部门',
+    title: '前端开发工程师',
+    location: '上海市',
+    tags: ['善解人意', '开朗乐观', '真诚热情', '心地善良', '谦恭有礼', '彬彬有礼', '虚怀若谷', '严于律己', '雍容大度', '热情洋溢', '从容自若', '诚挚', '温厚', '谦让', '勤恳', '耿直']
   }
 });
 

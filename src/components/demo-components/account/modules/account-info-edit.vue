@@ -6,7 +6,7 @@
 </style>
 <template>
   <div class="account-info-vue">
-    <Form :model="acc" :rules="rules">
+    <Form :model="acc" :rules="rules" ref="form" showErrorTip>
       <FormItem label="头像" prop="avatar">
         <Qiniu :options="options" type="image" data-type="url" v-model="acc.avatar"></Qiniu>
       </FormItem>
@@ -31,10 +31,19 @@
       <FormItem label="地址" prop="location">
         <input type="text" v-model="acc.location"/>
       </FormItem>
+      <FormItem label="标签" prop="tags">
+        <TagInput v-model="acc.tags"></TagInput>
+      </FormItem>
+      <FormItem label="" prop="location">
+        <Button color="primary" @click="save" :loading="saveloading">保存</Button>
+        <Button @click="reset">重置</Button>
+      </FormItem>
     </Form>
   </div>
 </template>
 <script>
+import store from 'js/vuex/store';
+
 export default {
   props: {
     account: Object
@@ -54,6 +63,7 @@ export default {
           ]
         }
       },
+      saveloading: false
     }
   },
   mounted() {
@@ -62,6 +72,18 @@ export default {
   methods: {
     init() {
       
+    },
+    save() {
+      if(!this.$refs.form.valid().result) return;
+      this.saveloading = true;
+      setTimeout(() => {
+        this.saveloading = false;
+        store.dispatch('updateAccount', Utils.copy(this.acc));
+      }, 1000);
+    },
+    reset() {
+      this.$refs.form.reset();
+      this.acc = Utils.copy(this.account);
     }
   },
   computed: {

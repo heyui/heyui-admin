@@ -52,6 +52,7 @@ export default {
       this.$Loading("加载中");
       R.User.info().then((resp) => {
         if (resp.ok) {
+          resp.body.avatar = require("../../images/avatar.png");
           store.dispatch('updateAccount', resp.body);
           this.initDict();
         }
