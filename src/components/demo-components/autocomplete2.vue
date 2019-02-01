@@ -9,8 +9,9 @@
   }
 </style>
 <template>
-  <div class="autocomplete-full-demos frame-page">
-    <div class="h-panel"  v-padding="40">
+  <div class="autocomplete-full-demos frame-page h-panel">
+    <div class="h-panel-bar"><span class="h-panel-title">场景应用</span></div>
+    <div class="h-panel-body">
       <h4>默认Key模式</h4>
       <p>option可以传递一些业务参数，针对于选择数据的时候。</p>
       <p>value:{{value}}</p>

@@ -39,15 +39,15 @@ export default [{
   component: (resolve) => require(['components/demo-components/table/basic'], resolve),
   meta: {title: '基础表格'}
 }, {
+  path: '/tablesearch',
+  name: 'tableSearch',
+  component: (resolve) => require(['components/demo-components/table/search'], resolve),
+  meta: {title: '查询表格'}
+}, {
   path: '/tabledetail',
   name: 'tableDetail',
   component: (resolve) => require(['components/demo-components/table/detail'], resolve),
   meta: {title: '表格详情'}
-}, {
-  path: '/tablesearch',
-  name: 'tableSearch',
-  component: (resolve) => require(['components/demo-components/table/search'], resolve),
-  meta: {title: '搜索表格'}
 }, {
   path: '/accountbasic',
   name: 'accountBasic',

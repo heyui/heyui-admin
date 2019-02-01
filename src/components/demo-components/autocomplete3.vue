@@ -3,8 +3,9 @@
   }
 </style>
 <template>
-  <div class="autocomplete-complex-demos frame-page">
-    <div class="h-panel"  v-padding="40">
+  <div class="autocomplete-complex-demos frame-page h-panel">
+    <div class="h-panel-bar"><span class="h-panel-title">复杂场景</span></div>
+    <div class="h-panel-body">
       <Form style="max-width: 400px" :labelWidth="100">
         <FormItem label="公司信息" readonly>
           {{companyId}}/{{companyName}}

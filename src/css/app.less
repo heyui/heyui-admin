@@ -3,27 +3,7 @@
 @import (less) "./fonts/style.less";
 @import (less) "./frame.less";
 @import (less) "./markdown.less";
-
-
-.font-size(@var, @size) {
-  .font@{var} {
-    font-size: @size !important;
-  }
-}
-
-.font-size(12, 12px);
-.font-size(13, 13px);
-.font-size(14, 14px);
-.font-size(15, 15px);
-.font-size(16, 16px);
-.font-size(18, 18px);
-.font-size(20, 20px);
-.font-size(22, 22px);
-.font-size(28, 28px);
-
-.font-bold {
-  font-weight: bold;
-}
+@import (less) "./common.less";
 
 
 body{
@@ -32,60 +12,12 @@ body{
   font-weight: 400;
 }
 
-p {
-  margin: 10px 0;
-}
-
-.frame-page, .frame-flex-page {
-  margin: 30px;
-  .clearfix;
-  &.frame-flex-page {
-    display: flex;
-    padding: 20px 0;
-  }
-  .frame-left {
-    width: 224px;
-    border-right: @border;
-    margin-right: -1px;
-  }
-  .frame-main {
-    flex: 1;
-    border-left: @border;
-    padding: 8px 40px;
-    .subframe-title {
-      font-size: 20px;
-      color: rgba(0,0,0,.85);
-      line-height: 28px;
-      font-weight: 500;
-      margin-bottom: 12px;
-    }
-  }
-}
-
-[class^="icon-"], [class*=" icon-"] {
-  vertical-align: 1px;
-}
-
 
 .echarts {
   height: 400px;
   overflow: hidden;
 }
 
-.common-list-container {
-  .common-list-item {
-    padding-top: 14px;
-    padding-bottom: 14px;
-    align-items: center;
-    display: flex;
-    padding: 12px 0;
-    border-bottom: @border;
-    .common-list-meta {
-      flex: 1;
-    }
-  }
-}
-
-.empty-placeholder {
-  min-height: 100px;
+p {
+  margin: 8px 0;
 }

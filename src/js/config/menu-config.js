@@ -11,13 +11,47 @@ const menuConfig = [
     icon: 'icon-heart'
   },
   {
-    title: '表单',
+    title: '列表应用',
+    key: 'tablelist',
+    icon: 'icon-grid-2',
+    children: [
+      {
+        title: '基础表格',
+        key: 'tableBasic'
+      },
+      {
+        title: '查询列表',
+        key: 'tableSearch'
+      }
+    ]
+  },
+  {
+    title: '表单应用',
     key: 'form-folder',
     icon: 'icon-paper',
     children: [
       {
         title: '表单',
         key: 'form'
+      }
+    ]
+  },
+  {
+    title: '模糊匹配',
+    key: 'AutoComplete-folder',
+    icon: 'icon-disc',
+    children: [
+      {
+        title: '模糊搜索',
+        key: 'autocomplete1'
+      },
+      {
+        title: '场景应用',
+        key: 'autocomplete2'
+      },
+      {
+        title: '复杂场景',
+        key: 'autocomplete3'
       }
     ]
   },
@@ -45,25 +79,6 @@ const menuConfig = [
     ]
   },
   {
-    title: 'AutoComplete',
-    key: 'AutoComplete-folder',
-    icon: 'icon-disc',
-    children: [
-      {
-        title: '百度搜索',
-        key: 'autocomplete1'
-      },
-      {
-        title: '场景应用',
-        key: 'autocomplete2'
-      },
-      {
-        title: '复杂场景',
-        key: 'autocomplete3'
-      }
-    ]
-  },
-  {
     title: '系统设置',
     key: 'sys-setting',
     icon: 'icon-cog',
@@ -79,7 +94,7 @@ const menuConfig = [
     ]
   },
   {
-    title: '错误页面',
+    title: '异常页面',
     key: 'error-pages',
     icon: 'icon-circle-cross',
     children: [

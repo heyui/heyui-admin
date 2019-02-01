@@ -1,10 +1,10 @@
 <style lang="less">
   .autocomplete-baidu{
     .middle-container{
-      margin: 20% auto;
-      max-width: 500px;
+      padding: 30vh 0;
       .search-container{
         max-width: 500px;
+        margin: 0 auto;
         height: 40px;
         display: flex;
         input{
@@ -29,7 +29,8 @@
   }
 </style>
 <template>
-  <div class="frame-page autocomplete-baidu">
+  <div class="frame-page autocomplete-baidu h-panel">
+    <div class="h-panel-bar"><span class="h-panel-title">模糊搜索</span></div>
     <div class="middle-container">
       <div class="search-container">
         <AutoComplete class="flex1" :showDropdownWhenNoResult="false" placeholder=" " :mustMatch="false" config="baidu" v-model="keyword" type="title" @change="trigger"></AutoComplete>

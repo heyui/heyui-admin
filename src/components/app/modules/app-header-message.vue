@@ -16,17 +16,15 @@
   width: 300px;
   min-height: 300px;
   .message-list-container {
-    .message-item {
+    .common-list-item {
       cursor: pointer;
-      border-bottom: @border;
-      padding: 10px 25px;
+      padding: 0px 25px;
       &:hover {
         background: @hover-background-color;
       }
       .description {
         font-size: 13px;
         color: @gray-color;
-        margin-top: 5px;
       }
 
       .title {
@@ -63,12 +61,13 @@
         <div class="h-panel-bar h-panel-bar-s">
           <span class="h-panel-title">消息</span>
         </div>
-        <div class="message-list-container">
-          <div class="message-item" v-for="m of messageList" :key="m.id" @click="goMessageDetail(m)" :class="{readed: m.isReaded, unReaded: !m.isReaded}">
-            <p class="title">{{m.title}}</p>
-            <p class="description">{{m.description}}</p>
+        <div class="message-list-container common-list-container">
+          <div class="common-list-item" v-for="m of messageList" :key="m.id" @click="goMessageDetail(m)" :class="{readed: m.isReaded, unReaded: !m.isReaded}">
+            <div class="common-list-meta">
+              <p class="title">{{m.title}}</p>
+              <p class="description">{{m.description}}</p>
+            </div>
           </div>
-          <div v-if="messageList.length==0" class="empty-placeholder"></div>
         </div>
         <div v-if="messageList.length>0" class="text-center h-panel-bar"><span class="link">查看更多</span></div>
       </div>
