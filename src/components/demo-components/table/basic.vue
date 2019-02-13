@@ -19,7 +19,9 @@
         </div>
       </div>
       <Table :loading="loading" :datas="datas">
-        <TableItem prop="$index" title="序号"></TableItem>
+        <TableItem title="序号">
+          <template slot-scope="{index}">{{index+1}} </template>
+        </TableItem>
         <TableItem prop="name" title="姓名"></TableItem>
         <TableItem prop="salary" title="薪资"></TableItem>
         <TableItem prop="country" title="国家"></TableItem>
@@ -44,7 +46,7 @@
         },
         pagination: {
           page: 1,
-          size: 10,
+          size: 20,
           total: 0
         },
         tabs: [
@@ -91,6 +93,12 @@
         this.loading = true;
         setTimeout(() => {
           this.datas = [{name: 'Dakota Rice', salary: '$36,738', country: 'Niger', city: 'Oud-Turnhout'},
+              {name: 'Minerva Hooper', salary: '$23,789', country: 'Curaçao', city: 'Sinaai-Waas'},
+              {name: 'Sage Rodriguez', salary: '$56,142', country: 'Netherlands', city: 'Baileux'},
+              {name: 'Philip Chaney', salary: '$38,735', country: 'Korea, South', city:'Overland Park'},
+              {name: 'Doris Greene', salary: '$63,542', country: 'Malawi', city: 'Feldkirchen in Kärnten'},
+              {name: 'Mason Porter', salary: '$78,615', country: 'Chile', city: 'Gloucester'},
+              {name: 'Dakota Rice', salary: '$36,738', country: 'Niger', city: 'Oud-Turnhout'},
               {name: 'Minerva Hooper', salary: '$23,789', country: 'Curaçao', city: 'Sinaai-Waas'},
               {name: 'Sage Rodriguez', salary: '$56,142', country: 'Netherlands', city: 'Baileux'},
               {name: 'Philip Chaney', salary: '$38,735', country: 'Korea, South', city:'Overland Park'},

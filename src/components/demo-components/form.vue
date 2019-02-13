@@ -1,14 +1,19 @@
+<style lang="less">
+.basic-form-vue {
+  .h-panel-body {
+    padding-right: 60px;
+  }
+}
+</style>
+
 <template>
-  <div class="app-form frame-page">
+  <div class="app-form frame-page basic-form-vue">
     <div class="h-panel">
       <div class="h-panel-bar">
         <span class="h-panel-title">Form</span>
       </div>
-      <div class="h-panel-body" style="padding: 40px;">
-        <div v-height="50">
-          <SwitchList :datas="modeParam" v-model="mode" :small="true"></SwitchList>
-        </div>
-        <Form :label-width="110" :mode="mode" :model="data" :rules="validationRules" ref="form">
+      <div class="h-panel-body">
+        <Form :label-width="110" mode="twocolumn" :model="data" :rules="validationRules" ref="form" showErrorTip>
           <FormItem label="输入框" prop="input">
             <input type="text" v-model="data.input" placeholder="限制输入30个字" v-wordlimit='30' />
             <template slot="error" slot-scope="props">
@@ -151,13 +156,6 @@ export default {
       },
       param1: ['美金', '人民币', '卢布'],
       isLoading: false,
-      modeParam: {
-        single: '一个区块一行',
-        block: '标题独立一行',
-        twocolumn: '两列一行',
-        threecolumn: '三列一行',
-      },
-      isInputAsyncError: false,
       validationRules: {
         rules: {
           textarea: {
@@ -221,15 +219,12 @@ export default {
   methods: {
     submit() {
       let validResult = this.$refs.form.valid();
-      // log(validResult.messages);
       if (validResult.result) {
         this.$Message("验证成功");
         this.isLoading = true;
         setTimeout(() => {
           this.isLoading = false;
         }, 1000);
-      } else {
-        this.$Message.error(`还有${validResult.messages.length}个错误未通过验证。`);
       }
     },
     reset() {

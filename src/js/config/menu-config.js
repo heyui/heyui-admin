@@ -31,7 +31,7 @@ const menuConfig = [
     icon: 'icon-paper',
     children: [
       {
-        title: '表单',
+        title: '基础表单',
         key: 'form'
       }
     ]
