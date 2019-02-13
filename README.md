@@ -61,6 +61,8 @@ Understanding and learning this knowledge in advance will greatly help the use o
     - heyui config
     - dict config
     - menu config
+    - tree config
+    - echart config
   - vue
     - components
     - filters
