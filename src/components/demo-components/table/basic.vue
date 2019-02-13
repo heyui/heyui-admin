@@ -50,13 +50,13 @@
           total: 0
         },
         tabs: [
-            {key: 'heyui', title: 'HeyUI'},
-            {key: 'heyadmin', title: 'HeyUI-Admin'},
-            {key: 'heycli', title: 'Hey-Cli'},
-            {key: 'heyutils', title: 'Hey-Utils'},
-            {key: 'heyvalidator', title: 'Hey-Validator'},
+            {key: 'China', title: 'Malawi'},
+            {key: 'Niger', title: 'Niger'},
+            {key: 'Curaçao', title: 'Curaçao'},
+            {key: 'Korea', title: 'Korea'},
+            {key: 'Malawi', title: 'Malawi'},
         ],
-        type: 'heyui',
+        type: 'China',
         datas: [],
         counts: {},
         loading: false,
@@ -78,11 +78,11 @@
       getCounts() {
         setTimeout(() => {
           this.counts = {
-            heyui: 900,
-            heyadmin: 90,
-            heycli: 20,
-            heyutils: 30,
-            heyvalidator: 45,
+            China: 900,
+            Niger: 90,
+            Curaçao: 20,
+            Korea: 30,
+            Malawi: 45,
           }
         }, 1000)
       },
