@@ -12,6 +12,7 @@ module.exports = {
     },
     commonTrunk: {
       common: [
+        'babel-polyfill',
         'manba',
         'js-model',
         './src/js/common/utils',
