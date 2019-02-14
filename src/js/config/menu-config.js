@@ -33,6 +33,10 @@ const menuConfig = [
       {
         title: '基础表单',
         key: 'form'
+      },
+      {
+        title: '表单详情',
+        key: 'formDetail'
       }
     ]
   },
