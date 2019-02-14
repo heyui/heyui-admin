@@ -4,6 +4,11 @@ export default [{
   component: (resolve) => require(['components/demo-components/form'], resolve),
   meta: {title: '表单', icon: 'icon-paper'}
 }, {
+  path: '/formDetail',
+  name: 'formDetail',
+  component: (resolve) => require(['components/demo-components/formDetail'], resolve),
+  meta: {title: '表单详情'}
+}, {
   path: '/autocomplete1',
   name: 'autocomplete1',
   component: (resolve) => require(['components/demo-components/autocomplete1'], resolve),
