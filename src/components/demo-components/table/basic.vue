@@ -22,10 +22,18 @@
         <TableItem title="序号">
           <template slot-scope="{index}">{{index+1}} </template>
         </TableItem>
-        <TableItem prop="name" title="姓名"></TableItem>
-        <TableItem prop="salary" title="薪资"></TableItem>
-        <TableItem prop="country" title="国家"></TableItem>
-        <TableItem prop="city" title="城市"></TableItem>
+        <TableItem :width="200" prop="name" title="姓名"></TableItem>
+        <TableItem :width="200" prop="salary" title="薪资"></TableItem>
+        <TableItem :width="200" prop="country" title="国家"></TableItem>
+        <TableItem :width="200" prop="city" title="城市"></TableItem>
+        <TableItem :width="200" prop="name" title="姓名"></TableItem>
+        <TableItem :width="200" prop="salary" title="薪资"></TableItem>
+        <TableItem :width="200" prop="country" title="国家"></TableItem>
+        <TableItem :width="200" prop="city" title="城市"></TableItem>
+        <TableItem :width="200" prop="name" title="姓名"></TableItem>
+        <TableItem :width="200" prop="salary" title="薪资"></TableItem>
+        <TableItem :width="200" prop="country" title="国家"></TableItem>
+        <TableItem :width="200" prop="city" title="城市"></TableItem>
       </Table>
       <p></p>
       <Pagination v-if="pagination.total>0" :size="pagination.size" :cur="pagination.page" align="right" :total="pagination.total" @change="changePage" />
@@ -104,8 +112,8 @@
               {name: 'Philip Chaney', salary: '$38,735', country: 'Korea, South', city:'Overland Park'},
               {name: 'Doris Greene', salary: '$63,542', country: 'Malawi', city: 'Feldkirchen in Kärnten'},
               {name: 'Mason Porter', salary: '$78,615', country: 'Chile', city: 'Gloucester'}]
-          this.loading = false;
           this.pagination.total = 100;
+          this.loading = false;
         }, 1000)
       }
     },
