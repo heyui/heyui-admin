@@ -6,7 +6,7 @@ module.exports = {
     publicPath: '/',
     output: {
       './index.html': {
-        entry: './src/app',
+        entry: './src/main',
         commons: ['common']
       }
     },
