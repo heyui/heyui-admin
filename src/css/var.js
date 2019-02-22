@@ -1,7 +1,7 @@
 module.exports = {
   prefix: 'h-',
   'primary-color': '#3788ee',
-  'link-color': '#45b984',
+  'link-color': '#3788ee',
   'blue-color': '#2d7bf4',
   'green-color': '#0acf97',
   'yellow-color': '#f9bc0b',
