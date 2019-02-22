@@ -109,6 +109,10 @@ heyui-admin 是一个成熟的企业应用解决方案，它基于 vue2.0 和 he
 
 ## 开始
 
+### 使用 hey-cli
+
+需要全局安装 hey-cli@1.13.0+
+
 **我们建议使用[hey-cli](https://github.com/heyui/hey-cli)脚手架。**
 
 ```bash
@@ -125,6 +129,26 @@ hey dev
 ```
 
 系统将自动打开页面 http://localhost:9012, 或者你可以通过 hey.conf.js 文件修改端口号.
+
+
+### 使用 vue-cli
+
+需要全局安装 vue-cli@3.0.0+
+
+将vue-cli文件夹内的文件复制到根目录。
+
+```bash
+# clone the project
+git clone https://github.com/heyui/heyui-admin.git
+
+cd heyui-admin
+
+# install dependency
+npm install
+
+# develop
+npm run serve
+```
 
 ## 开发
 

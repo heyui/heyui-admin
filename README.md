@@ -110,11 +110,17 @@ Understanding and learning this knowledge in advance will greatly help the use o
 
 ## Getting started
 
+### Use hey-cli
+
+Install hey-cli@1.13.0+ globally.
+
 **Recommend to use of scaffolding [hey-cli](https://github.com/heyui/hey-cli).**
 
 ```bash
 # clone the project
 git clone https://github.com/heyui/heyui-admin.git
+
+cd heyui-admin
 
 # install dependency
 npm install
@@ -124,6 +130,26 @@ hey dev
 ```
 
 This will automatically open http://localhost:9012, or you can change the port in hey.conf.js file.
+
+### Use vue-cli
+
+Install vue-cli@3.0.0+ globally.
+
+Copy the files in the vue-cli folder to the root directory
+
+
+```bash
+# clone the project
+git clone https://github.com/heyui/heyui-admin.git
+
+cd heyui-admin
+
+# install dependency
+npm install
+
+# develop, you have installed vue-cli
+npm run serve
+```
 
 ## Develop
 
