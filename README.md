@@ -135,14 +135,14 @@ This will automatically open http://localhost:9012, or you can change the port i
 
 Install vue-cli@3.0.0+ globally.
 
-Copy the files in the vue-cli folder to the root directory
-
-
 ```bash
 # clone the project
 git clone https://github.com/heyui/heyui-admin.git
 
 cd heyui-admin
+
+# Copy the files in the vue-cli folder to the root directory
+mv -f ./vue-cli/* ./
 
 # install dependency
 npm install

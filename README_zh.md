@@ -135,13 +135,14 @@ hey dev
 
 需要全局安装 vue-cli@3.0.0+
 
-将vue-cli文件夹内的文件复制到根目录。
-
 ```bash
 # clone the project
 git clone https://github.com/heyui/heyui-admin.git
 
 cd heyui-admin
+
+# 将vue-cli文件夹内的文件复制到根目录。
+mv -f ./vue-cli/* ./
 
 # install dependency
 npm install
