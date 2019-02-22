@@ -1,5 +1,6 @@
 import axios from 'axios';
 import qs from 'qs';
+import Utils from './utils'
 
 let ajax = {
   PREFIX: "/api",
@@ -135,4 +136,4 @@ let ajax = {
     });
   }
 };
-module.exports = ajax;
+export default ajax;

@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   port: 9012,
   root: 'dist',
@@ -28,13 +30,13 @@ module.exports = {
       components: './src/components/',
     },
     global: {
-      Utils: './src/js/common/utils',
+      Utils: [path.resolve(__dirname, 'src/js/common/utils'), 'default'],
       Manba: 'manba',
       HeyUI: 'heyui',
       Model: 'js-model',
       G: 'hey-global',
       log: 'hey-log',
-      R: './src/js/common/request'
+      R: [path.resolve(__dirname, 'src/js/common/request'), 'default']
     },
     devServer: {
       proxy: {
