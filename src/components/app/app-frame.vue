@@ -45,7 +45,11 @@ export default {
     };
   },
   mounted() {
+    // 如果无后台数据，将此处屏蔽
     this.init();
+
+    // 如果无后台数据，将此处打开
+    // this.loading = false;
   },
   methods: {
     init() {
