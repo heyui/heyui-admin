@@ -26,7 +26,7 @@ heyui-admin 是一个成熟的企业应用解决方案，它基于 vue2.0 和 he
 
 - [在线预览](http://admin.heyui.top)
 
-- [文档](https://heyui.github.io/heyui-admin)
+- [文档](https://heyui.github.io/heyui-admin-docs)
 
 <span style="color: red">这是一个成熟的前端开发解决方案，你可以使用这个架构完成几乎 90%的前端开发工作。</span>
 
