@@ -10,14 +10,14 @@ const initRouter = () => {
     routes: [{
       path: '/login',
       name: 'login',
-      component: (resolve) => require(['components/login'], resolve)
+      component: (resolve) => require(['components/login/index'], resolve)
     }, {
       path: '/',
       component: (resolve) => require(['components/app/app-frame'], resolve),
       children: [{
         path: '',
         name: 'Home',
-        component: (resolve) => require(['components/welcome/home'], resolve),
+        component: (resolve) => require(['components/home/index'], resolve),
         meta: {title: '首页', icon: 'icon-monitor'}
       }, {
         path: '/systemError',

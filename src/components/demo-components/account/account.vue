@@ -5,17 +5,17 @@
 <template>
   <div class="account-vue frame-page">
     <Row :space="30">
-      <Col :xs='24' :sm='24' :md='7' :lg='7' :xl='7'>
+      <Cell :xs='24' :sm='24' :md='7' :lg='7' :xl='7'>
         <AccountInfoShow :account="account"></AccountInfoShow>
-      </Col>
-      <Col :xs='24' :sm='24' :md='17' :lg='17' :xl='17'>
+      </Cell>
+      <Cell :xs='24' :sm='24' :md='17' :lg='17' :xl='17'>
         <div class="h-panel">
           <div class="h-panel-tabs-bar">
             <Tabs v-model="tab" :datas="tabs"></Tabs>
           </div>
           <AccountInfoEdit v-if="tab == 'info'" :account="account"></AccountInfoEdit>
         </div>
-      </Col>
+      </Cell>
     </Row>
   </div>
 </template>

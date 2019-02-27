@@ -29,7 +29,7 @@
     "heyui": "^1.16.0-alpha.10",
     "js-model": "^1.4.2",
     "lodash.debounce": "^4.0.8",
-    "manba": "^1.2.6",
+    "manba": "^1.2.8",
     "marked": "^0.5.2",
     "plupload-es6": "^2.1.11",
     "qiniu-js-es6": "^1.0.31",

@@ -34,7 +34,7 @@
 <template>
   <div class="app-home frame-page">
     <Row :space="30">
-      <Col :xs='24' :sm='24' :md='24' :lg='16' :xl='16'>
+      <Cell :xs='24' :sm='24' :md='24' :lg='16' :xl='16'>
         <div class="h-panel">
           <div class="h-panel-bar">
             <div class="h-panel-title">数据走势</div>
@@ -43,8 +43,8 @@
             <Chart :options="data1"></Chart>
           </div>
         </div>
-      </Col>
-      <Col :xs='24' :sm='24' :md='24' :lg='8' :xl='8'>
+      </Cell>
+      <Cell :xs='24' :sm='24' :md='24' :lg='8' :xl='8'>
         <div class="h-panel">
           <div class="h-panel-bar">
             <div class="h-panel-title">订单统计</div>
@@ -58,9 +58,9 @@
             <p><Progress :percent="66" color="yellow"><span slot="title">订单状态</span><span slot="text">0个</span></Progress></p>
           </div>
         </div>
-      </Col>
+      </Cell>
 
-      <Col :xs='24' :sm='24' :md='24' :lg='16' :xl='16'>
+      <Cell :xs='24' :sm='24' :md='24' :lg='16' :xl='16'>
         <div class="h-panel">
           <div class="h-panel-bar">
             <div class="h-panel-title">数据比例</div>
@@ -69,48 +69,48 @@
             <Chart :options="data2"></Chart>
           </div>
         </div>
-      </Col>
+      </Cell>
 
-      <Col :xs='24' :sm='24' :md='24' :lg='8' :xl='8'>
+      <Cell :xs='24' :sm='24' :md='24' :lg='8' :xl='8'>
         <div class="h-panel">
           <div class="h-panel-bar">
             <div class="h-panel-title">数据比例</div>
           </div>
           <div class="h-panel-body home-part-body2">
             <Row :space="20">
-              <Col :width="10" class="text-right">
+              <Cell :width="10" class="text-right">
                 <h-circle :percent="76" :stroke-width="10" :size="90">
                   <p><span class="font28">{{parseInt(123*76/100)}}</span><span class="gray-color"> / 123</span></p>
                 </h-circle>
-              </Col>
-              <Col :width="14">
+              </Cell>
+              <Cell :width="14">
                 <p class="gray-color">目前达成比例</p>
                 <p class="dark-color font22">122,332,98</p>
-              </Col>
+              </Cell>
               <p class="clearfix"></p>
-              <Col :width="10" class="text-right">
+              <Cell :width="10" class="text-right">
                 <h-circle :percent="99" :stroke-width="10" :size="90"  color="green">
                   <p><span class="font28">{{parseInt(123*76/100)}}</span><span class="gray-color"> / 123</span></p>
                 </h-circle>
-              </Col>
-              <Col :width="14">
+              </Cell>
+              <Cell :width="14">
                 <p class="gray-color">目前达成比例</p>
                 <p class="dark-color font22">122,332,98</p>
-              </Col>
+              </Cell>
               <p class="clearfix"></p>
-              <Col :width="10" class="text-right">
+              <Cell :width="10" class="text-right">
                 <h-circle :percent="22" :stroke-width="10" :size="90" color="red">
                   <p><span class="font28">{{parseInt(123*76/100)}}</span><span class="gray-color"> / 123</span></p>
                 </h-circle>
-              </Col>
-              <Col :width="14">
+              </Cell>
+              <Cell :width="14">
                 <p class="gray-color">目前达成比例</p>
                 <p class="dark-color font22">122,332,98</p>
-              </Col>
+              </Cell>
             </Row>
           </div>
         </div>
-      </Col>
+      </Cell>
     </Row>
   </div>
 </template>

@@ -95,14 +95,14 @@
           <FormItemList>
             <FormItem v-for="(item, index) of data.inputs" :key="item" :label="'输入框'+(index+1)" :prop="'inputs['+index+'].value'">
               <Row type="flex">
-                <Col class="flex1">
+                <Cell class="flex1">
                 <input type="text" v-model="item.value" />
-                </Col>
-                <Col class="text-right" v-width="50">
+                </Cell>
+                <Cell class="text-right" v-width="50">
                 <Poptip @confirm="remove(index)" content="确定删除？">
                   <Button text-color="red" :no-border="true" icon="h-icon-trash"></Button>
                 </Poptip>
-                </Col>
+                </Cell>
               </Row>
             </FormItem>
           </FormItemList>

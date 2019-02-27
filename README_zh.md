@@ -51,23 +51,23 @@ heyui-admin 是一个成熟的企业应用解决方案，它基于 vue2.0 和 he
 
 ```
 - Js
-  - 通用 / common
-    - 封装axios / ajax
-    - 封装所有的请求 / request
-    - 通用方法 / utils
-  - Js模型/model
-  - 配置 / config
-    - 路由配置 / router-config
-    - heyui配置 / router-config
-    - 字典配置 / dict-config
-    - 树配置 / tree-config
-    - 菜单配置 / menu-config
-    - 图表风格配置 / echart-config
-  - vue / vue
-    - 通用组件 / components
-    - 通用filters / filters
-    - 通用directives / directives
-  - vuex / vuex
+  - common / 通用
+    - ajax / 封装axios
+    - request / 封装所有的请求
+    - utils / 通用方法
+  - model / Js模型
+  - config / 配置
+    - router-config / 路由配置
+    - heyui-config / heyui配置
+    - dict-config / 字典配置
+    - tree-config / 树配置
+    - menu-config / 系统菜单配置
+    - echart-config / 图表风格配置
+  - vue
+    - components / 通用组件
+    - filters / 通用filters
+    - directives / 通用directives
+  - vuex
     - store
 
 - 框架组件
