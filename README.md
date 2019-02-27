@@ -55,7 +55,7 @@ Understanding and learning this knowledge in advance will greatly help the use o
     - package axios
     - all requests
     - common utils
-  - js modal
+  - js model
   - config
     - router config
     - heyui config
