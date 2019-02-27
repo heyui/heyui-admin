@@ -22,7 +22,7 @@
 
 ## 介绍
 
-heyui-admin 是一个成熟的企业应用解决方案，它基于 vue2.0 和 heyui 组件库的后台管理系统。
+heyui-admin 是一个成熟的企业应用解决方案，基于 vue2.0 和 heyui 组件库的中后端系统。
 
 - [在线预览](http://admin.heyui.top)
 
