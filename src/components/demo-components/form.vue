@@ -85,7 +85,7 @@
           <FormItem label="模糊匹配" prop="autocomplete">
             <AutoComplete v-model="data.autocomplete" config="simple"></AutoComplete>
           </FormItem>
-          <!-- 
+          <!--
             这里定义的required属性同样适用与验证规则中，
             验证的字段即可以是things[0]（代表独立的数据验证），也可以是things[]（代表整个数组的数据验证）
            -->
@@ -120,8 +120,7 @@
 </template>
 <script>
 export default {
-  data() {
-    let that = this;
+  data () {
     return {
       mode: 'single',
       data: {
@@ -163,14 +162,14 @@ export default {
             minLen: 10
           },
           input: {
-            //做异步处理判断(原则上所有的异步判断在提交后同样需要验证)
-            //这里的判断不会影响最终的valid结果，所以也可以作为一些验证提示
-            validAsync(value, next, parent, data) {
+            // 做异步处理判断(原则上所有的异步判断在提交后同样需要验证)
+            // 这里的判断不会影响最终的valid结果，所以也可以作为一些验证提示
+            validAsync (value, next, parent, data) {
               setTimeout(() => {
                 if (value.length == 15 || value.length == 18) {
                   next();
                 } else {
-                  next("字段长度非15/18位，可能不符合规定");
+                  next('字段长度非15/18位，可能不符合规定');
                 }
               }, 10);
             }
@@ -195,7 +194,7 @@ export default {
           'url',
           'email',
           'tel',
-          'mobile',
+          'mobile'
         ],
         int: ['int'],
         number: ['number', 'money.min', 'money.max'],
@@ -205,7 +204,7 @@ export default {
         mobile: ['mobile'],
         combineRules: [
           {
-            parentRef: "money",
+            parentRef: 'money',
             refs: ['min', 'max'],
             valid: {
               valid: 'lessThan',
@@ -214,27 +213,27 @@ export default {
           }
         ]
       }
-    }
+    };
   },
   methods: {
-    submit() {
+    submit () {
       let validResult = this.$refs.form.valid();
       if (validResult.result) {
-        this.$Message("验证成功");
+        this.$Message('验证成功');
         this.isLoading = true;
         setTimeout(() => {
           this.isLoading = false;
         }, 1000);
       }
     },
-    reset() {
+    reset () {
       this.isLoading = false;
       this.$refs.form.reset();
     },
-    add() {
+    add () {
       this.data.inputs.push({ value: '' });
     },
-    remove(index) {
+    remove (index) {
       this.data.inputs.splice(index, 1);
     }
   }

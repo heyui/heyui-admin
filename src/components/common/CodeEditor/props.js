@@ -1,30 +1,30 @@
 export default {
   mode: {
     type: String,
-    default: '',
+    default: ''
   },
   focus: {
     type: Boolean,
-    default: false,
+    default: false
   },
   theme: {
     type: String,
-    default: 'tomorrow',
+    default: 'tomorrow'
   },
   orientation: {
     type: String,
-    default: 'beside',
+    default: 'beside'
   },
   splits: {
     type: Number,
-    default: 2,
+    default: 2
   },
   name: {
     type: String,
-    default: 'brace-editor',
+    default: 'brace-editor'
   },
   className: {
-    type: String,
+    type: String
   },
   height: {
     type: String,
@@ -36,133 +36,133 @@ export default {
   },
   fontSize: {
     type: [String, Number],
-    default: 14,
+    default: 14
   },
   showGutter: {
     type: Boolean,
-    default: true,
+    default: true
   },
   onChange: {
     type: Function,
-    default: null,
+    default: null
   },
   onCopy: {
     type: Function,
-    default: null,
+    default: null
   },
   onPaste: {
     type: Function,
-    default: null,
+    default: null
   },
   onFocus: {
-    type: Function,
+    type: Function
   },
   onInput: {
-    type: Function,
+    type: Function
   },
   onBlur: {
-    type: Function,
+    type: Function
   },
   onScroll: {
     type: Function,
-    default: null,
+    default: null
   },
   value: {
-    type: String,
+    type: String
   },
   onLoad: {
     type: Function,
-    default: null,
+    default: null
   },
   onSelectionChange: {
-    type: Function,
+    type: Function
   },
   onCursorChange: {
-    type: Function,
+    type: Function
   },
   onBeforeLoad: {
-    type: Function,
+    type: Function
   },
   onValidate: {
-    type: Function,
+    type: Function
   },
   minLines: {
     type: Number,
-    default: null,
+    default: null
   },
   maxLines: {
     type: Number,
-    default: null,
+    default: null
   },
   readOnly: {
     type: Boolean,
-    default: false,
+    default: false
   },
   highlightActiveLine: {
     type: Boolean,
-    default: true,
+    default: true
   },
   tabSize: {
     type: Number,
-    default: 2,
+    default: 2
   },
   showPrintMargin: {
     type: Boolean,
-    default: false,
+    default: false
   },
   cursorStart: {
     type: Number,
-    default: 1,
+    default: 1
   },
   debounceChangePeriod: {
-    type: Number,
+    type: Number
   },
   editorProps: {
     type: Object,
     default: function () {
-      return {$blockScrolling: true}
+      return { $blockScrolling: true };
     }
   },
   setOptions: {
     type: Object,
     default: function () {
-      return {}
+      return {};
     }
   },
   styles: {
     type: Object,
     default: function () {
-      return {}
+      return {};
     }
   },
   scrollMargin: {
     type: Array,
     default: function () {
-      return [ 0, 0, 0, 0]
-    },
+      return [ 0, 0, 0, 0 ];
+    }
   },
   annotations: {
-    type: Array,
+    type: Array
   },
   markers: {
-    type: Array,
+    type: Array
   },
   keyboardHandler: {
-    type: String,
+    type: String
   },
   wrapEnabled: {
     type: Boolean,
-    default: true,
+    default: true
   },
   enableBasicAutocompletion: {
     type: [Boolean, Array],
-    default: false,
+    default: false
   },
   enableLiveAutocompletion: {
     type: [Boolean, Array],
-    default: false,
+    default: false
   },
   commands: {
-    type: Array,
-  },
-}
+    type: Array
+  }
+};

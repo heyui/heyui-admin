@@ -52,52 +52,52 @@ export default {
       default: false
     }
   },
-  data() {
+  data () {
     return {
-      
-    }
+
+    };
   },
-  mounted() {
+  mounted () {
   },
   methods: {
-    isSelected(data) {
+    isSelected (data) {
       if (this.range) {
         return data.max == this.nowValue.max && data.min == this.nowValue.min;
       } else if (this.multiple) {
-        return this.nowValue.indexOf(data.key) > -1
+        return this.nowValue.indexOf(data.key) > -1;
       } else {
-        return this.nowValue == data.key
+        return this.nowValue == data.key;
       }
     },
-    change(data) {
+    change (data) {
       let result = null;
       if (this.range) {
-        result = {max: data.max, min: data.min}
+        result = { max: data.max, min: data.min };
       } else if (this.multiple) {
         result = Utils.copy(this.nowValue);
         Utils.toggleValue(result, data.key);
       } else {
-        result = data.key
+        result = data.key;
       }
       this.setvalue(result);
     },
-    clear() {
+    clear () {
       if (this.range) {
-        this.setvalue({min: null, max: null});
+        this.setvalue({ min: null, max: null });
       } else if (this.multiple) {
         this.setvalue([]);
       } else {
         this.setvalue(null);
       }
     },
-    setvalue(data) {
+    setvalue (data) {
       let value = Utils.copy(this.value);
       value[this.prop] = data;
       this.$emit('input', value);
     }
   },
   computed: {
-    isEmpty() {
+    isEmpty () {
       if (this.range) {
         return !this.nowValue.max && !this.nowValue.min;
       } else if (this.multiple) {
@@ -106,9 +106,9 @@ export default {
         return !this.nowValue;
       }
     },
-    nowValue() {
+    nowValue () {
       return this.value[this.prop];
     }
   }
-}
+};
 </script>

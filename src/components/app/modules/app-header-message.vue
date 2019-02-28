@@ -75,28 +75,28 @@
   </DropdownCustom>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
 
 export default {
-  data() {
+  data () {
     return {
       messageList: []
-    }
+    };
   },
-  mounted() {
-    this.getMessageList()
+  mounted () {
+    this.getMessageList();
   },
   methods: {
-    init() {
-      
+    init () {
+
     },
-    getMessageList: async function() {
+    getMessageList: async function () {
       let resp = await R.Home.getMessageList();
-      if(resp.ok) {
+      if (resp.ok) {
         this.messageList = resp.body;
       }
     },
-    goMessageDetail() {
+    goMessageDetail () {
       this.$refs.messageDropdown.hide();
     }
   },
@@ -104,7 +104,7 @@ export default {
     ...mapGetters({
       user: 'User',
       msgCount: 'msgCount'
-    }),
+    })
   }
-}
+};
 </script>

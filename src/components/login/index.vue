@@ -107,24 +107,24 @@
 import Login from 'model/login/Login';
 
 export default {
-  data() {
+  data () {
     return {
       login: Login.parse({}),
       loading: false
-    }
+    };
   },
   methods: {
-    submit() {
+    submit () {
       this.loading = true;
-      R.Login.login(Login.dispose(this.login)).then(resp=>{
-        if(resp.ok){
+      R.Login.login(Login.dispose(this.login)).then(resp => {
+        if (resp.ok) {
           let msg = resp.body;
-          Utils.saveLocal("token", msg.value);
+          Utils.saveLocal('token', msg.value);
           this.$router.replace('/');
         }
         this.loading = false;
       });
     }
   }
-}
+};
 </script>

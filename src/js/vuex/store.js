@@ -9,40 +9,40 @@ export default new Vuex.Store({
     msgCount: {
       messages: 2
     },
-    siderCollapsed: false,
+    siderCollapsed: false
   },
   mutations: {
-    updateAccount(state, data) {
+    updateAccount (state, data) {
       state.User = data;
     },
-    updateSiderCollapse(state, isShow) {
+    updateSiderCollapse (state, isShow) {
       G.trigger('page_resize');
       state.siderCollapsed = isShow;
     },
-    updateMsgCount(state, data) {
+    updateMsgCount (state, data) {
       state.msgCount = data;
     }
   },
   actions: {
-    updateAccount(context, data) {
-      context.commit('updateAccount', data)
+    updateAccount (context, data) {
+      context.commit('updateAccount', data);
     },
-    updateSiderCollapse(context, data) {
-      context.commit('updateSiderCollapse', data)
+    updateSiderCollapse (context, data) {
+      context.commit('updateSiderCollapse', data);
     },
-    updateMsgCount(context, data) {
-      context.commit('updateMsgCount', data)
+    updateMsgCount (context, data) {
+      context.commit('updateMsgCount', data);
     }
   },
   getters: {
     account: state => {
-      return state.User
+      return state.User;
     },
     siderCollapsed: state => {
-      return state.siderCollapsed
+      return state.siderCollapsed;
     },
     msgCount: state => {
-      return state.msgCount
-    },
+      return state.msgCount;
+    }
   }
-})
+});

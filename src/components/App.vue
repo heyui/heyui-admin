@@ -8,14 +8,14 @@
 import store from 'js/vuex/store';
 
 export default {
-  data() {
+  data () {
     return {
-    }
+    };
   },
   store,
-  mounted() {
+  mounted () {
   },
   methods: {
   }
-}
+};
 </script>

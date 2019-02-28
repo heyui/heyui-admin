@@ -37,7 +37,7 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       icons: [
         'icon-eye',
@@ -169,16 +169,16 @@ export default {
         'icon-file-subtract',
         'icon-help',
         'icon-open',
-        'icon-ellipsis',
+        'icon-ellipsis'
       ]
-    }
+    };
   },
-  mounted() {
+  mounted () {
   },
   methods: {
   },
   computed: {
-    
+
   }
-}
+};
 </script>

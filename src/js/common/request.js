@@ -2,29 +2,28 @@ import Ajax from './ajax';
 
 const Request = {
   User: {
-    info(){
+    info () {
       return Ajax.get('/account/info');
     }
   },
   Dict: {
-    get(){
+    get () {
       return Ajax.get(`/dict`);
-    },
+    }
   },
   Home: {
-    getMessageList() {
+    getMessageList () {
       return Ajax.get(`/home/messages`);
     }
   },
   Login: {
-    login(param){
-      return Ajax.postJson("/login", param);
+    login (param) {
+      return Ajax.postJson('/login', param);
     },
-    logout(param){
-      return Ajax.post("/logout", param);
+    logout (param) {
+      return Ajax.post('/logout', param);
     }
   }
 };
 
 export default Request;
-

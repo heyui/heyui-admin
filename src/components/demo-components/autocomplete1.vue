@@ -13,7 +13,7 @@
           font-size: 15px;
         }
         .h-autocomplete-show{
-          border-color: @primary-color;  
+          border-color: @primary-color;
           border-top-right-radius: 0;
           border-bottom-right-radius: 0;
         }
@@ -41,20 +41,20 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       keyword: null
-    }
+    };
   },
   methods: {
-    trigger(data, type) {
+    trigger (data, type) {
       // log(data, type)
-      if(type == 'enter' || type == 'picker') {
+      if (type == 'enter' || type == 'picker') {
         this.$Message(`跳转至关键词“${this.keyword}”的搜索`);
       }
     },
-    go() {
-      setTimeout(()=>{
+    go () {
+      setTimeout(() => {
         this.$Message(`跳转至关键词“${this.keyword}”的搜索`);
       }, 100);
     }

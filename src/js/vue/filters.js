@@ -1,6 +1,6 @@
 Vue.filter('format', (value, format) => {
-  if(value){
+  if (value) {
     return Manba(value).format(format || 'l');
   }
   return '';
-})
+});

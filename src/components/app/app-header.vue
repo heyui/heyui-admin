@@ -100,19 +100,19 @@
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
-import appHeaderMessage from './modules/app-header-message'
+import { mapState } from 'vuex';
+import appHeaderMessage from './modules/app-header-message';
 
 export default {
   components: {
     appHeaderMessage
   },
-  data() {
+  data () {
     return {
       searchText: '',
       infoMenu: [
-        { key: "info", title: "个人信息", icon: "h-icon-user" },
-        { key: "logout", title: "退出登录", icon: "h-icon-outbox" }
+        { key: 'info', title: '个人信息', icon: 'h-icon-user' },
+        { key: 'logout', title: '退出登录', icon: 'h-icon-outbox' }
       ]
     };
   },
@@ -123,23 +123,23 @@ export default {
         return this.$store.state.siderCollapsed;
       },
       set (value) {
-        this.$store.commit('updateSiderCollapse', value)
+        this.$store.commit('updateSiderCollapse', value);
       }
     }
   },
   methods: {
-    goGithub() {
+    goGithub () {
       window.open('https://github.com/heyui/heyui-admin');
     },
-    trigger(data) {
-      if (data == "logout") {
-        Utils.removeLocal("Auth");
-        this.$router.replace({name: 'login'});
+    trigger (data) {
+      if (data == 'logout') {
+        Utils.removeLocal('Auth');
+        this.$router.replace({ name: 'login' });
       } else {
-        this.$router.push({name: 'accountBasic'});
+        this.$router.push({ name: 'accountBasic' });
       }
     },
-    showSettingModal() {
+    showSettingModal () {
       this.$emit('openSetting');
     }
   }

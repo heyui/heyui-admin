@@ -22,33 +22,33 @@
 <script>
 import AccountInfoEdit from './modules/account-info-edit';
 import AccountInfoShow from './modules/account-info-show';
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
 
 export default {
   components: {
     AccountInfoEdit,
     AccountInfoShow
   },
-  data() {
+  data () {
     return {
       tabs: {
-        info: '基本设置',
+        info: '基本设置'
       },
       tab: 'info'
-    }
+    };
   },
-  mounted() {
-    this.init()
+  mounted () {
+    this.init();
   },
   methods: {
-    init() {
-      
+    init () {
+
     }
   },
   computed: {
     ...mapState({
       account: 'User'
-    }),
+    })
   }
-}
+};
 </script>

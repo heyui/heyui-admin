@@ -60,9 +60,10 @@ Understanding and learning this knowledge in advance will greatly help the use o
     - router config
     - heyui config
     - dict config
+    - autocomplete config
+    - category config
     - menu config
     - tree config
-    - echart config
   - vue
     - components
     - filters

@@ -10,6 +10,8 @@ module.exports = {
   "globals": {
     "HeyUI": true,
     "Utils": true,
+    "Manba": true,
+    "Vue": true,
     "R": true,
     "G": true,
     "log": true,
@@ -17,7 +19,16 @@ module.exports = {
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    "semi": [
+      "error",
+      "always"
+    ],
+    "eqeqeq": "off",
+    "linebreak-style": [
+        "error",
+        "unix"
+    ],
   },
   parserOptions: {
     parser: 'babel-eslint'

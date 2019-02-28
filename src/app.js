@@ -12,7 +12,7 @@ require('./css/app.less');
 // process.env.NODE_ENV == 'development'
 
 // 使用mock文件， 自己开发的时候请删除
-require('./mock')
+require('./mock');
 
 // HeyUI已经设定为全局变量，无需引用
 // 设定全局变量请参考根目录下的hey.conf.js文件
@@ -20,7 +20,7 @@ require('./mock')
 heyuiConfig();
 Vue.use(HeyUI);
 
-const router = routerConfig(); 
+const router = routerConfig();
 
 const app = new Vue({
   router,

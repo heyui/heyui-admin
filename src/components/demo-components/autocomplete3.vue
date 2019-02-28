@@ -26,23 +26,23 @@
 <script>
 
 export default {
-  data() {
+  data () {
     return {
       companyId: 1,
       companyName: '知乎',
       accountId: 2,
       accountName: '张三'
-    }
+    };
   },
   methods: {
-    onChange(data, trigger) {
+    onChange (data, trigger) {
       this.companyName = data.title;
       this.accountId = null;
       this.accountName = null;
     },
-    onChange1(data, trigger) {
+    onChange1 (data, trigger) {
       this.accountName = data.title;
-    },
+    }
   }
 };
 </script>

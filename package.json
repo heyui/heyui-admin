@@ -40,17 +40,20 @@
     "wangeditor": "^3.1.1"
   },
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-plugin-html": "^4.0.6",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-vue": "^4.7.1",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.3.0",
+    "eslint-plugin-html": "^5.0.3",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-vue": "^5.2.2",
     "mockjs": "^1.0.1-beta3"
   },
   "readmeFilename": "README.md",
   "scripts": {
     "serve": "hey dev",
     "build": "hey build",
-    "dev": "hey dev"
+    "dev": "hey dev",
+    "eslint": "eslint --fix --ext .js,.vue src"
   },
   "browserslist": [
     "ie >= 9"

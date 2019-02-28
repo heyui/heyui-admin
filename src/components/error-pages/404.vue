@@ -31,21 +31,21 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
-      
-    }
+
+    };
   },
-  mounted() {
-    this.init()
+  mounted () {
+    this.init();
   },
   methods: {
-    init() {
-      
+    init () {
+
     }
   },
   computed: {
-    
+
   }
-}
+};
 </script>

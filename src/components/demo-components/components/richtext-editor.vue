@@ -12,21 +12,21 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       value: '<p><i>测试</i></p>'
-    }
+    };
   },
-  mounted() {
-    this.init()
+  mounted () {
+    this.init();
   },
   methods: {
-    init() {
-      
+    init () {
+
     }
   },
   computed: {
-    
+
   }
-}
+};
 </script>

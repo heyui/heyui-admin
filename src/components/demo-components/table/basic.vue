@@ -41,84 +41,84 @@
   </div>
 </template>
 <script>
-  export default {
-    data() {
-      return {
-        keyword: '',
-        sort: 'updatedAt:desc',
-        sortList: {
-          'updatedAt:desc': '更新时间倒序',
-          'updatedAt:asc': '更新时间正序',
-          'createdAt:desc': '创建时间倒序',
-          'createdAt:asc': '创建时间正序',
-        },
-        pagination: {
-          page: 1,
-          size: 20,
-          total: 0
-        },
-        tabs: [
-            {key: 'China', title: 'Malawi'},
-            {key: 'Niger', title: 'Niger'},
-            {key: 'Curaçao', title: 'Curaçao'},
-            {key: 'Korea', title: 'Korea'},
-            {key: 'Malawi', title: 'Malawi'},
-        ],
-        type: 'China',
-        datas: [],
-        counts: {},
-        loading: false,
+export default {
+  data () {
+    return {
+      keyword: '',
+      sort: 'updatedAt:desc',
+      sortList: {
+        'updatedAt:desc': '更新时间倒序',
+        'updatedAt:asc': '更新时间正序',
+        'createdAt:desc': '创建时间倒序',
+        'createdAt:asc': '创建时间正序'
+      },
+      pagination: {
+        page: 1,
+        size: 20,
+        total: 0
+      },
+      tabs: [
+        { key: 'China', title: 'Malawi' },
+        { key: 'Niger', title: 'Niger' },
+        { key: 'Curaçao', title: 'Curaçao' },
+        { key: 'Korea', title: 'Korea' },
+        { key: 'Malawi', title: 'Malawi' }
+      ],
+      type: 'China',
+      datas: [],
+      counts: {},
+      loading: false
+    };
+  },
+  mounted () {
+    this.init();
+  },
+  methods: {
+    init () {
+      this.getData();
+      this.getCounts();
+    },
+    changePage (page) {
+      this.pagination.page = page.cur;
+      this.pagination.size = page.size;
+      this.getData();
+    },
+    getCounts () {
+      setTimeout(() => {
+        this.counts = {
+          China: 900,
+          Niger: 90,
+          Curaçao: 20,
+          Korea: 30,
+          Malawi: 45
+        };
+      }, 1000);
+    },
+    getData (reload = false) {
+      if (reload) {
+        this.pagination.page = 1;
       }
-    },
-    mounted() {
-      this.init();
-    },
-    methods: {
-      init() {
-        this.getData();
-        this.getCounts();
-      },
-      changePage(page) {
-        this.pagination.page = page.cur;
-        this.pagination.size = page.size;
-        this.getData();
-      },
-      getCounts() {
-        setTimeout(() => {
-          this.counts = {
-            China: 900,
-            Niger: 90,
-            Curaçao: 20,
-            Korea: 30,
-            Malawi: 45,
-          }
-        }, 1000)
-      },
-      getData(reload = false) {
-        if (reload) {
-          this.pagination.page = 1;
-        }
-        this.loading = true;
-        setTimeout(() => {
-          this.datas = [{name: 'Dakota Rice', salary: '$36,738', country: 'Niger', city: 'Oud-Turnhout'},
-              {name: 'Minerva Hooper', salary: '$23,789', country: 'Curaçao', city: 'Sinaai-Waas'},
-              {name: 'Sage Rodriguez', salary: '$56,142', country: 'Netherlands', city: 'Baileux'},
-              {name: 'Philip Chaney', salary: '$38,735', country: 'Korea, South', city:'Overland Park'},
-              {name: 'Doris Greene', salary: '$63,542', country: 'Malawi', city: 'Feldkirchen in Kärnten'},
-              {name: 'Mason Porter', salary: '$78,615', country: 'Chile', city: 'Gloucester'},
-              {name: 'Dakota Rice', salary: '$36,738', country: 'Niger', city: 'Oud-Turnhout'},
-              {name: 'Minerva Hooper', salary: '$23,789', country: 'Curaçao', city: 'Sinaai-Waas'},
-              {name: 'Sage Rodriguez', salary: '$56,142', country: 'Netherlands', city: 'Baileux'},
-              {name: 'Philip Chaney', salary: '$38,735', country: 'Korea, South', city:'Overland Park'},
-              {name: 'Doris Greene', salary: '$63,542', country: 'Malawi', city: 'Feldkirchen in Kärnten'},
-              {name: 'Mason Porter', salary: '$78,615', country: 'Chile', city: 'Gloucester'}]
-          this.pagination.total = 100;
-          this.loading = false;
-        }, 1000)
-      }
-    },
-    computed: {
-
+      this.loading = true;
+      setTimeout(() => {
+        this.datas = [{ name: 'Dakota Rice', salary: '$36,738', country: 'Niger', city: 'Oud-Turnhout' },
+          { name: 'Minerva Hooper', salary: '$23,789', country: 'Curaçao', city: 'Sinaai-Waas' },
+          { name: 'Sage Rodriguez', salary: '$56,142', country: 'Netherlands', city: 'Baileux' },
+          { name: 'Philip Chaney', salary: '$38,735', country: 'Korea, South', city: 'Overland Park' },
+          { name: 'Doris Greene', salary: '$63,542', country: 'Malawi', city: 'Feldkirchen in Kärnten' },
+          { name: 'Mason Porter', salary: '$78,615', country: 'Chile', city: 'Gloucester' },
+          { name: 'Dakota Rice', salary: '$36,738', country: 'Niger', city: 'Oud-Turnhout' },
+          { name: 'Minerva Hooper', salary: '$23,789', country: 'Curaçao', city: 'Sinaai-Waas' },
+          { name: 'Sage Rodriguez', salary: '$56,142', country: 'Netherlands', city: 'Baileux' },
+          { name: 'Philip Chaney', salary: '$38,735', country: 'Korea, South', city: 'Overland Park' },
+          { name: 'Doris Greene', salary: '$63,542', country: 'Malawi', city: 'Feldkirchen in Kärnten' },
+          { name: 'Mason Porter', salary: '$78,615', country: 'Chile', city: 'Gloucester' }];
+        this.pagination.total = 100;
+        this.loading = false;
+      }, 1000);
     }
+  },
+  computed: {
+
   }
+};
 </script>

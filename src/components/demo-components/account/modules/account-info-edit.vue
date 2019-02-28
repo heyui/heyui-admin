@@ -48,7 +48,7 @@ export default {
   props: {
     account: Object
   },
-  data() {
+  data () {
     return {
       acc: Utils.copy(this.account),
       rules: {
@@ -59,35 +59,35 @@ export default {
         max_file_size: '1mb',
         filters: {
           mime_types: [
-            { title: "Image files", extensions: "jpg,gif,png" }
+            { title: 'Image files', extensions: 'jpg,gif,png' }
           ]
         }
       },
       saveloading: false
-    }
+    };
   },
-  mounted() {
-    this.init()
+  mounted () {
+    this.init();
   },
   methods: {
-    init() {
-      
+    init () {
+
     },
-    save() {
-      if(!this.$refs.form.valid().result) return;
+    save () {
+      if (!this.$refs.form.valid().result) return;
       this.saveloading = true;
       setTimeout(() => {
         this.saveloading = false;
         store.dispatch('updateAccount', Utils.copy(this.acc));
       }, 1000);
     },
-    reset() {
+    reset () {
       this.$refs.form.reset();
       this.acc = Utils.copy(this.account);
     }
   },
   computed: {
-    
+
   }
-}
+};
 </script>

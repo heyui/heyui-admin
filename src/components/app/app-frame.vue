@@ -22,17 +22,16 @@
 </template>
 <script>
 
-
-import appLayoutSetting from "./modules/app-layout-setting";
+import appLayoutSetting from './modules/app-layout-setting';
 import appHead from './app-header';
 import appMenu from './app-menu';
 import appFooter from './app-footer';
 import SysTabs from '../common/SysTabs/SysTabs';
 import store from 'js/vuex/store';
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
 
 export default {
-  data() {
+  data () {
     return {
       loading: true,
       openSetting: false,
@@ -40,11 +39,11 @@ export default {
         siderTheme: 'white',
         showSystab: false,
         headerFixed: true,
-        siderFixed: true,
+        siderFixed: true
       }
     };
   },
-  mounted() {
+  mounted () {
     // 如果无后台数据，将此处屏蔽
     this.init();
 
@@ -52,17 +51,17 @@ export default {
     // this.loading = false;
   },
   methods: {
-    init() {
-      this.$Loading("加载中");
+    init () {
+      this.$Loading('加载中');
       R.User.info().then((resp) => {
         if (resp.ok) {
-          resp.body.avatar = require("../../images/avatar.png");
+          resp.body.avatar = require('../../images/avatar.png');
           store.dispatch('updateAccount', resp.body);
           this.initDict();
         }
-      })
+      });
     },
-    initDict() {
+    initDict () {
       R.Dict.get().then((resp) => {
         if (resp.ok) {
           let dicts = resp.body;
@@ -74,7 +73,7 @@ export default {
         this.$Loading.close();
       });
     },
-    updateLayoutConfig({key, value}) {
+    updateLayoutConfig ({ key, value }) {
       this.layoutConfig[key] = value;
     }
   },

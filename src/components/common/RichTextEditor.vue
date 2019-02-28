@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import WangEditor from 'wangeditor'
-import '../../css/richEditor.less'
+import WangEditor from 'wangeditor';
+import '../../css/richEditor.less';
 
 export default {
   name: 'RichTextEditor',
@@ -19,16 +19,16 @@ export default {
     },
     type: {
       type: String,
-      default: 'html' //html, text
+      default: 'html' // html, text
     },
     cache: {
       type: Boolean,
-      default: true //是否开启本地存储
+      default: true // 是否开启本地存储
     }
   },
   methods: {
     setHtml (val) {
-      this.editor.txt.html(val)
+      this.editor.txt.html(val);
     }
   },
   mounted () {
@@ -36,14 +36,14 @@ export default {
     // 开启图片复制
     this.editor.customConfig.uploadImgShowBase64 = true;
     this.editor.customConfig.onchange = (html) => {
-      let text = this.editor.txt.text()
-      if (this.cache) localStorage.editorCache = html
-      this.$emit('input', this.valueType === 'html' ? html : text)
-      this.$emit('change', html, text)
-    }
-    this.editor.create()
-    let html = this.value || localStorage.editorCache
-    if (html) this.editor.txt.html(html)
+      let text = this.editor.txt.text();
+      if (this.cache) localStorage.editorCache = html;
+      this.$emit('input', this.valueType === 'html' ? html : text);
+      this.$emit('change', html, text);
+    };
+    this.editor.create();
+    let html = this.value || localStorage.editorCache;
+    if (html) this.editor.txt.html(html);
   }
-}
+};
 </script>

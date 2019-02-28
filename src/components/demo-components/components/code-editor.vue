@@ -15,26 +15,26 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       value: 'let a = 1;',
       mode: 'javascript',
       datas: ['javascript', 'sql', 'markdown']
-    }
+    };
   },
-  mounted() {
+  mounted () {
   },
   methods: {
-    change() {
+    change () {
       this.value = {
         javascript: 'let a = 1;',
         sql: 'select * from user',
-        markdown: '# title',
+        markdown: '# title'
       }[this.mode];
     }
   },
   computed: {
-    
+
   }
-}
+};
 </script>

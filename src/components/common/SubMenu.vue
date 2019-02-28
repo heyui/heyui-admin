@@ -15,30 +15,30 @@ export default {
   props: {
     datas: Array
   },
-  data() {
+  data () {
     return {
-    }
+    };
   },
-  mounted() {
-    this.menuSelect()
+  mounted () {
+    this.menuSelect();
   },
   watch: {
-    $route() {
+    $route () {
       this.menuSelect();
     }
   },
   methods: {
-    menuSelect() {
+    menuSelect () {
       if (this.$route.name) {
         this.$refs.menu.select(this.$route.name);
       }
     },
-    trigger(data) {
+    trigger (data) {
       this.$router.push({ name: data.key });
     }
   },
   computed: {
-    
+
   }
-}
+};
 </script>

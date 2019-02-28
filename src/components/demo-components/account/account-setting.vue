@@ -15,7 +15,7 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       menus: [{
         title: '安全设置',
@@ -24,18 +24,18 @@ export default {
         title: '通知设置',
         key: 'noticeSetting'
       }]
-    }
+    };
   },
-  mounted() {
-    this.init()
+  mounted () {
+    this.init();
   },
   methods: {
-    init() {
-      
+    init () {
+
     }
   },
   computed: {
-    
+
   }
-}
+};
 </script>

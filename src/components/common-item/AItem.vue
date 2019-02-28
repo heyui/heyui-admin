@@ -28,21 +28,21 @@ export default {
   props: {
     item: Object
   },
-  data() {
+  data () {
     return {
-      
-    }
+
+    };
   },
-  mounted() {
-    this.init()
+  mounted () {
+    this.init();
   },
   methods: {
-    init() {
-      
+    init () {
+
     }
   },
   computed: {
-    
+
   }
-}
+};
 </script>

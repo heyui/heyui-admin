@@ -58,23 +58,20 @@
 </template>
 <script>
 
-import { mapState } from "vuex";
-import { mapActions } from "vuex";
-
 export default {
   props: {
     layoutConfig: Object
   },
-  data() {
+  data () {
     return {
-    }
+    };
   },
-  mounted() {
+  mounted () {
   },
   methods: {
-    copySetting() {
-      this.$Clipboard({text: JSON.stringify(this.layoutConfig, null, 2), showSuccessTip: '复制成功'})
+    copySetting () {
+      this.$Clipboard({ text: JSON.stringify(this.layoutConfig, null, 2), showSuccessTip: '复制成功' });
     }
   }
-}
+};
 </script>

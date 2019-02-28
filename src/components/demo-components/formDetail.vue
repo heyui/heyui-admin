@@ -93,7 +93,7 @@
               <div slot="empty">自定义提醒：暂时无数据</div>
             </Table>
           </div>
-          
+
           <div v-if="selectedTab == 'module2'" class="table-wrapper">
             <Table :datas="datas2" :columns="columns">
               <div slot="empty">自定义提醒：暂时无数据</div>
@@ -107,34 +107,34 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       tabConfig: {
-        module1: "操作类型一",
-        module2: "操作类型二",
+        module1: '操作类型一',
+        module2: '操作类型二'
       },
       selectedTab: 'module1',
       columns: [
-        { title: '操作类型', prop: 'operateType'},
-        { title: '操作人', prop: 'operateBy'},
+        { title: '操作类型', prop: 'operateType' },
+        { title: '操作人', prop: 'operateBy' },
         { title: '执行结果', prop: 'operateResult' },
         { title: '操作时间', prop: 'operateTime' },
-        { title: '备注', prop: 'remark' },
+        { title: '备注', prop: 'remark' }
       ],
       datas: [
-        { id: 1, operateType: '订购关系生效', operateBy: '张三', operateResult: "成功", operateTime: '2019-02-14 13:27:12', remark: '-'},
-        { id: 2, operateType: '财务复审', operateBy: '李四', operateResult: "驳回", operateTime: '2019-02-14 13:27:12', remark: '不通过原因'},
-        { id: 3, operateType: '部门初审', operateBy: '李四', operateResult: "成功", operateTime: '2019-02-14 13:27:12', remark: '-'},
-        { id: 4, operateType: '提交订单', operateBy: '王五', operateResult: "成功", operateTime: '2019-02-14 13:27:12', remark: '很好'},
-        { id: 5, operateType: '创建订单', operateBy: '王五', operateResult: "成功", operateTime: '2019-02-14 13:27:12', remark: '-'},
+        { id: 1, operateType: '订购关系生效', operateBy: '张三', operateResult: '成功', operateTime: '2019-02-14 13:27:12', remark: '-' },
+        { id: 2, operateType: '财务复审', operateBy: '李四', operateResult: '驳回', operateTime: '2019-02-14 13:27:12', remark: '不通过原因' },
+        { id: 3, operateType: '部门初审', operateBy: '李四', operateResult: '成功', operateTime: '2019-02-14 13:27:12', remark: '-' },
+        { id: 4, operateType: '提交订单', operateBy: '王五', operateResult: '成功', operateTime: '2019-02-14 13:27:12', remark: '很好' },
+        { id: 5, operateType: '创建订单', operateBy: '王五', operateResult: '成功', operateTime: '2019-02-14 13:27:12', remark: '-' }
       ],
       datas2: [
-        { id: 5, operateType: '创建订单', operateBy: '王五', operateResult: "成功", operateTime: '2019-02-14 13:27:12', remark: '-'},
+        { id: 5, operateType: '创建订单', operateBy: '王五', operateResult: '成功', operateTime: '2019-02-14 13:27:12', remark: '-' }
       ]
-    }
+    };
   },
   methods: {
-    tabChanged(data) {
+    tabChanged (data) {
       this.$Message.info(`切换至${data.title}`, 1000);
     }
   }

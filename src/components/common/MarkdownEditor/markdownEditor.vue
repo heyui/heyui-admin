@@ -30,44 +30,44 @@
 </template>
 
 <script>
-  import CodeEditor from '../CodeEditor'
-  import marked from 'marked'
+import CodeEditor from '../CodeEditor';
+import marked from 'marked';
 
-  export default {
-    props: {
-      value: String,
-      readonly: {
-        type: Boolean,
-        default: true
-      }
-    },
-    data() {
-      return {
-        html: '',
-        editValue: ''
-      }
-    },
-    components: {
-      CodeEditor
-    },
-    watch: {
-      'value': function (newVal, oldVal) {
-        if (newVal !== oldVal) {
-          this.parse();
-        }
-      }
-    },
-    mounted() {
-      this.parse();
-    },
-    methods: {
-      parse() {
-        this.editValue = this.value;
-        this.html = marked(this.value);
-      },
-      change() {
-        this.$emit('input', this.editValue);
+export default {
+  props: {
+    value: String,
+    readonly: {
+      type: Boolean,
+      default: true
+    }
+  },
+  data () {
+    return {
+      html: '',
+      editValue: ''
+    };
+  },
+  components: {
+    CodeEditor
+  },
+  watch: {
+    'value': function (newVal, oldVal) {
+      if (newVal !== oldVal) {
+        this.parse();
       }
     }
+  },
+  mounted () {
+    this.parse();
+  },
+  methods: {
+    parse () {
+      this.editValue = this.value;
+      this.html = marked(this.value);
+    },
+    change () {
+      this.$emit('input', this.editValue);
+    }
   }
+};
 </script>

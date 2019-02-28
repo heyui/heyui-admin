@@ -18,29 +18,29 @@ const initRouter = () => {
         path: '',
         name: 'Home',
         component: (resolve) => require(['components/home/index'], resolve),
-        meta: {title: '首页', icon: 'icon-monitor'}
+        meta: { title: '首页', icon: 'icon-monitor' }
       }, {
         path: '/systemError',
         name: 'systemError',
         component: (resolve) => require(['components/error-pages/500'], resolve),
-        meta: {title: '系统错误'}
+        meta: { title: '系统错误' }
       }, {
         path: '/permissionError',
         name: 'permissionError',
         component: (resolve) => require(['components/error-pages/403'], resolve),
-        meta: {title: '权限错误'}
-      }, 
+        meta: { title: '权限错误' }
+      },
       {
         path: '/notfoundError',
         name: 'notfoundError',
         component: (resolve) => require(['components/error-pages/404'], resolve),
-        meta: {title: '页面找不到'}
+        meta: { title: '页面找不到' }
       },
-      ...demoComponents, 
+      ...demoComponents,
       {
         path: '*',
         component: (resolve) => require(['components/error-pages/404'], resolve),
-        meta: {title: '页面找不到'}
+        meta: { title: '页面找不到' }
       }]
     }]
   };
@@ -55,17 +55,17 @@ const initRouter = () => {
       document.title = '管理系统';
     }
     next();
-  })
+  });
   router.afterEach(() => {
     HeyUI.$LoadingBar.success();
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
     // baidu 统计，如果有自己的统计，请至index.html修改至自己的埋点
-    if( window._hmt) {
+    if (window._hmt) {
       window._hmt.push(['_trackPageview', window.location.pathname]);
     }
   });
   return router;
-}
+};
 
 export default initRouter;

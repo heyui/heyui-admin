@@ -60,9 +60,10 @@ heyui-admin 是一个成熟的企业应用解决方案，基于 vue2.0 和 heyui
     - router-config / 路由配置
     - heyui-config / heyui配置
     - dict-config / 字典配置
+    - autocomplete-config / autocomplete配置
+    - category-config / category配置
     - tree-config / 树配置
     - menu-config / 系统菜单配置
-    - echart-config / 图表风格配置
   - vue
     - components / 通用组件
     - filters / 通用filters

@@ -40,42 +40,42 @@
 <script>
 
 import menuConfig from '../../js/config/menu-config';
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
 import appLogo from './app-logo';
 
 export default {
   props: {
     theme: String
   },
-  data() {
+  data () {
     return {
       menus: menuConfig
-    }
+    };
   },
   watch: {
-    $route() {
+    $route () {
       this.menuSelect();
     }
   },
-  mounted() {
+  mounted () {
     this.menuSelect();
   },
   computed: {
     ...mapState(['siderCollapsed'])
   },
   methods: {
-    menuSelect() {
+    menuSelect () {
       if (this.$route.name) {
         this.$refs.menu.select(this.$route.name);
       }
     },
-    trigger(data) {
-      if(data.children.length > 0) return;
+    trigger (data) {
+      if (data.children.length > 0) return;
       this.$router.push({ name: data.key });
     }
   },
   components: {
     appLogo
   }
-}
+};
 </script>

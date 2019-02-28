@@ -149,7 +149,7 @@
 </template>
 
 <script>
-import {showTitle, routeEqual, isExsit} from './utils'
+import { showTitle, routeEqual, isExsit } from './utils';
 export default {
   name: 'TagsNav',
   props: {
@@ -159,29 +159,29 @@ export default {
   data () {
     return {
       tagList: []
-    }
+    };
   },
   computed: {
     currentRouteObj () {
       const { name, params, query } = this.$route;
-      return { name, params, query }
+      return { name, params, query };
     }
   },
   methods: {
-    init() {
+    init () {
       this.tagList = Utils.getLocal2Json('SYS_TABS') || [];
       this.addTab(this.$route);
     },
-    beforeClose() {
+    beforeClose () {
       return this.$Confirm('确定要关闭这一页吗');
     },
     handleClose (current) {
-      if (current.meta && current.meta.beforeCloseName && current.meta.beforeCloseName in beforeClose) {
-        new Promise(this.beforeClose[current.meta.beforeCloseName]).then(close => {
+      if (current.meta && current.meta.beforeCloseName) {
+        return new Promise(this.beforeClose[current.meta.beforeCloseName]).then(close => {
           if (close) {
-            this.close(current)
+            this.close(current);
           }
-        })
+        });
       } else {
         this.close(current);
       }
@@ -191,14 +191,14 @@ export default {
       this.tagList.splice(index, 1);
       let newroute = null;
       if (this.isCurrentTab(route)) {
-        if(this.tagList.length > index) {
-          newroute = this.tagList[index]
+        if (this.tagList.length > index) {
+          newroute = this.tagList[index];
         } else if (this.tagList.length > 0) {
-          newroute = this.tagList[index-1]
+          newroute = this.tagList[index - 1];
         } else {
-          this.$router.replace({name: 'Home'});
+          this.$router.replace({ name: 'Home' });
         }
-        if(newroute)this.$router.replace(newroute);
+        if (newroute) this.$router.replace(newroute);
       }
       this.saveLocal();
     },
@@ -206,25 +206,25 @@ export default {
       this.$router.push(item);
     },
     showTitleInside (item) {
-      return showTitle(item, this)
+      return showTitle(item, this);
     },
     isCurrentTab (item) {
-      return routeEqual(this.currentRouteObj, item)
+      return routeEqual(this.currentRouteObj, item);
     },
-    addTab(route) {
-      if(!route.name) return;
-      const { name, query, params, meta } = route
+    addTab (route) {
+      if (!route.name) return;
+      const { name, query, params, meta } = route;
       let routeObj = { name, query, params, meta: meta || {} };
       if (!isExsit(routeObj, this.tagList)) {
         this.tagList.push(routeObj);
         this.saveLocal();
       }
     },
-    saveLocal() {
+    saveLocal () {
       Utils.saveLocal('SYS_TABS', this.tagList);
     }
   },
-  mounted() {
+  mounted () {
     this.init();
   },
   watch: {
@@ -232,5 +232,5 @@ export default {
       this.addTab(to);
     }
   }
-}
+};
 </script>
