@@ -29,6 +29,7 @@ module.exports = {
         "error",
         "unix"
     ],
+    "no-useless-call": "off"
   },
   parserOptions: {
     parser: 'babel-eslint'

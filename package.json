@@ -53,7 +53,7 @@
     "serve": "hey dev",
     "build": "hey build",
     "dev": "hey dev",
-    "eslint": "eslint --fix --ext .js,.vue src"
+    "eslintfix": "eslint --fix --ext .js,.vue src"
   },
   "browserslist": [
     "ie >= 9"
