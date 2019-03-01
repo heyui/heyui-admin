@@ -1,4 +1,5 @@
 {
+  "editor.detectIndentation": false,
   //js-beautify-html格式化配置，属性强制换行
   "vetur.format.defaultFormatterOptions": {
     "js-beautify-html": {
@@ -9,6 +10,9 @@
   "files.associations": {
     "*.vue": "vue"
   },
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  //  #让prettier使用eslint的代码格式进行校验 
+  "prettier.eslintIntegration": true,
   //配置 ESLint 检查的文件类型
   "eslint.validate": [
     "javascript",
@@ -21,5 +25,5 @@
   //保存时eslint自动修复错误
   "eslint.autoFixOnSave": true,
   //保存自动格式化
-  "editor.formatOnSave": true
+  "editor.formatOnSave": false
 }
