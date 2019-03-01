@@ -28,7 +28,7 @@ export default function () {
       parentName: 'parent',
       titleName: 'title',
       dataMode: 'list',
-      datas () {
+      datas() {
         return list;
       }
     }

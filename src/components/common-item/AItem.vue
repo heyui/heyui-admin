@@ -28,16 +28,16 @@ export default {
   props: {
     item: Object
   },
-  data () {
+  data() {
     return {
 
     };
   },
-  mounted () {
+  mounted() {
     this.init();
   },
   methods: {
-    init () {
+    init() {
 
     }
   },

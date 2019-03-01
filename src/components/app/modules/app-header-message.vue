@@ -78,16 +78,16 @@
 import { mapGetters } from 'vuex';
 
 export default {
-  data () {
+  data() {
     return {
       messageList: []
     };
   },
-  mounted () {
+  mounted() {
     this.getMessageList();
   },
   methods: {
-    init () {
+    init() {
 
     },
     getMessageList: async function () {
@@ -96,7 +96,7 @@ export default {
         this.messageList = resp.body;
       }
     },
-    goMessageDetail () {
+    goMessageDetail() {
       this.$refs.messageDropdown.hide();
     }
   },

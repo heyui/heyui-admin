@@ -14,13 +14,13 @@ document.body.addEventListener('click', function (e) {
   var fontSize = document.getElementById('fontSize');
   var testDrive = document.getElementById('testDrive');
   var testText = document.getElementById('testText');
-  function updateTest () {
+  function updateTest() {
     testDrive.innerHTML = testText.value || String.fromCharCode(160);
     if (window.icomoonLiga) {
       window.icomoonLiga(testDrive);
     }
   }
-  function updateSize () {
+  function updateSize() {
     testDrive.style.fontSize = fontSize.value + 'px';
   }
   fontSize.addEventListener('change', updateSize, false);

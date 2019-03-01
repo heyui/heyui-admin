@@ -47,29 +47,29 @@ export default {
   props: {
     theme: String
   },
-  data () {
+  data() {
     return {
       menus: menuConfig
     };
   },
   watch: {
-    $route () {
+    $route() {
       this.menuSelect();
     }
   },
-  mounted () {
+  mounted() {
     this.menuSelect();
   },
   computed: {
     ...mapState(['siderCollapsed'])
   },
   methods: {
-    menuSelect () {
+    menuSelect() {
       if (this.$route.name) {
         this.$refs.menu.select(this.$route.name);
       }
     },
-    trigger (data) {
+    trigger(data) {
       if (data.children.length > 0) return;
       this.$router.push({ name: data.key });
     }

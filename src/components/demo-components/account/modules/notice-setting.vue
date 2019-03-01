@@ -26,17 +26,17 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       openSystemMessage: true,
       openAccountMessage: true
     };
   },
-  mounted () {
+  mounted() {
     this.init();
   },
   methods: {
-    init () {
+    init() {
 
     }
   },

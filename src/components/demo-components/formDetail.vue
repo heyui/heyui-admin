@@ -107,7 +107,7 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       tabConfig: {
         module1: '操作类型一',
@@ -134,7 +134,7 @@ export default {
     };
   },
   methods: {
-    tabChanged (data) {
+    tabChanged(data) {
       this.$Message.info(`切换至${data.title}`, 1000);
     }
   }

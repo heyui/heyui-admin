@@ -29,7 +29,7 @@ export default {
     AccountInfoEdit,
     AccountInfoShow
   },
-  data () {
+  data() {
     return {
       tabs: {
         info: '基本设置'
@@ -37,11 +37,11 @@ export default {
       tab: 'info'
     };
   },
-  mounted () {
+  mounted() {
     this.init();
   },
   methods: {
-    init () {
+    init() {
 
     }
   },

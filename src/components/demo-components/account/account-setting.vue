@@ -15,7 +15,7 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       menus: [{
         title: '安全设置',
@@ -26,11 +26,11 @@ export default {
       }]
     };
   },
-  mounted () {
+  mounted() {
     this.init();
   },
   methods: {
-    init () {
+    init() {
 
     }
   },

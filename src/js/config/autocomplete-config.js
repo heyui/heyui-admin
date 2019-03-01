@@ -43,7 +43,7 @@ export default function () {
       minWord: 0
     },
     company: {
-      loadData (filter, next) {
+      loadData(filter, next) {
         let list = [];
         for (let i = 0; i < 10; i++) {
           list.push({
@@ -57,7 +57,7 @@ export default function () {
       titleName: 'name'
     },
     account: {
-      loadData (filter, next) {
+      loadData(filter, next) {
         let list = [];
         let companyId = this.companyId;
         let companyName = this.companyName;

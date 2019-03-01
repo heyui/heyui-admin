@@ -7,16 +7,16 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
 
     };
   },
-  mounted () {
+  mounted() {
     this.init();
   },
   methods: {
-    init () {
+    init() {
 
     }
   },

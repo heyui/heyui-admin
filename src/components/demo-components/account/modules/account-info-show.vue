@@ -75,16 +75,16 @@ export default {
   props: {
     account: Object
   },
-  data () {
+  data() {
     return {
 
     };
   },
-  mounted () {
+  mounted() {
     this.init();
   },
   methods: {
-    init () {
+    init() {
 
     }
   },

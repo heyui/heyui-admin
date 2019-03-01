@@ -48,7 +48,7 @@
 <script>
 
 export default {
-  data () {
+  data() {
     return {
       value5: 34,
       show: '测试',
@@ -61,10 +61,10 @@ export default {
     };
   },
   methods: {
-    onChange (data, trigger) {
+    onChange(data, trigger) {
       log(data, trigger);
     },
-    onChange1 (data) {
+    onChange1(data) {
       this.show = data.title;
     }
   }

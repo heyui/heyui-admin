@@ -52,15 +52,15 @@ export default {
       default: false
     }
   },
-  data () {
+  data() {
     return {
 
     };
   },
-  mounted () {
+  mounted() {
   },
   methods: {
-    isSelected (data) {
+    isSelected(data) {
       if (this.range) {
         return data.max == this.nowValue.max && data.min == this.nowValue.min;
       } else if (this.multiple) {
@@ -69,7 +69,7 @@ export default {
         return this.nowValue == data.key;
       }
     },
-    change (data) {
+    change(data) {
       let result = null;
       if (this.range) {
         result = { max: data.max, min: data.min };
@@ -81,7 +81,7 @@ export default {
       }
       this.setvalue(result);
     },
-    clear () {
+    clear() {
       if (this.range) {
         this.setvalue({ min: null, max: null });
       } else if (this.multiple) {
@@ -90,14 +90,14 @@ export default {
         this.setvalue(null);
       }
     },
-    setvalue (data) {
+    setvalue(data) {
       let value = Utils.copy(this.value);
       value[this.prop] = data;
       this.$emit('input', value);
     }
   },
   computed: {
-    isEmpty () {
+    isEmpty() {
       if (this.range) {
         return !this.nowValue.max && !this.nowValue.min;
       } else if (this.multiple) {
@@ -106,7 +106,7 @@ export default {
         return !this.nowValue;
       }
     },
-    nowValue () {
+    nowValue() {
       return this.value[this.prop];
     }
   }

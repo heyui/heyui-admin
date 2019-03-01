@@ -118,7 +118,7 @@ import data1 from 'components/demo-components/components/datas/data1';
 import data2 from 'components/demo-components/components/datas/data2';
 
 export default {
-  data () {
+  data() {
     return {
       data1,
       data2

@@ -41,19 +41,19 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       keyword: null
     };
   },
   methods: {
-    trigger (data, type) {
+    trigger(data, type) {
       // log(data, type)
       if (type == 'enter' || type == 'picker') {
         this.$Message(`跳转至关键词“${this.keyword}”的搜索`);
       }
     },
-    go () {
+    go() {
       setTimeout(() => {
         this.$Message(`跳转至关键词“${this.keyword}”的搜索`);
       }, 100);

@@ -41,7 +41,7 @@ export default {
       default: true
     }
   },
-  data () {
+  data() {
     return {
       html: '',
       editValue: ''
@@ -57,15 +57,15 @@ export default {
       }
     }
   },
-  mounted () {
+  mounted() {
     this.parse();
   },
   methods: {
-    parse () {
+    parse() {
       this.editValue = this.value;
       this.html = marked(this.value);
     },
-    change () {
+    change() {
       this.$emit('input', this.editValue);
     }
   }

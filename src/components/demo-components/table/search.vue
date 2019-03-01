@@ -20,7 +20,7 @@
 </template>
 <script>
 
-function initData () {
+function initData() {
   let data = {
     title: 'HeyUI',
     tags: ['vue', 'ui', 'components', 'select'],
@@ -33,7 +33,7 @@ function initData () {
   return list;
 }
 export default {
-  data () {
+  data() {
     return {
       dicts: {
         type: [{ key: 1, title: '类型一' }, { key: 2, title: '类型二' }, { key: 3, title: '类型三' }, { key: 4, title: '类型四' }, { key: 5, title: '类型五' }],
@@ -62,24 +62,24 @@ export default {
       }
     };
   },
-  mounted () {
+  mounted() {
     this.init();
   },
   watch: {
-    params () {
+    params() {
       this.getData();
     }
   },
   methods: {
-    changePage (page) {
+    changePage(page) {
       this.pagination.page = page.cur;
       this.pagination.size = page.size;
       this.getData();
     },
-    init () {
+    init() {
       this.getData();
     },
-    getData (reload = false) {
+    getData(reload = false) {
       if (reload) {
         this.pagination.page = 1;
       }

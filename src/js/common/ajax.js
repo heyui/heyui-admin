@@ -6,7 +6,7 @@ let ajax = {
   PREFIX: '/api',
   HEADER: Utils.getAuthor() || 'heyui',
   requestingApi: new Set(),
-  changeHeader (header) {
+  changeHeader(header) {
     this.HEADER = header;
   },
   extractUrl: function (url) {

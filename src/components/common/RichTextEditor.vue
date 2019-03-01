@@ -27,11 +27,11 @@ export default {
     }
   },
   methods: {
-    setHtml (val) {
+    setHtml(val) {
       this.editor.txt.html(val);
     }
   },
-  mounted () {
+  mounted() {
     this.editor = new WangEditor(this.$el);
     // 开启图片复制
     this.editor.customConfig.uploadImgShowBase64 = true;

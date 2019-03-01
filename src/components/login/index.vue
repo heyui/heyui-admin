@@ -107,14 +107,14 @@
 import Login from 'model/login/Login';
 
 export default {
-  data () {
+  data() {
     return {
       login: Login.parse({}),
       loading: false
     };
   },
   methods: {
-    submit () {
+    submit() {
       this.loading = true;
       R.Login.login(Login.dispose(this.login)).then(resp => {
         if (resp.ok) {

@@ -120,7 +120,7 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       mode: 'single',
       data: {
@@ -164,7 +164,7 @@ export default {
           input: {
             // 做异步处理判断(原则上所有的异步判断在提交后同样需要验证)
             // 这里的判断不会影响最终的valid结果，所以也可以作为一些验证提示
-            validAsync (value, next, parent, data) {
+            validAsync(value, next, parent, data) {
               setTimeout(() => {
                 if (value.length == 15 || value.length == 18) {
                   next();
@@ -216,7 +216,7 @@ export default {
     };
   },
   methods: {
-    submit () {
+    submit() {
       let validResult = this.$refs.form.valid();
       if (validResult.result) {
         this.$Message('验证成功');
@@ -226,14 +226,14 @@ export default {
         }, 1000);
       }
     },
-    reset () {
+    reset() {
       this.isLoading = false;
       this.$refs.form.reset();
     },
-    add () {
+    add() {
       this.data.inputs.push({ value: '' });
     },
-    remove (index) {
+    remove(index) {
       this.data.inputs.splice(index, 1);
     }
   }

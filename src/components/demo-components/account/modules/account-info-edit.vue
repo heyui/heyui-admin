@@ -48,7 +48,7 @@ export default {
   props: {
     account: Object
   },
-  data () {
+  data() {
     return {
       acc: Utils.copy(this.account),
       rules: {
@@ -66,14 +66,14 @@ export default {
       saveloading: false
     };
   },
-  mounted () {
+  mounted() {
     this.init();
   },
   methods: {
-    init () {
+    init() {
 
     },
-    save () {
+    save() {
       if (!this.$refs.form.valid().result) return;
       this.saveloading = true;
       setTimeout(() => {
@@ -81,7 +81,7 @@ export default {
         store.dispatch('updateAccount', Utils.copy(this.acc));
       }, 1000);
     },
-    reset () {
+    reset() {
       this.$refs.form.reset();
       this.acc = Utils.copy(this.account);
     }

@@ -62,14 +62,14 @@ export default {
   props: {
     layoutConfig: Object
   },
-  data () {
+  data() {
     return {
     };
   },
-  mounted () {
+  mounted() {
   },
   methods: {
-    copySetting () {
+    copySetting() {
       this.$Clipboard({ text: JSON.stringify(this.layoutConfig, null, 2), showSuccessTip: '复制成功' });
     }
   }

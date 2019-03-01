@@ -21,7 +21,7 @@ const editorOptions = [
 export default {
   props,
   computed: {
-    divStyle () {
+    divStyle() {
       const { width, height, style } = this.$props;
       const divStyle = { width, height, ...style };
       return divStyle;
@@ -115,7 +115,7 @@ export default {
     },
     deep: true
   },
-  mounted () {
+  mounted() {
     const {
       readonly,
       onBeforeLoad,
@@ -231,7 +231,7 @@ export default {
     this.editor.resize();
   }, // Methods
   methods: {
-    debounce (fn, delay) {
+    debounce(fn, delay) {
       var timer = null;
       return function () {
         var context = this;
@@ -242,7 +242,7 @@ export default {
         }, delay);
       };
     },
-    handleScrollMargins (margins = [0, 0, 0, 0]) {
+    handleScrollMargins(margins = [0, 0, 0, 0]) {
       this.editor.renderer.setScrollMargins(
         margins[0],
         margins[1],
@@ -250,58 +250,58 @@ export default {
         margins[3]
       );
     },
-    onChangeUpdate (event) {
+    onChangeUpdate(event) {
       const value = this.editor.getValue();
       this.$emit('change', value);
     },
-    selectionChange (event) {
+    selectionChange(event) {
       if (this.$props.onSelectionChange) {
         const value = this.editor.getSelection();
         this.$props.onSelectionChange(value, event);
       }
     },
-    cursorChange (event) {
+    cursorChange(event) {
       if (this.$props.onCursorChange) {
         const value = this.editor.getSelection();
         this.$props.onCursorChange(value, event);
       }
     },
-    onInputUpdate (event) {
+    onInputUpdate(event) {
       const value = this.editor.getValue();
       this.$emit('input', value);
     },
-    onFocusUpdate (event) {
+    onFocusUpdate(event) {
       if (this.$props.onFocus) {
         this.$props.onFocus(event);
       }
     },
-    onBlurUpdate (event) {
+    onBlurUpdate(event) {
       if (this.$props.onBlur) {
         this.$props.onBlur(event, this.editor);
       }
     },
-    onCopyUpdate (text) {
+    onCopyUpdate(text) {
       if (this.$props.onCopy) {
         this.$props.onCopy(text);
       }
     },
-    onPasteUpdate (text) {
+    onPasteUpdate(text) {
       if (this.$props.onPaste) {
         this.props.onPaste(text);
       }
     },
-    onScrollUpdate () {
+    onScrollUpdate() {
       if (this.$props.onScroll) {
         this.$props.onScroll(this.editor);
       }
     },
-    handleOptions (props) {
+    handleOptions(props) {
       const setOptions = Object.keys(props.setOptions);
       for (let y = 0; y < setOptions.length; y++) {
         this.editor.setOption(setOptions[y], props.setOptions[setOptions[y]]);
       }
     },
-    handleMarkers (markers) {
+    handleMarkers(markers) {
       // remove foreground markers
       let currentMarkers = this.editor.getSession().getMarkers(true);
       for (const i in currentMarkers) {
@@ -333,7 +333,7 @@ export default {
       );
     }
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.editor.destroy();
     this.editor = null;
   }

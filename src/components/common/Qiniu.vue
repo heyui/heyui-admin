@@ -31,18 +31,18 @@ export default {
     limit: Number,
     className: String
   },
-  data () {
+  data() {
     return {
       uploadList: []
     };
   },
   methods: {
-    deletefile (index) {
+    deletefile(index) {
       let value = Utils.copy(this.value);
       value.splice(index, 1);
       this.$emit('input', value);
     },
-    init () {
+    init() {
       let that = this;
       // 七牛文档请参考https://developer.qiniu.com/kodo/sdk/1283/javascript
       // uploader七牛文档请参考http://www.cnblogs.com/2050/p/3913184.html
@@ -56,7 +56,7 @@ export default {
         auto_start: true,
         filters: {},
         init: {
-          FilesAdded (up, files) {
+          FilesAdded(up, files) {
             if (that.limit && (files.length + that.value.length > that.limit)) {
               that.$Message.error(`你上传的文件超过${that.limit}个。`);
             }
@@ -77,26 +77,26 @@ export default {
             });
             // that.$emit("startUpload");
           },
-          BeforeUpload (up, file) {
+          BeforeUpload(up, file) {
             if (!file.isUpload) {
               return false;
             }
           },
-          UploadProgress (up, file) {
+          UploadProgress(up, file) {
             // log(file.percent);
           },
-          FileUploaded (up, file, info) {
+          FileUploaded(up, file, info) {
             // log('FileUploaded', file.status);
             let domain = up.getOption('domain');
             let res = JSON.parse(info.response);
             let sourceLink = `${domain}/${res.key}`; // 获取上传成功后的文件的Url
             file.url = sourceLink;
           },
-          Error (up, err, errTip) {
+          Error(up, err, errTip) {
             that.uploadList.splice(0, that.uploadList.length);
             that.$Message.error(errTip);
           },
-          UploadComplete () {
+          UploadComplete() {
             that.$emit('completeUpload');
             let fileList = that.$refs.uploader.getFileList();
             //   fileList.map(item=>{
@@ -126,14 +126,14 @@ export default {
       param.multi_selection = muti;
       qiniujs.Qiniu.uploader(param);
     },
-    fileclick (file) {
+    fileclick(file) {
       this.$Modal({
         title: '预览或者下载',
         content: `自定义处理文件预览或者下载`
       });
     }
   },
-  mounted () {
+  mounted() {
     this.$nextTick(() => {
       this.init();
     });

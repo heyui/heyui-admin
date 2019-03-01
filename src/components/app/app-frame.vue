@@ -31,7 +31,7 @@ import store from 'js/vuex/store';
 import { mapState } from 'vuex';
 
 export default {
-  data () {
+  data() {
     return {
       loading: true,
       openSetting: false,
@@ -43,7 +43,7 @@ export default {
       }
     };
   },
-  mounted () {
+  mounted() {
     // 如果无后台数据，将此处屏蔽
     this.init();
 
@@ -51,7 +51,7 @@ export default {
     // this.loading = false;
   },
   methods: {
-    init () {
+    init() {
       this.$Loading('加载中');
       R.User.info().then((resp) => {
         if (resp.ok) {
@@ -61,7 +61,7 @@ export default {
         }
       });
     },
-    initDict () {
+    initDict() {
       R.Dict.get().then((resp) => {
         if (resp.ok) {
           let dicts = resp.body;
@@ -73,7 +73,7 @@ export default {
         this.$Loading.close();
       });
     },
-    updateLayoutConfig ({ key, value }) {
+    updateLayoutConfig({ key, value }) {
       this.layoutConfig[key] = value;
     }
   },

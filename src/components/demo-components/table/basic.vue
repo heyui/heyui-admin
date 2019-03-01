@@ -42,7 +42,7 @@
 </template>
 <script>
 export default {
-  data () {
+  data() {
     return {
       keyword: '',
       sort: 'updatedAt:desc',
@@ -70,20 +70,20 @@ export default {
       loading: false
     };
   },
-  mounted () {
+  mounted() {
     this.init();
   },
   methods: {
-    init () {
+    init() {
       this.getData();
       this.getCounts();
     },
-    changePage (page) {
+    changePage(page) {
       this.pagination.page = page.cur;
       this.pagination.size = page.size;
       this.getData();
     },
-    getCounts () {
+    getCounts() {
       setTimeout(() => {
         this.counts = {
           China: 900,
@@ -94,7 +94,7 @@ export default {
         };
       }, 1000);
     },
-    getData (reload = false) {
+    getData(reload = false) {
       if (reload) {
         this.pagination.page = 1;
       }

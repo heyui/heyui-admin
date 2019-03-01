@@ -107,7 +107,7 @@ export default {
   components: {
     appHeaderMessage
   },
-  data () {
+  data() {
     return {
       searchText: '',
       infoMenu: [
@@ -119,19 +119,19 @@ export default {
   computed: {
     ...mapState(['User']),
     siderCollapsed: {
-      get () {
+      get() {
         return this.$store.state.siderCollapsed;
       },
-      set (value) {
+      set(value) {
         this.$store.commit('updateSiderCollapse', value);
       }
     }
   },
   methods: {
-    goGithub () {
+    goGithub() {
       window.open('https://github.com/heyui/heyui-admin');
     },
-    trigger (data) {
+    trigger(data) {
       if (data == 'logout') {
         Utils.removeLocal('Auth');
         this.$router.replace({ name: 'login' });
@@ -139,7 +139,7 @@ export default {
         this.$router.push({ name: 'accountBasic' });
       }
     },
-    showSettingModal () {
+    showSettingModal() {
       this.$emit('openSetting');
     }
   }

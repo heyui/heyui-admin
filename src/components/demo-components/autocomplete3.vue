@@ -26,7 +26,7 @@
 <script>
 
 export default {
-  data () {
+  data() {
     return {
       companyId: 1,
       companyName: '知乎',
@@ -35,12 +35,12 @@ export default {
     };
   },
   methods: {
-    onChange (data, trigger) {
+    onChange(data, trigger) {
       this.companyName = data.title;
       this.accountId = null;
       this.accountName = null;
     },
-    onChange1 (data, trigger) {
+    onChange1(data, trigger) {
       this.accountName = data.title;
     }
   }

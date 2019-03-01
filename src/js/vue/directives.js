@@ -4,7 +4,7 @@ const isUri = function (value) {
 };
 
 Vue.directive('url', {
-  bind () {
+  bind() {
     if (arguments[1] && arguments[1].value) {
       let el = arguments[0];
       let text = arguments[1].value;

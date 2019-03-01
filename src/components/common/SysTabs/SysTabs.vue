@@ -156,26 +156,26 @@ export default {
     value: Object,
     homePage: String
   },
-  data () {
+  data() {
     return {
       tagList: []
     };
   },
   computed: {
-    currentRouteObj () {
+    currentRouteObj() {
       const { name, params, query } = this.$route;
       return { name, params, query };
     }
   },
   methods: {
-    init () {
+    init() {
       this.tagList = Utils.getLocal2Json('SYS_TABS') || [];
       this.addTab(this.$route);
     },
-    beforeClose () {
+    beforeClose() {
       return this.$Confirm('确定要关闭这一页吗');
     },
-    handleClose (current) {
+    handleClose(current) {
       if (current.meta && current.meta.beforeCloseName) {
         return new Promise(this.beforeClose[current.meta.beforeCloseName]).then(close => {
           if (close) {
@@ -186,7 +186,7 @@ export default {
         this.close(current);
       }
     },
-    close (route) {
+    close(route) {
       let index = this.tagList.indexOf(route);
       this.tagList.splice(index, 1);
       let newroute = null;
@@ -202,16 +202,16 @@ export default {
       }
       this.saveLocal();
     },
-    handleClick (item) {
+    handleClick(item) {
       this.$router.push(item);
     },
-    showTitleInside (item) {
+    showTitleInside(item) {
       return showTitle(item, this);
     },
-    isCurrentTab (item) {
+    isCurrentTab(item) {
       return routeEqual(this.currentRouteObj, item);
     },
-    addTab (route) {
+    addTab(route) {
       if (!route.name) return;
       const { name, query, params, meta } = route;
       let routeObj = { name, query, params, meta: meta || {} };
@@ -220,15 +220,15 @@ export default {
         this.saveLocal();
       }
     },
-    saveLocal () {
+    saveLocal() {
       Utils.saveLocal('SYS_TABS', this.tagList);
     }
   },
-  mounted () {
+  mounted() {
     this.init();
   },
   watch: {
-    '$route' (to) {
+    '$route'(to) {
       this.addTab(to);
     }
   }

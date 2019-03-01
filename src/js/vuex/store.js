@@ -12,25 +12,25 @@ export default new Vuex.Store({
     siderCollapsed: false
   },
   mutations: {
-    updateAccount (state, data) {
+    updateAccount(state, data) {
       state.User = data;
     },
-    updateSiderCollapse (state, isShow) {
+    updateSiderCollapse(state, isShow) {
       G.trigger('page_resize');
       state.siderCollapsed = isShow;
     },
-    updateMsgCount (state, data) {
+    updateMsgCount(state, data) {
       state.msgCount = data;
     }
   },
   actions: {
-    updateAccount (context, data) {
+    updateAccount(context, data) {
       context.commit('updateAccount', data);
     },
-    updateSiderCollapse (context, data) {
+    updateSiderCollapse(context, data) {
       context.commit('updateSiderCollapse', data);
     },
-    updateMsgCount (context, data) {
+    updateMsgCount(context, data) {
       context.commit('updateMsgCount', data);
     }
   },

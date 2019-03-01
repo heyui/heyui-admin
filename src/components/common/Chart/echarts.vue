@@ -55,7 +55,7 @@ export default {
       default: true
     }
   },
-  data () {
+  data() {
     return {
       chart: null,
       listener: null
@@ -64,20 +64,20 @@ export default {
   computed: {
     isDisposed: {
       cache: false,
-      get () {
+      get() {
         return !!this.delegateGet('isDisposed', 'isDisposed');
       }
     },
     computedOptions: {
       cache: false,
-      get () {
+      get() {
         return this.delegateGet('computedOptions', 'getOption');
       }
     }
   },
   watch: {
     options: {
-      handler (options) {
+      handler(options) {
         if (!this.chart && options) {
           this.init();
         } else {
@@ -86,61 +86,61 @@ export default {
       },
       deep: true
     },
-    group (group) {
+    group(group) {
       this.chart.group = group;
     }
   },
   methods: {
-    mergeOptions (options, notMerge, lazyUpdate) {
+    mergeOptions(options, notMerge, lazyUpdate) {
       this.delegateMethod('setOption', options, notMerge, lazyUpdate);
     },
-    resize (options) {
+    resize(options) {
       this.delegateMethod('resize', options);
     },
-    dispatchAction (payload) {
+    dispatchAction(payload) {
       this.delegateMethod('dispatchAction', payload);
     },
-    convertToPixel (finder, value) {
+    convertToPixel(finder, value) {
       return this.delegateMethod('convertToPixel', finder, value);
     },
-    convertFromPixel (finder, value) {
+    convertFromPixel(finder, value) {
       return this.delegateMethod('convertFromPixel', finder, value);
     },
-    containPixel (finder, value) {
+    containPixel(finder, value) {
       return this.delegateMethod('containPixel', finder, value);
     },
-    showLoading (type, options) {
+    showLoading(type, options) {
       this.delegateMethod('showLoading', type, options);
     },
-    hideLoading () {
+    hideLoading() {
       this.delegateMethod('hideLoading');
     },
-    getDataURL (options) {
+    getDataURL(options) {
       return this.delegateMethod('getDataURL', options);
     },
-    getConnectedDataURL (options) {
+    getConnectedDataURL(options) {
       return this.delegateMethod('getConnectedDataURL', options);
     },
-    clear () {
+    clear() {
       this.delegateMethod('clear');
     },
-    dispose () {
+    dispose() {
       this.delegateMethod('dispose');
     },
-    delegateMethod (name, ...args) {
+    delegateMethod(name, ...args) {
       if (!this.chart) {
         Vue.util.warn(`Cannot call [${name}] before the chart is initialized. Set prop [options] first.`, this);
         return;
       }
       return this.chart[name](...args);
     },
-    delegateGet (name, method) {
+    delegateGet(name, method) {
       if (!this.chart) {
         Vue.util.warn(`Cannot get [${name}] before the chart is initialized. Set prop [options] first.`, this);
       }
       return this.chart[method]();
     },
-    init () {
+    init() {
       if (this.chart) {
         return;
       }
@@ -180,7 +180,7 @@ export default {
 
       this.chart = chart;
     },
-    destroy () {
+    destroy() {
       if (this.autoResize) {
         window.removeEventListener('resize', this.__resizeHanlder);
         G.removelistener(this.listener);
@@ -189,35 +189,35 @@ export default {
       this.chart = null;
     }
   },
-  mounted () {
+  mounted() {
     if (this.options) {
       this.init();
     }
   },
-  activated () {
+  activated() {
     if (this.autoResize) {
       this.chart && this.chart.resize();
     }
   },
-  beforeDestroy () {
+  beforeDestroy() {
     if (!this.chart) {
       return;
     }
     this.destroy();
   },
-  connect (group) {
+  connect(group) {
     if (typeof group !== 'string') {
       group = group.map(chart => chart.chart);
     }
     echarts.connect(group);
   },
-  disconnect (group) {
+  disconnect(group) {
     echarts.disConnect(group);
   },
-  registerMap (...args) {
+  registerMap(...args) {
     echarts.registerMap(...args);
   },
-  registerTheme (...args) {
+  registerTheme(...args) {
     echarts.registerTheme(...args);
   }
 };
