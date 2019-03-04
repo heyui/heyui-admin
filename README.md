@@ -5,7 +5,7 @@
     <img src="https://img.shields.io/badge/vue-2.5.16-brightgreen.svg" alt="vue">
   </a>
   <a href="https://github.com/heyui/heyui">
-    <img src="https://img.shields.io/badge/heyui-1.6.0-brightgreen.svg" alt="element-ui">
+    <img src="https://img.shields.io/badge/heyui-1.6.0-brightgreen.svg" alt="heyui">
   </a>
   <a href="https://github.com/heyui/heyui-admin/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
