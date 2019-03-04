@@ -9,7 +9,7 @@
     width: 300px;
     text-align: center;
     .background-image {
-      background: url(../../images/404.png);
+      background: url(../../images/error-pages/404.png);
       height: 300px;
       max-width: 500px;
       background-size: contain;

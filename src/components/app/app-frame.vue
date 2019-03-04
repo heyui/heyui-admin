@@ -26,7 +26,7 @@ import appLayoutSetting from './modules/app-layout-setting';
 import appHead from './app-header';
 import appMenu from './app-menu';
 import appFooter from './app-footer';
-import SysTabs from '../common/SysTabs/SysTabs';
+import SysTabs from '../common/sys-tabs';
 import store from 'js/vuex/store';
 import { mapState } from 'vuex';
 

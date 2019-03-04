@@ -6,7 +6,7 @@ export default [{
 }, {
   path: '/formDetail',
   name: 'formDetail',
-  component: (resolve) => require(['components/demo-components/formDetail'], resolve),
+  component: (resolve) => require(['components/demo-components/form-detail'], resolve),
   meta: { title: '表单详情' }
 }, {
   path: '/autocomplete1',
