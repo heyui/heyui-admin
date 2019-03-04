@@ -7,7 +7,7 @@ const menuConfig = [
   },
   {
     title: 'Icons',
-    key: 'icons',
+    key: 'Icons',
     icon: 'icon-heart'
   },
   {
@@ -17,11 +17,11 @@ const menuConfig = [
     children: [
       {
         title: '基础表格',
-        key: 'tableBasic'
+        key: 'TableBasic'
       },
       {
         title: '查询列表',
-        key: 'tableSearch'
+        key: 'TableSearch'
       }
     ]
   },
@@ -32,11 +32,11 @@ const menuConfig = [
     children: [
       {
         title: '基础表单',
-        key: 'form'
+        key: 'Form'
       },
       {
         title: '表单详情',
-        key: 'formDetail'
+        key: 'FormDetail'
       }
     ]
   },
@@ -47,15 +47,15 @@ const menuConfig = [
     children: [
       {
         title: '模糊搜索',
-        key: 'autocomplete1'
+        key: 'Autocomplete1'
       },
       {
         title: '场景应用',
-        key: 'autocomplete2'
+        key: 'Autocomplete2'
       },
       {
         title: '复杂场景',
-        key: 'autocomplete3'
+        key: 'Autocomplete3'
       }
     ]
   },
@@ -66,53 +66,53 @@ const menuConfig = [
     children: [
       {
         title: '图表',
-        key: 'chart'
+        key: 'Chart'
       },
       {
         title: '富文本编辑器',
-        key: 'ricktextEditor'
+        key: 'RicktextEditor'
       },
       {
         title: '代码编辑器',
-        key: 'codeEditor'
+        key: 'CodeEditor'
       },
       {
         title: 'Markdown编辑器',
-        key: 'markdownEditor'
+        key: 'MarkdownEditor'
       }
     ]
   },
   {
     title: '系统设置',
-    key: 'sys-setting',
+    key: 'SysSetting',
     icon: 'icon-cog',
     children: [
       {
         title: '个人中心',
-        key: 'accountBasic'
+        key: 'AccountBasic'
       },
       {
         title: '安全设置',
-        key: 'securitySetting'
+        key: 'SecuritySetting'
       }
     ]
   },
   {
     title: '异常页面',
-    key: 'error-pages',
+    key: 'ErrorPages',
     icon: 'icon-circle-cross',
     children: [
       {
         title: '403',
-        key: 'permissionError'
+        key: 'PermissionError'
       },
       {
         title: '404',
-        key: 'notfoundError'
+        key: 'NotfoundError'
       },
       {
         title: '500',
-        key: 'systemError'
+        key: 'SystemError'
       }
     ]
   }
