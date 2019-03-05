@@ -1,6 +1,6 @@
-const path = require('path')
-const webpack = require('webpack')
-const globalVars = require('./src/css/var.js')
+const path = require('path');
+const webpack = require('webpack');
+const globalVars = require('./src/css/var.js');
 
 module.exports = {
   lintOnSave: false,
@@ -36,7 +36,7 @@ module.exports = {
         G: 'hey-global',
         log: 'hey-log',
         R: [path.resolve(__dirname, 'src/js/common/request'), 'default']
-      }),
+      })
     ]
-  },
-}
+  }
+};
