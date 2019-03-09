@@ -40,6 +40,9 @@
       display: block;
     }
   }
+  .h-dropdownmenu {
+    float: left;
+  }
 
   &-dropdown{
     float: right;
