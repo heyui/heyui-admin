@@ -50,7 +50,7 @@ export default {
         runtimes: 'html5',
         browse_button: this.$refs.uploader.getBrowseButton(),
         uptoken_url: 'http://admin.heyui.top/api/uptoken',
-        domain: 'http://oroc6hc3j.bkt.clouddn.com',
+        domain: '//img.heyui.top',
         chunk_size: '4mb',
         unique_names: true,
         auto_start: true,
