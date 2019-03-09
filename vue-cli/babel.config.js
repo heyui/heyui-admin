@@ -3,4 +3,4 @@ module.exports = {
     ['@vue/app', { modules: false }]
   ],
   sourceType: 'unambiguous'
-}
+};

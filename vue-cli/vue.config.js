@@ -1,9 +1,8 @@
-const path = require('path')
-const webpack = require('webpack')
-const globalVars = require('./src/css/var.js')
+const path = require('path');
+const webpack = require('webpack');
+const globalVars = require('./src/css/var.js');
 
 module.exports = {
-  lintOnSave: false,
   pages: {
     index: {
       entry: 'src/main.js',
@@ -36,7 +35,15 @@ module.exports = {
         G: 'hey-global',
         log: 'hey-log',
         R: [path.resolve(__dirname, 'src/js/common/request'), 'default']
-      }),
+      })
     ]
   },
-}
+  devServer: {
+    proxy: {
+      // 此处应该配置为开发服务器的后台地址
+      // '/api': {
+      //   target: 'http://xxx.xx.xx'
+      // }
+    }
+  }
+};

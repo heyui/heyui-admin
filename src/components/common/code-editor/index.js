@@ -1,4 +1,4 @@
-import Editor from './codeEditor';
+import Editor from './code-editor';
 
 import 'brace/ext/language_tools';
 import 'brace/theme/chaos';

@@ -51,8 +51,11 @@
     "@vue/cli-service": "^3.4.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0",
+    "eslint": "^5.3.0",
+    "eslint-plugin-html": "^5.0.3",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "mockjs": "^1.0.1-beta3",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.21"

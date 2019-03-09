@@ -9,7 +9,7 @@ const initRouter = () => {
     mode: 'history',
     routes: [{
       path: '/login',
-      name: 'login',
+      name: 'Login',
       component: (resolve) => require(['components/login/index'], resolve)
     }, {
       path: '/',
@@ -20,19 +20,19 @@ const initRouter = () => {
         component: (resolve) => require(['components/home/index'], resolve),
         meta: { title: '首页', icon: 'icon-monitor' }
       }, {
-        path: '/systemError',
-        name: 'systemError',
+        path: '/system-error',
+        name: 'SystemError',
         component: (resolve) => require(['components/error-pages/500'], resolve),
         meta: { title: '系统错误' }
       }, {
-        path: '/permissionError',
-        name: 'permissionError',
+        path: '/permission-error',
+        name: 'PermissionError',
         component: (resolve) => require(['components/error-pages/403'], resolve),
         meta: { title: '权限错误' }
       },
       {
-        path: '/notfoundError',
-        name: 'notfoundError',
+        path: '/notfound-error',
+        name: 'NotfoundError',
         component: (resolve) => require(['components/error-pages/404'], resolve),
         meta: { title: '页面找不到' }
       },

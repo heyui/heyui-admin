@@ -1,5 +1,5 @@
 <style lang='less'>
-.app-home {
+.app-home-vue {
   .home-part-body {
     height: 350px;
     .echarts {
@@ -31,7 +31,7 @@
 }
 </style>
 <template>
-  <div class="app-home frame-page">
+  <div class="app-home-vue frame-page">
     <Row :space="30">
       <Cell :xs='24' :sm='24' :md='24' :lg='16' :xl='16'>
         <div class="h-panel">
