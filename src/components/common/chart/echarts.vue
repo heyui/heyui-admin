@@ -1,5 +1,12 @@
+<style lang="less">
+.echarts-vue {
+  height: 400px;
+  overflow: hidden;
+}
+</style>
+
 <template>
-  <div class="echarts"></div>
+  <div class="echarts-vue"></div>
 </template>
 
 <script>
