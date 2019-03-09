@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import CodeEditor from '../code-editor';
+import CodeEditor from './code-editor';
 import marked from 'marked';
 
 export default {
