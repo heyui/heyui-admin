@@ -119,35 +119,13 @@
   </div>
 </template>
 <script>
+import FormModel from 'model/Form';
+
 export default {
   data() {
     return {
       mode: 'single',
-      data: {
-        int: null,
-        number: null,
-        url: null,
-        email: null,
-        tel: null,
-        mobile: null,
-        input: '',
-        textarea: '测试',
-        radio: 1,
-        rate: null,
-        checkbox: [1],
-        select1: '人民币',
-        select2: '',
-        select3: [],
-        taginputs: [],
-        autocomplete: null,
-        money: {
-          min: null,
-          max: null
-        },
-        date: null,
-        inputs: [],
-        things: ['']
-      },
+      data: FormModel.parse({}),
       dataParam: {
         1: '男',
         2: '女',

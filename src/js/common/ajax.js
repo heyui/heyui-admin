@@ -2,13 +2,12 @@ import axios from 'axios';
 import qs from 'qs';
 import Utils from './utils';
 
+const DefaultParam = { repeatable: false };
+
 let ajax = {
   PREFIX: '/api',
-  HEADER: Utils.getAuthor() || 'heyui',
+  Author: Utils.getAuthor() || 'heyui',
   requestingApi: new Set(),
-  changeHeader(header) {
-    this.HEADER = header;
-  },
   extractUrl: function (url) {
     return url ? url.split('?')[0] : '';
   },
@@ -23,14 +22,6 @@ let ajax = {
   deleteRequest: function (url) {
     let api = this.extractUrl(url);
     this.requestingApi.delete(api);
-  },
-  getJson: function (url, paramJson, extendParam) {
-    return this.ajax({
-      url: url,
-      method: 'GET',
-      cache: false,
-      params: paramJson
-    }, extendParam);
   },
   get: function (url, param, extendParam) {
     let params = {
@@ -72,7 +63,7 @@ let ajax = {
     }, extendParam);
   },
   ajax: function (param, extendParam) {
-    let params = Utils.extend({ repeatable: false }, param, extendParam || {});
+    let params = Utils.extend({}, DefaultParam, param, extendParam || {});
     params.crossDomain = params.url.indexOf('http') === 0;
     let url = params.url;
     if (!params.crossDomain) {
@@ -80,14 +71,14 @@ let ajax = {
     }
     if (params.method != 'GET') {
       if (this.isRequesting(url)) {
-        return new Promise((resolve, reject) => { reject(new Error('this request is requesting')); });
+        return new Promise((resolve, reject) => { resolve({ok: false, msg: '重复请求'}); });
       }
       if (params.repeatable === false) {
         this.addRequest(url);
       }
     }
     let header = {
-      'author': this.HEADER,
+      author: this.Author,
       Authorization: Utils.getLocal('token')
     };
     let defaultParam = {
@@ -110,9 +101,10 @@ let ajax = {
         that.deleteRequest(params.url);
         let data = response.data;
         let status = response.status;
-        if (status == 200) {
-          status = data.status;
-        }
+        // 如果后端统一封装返回，即所有的请求都是200, 错误码由返回结果提供，则使用以下代码获取状态
+        // if (status == 200) {
+        //   status = data.status;
+        // }
         if (status != 200) {
           if (status == 401) {
             window.top.location = '/login';
