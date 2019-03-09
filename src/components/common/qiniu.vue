@@ -49,7 +49,7 @@ export default {
       let param = {
         runtimes: 'html5',
         browse_button: this.$refs.uploader.getBrowseButton(),
-        uptoken_url: 'http://admin.heyui.top/api/uptoken',
+        uptoken_url: 'https://admin.heyui.top/api/uptoken',
         domain: '//img.heyui.top',
         chunk_size: '4mb',
         unique_names: true,
