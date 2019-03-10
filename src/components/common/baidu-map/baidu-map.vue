@@ -11,10 +11,6 @@ import load from './load';
 
 export default {
   props: {
-    enableScrollWheelZoom: {
-      type: Boolean,
-      default: true
-    },
     height: {
       type: Number,
       default: 400
