@@ -109,4 +109,9 @@ export default [{
   name: 'RicktextEditor',
   component: (resolve) => require(['components/demo-components/components/richtext-editor'], resolve),
   meta: { title: '富文本编辑器' }
+}, {
+  path: '/baidu-map',
+  name: 'BaiduMap',
+  component: (resolve) => require(['components/demo-components/components/baidu-map'], resolve),
+  meta: { title: '百度地图' }
 }];

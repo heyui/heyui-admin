@@ -79,6 +79,9 @@ const menuConfig = [
       {
         title: 'Markdown编辑器',
         key: 'MarkdownEditor'
+      }, {
+        title: '百度地图',
+        key: 'BaiduMap'
       }
     ]
   },

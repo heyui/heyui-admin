@@ -13,3 +13,4 @@ Vue.component('Chart', (resolve) => require(['components/common/chart'], resolve
 Vue.component('CodeEditor', (resolve) => require(['components/common/code-editor'], resolve));
 Vue.component('RichTextEditor', (resolve) => require(['components/common/richtext-editor'], resolve));
 Vue.component('MarkdownEditor', (resolve) => require(['components/common/markdown-editor'], resolve));
+Vue.component('BaiduMap', (resolve) => require(['components/common/baidu-map'], resolve));
