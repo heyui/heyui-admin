@@ -2,11 +2,11 @@ export default function() {
   return new Promise(function (resolve, reject) {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src = `https://api.map.baidu.com/getscript?v=2.0&ak=20qOZbvLhZnFinXiG1NfGPLC&t=${new Date().getTime()}`;
+    script.src = `//api.map.baidu.com/api?v=2.0&ak=20qOZbvLhZnFinXiG1NfGPLC&s=1&callback=baiduMapInitialize`;
     script.onerror = reject;
-    document.head.appendChild(script);
-    script.onload = () => {
+    window.baiduMapInitialize = function() {
       resolve();
     }
+    document.head.appendChild(script);
   })
 }
