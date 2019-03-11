@@ -1,4 +1,4 @@
-export default new Modal({
+export default new Model({
   int: null,
   number: null,
   url: null,
@@ -23,3 +23,4 @@ export default new Modal({
   inputs: [],
   things: ['']
 })
+;
