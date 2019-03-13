@@ -8,7 +8,7 @@
 
 <script>
 import WangEditor from 'wangeditor';
-import '../../css/richEditor.less';
+import '../../css/richtext-editor.less';
 
 export default {
   name: 'RichTextEditor',
