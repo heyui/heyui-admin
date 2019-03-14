@@ -19,10 +19,10 @@ export default {
     return {
       menus: [{
         title: '安全设置',
-        key: 'securitySetting'
+        key: 'SecuritySetting'
       }, {
         title: '通知设置',
-        key: 'noticeSetting'
+        key: 'NoticeSetting'
       }]
     };
   },
