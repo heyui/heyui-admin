@@ -16,7 +16,9 @@ export default new Vuex.Store({
       state.User = data;
     },
     updateSiderCollapse(state, isShow) {
-      G.trigger('page_resize');
+      setTimeout(() => {
+        G.trigger('page_resize');
+      }, 600)
       state.siderCollapsed = isShow;
     },
     updateMsgCount(state, data) {

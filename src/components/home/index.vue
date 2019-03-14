@@ -2,14 +2,14 @@
 .app-home-vue {
   .home-part-body {
     height: 350px;
-    .echarts {
+    .echarts-vue {
       height: 350px;
     }
   }
 
   .home-part-body2 {
     height: 420px;
-    .echarts {
+    .echarts-vue {
       height: 420px;
     }
   }
