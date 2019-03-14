@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import Vue from 'vue';
 import debounce from 'lodash.debounce';
 
 /** index.simple 包含以下四种图表
@@ -62,7 +61,7 @@ export default {
   },
   beforeDestroy() {
     if (this.autoResize) {
-      window.removeEventListener('resize', this.__resizeHanlder);
+      window.removeEventListener('resize', this.resizeHanlder);
       G.removelistener(this.listener);
     }
     this.chart.dispose();
