@@ -26,23 +26,23 @@ export default {
   props: {
     options: {
       type: Object,
-      default: ()=>({})
+      default: () => ({})
     },
     initOption: {
       type: Object,
-      default: ()=>({})
+      default: () => ({})
     }
   },
   data() {
     return {
       chart: null
-    }
+    };
   },
   mounted() {
-    this.init()
+    this.init();
   },
   watch: {
-    options(){
+    options() {
       this.chart.setOption(this.options);
     }
   },
@@ -65,11 +65,11 @@ export default {
       window.removeEventListener('resize', this.__resizeHanlder);
       G.removelistener(this.listener);
     }
-    this.dispose();
+    this.chart.dispose();
     this.chart = null;
   },
   computed: {
-    
+
   }
-}
+};
 </script>
