@@ -1,11 +1,11 @@
 <style lang="less">
-.sys-tabs-vue{
+.sys-tabs-vue {
   position: relative;
   height: 45px;
   background: #f3f6f8;
   user-select: none;
   z-index: 1;
-  .close-con{
+  .close-con {
     position: absolute;
     right: 0;
     top: 0;
@@ -15,7 +15,7 @@
     text-align: center;
     z-index: 10;
   }
-  .tabs-container{
+  .tabs-container {
     position: absolute;
     // left: 28px;
     // right: 61px;
@@ -23,16 +23,24 @@
     right: 0;
     top: 0;
     bottom: 0;
-    .tabs-body{
+    .tabs-body {
       height: 100%;
-      overflow: hidden;
-      display: flex;
-      white-space: nowrap;
-      border-bottom: 3px solid #FFF;
+      // overflow: hidden;
+      // display: flex;
+      // white-space: nowrap;
+      border-bottom: 3px solid #fff;
       padding: 8px 8px 0;
+      .h-dropdownmenu {
+        display: block;
+      }
+      .h-dropdowncustom-show-content {
+        overflow: hidden;
+        white-space: nowrap;
+        display: flex;
+      }
     }
     .tabs-item {
-      transition: .2s;
+      transition: 0.2s;
       line-height: 36px;
       padding: 0 15px;
       position: relative;
@@ -54,19 +62,20 @@
         overflow: hidden;
         margin-right: 15px;
       }
-      &.tabs-item-chosen, &:hover {
+      &.tabs-item-chosen,
+      &:hover {
         z-index: 1;
-        &:after,&:before {
+        &:after,
+        &:before {
           content: '';
           bottom: 0;
           position: absolute;
-          top:auto;
+          top: auto;
           border-right: none;
         }
         &:after {
           width: 0;
           height: 0;
-          border-bottom: 10px solid white;
           border-right: 10px solid transparent;
           right: -3px;
           z-index: 3;
@@ -74,7 +83,6 @@
         &:before {
           width: 0;
           height: 0;
-          border-bottom: 10px solid white;
           border-left: 10px solid transparent;
           left: -3px;
           z-index: 3;
@@ -90,10 +98,17 @@
         }
       }
       &.tabs-item-chosen {
-        background: #FFF;
+        z-index: 2;
+        background: #fff;
+        &:after {
+          border-bottom: 10px solid white;
+        }
+        &:before {
+          border-bottom: 10px solid white;
+        }
       }
       &-close {
-        transition: .2s;
+        transition: 0.2s;
         font-size: 12px;
         position: absolute;
         right: 10px;
@@ -104,7 +119,7 @@
         padding: 4px;
         margin: -4px;
         transform: scale(0.8);
-        &:hover{
+        &:hover {
           color: #333;
           background: #e4e4e4;
         }
@@ -119,7 +134,7 @@
     z-index: 100;
     list-style-type: none;
     border-radius: 4px;
-    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .3);
+    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.3);
     li {
       margin: 0;
       padding: 5px 15px;
@@ -136,13 +151,15 @@
   <div class="sys-tabs-vue">
     <div class="tabs-container" ref="scrollOuter">
       <div class="tabs-body">
-        <span v-for="(item, index) of tagList" :key="`sys-tab-${index}`" @click="handleClick(item)" class="tabs-item" :class="{'tabs-item-chosen': isCurrentTab(item)}">
-          <div class="tabs-item-title">
-            <span :class="item.meta.icon"></span>
-            <span>{{item.meta.title}}</span>
-          </div>
-          <span class="tabs-item-close h-icon-close" @click.stop="handleClose(item)" v-if="homePage!=item.name"></span>
-        </span>
+        <DropdownMenu :datas="menus" @click="trigger" @show="show" trigger="contextMenu" :toggleIcon="false">
+          <span v-for="(item, index) of tagList" :key="`sys-tab-${index}`" :index="index" @click="handleClick(item)" class="tabs-item" :class="{'tabs-item-chosen': isCurrentTab(item)}" >
+            <div class="tabs-item-title">
+              <span :class="item.meta.icon"></span>
+              <span>{{item.meta.title}}</span>
+            </div>
+            <span class="tabs-item-close h-icon-close" @click.stop="handleClose(item)" v-if="homePage!=item.name"></span>
+          </span>
+        </DropdownMenu>
       </div>
     </div>
   </div>
@@ -154,11 +171,20 @@ export default {
   name: 'TagsNav',
   props: {
     value: Object,
-    homePage: String
+    homePage: {
+      type: String,
+      default: 'Home'
+    }
   },
   data() {
     return {
-      tagList: []
+      nowIndex: null,
+      tagList: [],
+      menus: {
+        closeSelf: '当前标签页',
+        closeOther: '关闭其他',
+        closeAll: '关闭所有'
+      }
     };
   },
   computed: {
@@ -168,6 +194,26 @@ export default {
     }
   },
   methods: {
+    show(event) {
+      let parent = event.target.parentNode;
+      this.nowIndex = parent.getAttribute('index') || parent.parentNode.getAttribute('index');
+      if (this.nowIndex == null) {
+        this.menus = {
+          closeAll: '关闭所有标签页'
+        };
+      } else {
+        this.menus = {
+          closeSelf: '关闭当前标签页',
+          closeOther: '关闭其他标签页',
+          closeAll: '关闭所有标签页'
+        };
+      }
+    },
+    trigger(key, data, event) {
+      if (key == 'closeAll') {
+        this.clearTab();
+      }
+    },
     init() {
       this.tagList = Utils.getLocal2Json('SYS_TABS') || [];
       this.addTab(this.$route);
@@ -175,28 +221,28 @@ export default {
     beforeClose() {
       return this.$Confirm('确定要关闭这一页吗');
     },
-    handleClose(current) {
-      if (current.meta && current.meta.beforeCloseName) {
-        return new Promise(this.beforeClose[current.meta.beforeCloseName]).then(close => {
+    handleClose(item) {
+      if (item.meta && item.meta.beforeCloseName) {
+        return new Promise(this.beforeClose[item.meta.beforeCloseName]).then(close => {
           if (close) {
-            this.close(current);
+            this.close(item);
           }
         });
       } else {
-        this.close(current);
+        this.close(item);
       }
     },
-    close(route) {
-      let index = this.tagList.indexOf(route);
+    close(item) {
+      let index = this.tagList.indexOf(item);
       this.tagList.splice(index, 1);
       let newroute = null;
-      if (this.isCurrentTab(route)) {
+      if (this.isCurrentTab(item)) {
         if (this.tagList.length > index) {
           newroute = this.tagList[index];
         } else if (this.tagList.length > 0) {
           newroute = this.tagList[index - 1];
         } else {
-          this.$router.replace({ name: 'Home' });
+          this.$router.replace({ name: this.homePage });
         }
         if (newroute) this.$router.replace(newroute);
       }
@@ -211,14 +257,24 @@ export default {
     isCurrentTab(item) {
       return routeEqual(this.currentRouteObj, item);
     },
-    addTab(route) {
-      if (!route.name) return;
-      const { name, query, params, meta } = route;
+    addTab(item) {
+      if (!item.name) return;
+      const { name, query, params, meta } = item;
       let routeObj = { name, query, params, meta: meta || {} };
       if (!isExsit(routeObj, this.tagList)) {
         this.tagList.push(routeObj);
         this.saveLocal();
       }
+    },
+    closeOtherTab(index) {
+      this.tagList.splice(0, index);
+      this.tagList.splice(index + 1);
+      this.saveLocal();
+    },
+    clearTab() {
+      this.tagList = [];
+      this.saveLocal();
+      this.$router.push({ name: this.homePage });
     },
     saveLocal() {
       Utils.saveLocal('SYS_TABS', this.tagList);
@@ -228,7 +284,7 @@ export default {
     this.init();
   },
   watch: {
-    '$route'(to) {
+    $route(to) {
       this.addTab(to);
     }
   }
