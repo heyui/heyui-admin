@@ -18,15 +18,18 @@
 </style>
 <template>
   <div class="a-item-vue">
-    <p class="title">{{item.title}}</p>
-    <p class="tags"><TagInput v-model="item.tags" readonly></TagInput></p>
-    <pre class="desc">{{item.desc}}</pre>
+    <Skeleton active :loading="loading">
+      <p class="title">{{item.title}}</p>
+      <p class="tags"><TagInput v-model="item.tags" readonly></TagInput></p>
+      <pre class="desc">{{item.desc}}</pre>
+    </Skeleton>
   </div>
 </template>
 <script>
 export default {
   props: {
-    item: Object
+    item: Object,
+    loading: Boolean
   },
   data() {
     return {

@@ -12,8 +12,9 @@
       </div>
     </div>
     <div class="h-panel-body">
-      <AItem v-for="d of datas" :key="d.id" :item="d"></AItem>
-      <Loading :loading="loading"></Loading>
+      <div>
+        <AItem v-for="d of datas" :key="d.id" :item="d" :loading="loading"></AItem>
+      </div>
       <Pagination v-if="pagination.total>0" :size="pagination.size" :cur="pagination.page" align="right" :total="pagination.total" @change="changePage" />
     </div>
   </div>
@@ -46,8 +47,8 @@ export default {
         size: 20,
         total: 0
       },
-      datas: [],
-      loading: false,
+      datas: [{}, {}, {}],
+      loading: true,
       params: {
         location: [],
         type: null,
