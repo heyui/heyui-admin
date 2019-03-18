@@ -60,10 +60,8 @@ export default {
     }
   },
   beforeDestroy() {
-    if (this.autoResize) {
-      window.removeEventListener('resize', this.resizeHanlder);
-      G.removelistener(this.listener);
-    }
+    window.removeEventListener('resize', this.resizeHanlder);
+    G.removelistener(this.listener);
     this.chart.dispose();
     this.chart = null;
   },
