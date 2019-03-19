@@ -180,11 +180,7 @@ export default {
     return {
       nowIndex: null,
       tagList: [],
-      menus: {
-        closeSelf: '当前标签页',
-        closeOther: '关闭其他',
-        closeAll: '关闭所有'
-      }
+      menus: {}
     };
   },
   computed: {
@@ -203,7 +199,7 @@ export default {
         };
       } else {
         this.menus = {
-          closeSelf: '关闭当前标签页',
+          closeSelf: '关闭标签页',
           closeOther: '关闭其他标签页',
           closeAll: '关闭所有标签页'
         };
@@ -212,11 +208,18 @@ export default {
     trigger(key, data, event) {
       if (key == 'closeAll') {
         this.clearTab();
+      } else if (this.nowIndex) {
+        let item = this.tagList[this.nowIndex];
+        if (key == 'closeOther') {
+          this.closeOtherTab(item, this.nowIndex);
+        } else if (key == 'closeSelf') {
+          this.close(item);
+        }
       }
     },
     init() {
       this.tagList = Utils.getLocal2Json('SYS_TABS') || [];
-      this.addTab(this.$route);
+      this.gotoTab(this.$route);
     },
     beforeClose() {
       return this.$Confirm('确定要关闭这一页吗');
@@ -257,7 +260,7 @@ export default {
     isCurrentTab(item) {
       return routeEqual(this.currentRouteObj, item);
     },
-    addTab(item) {
+    gotoTab(item) {
       if (!item.name) return;
       const { name, query, params, meta } = item;
       let routeObj = { name, query, params, meta: meta || {} };
@@ -266,15 +269,20 @@ export default {
         this.saveLocal();
       }
     },
-    closeOtherTab(index) {
+    closeOtherTab(item, index) {
+      if (!this.isCurrentTab(item)) {
+        this.$router.push(item);
+      }
       this.tagList.splice(0, index);
-      this.tagList.splice(index + 1);
+      this.tagList.splice(1);
       this.saveLocal();
     },
     clearTab() {
       this.tagList = [];
       this.saveLocal();
-      this.$router.push({ name: this.homePage });
+      if (!this.isCurrentTab({ name: this.homePage })) {
+        this.$router.push({ name: this.homePage });
+      }
     },
     saveLocal() {
       Utils.saveLocal('SYS_TABS', this.tagList);
@@ -285,7 +293,7 @@ export default {
   },
   watch: {
     $route(to) {
-      this.addTab(to);
+      this.gotoTab(to);
     }
   }
 };
