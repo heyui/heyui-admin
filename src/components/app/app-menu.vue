@@ -25,7 +25,7 @@
     }
   }
   .h-menu.h-menu-white {
-    color: rgba(49, 58, 70, 0.8);
+    color: rgb(49, 58, 70);
   }
 
 }
