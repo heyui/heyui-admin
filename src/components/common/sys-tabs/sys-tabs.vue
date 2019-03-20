@@ -191,6 +191,7 @@ export default {
   },
   methods: {
     show(event) {
+      log(event);
       let parent = event.target.parentNode;
       this.nowIndex = parent.getAttribute('index') || parent.parentNode.getAttribute('index');
       if (this.nowIndex == null) {
