@@ -144,7 +144,7 @@ export default {
     },
     trigger(data) {
       if (data == 'logout') {
-        Utils.removeLocal('Auth');
+        Utils.removeLocal('token');
         this.$router.replace({ name: 'Login' });
       } else {
         this.$router.push({ name: 'AccountBasic' });
