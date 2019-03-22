@@ -1,5 +1,5 @@
 {
-  "editor.formatOnType": true,
+  "editor.formatOnType": false,
   "vetur.format.defaultFormatterOptions": {
     "prettyhtml": {
       "printWidth": 150
