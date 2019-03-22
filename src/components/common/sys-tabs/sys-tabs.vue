@@ -42,6 +42,7 @@
     .tabs-item {
       transition: 0.2s;
       line-height: 36px;
+      height: 34px;
       padding: 0 15px;
       position: relative;
       max-width: 160px;
