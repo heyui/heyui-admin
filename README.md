@@ -2,13 +2,13 @@
 
 <p align="center">
   <a href="https://github.com/vuejs/vue">
-    <img src="https://img.shields.io/badge/vue-2.5.16-brightgreen.svg" alt="vue">
+    <img src="https://img.shields.io/npm/v/vue.svg" alt="vue">
   </a>
   <a href="https://github.com/heyui/heyui">
-    <img src="https://img.shields.io/badge/heyui-1.6.0-brightgreen.svg" alt="heyui">
+    <img src="https://img.shields.io/npm/v/heyui.svg" alt="heyui">
   </a>
   <a href="https://github.com/heyui/heyui-admin/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="license">
   </a>
 </p>
 
