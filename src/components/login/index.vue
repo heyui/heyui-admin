@@ -1,15 +1,17 @@
 <style lang="less">
-@gradient-color: #43495b;
+@gradient-color: #3788ee;
+@bg-color: #fff;
+@text-color: #1d1d1d;
 .login-vue {
   text-align: center;
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: 0; 
   right: 0;
   left: 0;
-  background: @gradient-color;
+  background: @bg-color;
   .login-container {
-    width: 400px;
+    width: 320px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -17,7 +19,7 @@
     .login-content {
       letter-spacing: 2px;
       background: #FFF;
-      padding: 120px 40px 60px;
+      padding: 70px 30px 20px;
       box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.18);
       border-radius: 3px;
       box-sizing: border-box;
@@ -49,7 +51,7 @@
         }
         &.login-title {
           font-size: 30px;
-          color: #1d1d1d;
+          color: @text-color;
           line-height: 1;
           margin: -16px 0px 40px;
           font-weight: 200;
@@ -73,10 +75,10 @@
     }
     .copyright {
       letter-spacing: 1px;
-      margin-top: 10px;
-      color: #FFF;
+      margin-top: 30px;
+      color: @text-color;
       a {
-        color: #FFF;
+        color: @text-color;
       }
     }
   }
