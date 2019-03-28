@@ -35,6 +35,10 @@
     .sys-tabs-vue + .h-layout-content {
       margin-top: 45px;
     }
+    .h-layout-content {
+      height: calc(100vh - @layout-header-height);
+      overflow: auto;
+    }
   }
 
   .h-layout-sider-theme-dark .app-logo a{
