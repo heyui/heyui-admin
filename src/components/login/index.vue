@@ -1,6 +1,6 @@
 <style lang="less">
 @gradient-color: #3788ee;
-@bg-color: #fff;
+@bg-color: #f7f8fa;
 @text-color: #1d1d1d;
 .login-vue {
   text-align: center;
@@ -20,7 +20,7 @@
       letter-spacing: 2px;
       background: #FFF;
       padding: 70px 30px 20px;
-      box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.18);
+      box-shadow: 0 1px 3px 0 #0000000f;
       border-radius: 3px;
       box-sizing: border-box;
       >div {
