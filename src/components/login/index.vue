@@ -34,7 +34,7 @@
             color: @placeholder-color;
             top: 6px;
             font-size: 16px;
-            transition: top .2s;
+            transition: all .2s;
             left: 0;
             pointer-events: none;
           }
