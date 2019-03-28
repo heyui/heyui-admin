@@ -36,6 +36,15 @@
       margin-top: 45px;
     }
   }
+  .h-layout-sider-fixed .h-layout-header-fixed {
+    .h-layout-content {
+      overflow: auto;
+      height: calc(~"100vh - @{layout-header-height}");
+    }
+    .sys-tabs-vue + .h-layout-content {
+      height: calc(~"100vh - @{layout-header-height} - @{sys-tabs-height}");
+    }
+  }
 
   .h-layout-sider-theme-dark .app-logo a{
     color: #FFF;

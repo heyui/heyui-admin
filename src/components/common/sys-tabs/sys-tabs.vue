@@ -1,7 +1,7 @@
 <style lang="less">
 .sys-tabs-vue {
   position: relative;
-  height: 45px;
+  height: @sys-tabs-height;
   background: #f3f6f8;
   user-select: none;
   z-index: 1;
@@ -124,24 +124,6 @@
           color: #333;
           background: #e4e4e4;
         }
-      }
-    }
-  }
-  .contextmenu {
-    position: absolute;
-    margin: 0;
-    padding: 5px 0;
-    background: #fff;
-    z-index: 100;
-    list-style-type: none;
-    border-radius: 4px;
-    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.3);
-    li {
-      margin: 0;
-      padding: 5px 15px;
-      cursor: pointer;
-      &:hover {
-        background: #eee;
       }
     }
   }
