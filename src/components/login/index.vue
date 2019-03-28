@@ -105,11 +105,11 @@
       <div class="login-content">
         <div class="login-title">管理系统</div>
         <div class="login-name login-input">
-          <input type="text" v-model="login.username" autocomplete="off"/>
+          <input type="text" name="username" v-model="login.username" autocomplete="off"/>
           <span class="placeholder" :class="{fixed: login.username != '' && login.username != null}">用户名</span>
         </div>
         <div class="login-password login-input">
-          <input type="password" v-model="login.password" @keyup.enter="submit" autocomplete="off"/>
+          <input type="password" name="password" v-model="login.password" @keyup.enter="submit" autocomplete="off"/>
           <span class="placeholder" :class="{fixed: login.password != '' && login.password != null}">密码</span>
         </div>
         <div class="buttonDiv">
