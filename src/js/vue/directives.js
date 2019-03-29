@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 const uriReg = /^((http[s]{0,1}|ftp):\/\/)?[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\.?/;
 const isUri = function (value) {
   return (value && value.trim() && uriReg.test(value.trim()));
