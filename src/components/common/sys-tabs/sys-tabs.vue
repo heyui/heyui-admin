@@ -53,16 +53,21 @@
       cursor: pointer;
       &:after {
         content: '';
+        display: inline-block;
         position: absolute;
         right: 0;
-        top: 10px;
-        bottom: 10px;
+        height: 20px;
+        bottom: 6px;
         border-right: 1px solid #b5b5b5;
       }
       &-title {
         font-size: 13px;
         overflow: hidden;
         margin-right: 15px;
+        .icon-monitor, .icon-paper {
+          position: relative;
+          top: -1px;
+        }
       }
       &.tabs-item-chosen,
       &:hover {
@@ -114,7 +119,7 @@
         font-size: 12px;
         position: absolute;
         right: 10px;
-        top: 13px;
+        top: 12px;
         color: #999;
         cursor: pointer;
         border-radius: 50%;
