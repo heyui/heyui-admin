@@ -50,6 +50,7 @@
       border-radius: 8px 8px 0 0;
       margin-left: -1px;
       margin-right: -1px;
+      cursor: pointer;
       &:after {
         content: '';
         position: absolute;
