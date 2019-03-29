@@ -2,10 +2,10 @@
 
 <p align="center">
   <a href="https://github.com/vuejs/vue">
-    <img src="https://img.shields.io/npm/v/vue.svg" alt="vue">
+    <img src="https://img.shields.io/github/package-json/dependency-version/heyui/heyui-admin/vue.svg" alt="vue">
   </a>
   <a href="https://github.com/heyui/heyui">
-    <img src="https://img.shields.io/npm/v/heyui.svg" alt="heyui">
+    <img src="https://img.shields.io/github/package-json/dependency-version/heyui/heyui-admin/heyui.svg" alt="heyui">
   </a>
   <a href="https://github.com/heyui/heyui-admin/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="license">
