@@ -28,7 +28,7 @@
       // overflow: hidden;
       // display: flex;
       // white-space: nowrap;
-      border-bottom: 3px solid #fff;
+      box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.09);
       padding: 8px 8px 0;
       .h-dropdownmenu {
         display: block;
@@ -53,16 +53,21 @@
       cursor: pointer;
       &:after {
         content: '';
+        display: inline-block;
         position: absolute;
         right: 0;
-        top: 10px;
-        bottom: 10px;
+        height: 20px;
+        bottom: 6px;
         border-right: 1px solid #b5b5b5;
       }
       &-title {
         font-size: 13px;
         overflow: hidden;
         margin-right: 15px;
+        .tabs-item-icon {
+          position: relative;
+          top: -1px;
+        }
       }
       &.tabs-item-chosen,
       &:hover {
@@ -114,7 +119,7 @@
         font-size: 12px;
         position: absolute;
         right: 10px;
-        top: 13px;
+        top: 12px;
         color: #999;
         cursor: pointer;
         border-radius: 50%;
@@ -138,7 +143,7 @@
         <DropdownMenu :datas="menus" @click="trigger" @show="show" trigger="contextMenu" :toggleIcon="false">
           <span v-for="(item, index) of tagList" :key="`sys-tab-${index}`" :index="index" @click="handleClick(item)" class="tabs-item" :class="{'tabs-item-chosen': isCurrentTab(item)}" >
             <div class="tabs-item-title">
-              <span :class="item.meta.icon"></span>
+              <span :class="item.meta.icon" class="tabs-item-icon"></span>
               <span>{{item.meta.title}}</span>
             </div>
             <span class="tabs-item-close h-icon-close" @click.stop="handleClose(item)" v-if="homePage!=item.name"></span>
