@@ -76,9 +76,12 @@ export default {
                 };
                 reader.readAsDataURL(file.getNative());
               }
-              that.uploadList.push(file);
+              if (that.type == 'files' || that.type == 'images') {
+                that.uploadList.push(file);
+              } else {
+                that.uploadList = [file];
+              }
             });
-            // that.$emit("startUpload");
             up.start();
           },
           BeforeUpload(up, file) {
