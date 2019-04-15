@@ -36,7 +36,7 @@
         <TableItem :width="200" prop="city" title="城市"></TableItem>
       </Table>
       <p></p>
-      <Pagination v-if="pagination.total>0" :size="pagination.size" :cur="pagination.page" align="right" :total="pagination.total" @change="changePage" />
+      <Pagination v-if="pagination.total>0"  align="right" v-model="pagination" @change="changePage" />
     </div>
   </div>
 </template>
@@ -78,10 +78,8 @@ export default {
       this.getData();
       this.getCounts();
     },
-    changePage(page) {
-      this.pagination.page = page.cur;
-      this.pagination.size = page.size;
-      this.getData();
+    changePage() {
+      this.getData(true);
     },
     getCounts() {
       setTimeout(() => {

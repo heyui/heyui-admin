@@ -15,7 +15,7 @@
       <div>
         <AItem v-for="d of datas" :key="d.id" :item="d" :loading="loading"></AItem>
       </div>
-      <Pagination v-if="pagination.total>0" :size="pagination.size" :cur="pagination.page" align="right" :total="pagination.total" @change="changePage" />
+      <Pagination v-if="pagination.total>0" align="right" v-model="pagination" @change="changePage" />
     </div>
   </div>
 </template>
@@ -73,9 +73,7 @@ export default {
   },
   methods: {
     changePage(page) {
-      this.pagination.page = page.cur;
-      this.pagination.size = page.size;
-      this.getData();
+      this.getData(true);
     },
     init() {
       this.getData();
