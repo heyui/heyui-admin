@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import CodeEditor from './code-editor';
 import marked from 'marked';
 
 export default {
@@ -46,9 +45,6 @@ export default {
       html: '',
       editValue: ''
     };
-  },
-  components: {
-    CodeEditor
   },
   watch: {
     'value': function (newVal, oldVal) {
