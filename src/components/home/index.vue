@@ -35,11 +35,13 @@
     <Row :space="30">
       <Cell :xs='24' :sm='24' :md='24' :lg='16' :xl='16'>
         <div class="h-panel">
-          <div class="h-panel-bar">
-            <div class="h-panel-title">数据走势</div>
+          <div class="relative">
+            <Tabs class="common-panel-tabs" v-model="type" :datas="{type1: '数据走势', type2: '数据分布'}"></Tabs>
+            <div class="middle-right" style="right: 25px;"><span class="text-hover">查看更多</span></div>
           </div>
           <div class="home-part-body">
-            <Chart :options="data1"></Chart>
+            <Chart :options="data1" v-if="type=='type1'" key="type1"></Chart>
+            <Chart :options="data3" v-if="type=='type2'" key="type2"></Chart>
           </div>
         </div>
       </Cell>
@@ -116,12 +118,15 @@
 <script>
 import data1 from 'components/demo-components/components/datas/data1';
 import data2 from 'components/demo-components/components/datas/data2';
+import data3 from 'components/demo-components/components/datas/data4';
 
 export default {
   data() {
     return {
       data1,
-      data2
+      data2,
+      data3,
+      type: 'type1'
     };
   },
   methods: {}
