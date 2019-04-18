@@ -37,7 +37,7 @@
         <div class="h-panel">
           <div class="relative">
             <Tabs class="common-panel-tabs" v-model="type" :datas="{type1: '数据走势', type2: '数据分布'}"></Tabs>
-            <div class="middle-right" style="right: 25px;"><span class="text-hover">查看更多</span></div>
+            <div class="middle-right" style="right: 25px;"><span class="text-hover" @click="openMore">查看更多</span></div>
           </div>
           <div class="home-part-body">
             <Chart :options="data1" v-if="type=='type1'" key="type1"></Chart>
@@ -129,6 +129,10 @@ export default {
       type: 'type1'
     };
   },
-  methods: {}
+  methods: {
+    openMore() {
+      this.$router.push({ name: 'Chart' });
+    }
+  }
 };
 </script>

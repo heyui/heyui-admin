@@ -68,12 +68,12 @@ export default {
   },
   watch: {
     params() {
-      this.getData();
+      this.getData(true);
     }
   },
   methods: {
     changePage(page) {
-      this.getData(true);
+      this.getData();
     },
     init() {
       this.getData();
