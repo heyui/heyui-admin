@@ -17,8 +17,6 @@
   }
   .tabs-container {
     position: absolute;
-    // left: 28px;
-    // right: 61px;
     left: 0;
     right: 0;
     top: 0;
@@ -26,12 +24,13 @@
     .tabs-body {
       height: 100%;
       box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.09);
-      padding: 10px 8px 0;
+      padding: 10px 0 0;
       .h-dropdownmenu {
         display: block;
       }
       .h-dropdowncustom-show-content {
         overflow: hidden;
+        padding: 0 8px;
         white-space: nowrap;
         display: flex;
       }
@@ -39,7 +38,7 @@
     .tabs-item {
       transition: 0.2s;
       line-height: 36px;
-      height: 34px;
+      height: 35px;
       padding: 0 15px;
       position: relative;
       max-width: 160px;
@@ -91,26 +90,27 @@
           width: 0;
           height: 0;
           border-right: 10px solid transparent;
-          right: -3px;
+          right: 0px;
           z-index: 3;
         }
         &:before {
           width: 0;
           height: 0;
           border-left: 10px solid transparent;
-          left: -3px;
+          left: 0px;
           z-index: 3;
         }
       }
+      @sysTabHoverColor: #F4F5F7;
       &:hover {
         .tabs-item-background {
-          background: #f8f9f9;
+          background: @sysTabHoverColor;
         }
         &:after {
-          border-bottom: 10px solid #f8f9f9;
+          border-bottom: 10px solid @sysTabHoverColor;
         }
         &:before {
-          border-bottom: 10px solid #f8f9f9;
+          border-bottom: 10px solid @sysTabHoverColor;
         }
       }
       &.tabs-item-chosen {
@@ -120,10 +120,10 @@
           background: #fff;
         }
         &:after {
-          border-bottom: 10px solid white;
+          border-bottom: 10px solid #fff;
         }
         &:before {
-          border-bottom: 10px solid white;
+          border-bottom: 10px solid #fff;
         }
       }
       &-close {
