@@ -101,7 +101,7 @@
           z-index: 3;
         }
       }
-      @sysTabHoverColor: #F4F5F7;
+      @sysTabHoverColor: #EBECEF;
       &:hover {
         .tabs-item-background {
           background: @sysTabHoverColor;
