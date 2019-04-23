@@ -25,11 +25,8 @@
     bottom: 0;
     .tabs-body {
       height: 100%;
-      // overflow: hidden;
-      // display: flex;
-      // white-space: nowrap;
       box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.09);
-      padding: 8px 8px 0;
+      padding: 10px 8px 0;
       .h-dropdownmenu {
         display: block;
       }
@@ -47,10 +44,10 @@
       position: relative;
       max-width: 160px;
       flex: 1;
-      border-radius: 8px 8px 0 0;
-      margin-left: -1px;
-      margin-right: -1px;
+      margin-left: -4px;
+      margin-right: -4px;
       cursor: pointer;
+      overflow: hidden;
       &:after {
         content: '';
         display: inline-block;
@@ -61,6 +58,8 @@
         border-right: 1px solid #b5b5b5;
       }
       &-title {
+        position: relative;
+        z-index: 2;
         font-size: 13px;
         overflow: hidden;
         margin-right: 15px;
@@ -68,6 +67,14 @@
           position: relative;
           top: -1px;
         }
+      }
+      &-background {
+        position: absolute;
+        right: 3px;
+        top: 0;
+        left: 3px;
+        bottom: 0;
+        border-radius: 8px 8px 0 0;
       }
       &.tabs-item-chosen,
       &:hover {
@@ -96,7 +103,9 @@
         }
       }
       &:hover {
-        background: #f8f9f9;
+        .tabs-item-background {
+          background: #f8f9f9;
+        }
         &:after {
           border-bottom: 10px solid #f8f9f9;
         }
@@ -106,7 +115,10 @@
       }
       &.tabs-item-chosen {
         z-index: 2;
-        background: #fff;
+
+        .tabs-item-background {
+          background: #fff;
+        }
         &:after {
           border-bottom: 10px solid white;
         }
@@ -141,13 +153,14 @@
     <div class="tabs-container" ref="scrollOuter">
       <div class="tabs-body">
         <DropdownMenu :datas="menus" @click="trigger" @show="show" trigger="contextMenu" :toggleIcon="false">
-          <span v-for="(item, index) of tagList" :key="`sys-tab-${index}`" :index="index" @click="handleClick(item)" class="tabs-item" :class="{'tabs-item-chosen': isCurrentTab(item)}" >
+          <div v-for="(item, index) of tagList" :key="`sys-tab-${index}`" :index="index" @click="handleClick(item)" class="tabs-item" :class="{'tabs-item-chosen': isCurrentTab(item)}" >
+            <div class="tabs-item-background"></div>
             <div class="tabs-item-title">
               <span :class="item.meta.icon" class="tabs-item-icon"></span>
               <span>{{item.meta.title}}</span>
             </div>
             <span class="tabs-item-close h-icon-close" @click.stop="handleClose(item)" v-if="homePage!=item.name"></span>
-          </span>
+          </div>
         </DropdownMenu>
       </div>
     </div>
