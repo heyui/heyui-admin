@@ -21,13 +21,13 @@ module.exports = {
         './src/js/common/request',
         'hey-global',
         'hey-log',
-        'heyui',
+        'heyui'
       ]
     },
     alias: {
       model: './src/js/model/',
       js: './src/js/',
-      components: './src/components/',
+      components: './src/components/'
     },
     global: {
       Utils: [path.resolve(__dirname, 'src/js/common/utils'), 'default'],
