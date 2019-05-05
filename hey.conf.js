@@ -8,7 +8,7 @@ module.exports = {
     publicPath: '/',
     output: {
       './index.html': {
-        entry: './src/main',
+        entry: './src/app',
         commons: ['common']
       }
     },

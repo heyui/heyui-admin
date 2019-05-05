@@ -5,7 +5,7 @@ const globalVars = require('./src/css/var.js');
 module.exports = {
   pages: {
     index: {
-      entry: 'src/main.js',
+      entry: 'src/app.js',
       template: 'index.html',
       filename: 'index.html',
       chunks: ['chunk-vendors', 'chunk-common', 'index']
