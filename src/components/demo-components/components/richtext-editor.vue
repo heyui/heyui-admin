@@ -5,6 +5,10 @@
     <div class="h-panel-bar">
       <span class="h-panel-title">富文本编辑器</span>
     </div>
+    <div class="h-panel-bar">
+      <Button @click="update">重新设置值</Button>
+      <Button @click="clear">清空</Button>
+    </div>
     <div class="h-panel-body">
       <RichTextEditor v-model="value"></RichTextEditor>
     </div>
@@ -18,11 +22,13 @@ export default {
     };
   },
   mounted() {
-    this.init();
   },
   methods: {
-    init() {
-
+    update() {
+      this.value = '<p><i>更新</i></p>';
+    },
+    clear() {
+      this.value = null;
     }
   },
   computed: {

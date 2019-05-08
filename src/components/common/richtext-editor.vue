@@ -31,6 +31,17 @@ export default {
       this.editor.txt.html(val);
     }
   },
+  watch: {
+    value() {
+      if (this.editor) {
+        if (this.value == null) {
+          this.editor.txt.clear();
+        } else {
+          this.editor.txt.html(this.value);
+        }
+      }
+    }
+  },
   mounted() {
     this.editor = new WangEditor(this.$el);
     // 开启图片复制
