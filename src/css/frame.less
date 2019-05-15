@@ -77,13 +77,16 @@
           transform: translateX(-@layout-sider-collapse-width);
           overflow: hidden;
         }
-        .h-layout-header-fixed .h-layout-header {
-          left: 0;
-        }
       }
     }
     .h-layout-content {
       -webkit-overflow-scrolling: touch;
+    }
+    .h-layout-header-fixed .h-layout-header {
+      left: 0 !important;
+    }
+    .sys-tabs-vue {
+      left: 0 !important;
     }
   }
 }
