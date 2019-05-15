@@ -10,6 +10,7 @@
     box-shadow: 0 1px 4px @frame-box-shadow;
   }
   .h-layout-header{
+    overflow: hidden;
     box-shadow: 0px 1px 4px 0 @frame-box-shadow;
   }
 
@@ -52,7 +53,37 @@
   
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   #app {
+    .app-header-info {
+      .h-autocomplete, .app-header-icon-item {
+        display: none;
+      }
+    }
+    .h-layout {
+      padding-left: 0;
+      .app-menu-mask {
+        position: fixed;
+        left: @layout-sider-width;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: #000;
+        opacity: 0.3;
+        z-index: 1;
+      }
+      &.h-layout-sider-collapsed {
+        > .h-layout-sider {
+          transform: translateX(-@layout-sider-collapse-width);
+          overflow: hidden;
+        }
+        .h-layout-header-fixed .h-layout-header {
+          left: 0;
+        }
+      }
+    }
+    .h-layout-content {
+      -webkit-overflow-scrolling: touch;
+    }
   }
 }

@@ -35,6 +35,7 @@
   <div class="app-menu">
     <appLogo></appLogo>
     <Menu :datas="menus" :inlineCollapsed="siderCollapsed" @click="trigger" ref='menu' :className="`h-menu-${theme}`"></Menu>
+    <div class="app-menu-mask" @click="hideMenu"></div>
   </div>
 </template>
 <script>
@@ -72,6 +73,9 @@ export default {
     trigger(data) {
       if (data.children.length > 0) return;
       this.$router.push({ name: data.key });
+    },
+    hideMenu() {
+      this.$store.commit('updateSiderCollapse', true);
     }
   },
   components: {

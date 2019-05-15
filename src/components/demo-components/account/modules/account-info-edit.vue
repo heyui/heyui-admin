@@ -1,7 +1,7 @@
 <style lang='less'>
 .account-info-vue {
   padding: 30px 30px 30px 0;
-  width: 500px;
+  max-width: 500px;
 }
 </style>
 <template>

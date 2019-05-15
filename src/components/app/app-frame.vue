@@ -12,9 +12,11 @@
         </HHeader>
         <SysTabs v-if="layoutConfig.showSystab" homePage="Home"></SysTabs>
         <Content>
-          <!-- <keep-alive> -->
-          <router-view></router-view>
-          <!-- </keep-alive> -->
+          <div class="app-frame-content">
+            <!-- <keep-alive> -->
+            <router-view></router-view>
+            <!-- </keep-alive> -->
+          </div>
           <HFooter>
             <appFooter></appFooter>
           </HFooter>
