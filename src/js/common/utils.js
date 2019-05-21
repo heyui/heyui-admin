@@ -1,7 +1,6 @@
 import utils from 'hey-utils';
 
 const rclass = /[\t\r\n\f]/g;
-const rnotwhite = (/\S+/g);
 
 export default utils.extend({}, utils, {
   getClass(elem) {
