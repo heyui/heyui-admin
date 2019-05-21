@@ -8,21 +8,8 @@ module.exports = {
     publicPath: '/',
     output: {
       './index.html': {
-        entry: './src/app',
-        commons: ['common']
+        entry: './src/app'
       }
-    },
-    commonTrunk: {
-      common: [
-        'babel-polyfill',
-        'manba',
-        'js-model',
-        './src/js/common/utils',
-        './src/js/common/request',
-        'hey-global',
-        'hey-log',
-        'heyui'
-      ]
     },
     alias: {
       model: './src/js/model/',
