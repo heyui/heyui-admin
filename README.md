@@ -18,21 +18,21 @@
 
 </div>
 
-[简体中文](./README_zh.md) | English
+简体中文 | [English](./README_en.md)
 
-## Introduction
+## 介绍
 
-heyui-admin is a mature enterprise application solution. It based on vue and use the UI Toolkit heyui.
+heyui-admin 是一个成熟的企业应用解决方案，基于 vue2.0 和 heyui 组件库的中后端系统。
 
-- [Online Preview](http://admin.heyui.top)
+- [在线预览](http://admin.heyui.top)
 
-- [Documentation](https://heyui.github.io/heyui-admin-docs)
+- [文档](https://heyui.github.io/heyui-admin-docs)
 
-**This is a mature front-end solution. You can use this project to complete all front-end development work.**
+<span style="color: red">这是一个成熟的前端开发解决方案，你可以使用这个架构完成几乎 90%的前端开发工作。</span>
 
-## Preparation
+## 准备
 
-The project is based on:
+项目基于以下依赖:
 
 - [hey-ui](https://www.heyui.top/)
 - [vue](https://cn.vuejs.org/index.html)
@@ -45,77 +45,76 @@ The project is based on:
 - [hey-global](https://www.npmjs.com/package/hey-global)
 - [hey-log](https://www.npmjs.com/package/hey-log)
 
-Understanding and learning this knowledge in advance will greatly help the use of this project.
+提前了解和学习这些知识将大大有助于这个项目的使用。
 
-## Features
+## 功能
 
 ```
 - Js
-  - common
-    - package axios
-    - all requests
-    - common utils
-  - js model
-  - config
-    - router config
-    - heyui config
-    - dict config
-    - autocomplete config
-    - category config
-    - menu config
-    - tree config
+  - common / 通用
+    - ajax / 封装axios
+    - request / 封装所有的请求
+    - utils / 通用方法
+  - model / Js模型
+  - config / 配置
+    - router-config / 路由配置
+    - heyui-config / heyui配置
+    - dict-config / 字典配置
+    - autocomplete-config / autocomplete配置
+    - category-config / category配置
+    - tree-config / 树配置
+    - menu-config / 系统菜单配置
   - vue
-    - components
-    - filters
-    - directives
+    - components / 通用组件
+    - filters / 通用filters
+    - directives / 通用directives
   - vuex
     - store
 
-- FrameComponent
+- 框架组件
   - App
-  - App Header
-    - Messages
-    - Global Search
-  - App Menu
-  - Login
+  - App头部
+    - 消息
+    - 全局搜索
+  - App左侧菜单
+  - 登录
 
-- Components
-  - Dashboard
+- 组件
+  - 仪表盘
   - Icons
-  - Info
-    - Basic Page
-    - Detail Page
+  - 信息页
+    - 详情信息
   - Form
-    - Basic Form
-    - Create Form
+    - 基本的表单
+    - 创建
   - Table
-    - Basic Table
-    - Search Table
-    - Detail Modal
+    - 基本表格
+    - 搜索
+    - 详情弹框
   - Components
-    - Chart
-    - Rich Text Editor
-    - Markdown Editor
-    - Code Editor
-    - Clipboard
-  - Account Center
-    - Account Setting
-    - Security Setting
-  - Logout
+    - 图表
+    - 富文本编辑器Editor
+    - 代码编辑器
+    - Markdown编辑器
+    - 剪贴板
+  - 个人中心
+    - 基本信息
+    - 安全中心
+  - 登出
 
-- Error Page
+- 错误页面
   - 403
   - 404
   - 500
 ```
 
-## Getting started
+## 开始
 
-### Use hey-cli
+### 使用 hey-cli
 
-Install hey-cli@1.13.0+ globally.
+需要全局安装 hey-cli@1.13.0+
 
-**Recommend to use of scaffolding [hey-cli](https://github.com/heyui/hey-cli).**
+**我们建议使用[hey-cli](https://github.com/heyui/hey-cli)脚手架。**
 
 ```bash
 # clone the project
@@ -126,15 +125,16 @@ cd heyui-admin
 # install dependency
 npm install
 
-# develop, you have installed hey-cli
+# develop, 你需要首先安装 hey-cli
 hey dev
 ```
 
-This will automatically open http://localhost:9012, or you can change the port in hey.conf.js file.
+系统将自动打开页面 http://localhost:9012, 或者你可以通过 hey.conf.js 文件修改端口号.
 
-### Use vue-cli
 
-Install vue-cli@3.0.0+ globally.
+### 使用 vue-cli
+
+需要全局安装 vue-cli@3.0.0+
 
 ```bash
 # clone the project
@@ -142,19 +142,19 @@ git clone https://github.com/heyui/heyui-admin.git
 
 cd heyui-admin
 
-# Copy the files in the vue-cli folder to the root directory
+# 将vue-cli文件夹内的文件复制到根目录。
 mv -f ./vue-cli/* ./
 
 # install dependency
 npm install
 
-# develop, you have installed vue-cli
+# develop
 npm run serve
 ```
 
-## Develop
+## 开发
 
-**hey.conf.js**，modify the reverse proxy address to the back end address of the real project.
+**hey.conf.js**，将反向代理地址修改至真正的项目后端地址.
 
 ```js
 devServer: {
@@ -168,20 +168,20 @@ devServer: {
 },
 ```
 
-## Build
+## 构建
 
-We recommend that all environments use the same set of code, and refer to the documentation for specific solutions.
+我们建议所有构建环境使用相同的代码，具体方案请参考开发文档。
 
 ```
 # build
 hey build
 ```
 
-## Browser Support
+## 浏览器支持
 
-Modern browsers and Internet Explorer 9+.
+现代浏览器以及 Internet Explorer 9+.
 
-**The system has been configured to install polyfill.**
+**系统已经自动安装配置好 polyfill.**
 
 ## License
 
