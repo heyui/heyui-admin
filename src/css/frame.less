@@ -68,14 +68,16 @@
         right: 0;
         top: 0;
         bottom: 0;
-        background: #000;
-        opacity: 0.3;
+        background: rgba(0, 0, 0, 0.2);
         z-index: 1;
       }
       &.h-layout-sider-collapsed {
         > .h-layout-sider {
           transform: translateX(-@layout-sider-collapse-width);
           overflow: hidden;
+        }
+        .app-menu-mask {
+          display: none;
         }
       }
     }
