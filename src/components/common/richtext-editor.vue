@@ -26,6 +26,11 @@ export default {
       default: true // 是否开启本地存储
     }
   },
+  data() {
+    return {
+      stashValue: this.value
+    };
+  },
   methods: {
     setHtml(val) {
       this.editor.txt.html(val);
@@ -33,7 +38,7 @@ export default {
   },
   watch: {
     value() {
-      if (this.editor) {
+      if (this.editor && this.value != this.stashValue) {
         if (this.value == null) {
           this.editor.txt.clear();
         } else {
@@ -49,7 +54,8 @@ export default {
     this.editor.customConfig.onchange = (html) => {
       let text = this.editor.txt.text();
       if (this.cache) localStorage.editorCache = html;
-      this.$emit('input', this.valueType === 'html' ? html : text);
+      let value = this.stashValue = this.type === 'html' ? html : text;
+      this.$emit('input', value);
       this.$emit('change', html, text);
     };
     this.editor.create();
