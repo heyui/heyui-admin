@@ -15,7 +15,7 @@
       <div class="h-panel-body">
         <Form :label-width="110" mode="twocolumn" :model="data" :rules="validationRules" ref="form" showErrorTip>
           <FormItem label="输入框" prop="input">
-            <input type="text" v-model="data.input" placeholder="限制输入30个字" v-wordlimit='30' />
+            <input type="text" v-model="data.input" placeholder="请输入15/18位的字符串" />
             <template slot="error" slot-scope="props">
               <!-- *type*: base, combine, async -->
               <span class="link" v-if="props.type == 'async'">+++++++错误的特殊提示+++++++</span>
@@ -77,7 +77,7 @@
             <textarea rows="3" v-autosize v-wordcount="50" v-model="data.textarea"></textarea>
           </FormItem>
           <FormItem label="单选" prop="radio">
-            <Radio v-model="data.radio" @input="data.textarea += '12'" :datas="dataParam"></Radio>
+            <Radio v-model="data.radio" :datas="dataParam"></Radio>
           </FormItem>
           <FormItem label="多选" prop="checkbox">
             <Checkbox v-model="data.checkbox" :datas="dataParam"></Checkbox>
@@ -112,6 +112,7 @@
           <FormItem :no-padding="true">
             <Button color="primary" :loading="isLoading" @click="submit">提交</Button>&nbsp;&nbsp;&nbsp;
             <Button @click="reset">重置验证</Button>
+            <Button @click="resetData">重置数据</Button>
           </FormItem>
         </Form>
       </div>
@@ -140,16 +141,12 @@ export default {
             minLen: 10
           },
           input: {
-            // 做异步处理判断(原则上所有的异步判断在提交后同样需要验证)
-            // 这里的判断不会影响最终的valid结果，所以也可以作为一些验证提示
-            validAsync(value, next, parent, data) {
-              setTimeout(() => {
-                if (value.length == 15 || value.length == 18) {
-                  next();
-                } else {
-                  next('字段长度非15/18位，可能不符合规定');
-                }
-              }, 10);
+            valid(value) {
+              if (value.length == 15 || value.length == 18) {
+                return true;
+              } else {
+                return '字段长度非15/18位，可能不符合规定';
+              }
             }
           }
         },
@@ -206,7 +203,12 @@ export default {
     },
     reset() {
       this.isLoading = false;
-      this.$refs.form.reset();
+      this.$refs.form.resetValid();
+    },
+    resetData() {
+      this.isLoading = false;
+      this.$refs.form.resetValid();
+      this.data = FormModel.parse({});
     },
     add() {
       this.data.inputs.push({ value: '' });
