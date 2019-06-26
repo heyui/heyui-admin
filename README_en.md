@@ -183,6 +183,14 @@ Modern browsers and Internet Explorer 9+.
 
 **The system has been configured to install polyfill.**
 
+
+## Sponsor
+
+> If you think this project has helped you, you can buy the author a cup of tea as a sign of encouragement.
+
+![image](https://heyui.github.io/heyui-admin-docs/images/docs/tea.jpg)
+
+
 ## License
 
 [MIT](https://github.com/heyui/heyui-admin/blob/master/LICENSE)

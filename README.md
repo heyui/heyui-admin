@@ -183,6 +183,13 @@ hey build
 
 **系统已经自动安装配置好 polyfill.**
 
+## 打赏
+
+> 如果你觉得这个项目帮助到了你，你可以帮作者买一杯茶🍵表示鼓励。
+
+![image](https://heyui.github.io/heyui-admin-docs/images/docs/tea.jpg)
+
+
 ## License
 
 [MIT](https://github.com/heyui/heyui-admin/blob/master/LICENSE)
