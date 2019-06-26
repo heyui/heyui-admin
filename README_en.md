@@ -186,7 +186,7 @@ Modern browsers and Internet Explorer 9+.
 
 ## Sponsor
 
-> If you think this project has helped you, you can buy the author a cup of tea as a sign of encouragement.
+If you think this project has helped you, you can buy the author a cup of tea as a sign of encouragement.
 
 ![image](https://heyui.github.io/heyui-admin-docs/images/docs/tea.jpg)
 

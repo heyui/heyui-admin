@@ -185,7 +185,7 @@ hey build
 
 ## 打赏
 
-> 如果你觉得这个项目帮助到了你，你可以帮作者买一杯茶🍵表示鼓励。
+如果你觉得这个项目帮助到了你，你可以帮作者买一杯茶🍵表示鼓励。
 
 ![image](https://heyui.github.io/heyui-admin-docs/images/docs/tea.jpg)
 
