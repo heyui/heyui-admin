@@ -24,11 +24,21 @@
 
 heyui-admin is a mature enterprise application solution. It based on vue and use the UI Toolkit heyui.
 
-- [Online Preview](http://admin.heyui.top)
+This is a mature front-end solution. You can use this project to complete all front-end development work.
+
+
+## Online Preview
+
+We launched an online project to facilitate users to see the actual use of heyui-admin.
+
+[Online Preview](http://admin.heyui.top)
+
+## Tutorial documentation
+
+We have provided instructions for heyui-admin. If you have any questions in the process of using it, it is recommended to consult the relevant documents first.
 
 - [Documentation](https://heyui.github.io/heyui-admin-docs)
 
-**This is a mature front-end solution. You can use this project to complete all front-end development work.**
 
 ## Preparation
 
