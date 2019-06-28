@@ -39,7 +39,7 @@
       transition: 0.2s;
       line-height: 36px;
       height: 35px;
-      padding: 0 15px;
+      padding: 0 15px 0 15px;
       position: relative;
       max-width: 160px;
       flex: 1;
@@ -145,11 +145,22 @@
       }
     }
   }
+  &.sys-tabs-oversize{
+    .tabs-item:not(.tabs-item-chosen) {
+      padding-right: 10px;
+      .tabs-item-close {
+        display: none;
+      }
+      .tabs-item-title {
+        margin-right: 0;
+      }
+    }
+  }
 }
 </style>
 
 <template>
-  <div class="sys-tabs-vue">
+  <div class="sys-tabs-vue" :class="{'sys-tabs-oversize': tagList.length > 15}">
     <div class="tabs-container" ref="scrollOuter">
       <div class="tabs-body">
         <DropdownMenu :datas="menus" @click="trigger" @show="show" trigger="contextMenu" :toggleIcon="false">
