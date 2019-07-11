@@ -56,7 +56,11 @@
               box-shadow: inset 0 0 0 1000px #fff;
             }
           }
-          input:focus + .placeholder,input:-webkit-autofill + .placeholder, .placeholder.fixed{
+          input:focus + .placeholder, .placeholder.fixed{
+            font-size: 13px;
+            top: -16px;
+          }
+          input:-webkit-autofill + .placeholder {
             font-size: 13px;
             top: -16px;
           }
