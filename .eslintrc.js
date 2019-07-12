@@ -15,7 +15,8 @@ module.exports = {
     "R": true,
     "G": true,
     "log": true,
-    "Model": true
+    "Model": true,
+    "BMap": true
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',

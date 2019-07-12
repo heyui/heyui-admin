@@ -71,7 +71,7 @@ let ajax = {
     }
     if (params.method != 'GET') {
       if (this.isRequesting(url)) {
-        return new Promise((resolve, reject) => { resolve({ok: false, msg: '重复请求'}); });
+        return new Promise((resolve, reject) => { resolve({ ok: false, msg: '重复请求' }); });
       }
       if (params.repeatable === false) {
         this.addRequest(url);

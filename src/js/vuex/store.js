@@ -18,7 +18,7 @@ export default new Vuex.Store({
     updateSiderCollapse(state, isShow) {
       setTimeout(() => {
         G.trigger('page_resize');
-      }, 600)
+      }, 600);
       state.siderCollapsed = isShow;
     },
     updateMsgCount(state, data) {

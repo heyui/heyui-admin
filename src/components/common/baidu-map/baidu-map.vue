@@ -41,7 +41,7 @@ export default {
     mapStyle() {
       return {
         height: `${this.height}px`
-      }
+      };
     }
   }
 };
