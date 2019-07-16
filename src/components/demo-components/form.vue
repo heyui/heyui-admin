@@ -92,6 +92,9 @@
           <FormItem label="自定义规则" prop="things[0]" required>
             <input type="text" v-model="data.things[0]" />
           </FormItem>
+          <FormItem label="分类选择" prop="category">
+            <Category :option="categoryParam" type="key" v-model="data.category"></Category>
+          </FormItem>
           <FormItemList>
             <FormItem v-for="(item, index) of data.inputs" :key="item" :label="'输入框'+(index+1)" :prop="'inputs['+index+'].value'">
               <Row type="flex">
@@ -121,7 +124,7 @@
 </template>
 <script>
 import FormModel from 'model/Form';
-
+import categoryList from './components/datas/data5';
 export default {
   data() {
     return {
@@ -133,6 +136,13 @@ export default {
         3: '其他'
       },
       param1: ['美金', '人民币', '卢布'],
+      categoryParam: {
+        title: '测试',
+        keyName: 'id',
+        titleName: 'name',
+        dataMode: 'tree',
+        datas: categoryList
+      },
       isLoading: false,
       validationRules: {
         rules: {
@@ -152,6 +162,7 @@ export default {
         },
         required: [
           'autocomplete',
+          'category',
           'select2',
           'select3',
           'inputs[].value',
