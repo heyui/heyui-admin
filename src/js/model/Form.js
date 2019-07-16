@@ -15,6 +15,7 @@ export default new Model({
   select3: [],
   taginputs: [],
   autocomplete: null,
+  category: null,
   money: {
     min: null,
     max: null
