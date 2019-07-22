@@ -114,4 +114,19 @@ export default [{
   name: 'BaiduMap',
   component: (resolve) => require(['components/demo-components/components/baidu-map'], resolve),
   meta: { title: '百度地图' }
+}, {
+  path: '/authorization',
+  name: 'Authorization',
+  component: (resolve) => require(['components/demo-components/management/authorization'], resolve),
+  meta: { title: '权限管理' }
+}, {
+  path: '/authorization',
+  name: 'Authorization',
+  component: (resolve) => require(['components/demo-components/management/authorization'], resolve),
+  meta: { title: '权限管理' }
+}, {
+  path: '/users',
+  name: 'Users',
+  component: (resolve) => require(['components/demo-components/management/users'], resolve),
+  meta: { title: '用户管理' }
 }];
