@@ -4,7 +4,7 @@
   <div class="search-list-vue frame-page h-panel">
     <div class="h-panel-bar"><span class="h-panel-title">查询列表</span></div>
     <div class="h-panel-bar">
-      <div style="padding: 0px 0 20px;"><Search :width="400" v-model="keyword" @search="getData(true)" showSearchButton></Search></div>
+      <div style="padding: 0px 0 20px;"><Search :width="400" v-model="params.keyword" @search="getData(true)" showSearchButton></Search></div>
       <div class="search-picker">
         <SearchFilter v-model="params" :datas="dicts.type" prop="type" title="类型"></SearchFilter>
         <SearchFilter v-model="params" :datas="dicts.location" prop="location" multiple title="地点"></SearchFilter>
@@ -51,6 +51,7 @@ export default {
       datas: [{}, {}, {}],
       loading: true,
       params: {
+        keyword: null,
         location: [],
         type: null,
         year: {

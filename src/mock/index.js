@@ -1,3 +1,4 @@
+import users from './users';
 const Mock = require('mockjs');
 
 Mock.setup({
@@ -72,3 +73,5 @@ Mock.mock('/api/home/messages', 'get', {
     'description': '你需要在某年某月完成某某任务'
   }]
 });
+
+Mock.mock('/api/management/users', 'get', { status: 200, body: users });

@@ -1,4 +1,4 @@
-const menuConfig = [
+const menus = [
   {
     title: 'Dashboard',
     key: 'Home',
@@ -97,6 +97,14 @@ const menuConfig = [
       {
         title: '安全设置',
         key: 'SecuritySetting'
+      },
+      {
+        title: '权限设置',
+        key: 'Authorization'
+      },
+      {
+        title: '用户管理',
+        key: 'Users'
       }
     ]
   },
@@ -121,4 +129,21 @@ const menuConfig = [
   }
 ];
 
-export default menuConfig;
+const getMenus = function (menuIdList = []) {
+  return getAccountMenu(menus, menuIdList);
+};
+
+let getAccountMenu = (fullmenus, menuIdList) => {
+  let configMenu = [];
+  for (let menu of fullmenus) {
+    let m = Utils.copy(menu);
+    if (menuIdList.indexOf(m.key) > -1) {
+      configMenu.push(m);
+    } else if (menu.children && menu.children.length) {
+      m.children = getAccountMenu(menu.children, menuIdList);
+    }
+  }
+  return configMenu;
+};
+
+export { getMenus, menus };

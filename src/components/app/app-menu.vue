@@ -40,7 +40,7 @@
 </template>
 <script>
 
-import menuConfig from '../../js/config/menu-config';
+import { getMenus, menus } from '../../js/config/menu-config';
 import { mapState } from 'vuex';
 import appLogo from './app-logo';
 
@@ -50,7 +50,7 @@ export default {
   },
   data() {
     return {
-      menus: menuConfig
+      menus: []
     };
   },
   watch: {
@@ -59,12 +59,28 @@ export default {
     }
   },
   mounted() {
-    this.menuSelect();
+    this.init();
   },
   computed: {
     ...mapState(['siderCollapsed'])
   },
   methods: {
+    init() {
+      // 如果使用权限配置，配合后端获取请求的数据
+      // R.Account.menus().then(resp => {
+      //   if (resp.ok) {
+      //     this.menus = getMenus(resp.body);
+      //     this.menuSelect();
+      //   }
+      // });
+      let config = Utils.getLocal2Json('SYS_CONFIG_MENU');
+      if (config) {
+        this.menus = getMenus(config);
+      } else {
+        this.menus = menus;
+      }
+      this.menuSelect();
+    },
     menuSelect() {
       if (this.$route.name) {
         this.$refs.menu.select(this.$route.name);

@@ -16,12 +16,21 @@ const Request = {
       return Ajax.get(`/home/messages`);
     }
   },
+  Account: {
+    menus() {
+    }
+  },
   Login: {
     login(param) {
       return Ajax.postJson('/login', param);
     },
     logout(param) {
       return Ajax.post('/logout', param);
+    }
+  },
+  Management: {
+    users(params) {
+      return Ajax.get('/management/users', params);
     }
   }
 };

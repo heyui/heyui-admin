@@ -1,6 +1,23 @@
 <style lang='less'>
 .authorization-vue {
-
+  .authorization-frame {
+    display: flex;
+    height: 70vh;
+    border: @border;
+    margin-bottom: 20px;
+    > div {
+      padding: 10px;
+      border-right: @border;
+      flex: 1;
+      overflow: auto;
+      &:last-of-type {
+        border-right: none;
+      }
+      .h-tree-show-desc {
+        font-size: 14px;
+      }
+    }
+  }
 }
 </style>
 <template>
@@ -14,20 +31,42 @@
 
         </div>
         <div class="menu-container">
-          <Tree :option="menuOption" ref="menu"></Tree>
+          <Tree :option="menuOption" multiple choose-mode="some" ref="menu"></Tree>
         </div>
         <div class="users-container">
           <Tree :option="userOption" ref="user"></Tree>
         </div>
       </div>
+      <div class="text-center">
+        <Button color="primary">保存</Button>
+        <Button>重置</Button>
+      </div>
     </div>
   </div>
 </template>
 <script>
+
+import { menus } from '../../js/config/menu-config';
+
 export default {
   data() {
     return {
-
+      menuOption: {
+        datas: menus
+      },
+      userOption: {
+        keyName: 'id',
+        titleName: 'name',
+        dataMode: 'list',
+        parentName: 'parent',
+        getTotalDatas(callback) {
+          R.Management.users().then(resp => {
+            if (resp.ok) {
+              callback(resp.body);
+            }
+          });
+        }
+      }
     };
   },
   mounted() {
@@ -35,7 +74,7 @@ export default {
   },
   methods: {
     init() {
-
+      this.$refs.menu.expandAll();
     }
   },
   computed: {

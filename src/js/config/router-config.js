@@ -35,6 +35,16 @@ const initRouter = () => {
         name: 'NotfoundError',
         component: (resolve) => require(['components/error-pages/404'], resolve),
         meta: { title: '页面找不到' }
+      }, {
+        path: '/authorization',
+        name: 'Authorization',
+        component: (resolve) => require(['components/management/authorization'], resolve),
+        meta: { title: '权限管理' }
+      }, {
+        path: '/users',
+        name: 'Users',
+        component: (resolve) => require(['components/management/users'], resolve),
+        meta: { title: '用户管理' }
       },
       ...demoComponents,
       {
