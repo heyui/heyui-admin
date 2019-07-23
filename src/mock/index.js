@@ -75,3 +75,17 @@ Mock.mock('/api/home/messages', 'get', {
 });
 
 Mock.mock('/api/management/users', 'get', { status: 200, body: users });
+
+Mock.mock('/api/management/roles', 'get', {
+  'status': 200,
+  'body': [{
+    name: '系统管理员',
+    description: '最高权限，可操作任何页面和功能'
+  }, {
+    name: '普通员工',
+    description: '普通员工'
+  }, {
+    name: 'Leader',
+    description: '可进行团队数据查看，可导出数据'
+  }]
+});

@@ -31,6 +31,9 @@ const Request = {
   Management: {
     users(params) {
       return Ajax.get('/management/users', params);
+    },
+    roles(params) {
+      return Ajax.get('/management/roles', params);
     }
   }
 };
