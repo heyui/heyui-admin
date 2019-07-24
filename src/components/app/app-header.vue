@@ -101,7 +101,7 @@
       <div class="app-header-icon-item" v-tooltip content="教学文档" theme="white" @click="goBook">
         <i class="h-icon-help"></i>
       </div>
-      <DropdownMenu className="app-header-dropdown" trigger="hover" offset="0 5" :width="150" placement="bottom-end" :datas="infoMenu" @onclick="trigger">
+      <DropdownMenu className="app-header-dropdown" trigger="hover" offset="0,5" :width="150" placement="bottom-end" :datas="infoMenu" @onclick="trigger">
         <Avatar :src="User.avatar" :width="30"><span>{{User.name}}</span></Avatar>
       </DropdownMenu>
     </div>

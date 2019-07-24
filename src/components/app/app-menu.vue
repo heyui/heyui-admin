@@ -40,9 +40,9 @@
 </template>
 <script>
 
-import { getMenus, menus } from '../../js/config/menu-config';
 import { mapState } from 'vuex';
 import appLogo from './app-logo';
+import { getMenus } from 'js/config/menu-config';
 
 export default {
   props: {
@@ -60,25 +60,19 @@ export default {
   },
   mounted() {
     this.init();
+    const listener = G.addlistener('SYS_MENU_UPDATE', () => {
+      this.init();
+    });
+    this.$once('hook:beforeDestroy', function () {
+      G.removelistener(listener);
+    });
   },
   computed: {
     ...mapState(['siderCollapsed'])
   },
   methods: {
     init() {
-      // 如果使用权限配置，配合后端获取请求的数据
-      // R.Account.menus().then(resp => {
-      //   if (resp.ok) {
-      //     this.menus = getMenus(resp.body);
-      //     this.menuSelect();
-      //   }
-      // });
-      let config = Utils.getLocal2Json('SYS_CONFIG_MENU');
-      if (config) {
-        this.menus = getMenus(config);
-      } else {
-        this.menus = menus;
-      }
+      this.menus = getMenus(G.get('SYS_MENUS'));
       this.menuSelect();
     },
     menuSelect() {

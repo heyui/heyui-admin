@@ -1,4 +1,4 @@
-const menus = [
+const fullMenus = [
   {
     title: 'Dashboard',
     key: 'Home',
@@ -101,49 +101,52 @@ const menus = [
       {
         title: '权限设置',
         key: 'Authorization'
-      },
-      {
-        title: '用户管理',
-        key: 'Users'
       }
-    ]
-  },
-  {
-    title: '异常页面',
-    key: 'ErrorPages',
-    icon: 'icon-circle-cross',
-    children: [
-      {
-        title: '403',
-        key: 'PermissionError'
-      },
-      {
-        title: '404',
-        key: 'NotfoundError'
-      },
-      {
-        title: '500',
-        key: 'SystemError'
-      }
+      // {
+      //   title: '用户管理',
+      //   key: 'Users'
+      // }
     ]
   }
 ];
 
 const getMenus = function (menuIdList = []) {
-  return getAccountMenu(menus, menuIdList);
+  return getAuthMenu(fullMenus, menuIdList);
 };
 
-let getAccountMenu = (fullmenus, menuIdList) => {
+let getAuthMenu = (menus, menuIdList) => {
   let configMenu = [];
-  for (let menu of fullmenus) {
+  for (let menu of menus) {
     let m = Utils.copy(menu);
     if (menuIdList.indexOf(m.key) > -1) {
       configMenu.push(m);
-    } else if (menu.children && menu.children.length) {
-      m.children = getAccountMenu(menu.children, menuIdList);
+    }
+    if (menu.children && menu.children.length) {
+      m.children = getAuthMenu(menu.children, menuIdList);
     }
   }
   return configMenu;
 };
 
-export { getMenus, menus };
+const getKeys = function (menus) {
+  let keys = [];
+  for (let menu of menus) {
+    keys.push(menu.key);
+    if (menu.children && menu.children.length) {
+      keys.push(...getKeys(menu.children));
+    }
+  }
+  return keys;
+};
+
+let fullMenuKeys = getKeys(fullMenus);
+
+const isAuthPage = function (name) {
+  let menus = G.get('SYS_MENUS') || [];
+  if (fullMenuKeys.indexOf(name) > -1 && menus.indexOf(name) == -1) {
+    return false;
+  }
+  return true;
+};
+
+export { getMenus, fullMenus, fullMenuKeys, isAuthPage };

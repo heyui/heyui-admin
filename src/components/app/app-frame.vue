@@ -36,6 +36,7 @@ import appFooter from './app-footer';
 import SysTabs from '../common/sys-tabs';
 import store from 'js/vuex/store';
 import { mapState } from 'vuex';
+import { fullMenuKeys, isAuthPage } from 'js/config/menu-config';
 
 export default {
   data() {
@@ -56,6 +57,12 @@ export default {
 
     // 如果无后台数据，将此处打开
     // this.loading = false;
+    const listener = G.addlistener('SYS_MENU_REFRESH', () => {
+      this.initMenu();
+    });
+    this.$once('hook:beforeDestroy', function () {
+      G.removelistener(listener);
+    });
   },
   methods: {
     init() {
@@ -63,8 +70,10 @@ export default {
       R.User.info().then(resp => {
         if (resp.ok) {
           resp.body.avatar = require('../../images/avatar.png');
+          G.set('account', resp.body);
           store.dispatch('updateAccount', resp.body);
           this.initDict();
+          this.initMenu();
         }
       });
     },
@@ -82,6 +91,21 @@ export default {
     },
     updateLayoutConfig({ key, value }) {
       this.layoutConfig[key] = value;
+    },
+    initMenu() {
+      // 如果使用权限配置，配合后端获取请求的数据
+      // R.Account.menus().then(resp => {
+      //   if (resp.ok) {
+      //     this.menus = getMenus(resp.body);
+      //     this.menuSelect();
+      //   }
+      // });
+      let menus = Utils.getLocal2Json('SYS_CONFIG_MENU') || fullMenuKeys;
+      G.set('SYS_MENUS', menus);
+      G.trigger('SYS_MENU_UPDATE');
+      if (!isAuthPage(this.$route.name)) {
+        this.$router.replace({ name: 'PermissionError' });
+      }
     }
   },
   computed: {

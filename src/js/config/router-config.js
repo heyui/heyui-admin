@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import demoComponents from './demo-components';
+import { isAuthPage } from 'js/config/menu-config';
 
 Vue.use(VueRouter);
 
@@ -49,6 +50,7 @@ const initRouter = () => {
       ...demoComponents,
       {
         path: '*',
+        name: 'CommonNotfoundError',
         component: (resolve) => require(['components/error-pages/404'], resolve),
         meta: { title: '页面找不到' }
       }]
@@ -56,14 +58,20 @@ const initRouter = () => {
   };
 
   let router = new VueRouter(routerParam);
+  let isFirstRouter = true;
 
   router.beforeEach((to, from, next) => {
+    if (!isFirstRouter && !isAuthPage(to.name)) {
+      next({ name: 'PermissionError' });
+      return;
+    }
     HeyUI.$LoadingBar.start();
     if (to.meta && to.meta.title) {
       document.title = to.meta.title + ' - 管理应用';
     } else {
       document.title = '管理系统';
     }
+    isFirstRouter = false;
     next();
   });
   router.afterEach(() => {
