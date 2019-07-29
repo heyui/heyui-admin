@@ -144,7 +144,7 @@ export default {
         if (resp.ok) {
           let msg = resp.body;
           Utils.saveLocal('token', msg.value);
-          this.$router.replace('/');
+          window.location = '/';
         }
         this.loading = false;
       });
