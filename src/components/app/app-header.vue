@@ -136,19 +136,27 @@ export default {
     }
   },
   mounted() {
-    const resizeEvent = window.addEventListener('resize', () => {
-      if (this.siderCollapsed && window.innerWidth > 900) {
-        this.siderCollapsed = false;
-      } else if (!this.siderCollapsed && window.innerWidth < 900) {
-        this.siderCollapsed = true;
-      }
-    });
-    this.$once('hook:beforeDestroy', () => {
-      window.removeEventListener('resize', resizeEvent);
-    });
-    window.dispatchEvent(new Event('resize'));
+    this.listenResize();
   },
   methods: {
+    listenResize() {
+      let windowWidth = window.innerWidth;
+      const resizeEvent = window.addEventListener('resize', () => {
+        if (windowWidth == window.innerWidth) {
+          return;
+        }
+        if (this.siderCollapsed && window.innerWidth > 900) {
+          this.siderCollapsed = false;
+        } else if (!this.siderCollapsed && window.innerWidth < 900) {
+          this.siderCollapsed = true;
+        }
+        windowWidth = window.innerWidth;
+      });
+      this.$once('hook:beforeDestroy', () => {
+        window.removeEventListener('resize', resizeEvent);
+      });
+      window.dispatchEvent(new Event('resize'));
+    },
     goGithub() {
       window.open('https://github.com/heyui/heyui-admin');
     },
