@@ -73,7 +73,9 @@ export default {
   methods: {
     init() {
       this.menus = getMenus(G.get('SYS_MENUS'));
-      this.menuSelect();
+      this.$nextTick(() => {
+        this.menuSelect();
+      });
     },
     menuSelect() {
       if (this.$route.name) {

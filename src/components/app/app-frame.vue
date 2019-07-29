@@ -57,6 +57,7 @@ export default {
 
     // 如果无后台数据，将此处打开
     // this.loading = false;
+
     const listener = G.addlistener('SYS_MENU_REFRESH', () => {
       this.initMenu();
     });
