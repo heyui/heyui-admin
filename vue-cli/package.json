@@ -31,7 +31,7 @@
     "js-model": "^1.4.2",
     "lodash.debounce": "^4.0.8",
     "manba": "^1.2.8",
-    "marked": "^0.6.2",
+    "marked": "^0.7.0",
     "plupload-es6": "^2.1.11",
     "qiniu-js-es6": "^1.0.31",
     "qs": "^6.4.0",
