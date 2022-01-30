@@ -1,21 +1,32 @@
 <template>
   <div>
-    <Uploader @fileclick="fileclick" :type="type" :files="value" :data-type="dataType" :limit="limit" :uploadList="uploadList" ref="uploader" :dragdrop="dragdrop" :class-name="className" @deletefile="deletefile">
-      <div slot="dragdrop" v-if="$slots.dragdrop"><slot name="dragdrop"></slot></div>
+    <Uploader
+      @fileclick="fileclick"
+      :type="type"
+      :files="modelValue"
+      :data-type="dataType"
+      :limit="limit"
+      :uploadList="uploadList"
+      ref="uploader"
+      :dragdrop="dragdrop"
+      :class-name="className"
+      @deletefile="deletefile"
+    >
+      <template v-slot:dragdrop v-if="$slots.dragdrop"><slot name="dragdrop"></slot></template>
     </Uploader>
   </div>
 </template>
 <script>
-
 // 由于七牛和plupload的封装不是es6模式的，所以我们自己封装了两个对应的es6包
 import qiniujs from 'qiniu-js-es6';
 import utils from 'hey-utils';
+import { modal } from 'heyui';
 
 export default {
   props: {
     options: {
       type: Object,
-      default: () => { }
+      default: () => {}
     },
     type: {
       type: String,
@@ -26,7 +37,7 @@ export default {
       type: Boolean,
       default: false
     },
-    value: {
+    modelValue: {
       type: [Object, Array, String]
     },
     limit: Number,
@@ -41,13 +52,13 @@ export default {
     deletefile(index) {
       let value = null;
       if (this.type == 'images' || this.type == 'files') {
-        value = utils.copy(this.value);
+        value = utils.copy(this.modelValue);
         value.splice(index, 1);
       } else {
         value = null;
         this.uploadList = [];
       }
-      this.$emit('input', value);
+      this.$emit('update:modelValue', value);
     },
     init() {
       let that = this;
@@ -64,14 +75,14 @@ export default {
         filters: {},
         init: {
           FilesAdded(up, files) {
-            if (that.limit && (files.length + that.value.length > that.limit)) {
+            if (that.limit && files.length + that.modelValue.length > that.limit) {
               that.$Message.error(`你上传的文件超过${that.limit}个。`);
               return;
             }
-            files.forEach((file) => {
+            files.forEach(file => {
               if (FileReader) {
                 let reader = new FileReader();
-                reader.onload = (event) => {
+                reader.onload = event => {
                   file.thumbUrl = event.target.result;
                 };
                 reader.readAsDataURL(file.getNative());
@@ -84,14 +95,12 @@ export default {
             });
             up.start();
           },
-          BeforeUpload(up, file) {
-
-          },
+          BeforeUpload(up, file) {},
           UploadProgress(up, file) {
-            // log(file.percent);
+            // console.log(file.percent);
           },
           FileUploaded(up, file, info) {
-            // log('FileUploaded', file.status);
+            // console.log('FileUploaded', file.status);
             let domain = up.getOption('domain');
             let res = JSON.parse(info.response);
             let sourceLink = `${domain}/${res.key}`; // 获取上传成功后的文件的Url
@@ -134,7 +143,7 @@ export default {
       qiniujs.Qiniu.uploader(param);
     },
     fileclick(file) {
-      this.$Modal({
+      modal({
         title: '预览或者下载',
         content: `自定义处理文件预览或者下载`
       });

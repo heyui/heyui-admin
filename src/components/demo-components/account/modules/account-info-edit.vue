@@ -1,4 +1,4 @@
-<style lang='less'>
+<style lang="less">
 .account-info-vue {
   padding: 30px 30px 30px 0;
   max-width: 500px;
@@ -8,28 +8,28 @@
   <div class="account-info-vue">
     <Form :model="acc" :rules="rules" ref="form" showErrorTip>
       <FormItem label="头像" prop="avatar">
-        <Qiniu :options="options" type="image" data-type="url" v-model="acc.avatar"></Qiniu>
+        <!-- <Qiniu :options="options" type="image" data-type="url" v-model="acc.avatar"></Qiniu> -->
       </FormItem>
       <FormItem label="姓名" prop="name">
-        <input type="text" v-model="acc.name"/>
+        <Input type="text" v-model="acc.name" />
       </FormItem>
       <FormItem label="描述" prop="desc">
-        <textarea v-autosize v-model="acc.desc"/>
+        <Textarea v-autosize v-model="acc.desc" />
       </FormItem>
       <FormItem label="邮箱" prop="email">
-        <input type="text" v-model="acc.email"/>
+        <Input type="text" v-model="acc.email" />
       </FormItem>
       <FormItem label="公司" prop="org">
-        <input type="text" v-model="acc.org"/>
+        <Input type="text" v-model="acc.org" />
       </FormItem>
       <FormItem label="部门" prop="dept">
-        <input type="text" v-model="acc.dept"/>
+        <Input type="text" v-model="acc.dept" />
       </FormItem>
       <FormItem label="职位" prop="title">
-        <input type="text" v-model="acc.title"/>
+        <Input type="text" v-model="acc.title" />
       </FormItem>
       <FormItem label="地址" prop="location">
-        <input type="text" v-model="acc.location"/>
+        <Input type="text" v-model="acc.location" />
       </FormItem>
       <FormItem label="标签" prop="tags">
         <TagInput v-model="acc.tags"></TagInput>
@@ -42,7 +42,7 @@
   </div>
 </template>
 <script>
-import store from 'js/vuex/store';
+import utils from '@common/utils';
 
 export default {
   props: {
@@ -50,7 +50,7 @@ export default {
   },
   data() {
     return {
-      acc: Utils.copy(this.account),
+      acc: utils.copy(this.account),
       rules: {
         required: ['name', 'email', 'org'],
         email: ['email']
@@ -58,9 +58,7 @@ export default {
       options: {
         max_file_size: '1mb',
         filters: {
-          mime_types: [
-            { title: 'Image files', extensions: 'jpg,gif,png' }
-          ]
+          mime_types: [{ title: 'Image files', extensions: 'jpg,gif,png' }]
         }
       },
       saveloading: false
@@ -70,24 +68,20 @@ export default {
     this.init();
   },
   methods: {
-    init() {
-
-    },
+    init() {},
     save() {
       if (!this.$refs.form.valid().result) return;
       this.saveloading = true;
       setTimeout(() => {
         this.saveloading = false;
-        store.dispatch('updateAccount', Utils.copy(this.acc));
+        this.$store.dispatch('updateAccount', utils.copy(this.acc));
       }, 1000);
     },
     reset() {
-      this.$refs.form.reset();
-      this.acc = Utils.copy(this.account);
+      this.$refs.form.resetValid();
+      this.acc = utils.copy(this.account);
     }
   },
-  computed: {
-
-  }
+  computed: {}
 };
 </script>

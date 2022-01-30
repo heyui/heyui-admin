@@ -73,11 +73,10 @@
 <script>
 export default {
   props: {
-    account: Object
+    modelValue: Object
   },
   data() {
     return {
-
     };
   },
   mounted() {
@@ -89,7 +88,14 @@ export default {
     }
   },
   computed: {
-
+    account: {
+      get() {
+        return this.modelValue;
+      },
+      set(value) {
+        this.$emit('update:modelValue', value)
+      }
+    }
   }
 };
 </script>

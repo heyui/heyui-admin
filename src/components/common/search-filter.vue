@@ -1,4 +1,4 @@
-<style lang='less'>
+<style lang="less">
 .search-filter-wrap {
   display: flex;
   margin-bottom: 10px;
@@ -8,7 +8,7 @@
     color: rgba(0, 0, 0, 0.65);
     width: 50px;
     margin-right: 15px;
-    color: rgba(0,0,0,.85);
+    color: rgba(0, 0, 0, 0.85);
   }
   .search-picker-item-group {
     flex: 1;
@@ -19,30 +19,32 @@
     padding: 3px 8px;
     border-radius: 2px;
     transition: 0.2s;
-    &:hover, &.selected {
+    &:hover,
+    &.selected {
       background: @primary-color;
-      color: #FFF;
+      color: #fff;
     }
   }
 }
 </style>
 <template>
   <div class="search-filter-wrap">
-    <div class="search-picker-title">{{title}}</div>
+    <div class="search-picker-title">{{ title }}</div>
     <div class="search-picker-item-group">
-      <span @click="clear" class="picker-item" :class="{selected: isEmpty}">不限</span>
-      <span v-for="d of datas" @click="change(d)" :key="d.key" :class="{selected: isSelected(d)}" class="picker-item">{{d.title}}</span>
+      <span @click="clear" class="picker-item" :class="{ selected: isEmpty }">不限</span>
+      <span v-for="d of datas" @click="change(d)" :key="d.key" :class="{ selected: isSelected(d) }" class="picker-item">{{ d.title }}</span>
       <slot></slot>
     </div>
   </div>
 </template>
 <script>
+import utils from '@common/utils';
 export default {
   props: {
     title: String,
     datas: Array,
     prop: String,
-    value: Object,
+    modelValue: Object,
     multiple: {
       type: Boolean,
       default: false
@@ -53,12 +55,9 @@ export default {
     }
   },
   data() {
-    return {
-
-    };
+    return {};
   },
-  mounted() {
-  },
+  mounted() {},
   methods: {
     isSelected(data) {
       if (this.range) {
@@ -74,8 +73,8 @@ export default {
       if (this.range) {
         result = { max: data.max, min: data.min };
       } else if (this.multiple) {
-        result = Utils.copy(this.nowValue);
-        Utils.toggleValue(result, data.key);
+        result = utils.copy(this.nowValue);
+        utils.toggleValue(result, data.key);
       } else {
         result = data.key;
       }
@@ -91,9 +90,9 @@ export default {
       }
     },
     setvalue(data) {
-      let value = Utils.copy(this.value);
+      let value = utils.copy(this.modelValue);
       value[this.prop] = data;
-      this.$emit('input', value);
+      this.$emit('update:modelValue', value);
     }
   },
   computed: {
@@ -107,7 +106,7 @@ export default {
       }
     },
     nowValue() {
-      return this.value[this.prop];
+      return this.modelValue[this.prop];
     }
   }
 };

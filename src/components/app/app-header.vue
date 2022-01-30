@@ -8,13 +8,15 @@
     margin-top: 15px;
     margin-right: 20px;
     width: 120px;
-    &-show,&-show:hover, &-show.focusing {
+    &-show,
+    &-show:hover,
+    &-show.focusing {
       outline: none;
       box-shadow: none;
       border-color: transparent;
       border-radius: 0;
     }
-    &-show.focusing{
+    &-show.focusing {
       border-bottom: 1px solid #eee;
     }
   }
@@ -44,7 +46,7 @@
     float: left;
   }
 
-  &-dropdown{
+  &-dropdown {
     float: right;
     margin-left: 10px;
     padding: 0 20px 0 15px;
@@ -52,7 +54,8 @@
       right: 20px;
     }
     cursor: pointer;
-    &:hover, &.h-pop-trigger {
+    &:hover,
+    &.h-pop-trigger {
       background: @hover-background-color;
     }
     &-dropdown {
@@ -63,21 +66,21 @@
     }
   }
 
-  &-menus{
+  &-menus {
     display: inline-block;
     vertical-align: top;
-    >div {
+    > div {
       display: inline-block;
       font-size: 15px;
       padding: 0 25px;
       color: @dark-color;
-      &:hover{
+      &:hover {
         color: @primary-color;
       }
-      +div {
+      + div {
         margin-left: 5px;
       }
-      &.h-tab-selected{
+      &.h-tab-selected {
         color: @white-color;
         background-color: @primary-color;
       }
@@ -88,21 +91,51 @@
 
 <template>
   <div class="app-header">
-    <div style="width:50px;float:left;"><Button :icon="siderCollapsed ? 'icon-align-right':'icon-align-left'" size="l" noBorder class="font20" @click="siderCollapsed=!siderCollapsed"></Button></div>
+    <div style="width: 50px; float: left">
+      <Button
+        :icon="siderCollapsed ? 'icon-align-right' : 'icon-align-left'"
+        size="l"
+        noBorder
+        class="font20"
+        @click="siderCollapsed = !siderCollapsed"
+      ></Button>
+    </div>
     <div class="float-right app-header-info">
-      <AutoComplete :showDropdownWhenNoResult="false" v-model="searchText" config="globalSearch" placeholder="全局搜索.."></AutoComplete>
-      <div class="app-header-icon-item" v-tooltip content="系统布局配置" theme="white" @click="showSettingModal">
-        <i class="icon-content-left"></i>
-      </div>
+      <AutoComplete
+        style="width: 200px"
+        :showDropdownWhenNoResult="false"
+        v-model="searchText"
+        config="globalSearch"
+        placeholder="全局搜索.."
+      ></AutoComplete>
+      <Tooltip content="系统布局配置" theme="white">
+        <div class="app-header-icon-item" @click="showSettingModal">
+          <i class="icon-content-left"></i>
+        </div>
+      </Tooltip>
       <appHeaderMessage></appHeaderMessage>
-      <div class="app-header-icon-item" v-tooltip content="GitHub" theme="white" @click="goGithub">
-        <i class="h-icon-github"></i>
-      </div>
-      <div class="app-header-icon-item" v-tooltip content="教学文档" theme="white" @click="goBook">
-        <i class="h-icon-help"></i>
-      </div>
-      <DropdownMenu className="app-header-dropdown" trigger="hover" offset="0,5" :width="150" placement="bottom-end" :datas="infoMenu" @onclick="trigger">
-        <Avatar :src="User.avatar" :width="30"><span>{{User.name}}</span></Avatar>
+      <Tooltip content="GitHub" theme="white">
+        <div class="app-header-icon-item" @click="goGithub">
+          <i class="h-icon-github"></i>
+        </div>
+      </Tooltip>
+      <Tooltip content="教学文档" theme="white">
+        <div class="app-header-icon-item" @click="goBook">
+          <i class="h-icon-help"></i>
+        </div>
+      </Tooltip>
+      <DropdownMenu
+        className="app-header-dropdown"
+        trigger="hover"
+        offset="5,5"
+        :width="150"
+        placement="bottom-end"
+        :datas="infoMenu"
+        @clickItem="trigger"
+      >
+        <Avatar :src="user.avatar" :width="30"
+          ><span>{{ user.name }}</span></Avatar
+        >
       </DropdownMenu>
     </div>
   </div>
@@ -110,6 +143,8 @@
 <script>
 import { mapState } from 'vuex';
 import appHeaderMessage from './modules/app-header-message';
+import utils from '@common/utils';
+import { onMounted, onUnmounted } from 'vue';
 
 export default {
   components: {
@@ -125,7 +160,9 @@ export default {
     };
   },
   computed: {
-    ...mapState(['User']),
+    user() {
+      return this.$store.state.user;
+    },
     siderCollapsed: {
       get() {
         return this.$store.state.siderCollapsed;
@@ -135,28 +172,28 @@ export default {
       }
     }
   },
-  mounted() {
-    this.listenResize();
-  },
-  methods: {
-    listenResize() {
+  setup(props, context) {
+    let resizeEvent = null;
+    onMounted(() => {
       let windowWidth = window.innerWidth;
-      const resizeEvent = window.addEventListener('resize', () => {
+      resizeEvent = window.addEventListener('resize', () => {
         if (windowWidth == window.innerWidth) {
           return;
         }
-        if (this.siderCollapsed && window.innerWidth > 900) {
-          this.siderCollapsed = false;
-        } else if (!this.siderCollapsed && window.innerWidth < 900) {
-          this.siderCollapsed = true;
+        if (context.siderCollapsed && window.innerWidth > 900) {
+          context.siderCollapsed = false;
+        } else if (!context.siderCollapsed && window.innerWidth < 900) {
+          context.siderCollapsed = true;
         }
         windowWidth = window.innerWidth;
       });
-      this.$once('hook:beforeDestroy', () => {
-        window.removeEventListener('resize', resizeEvent);
-      });
       window.dispatchEvent(new Event('resize'));
-    },
+    });
+    onUnmounted(() => {
+      window.removeEventListener('resize', resizeEvent);
+    });
+  },
+  methods: {
     goGithub() {
       window.open('https://github.com/heyui/heyui-admin');
     },
@@ -165,7 +202,7 @@ export default {
     },
     trigger(data) {
       if (data == 'logout') {
-        Utils.removeLocal('token');
+        utils.removeLocal('token');
         this.$router.replace({ name: 'Login' });
       } else {
         this.$router.push({ name: 'AccountBasic' });

@@ -96,7 +96,7 @@ export default {
         this.editor.focus();
       }
     },
-    value: function (newVal, oldVal) {
+    modelValue: function (newVal, oldVal) {
       if (this.editor && this.editor.getValue() !== newVal) {
         this.silent = true;
         const pos = this.editor.session.selection.toJSON();
@@ -112,8 +112,7 @@ export default {
           this.editor.setOption(option, newVal[option]);
         }
       }
-    },
-    deep: true
+    }
   },
   mounted() {
     const {
@@ -124,7 +123,7 @@ export default {
       focus,
       theme,
       fontSize,
-      value,
+      modelValue,
       cursorStart,
       showGutter,
       wrapEnabled,
@@ -149,22 +148,14 @@ export default {
       this.editor[editorProps[i]] = this.$props.editorProps[editorProps[i]];
     }
     if (this.$props.debounceChangePeriod) {
-      this.onChangeUpdate = this.debounce(
-        this.onChangeUpdate,
-        this.$props.debounceChangePeriod
-      );
+      this.onChangeUpdate = this.debounce(this.onChangeUpdate, this.$props.debounceChangePeriod);
     }
-    this.editor.renderer.setScrollMargin(
-      scrollMargin[0],
-      scrollMargin[1],
-      scrollMargin[2],
-      scrollMargin[3]
-    );
+    this.editor.renderer.setScrollMargin(scrollMargin[0], scrollMargin[1], scrollMargin[2], scrollMargin[3]);
     this.editor.getSession().setMode(`ace/mode/${mode}`);
     if (readonly === true) this.editor.setReadOnly(true);
     this.editor.setTheme(`ace/theme/${theme}`);
     this.editor.setFontSize(fontSize);
-    this.editor.getSession().setValue(value, cursorStart);
+    this.editor.getSession().setValue(modelValue, cursorStart);
     this.editor.navigateFileEnd();
     this.editor.renderer.setShowGutter(showGutter);
     this.editor.getSession().setUseWrapMode(wrapEnabled);
@@ -175,9 +166,7 @@ export default {
     this.editor.on('paste', this.onPasteUpdate);
     this.editor.on('change', this.onChangeUpdate);
     this.editor.on('input', this.onInputUpdate);
-    this.editor
-      .getSession()
-      .selection.on('changeSelection', this.selectionChange);
+    this.editor.getSession().selection.on('changeSelection', this.selectionChange);
     this.editor.getSession().selection.on('changeCursor', this.cursorChange);
     // this.editor.getSession().foldAll();
     if (onValidate) {
@@ -243,12 +232,7 @@ export default {
       };
     },
     handleScrollMargins(margins = [0, 0, 0, 0]) {
-      this.editor.renderer.setScrollMargins(
-        margins[0],
-        margins[1],
-        margins[2],
-        margins[3]
-      );
+      this.editor.renderer.setScrollMargins(margins[0], margins[1], margins[2], margins[3]);
     },
     onChangeUpdate(event) {
       const value = this.editor.getValue();
@@ -268,7 +252,7 @@ export default {
     },
     onInputUpdate(event) {
       const value = this.editor.getValue();
-      this.$emit('input', value);
+      this.$emit('update:modelValue', value);
     },
     onFocusUpdate(event) {
       if (this.$props.onFocus) {
@@ -317,23 +301,13 @@ export default {
         }
       }
       // add new markers
-      markers.forEach(
-        ({
-          startRow,
-          startCol,
-          endRow,
-          endCol,
-          className,
-          type,
-          inFront = false
-        }) => {
-          const range = new Range(startRow, startCol, endRow, endCol);
-          this.editor.getSession().addMarker(range, className, type, inFront);
-        }
-      );
+      markers.forEach(({ startRow, startCol, endRow, endCol, className, type, inFront = false }) => {
+        const range = new Range(startRow, startCol, endRow, endCol);
+        this.editor.getSession().addMarker(range, className, type, inFront);
+      });
     }
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.editor.destroy();
     this.editor = null;
   }

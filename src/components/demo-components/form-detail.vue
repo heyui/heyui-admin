@@ -30,7 +30,6 @@
         <span class="h-panel-title">表单详情</span>
       </div>
       <div class="h-panel-body">
-
         <div class="info-title">
           基本信息
         </div>
@@ -90,22 +89,27 @@
 
           <div v-if="selectedTab == 'module1'" class="table-wrapper">
             <Table :datas="datas" :columns="columns">
-              <div slot="empty">自定义提醒：暂时无数据</div>
+              <template v-slot:empty
+                >自定义提醒：暂时无数据</template
+              >
             </Table>
           </div>
 
           <div v-if="selectedTab == 'module2'" class="table-wrapper">
             <Table :datas="datas2" :columns="columns">
-              <div slot="empty">自定义提醒：暂时无数据</div>
+              <template v-slot:empty
+                >自定义提醒：暂时无数据</template
+              >
             </Table>
           </div>
-
         </section>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { message } from 'heyui';
+
 export default {
   data() {
     return {
@@ -135,7 +139,7 @@ export default {
   },
   methods: {
     tabChanged(data) {
-      this.$Message.info(`切换至${data.title}`, 1000);
+      message.info(`切换至${data.title}`, 1000);
     }
   }
 };

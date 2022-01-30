@@ -1,14 +1,14 @@
-<style lang='less'>
+<style lang="less">
 .account-vue {
 }
 </style>
 <template>
   <div class="account-vue frame-page">
     <Row :space="30">
-      <Cell :xs='24' :sm='24' :md='7' :lg='7' :xl='7'>
-        <AccountInfoShow :account="account"></AccountInfoShow>
+      <Cell :xs="24" :sm="24" :md="7" :lg="7" :xl="7">
+        <AccountInfoShow v-model="account"></AccountInfoShow>
       </Cell>
-      <Cell :xs='24' :sm='24' :md='17' :lg='17' :xl='17'>
+      <Cell :xs="24" :sm="24" :md="17" :lg="17" :xl="17">
         <div class="h-panel">
           <div class="h-panel-tabs-bar">
             <Tabs v-model="tab" :datas="tabs"></Tabs>
@@ -41,13 +41,11 @@ export default {
     this.init();
   },
   methods: {
-    init() {
-
-    }
+    init() {}
   },
   computed: {
     ...mapState({
-      account: 'User'
+      account: 'user'
     })
   }
 };

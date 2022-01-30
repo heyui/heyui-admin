@@ -1,13 +1,14 @@
-<style lang='less'>
-.app-logo{
-  font-family: Futura,Helvetica Neue For Number,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
+<style lang="less">
+.app-logo {
+  font-family: Futura, Helvetica Neue For Number, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, Microsoft YaHei,
+    Helvetica Neue, Helvetica, Arial, sans-serif;
   padding: 0px 24px;
   margin-bottom: 30px;
   line-height: @layout-header-height;
   height: @layout-header-height;
   overflow: hidden;
   white-space: nowrap;
-  transition: padding .3s;
+  transition: padding 0.3s;
   .app-logo-text {
     font-size: 20px;
     vertical-align: middle;
@@ -19,7 +20,7 @@
     width: 26px;
     display: inline-block;
     margin-right: 10px;
-    transition: .3s;
+    transition: 0.3s;
     vertical-align: middle;
   }
 }
@@ -33,7 +34,9 @@
 }
 </style>
 <template>
-  <div class="app-logo"><router-link to="/"><span class="app-logo-icon"></span><span class="app-logo-text">HEYUI ADMIN</span></router-link></div>
+  <div class="app-logo">
+    <router-link class="link" to="/"><span class="app-logo-icon"></span><span class="app-logo-text">HEYUI ADMIN</span></router-link>
+  </div>
 </template>
 <script>
 export default {

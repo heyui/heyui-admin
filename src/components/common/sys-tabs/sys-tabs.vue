@@ -37,8 +37,8 @@
     }
     .tabs-item {
       transition: 0.2s;
-      line-height: 36px;
-      height: 35px;
+      line-height: @sys-tabs-height - 9px;
+      height: @sys-tabs-height - 10px;
       padding: 0 15px 0 15px;
       position: relative;
       max-width: 160px;
@@ -59,10 +59,11 @@
       &-title {
         position: relative;
         z-index: 2;
-        font-size: 13px;
+        font-size: 14px;
         overflow: hidden;
         margin-right: 15px;
         .tabs-item-icon {
+          margin-right: 5px;
           position: relative;
           top: -1px;
         }
@@ -73,7 +74,7 @@
         top: 0;
         left: 3px;
         bottom: 0;
-        border-radius: 8px 8px 0 0;
+        border-radius: 4px 4px 0 0;
       }
       &.tabs-item-chosen,
       &:hover {
@@ -101,7 +102,7 @@
           z-index: 3;
         }
       }
-      @sysTabHoverColor: #EBECEF;
+      @sysTabHoverColor: #ebecef;
       &:hover {
         .tabs-item-background {
           background: @sysTabHoverColor;
@@ -131,21 +132,21 @@
         font-size: 12px;
         position: absolute;
         right: 10px;
-        top: 12px;
         color: #999;
         cursor: pointer;
         border-radius: 50%;
         padding: 4px;
-        margin: -4px;
+        top: 50%;
+        margin-top: -9px;
         transform: scale(0.8);
         &:hover {
-          color: #333;
-          background: #e4e4e4;
+          color: @gray4-color;
+          background: @dark4-color;
         }
       }
     }
   }
-  &.sys-tabs-oversize{
+  &.sys-tabs-oversize {
     .tabs-item:not(.tabs-item-chosen) {
       padding-right: 10px;
       .tabs-item-close {
@@ -160,17 +161,24 @@
 </style>
 
 <template>
-  <div class="sys-tabs-vue" :class="{'sys-tabs-oversize': tagList.length > 15}">
+  <div class="sys-tabs-vue" :class="{ 'sys-tabs-oversize': tagList.length > 15 }">
     <div class="tabs-container" ref="scrollOuter">
       <div class="tabs-body">
-        <DropdownMenu :datas="menus" @click="trigger" @show="show" trigger="contextMenu" :toggleIcon="false">
-          <div v-for="(item, index) of tagList" :key="`sys-tab-${index}`" :index="index" @click="handleClick(item)" class="tabs-item" :class="{'tabs-item-chosen': isCurrentTab(item)}" >
+        <DropdownMenu :datas="menus" @clickItem="trigger" @show="show" trigger="contextMenu" :toggleIcon="false">
+          <div
+            v-for="(item, index) of tagList"
+            :key="`sys-tab-${index}`"
+            :index="index"
+            @click="handleClick(item)"
+            class="tabs-item"
+            :class="{ 'tabs-item-chosen': isCurrentTab(item) }"
+          >
             <div class="tabs-item-background"></div>
             <div class="tabs-item-title">
-              <span :class="item.meta.icon" class="tabs-item-icon"></span>
-              <span>{{item.meta.title}}</span>
+              <span :class="item.meta.icon" v-if="item.meta.icon" class="tabs-item-icon"></span>
+              <span>{{ item.meta.title }}</span>
             </div>
-            <span class="tabs-item-close h-icon-close" @click.stop="handleClose(item)" v-if="homePage!=item.name"></span>
+            <span class="tabs-item-close h-icon-close" @click.stop="handleClose(item)" v-if="homePage != item.name"></span>
           </div>
         </DropdownMenu>
       </div>
@@ -180,6 +188,9 @@
 
 <script>
 import { showTitle, routeEqual, isExsit } from './utils';
+import utils from '@common/utils';
+import { comfirm } from 'heyui';
+
 export default {
   name: 'TagsNav',
   props: {
@@ -204,7 +215,6 @@ export default {
   },
   methods: {
     show(event) {
-      log(event);
       let parent = event.target.parentNode;
       this.nowIndex = parent.getAttribute('index') || parent.parentNode.getAttribute('index');
       if (this.nowIndex == null) {
@@ -232,11 +242,11 @@ export default {
       }
     },
     init() {
-      this.tagList = Utils.getLocal2Json('SYS_TABS') || [];
+      this.tagList = utils.getLocal2Json('SYS_TABS') || [];
       this.gotoTab(this.$route);
     },
     beforeClose() {
-      return this.$Confirm('确定要关闭这一页吗');
+      return confirm('确定要关闭这一页吗');
     },
     handleClose(item) {
       if (item.meta && item.meta.beforeCloseName) {
@@ -299,7 +309,7 @@ export default {
       }
     },
     saveLocal() {
-      Utils.saveLocal('SYS_TABS', this.tagList);
+      utils.saveLocal('SYS_TABS', this.tagList);
     }
   },
   mounted() {

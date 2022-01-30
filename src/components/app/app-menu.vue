@@ -1,19 +1,18 @@
 <style lang="less">
-
-.app-menu{
-  .h-menu{
+.app-menu {
+  .h-menu {
     font-size: 14px;
-    .h-menu-li-selected{
+    .h-menu-li-selected {
       .h-menu-show:after {
         width: 4px;
       }
     }
-    > li >.h-menu-show {
+    > li > .h-menu-show {
       font-size: 15px;
       .h-menu-show-icon {
         font-size: 20px;
       }
-      .h-menu-show-desc{
+      .h-menu-show-desc {
         transition: opacity 0.1s cubic-bezier(0.645, 0.045, 0.355, 1), width 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
     }
@@ -27,22 +26,21 @@
   .h-menu.h-menu-white {
     color: rgb(49, 58, 70);
   }
-
 }
-
 </style>
 <template>
   <div class="app-menu">
     <appLogo></appLogo>
-    <Menu :datas="menus" :inlineCollapsed="siderCollapsed" @click="trigger" ref='menu' :className="`h-menu-${theme}`"></Menu>
+    <Menu :datas="menus" :mode="menuMode" @clickItem="trigger" ref="menu" :className="`h-menu-${theme}`"></Menu>
     <div class="app-menu-mask" @click="hideMenu"></div>
   </div>
 </template>
 <script>
-
+import { onUnmounted } from 'vue';
 import { mapState } from 'vuex';
 import appLogo from './app-logo';
-import { getMenus } from 'js/config/menu-config';
+import { getMenus } from '@js/config/menu-config';
+import G from 'hey-global';
 
 export default {
   props: {
@@ -60,15 +58,18 @@ export default {
   },
   mounted() {
     this.init();
-    const listener = G.addlistener('SYS_MENU_UPDATE', () => {
+    this.listener = G.addlistener('SYS_MENU_REFRESH', () => {
       this.init();
     });
-    this.$once('hook:beforeDestroy', function () {
-      G.removelistener(listener);
-    });
+  },
+  beforeUnmount() {
+    G.removelistener(this.listener);
   },
   computed: {
-    ...mapState(['siderCollapsed'])
+    ...mapState(['siderCollapsed']),
+    menuMode() {
+      return this.siderCollapsed ? 'collapse' : 'vertical';
+    }
   },
   methods: {
     init() {

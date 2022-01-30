@@ -1,16 +1,32 @@
-import Vue from 'vue';
-import SubMenu from 'components/common/sub-menu';
-import SearchFilter from 'components/common/search-filter';
-import AItem from 'components/common-item/a-item';
-import BItem from 'components/common-item/b-item';
+import SubMenu from '@components/common/sub-menu';
+import SearchFilter from '@components/common/search-filter';
+import AItem from '@components/common-item/a-item';
+import BItem from '@components/common-item/b-item';
+import { defineAsyncComponent } from 'vue';
 
-Vue.component('SubMenu', SubMenu);
-Vue.component('AItem', AItem);
-Vue.component('BItem', BItem);
-Vue.component('SearchFilter', SearchFilter);
-Vue.component('Qiniu', (resolve) => require(['components/common/qiniu'], resolve));
-Vue.component('Chart', (resolve) => require(['components/common/chart'], resolve));
-Vue.component('CodeEditor', (resolve) => require(['components/common/code-editor'], resolve));
-Vue.component('RichTextEditor', (resolve) => require(['components/common/richtext-editor'], resolve));
-Vue.component('MarkdownEditor', (resolve) => require(['components/common/markdown-editor'], resolve));
-Vue.component('BaiduMap', (resolve) => require(['components/common/baidu-map'], resolve));
+export default app => {
+  app.component('SubMenu', SubMenu);
+  app.component('AItem', AItem);
+  app.component('BItem', BItem);
+  app.component('SearchFilter', SearchFilter);
+  app.component(
+    'Chart',
+    defineAsyncComponent(() => import('@components/common/chart'))
+  );
+  app.component(
+    'CodeEditor',
+    defineAsyncComponent(() => import('@components/common/code-editor'))
+  );
+  app.component(
+    'RichTextEditor',
+    defineAsyncComponent(() => import('@components/common/richtext-editor'))
+  );
+  app.component(
+    'MarkdownEditor',
+    defineAsyncComponent(() => import('@components/common/markdown-editor'))
+  );
+  app.component(
+    'BaiduMap',
+    defineAsyncComponent(() => import('@components/common/baidu-map'))
+  );
+};

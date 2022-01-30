@@ -40,6 +40,8 @@
   </div>
 </template>
 <script>
+import { message } from 'heyui';
+
 export default {
   data() {
     return {
@@ -48,14 +50,13 @@ export default {
   },
   methods: {
     trigger(data, type) {
-      // log(data, type)
       if (type == 'enter' || type == 'picker') {
-        this.$Message(`跳转至关键词“${this.keyword}”的搜索`);
+        message(`跳转至关键词“${this.keyword}”的搜索`);
       }
     },
     go() {
       setTimeout(() => {
-        this.$Message(`跳转至关键词“${this.keyword}”的搜索`);
+        message(`跳转至关键词“${this.keyword}”的搜索`);
       }, 100);
     }
   }

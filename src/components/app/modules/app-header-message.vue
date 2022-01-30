@@ -1,4 +1,4 @@
-<style lang='less'>
+<style lang="less">
 .app-header-message-vue {
   float: left;
   margin-right: 15px;
@@ -35,7 +35,7 @@
         color: @gray-color;
       }
 
-      &.unReaded .title:before{
+      &.unReaded .title:before {
         content: '';
         position: absolute;
         width: 5px;
@@ -56,26 +56,33 @@
         <i class="h-icon-bell"></i>
       </Badge>
     </div>
-    <div slot="content">
+    <template v-slot:content>
       <div class="h-panel">
         <div class="h-panel-bar h-panel-bar-s">
           <span class="h-panel-title">消息</span>
         </div>
         <div class="message-list-container common-list-container">
-          <div class="common-list-item" v-for="m of messageList" :key="m.id" @click="goMessageDetail(m)" :class="{readed: m.isReaded, unReaded: !m.isReaded}">
+          <div
+            class="common-list-item"
+            v-for="m of messageList"
+            :key="m.id"
+            @click="goMessageDetail(m)"
+            :class="{ readed: m.isReaded, unReaded: !m.isReaded }"
+          >
             <div class="common-list-meta">
-              <p class="title">{{m.title}}</p>
-              <p class="description">{{m.description}}</p>
+              <p class="title">{{ m.title }}</p>
+              <p class="description">{{ m.description }}</p>
             </div>
           </div>
         </div>
-        <div v-if="messageList.length>0" class="text-center h-panel-bar"><span class="link">查看更多</span></div>
+        <div v-if="messageList.length > 0" class="text-center h-panel-bar"><span class="link">查看更多</span></div>
       </div>
-    </div>
+    </template>
   </DropdownCustom>
 </template>
 <script>
 import { mapGetters } from 'vuex';
+import Request from '@common/request';
 
 export default {
   data() {
@@ -87,11 +94,9 @@ export default {
     this.getMessageList();
   },
   methods: {
-    init() {
-
-    },
+    init() {},
     getMessageList: async function () {
-      let resp = await R.Home.getMessageList();
+      let resp = await Request.Home.getMessageList();
       if (resp.ok) {
         this.messageList = resp.body;
       }
@@ -102,7 +107,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      user: 'User',
+      user: 'user',
       msgCount: 'msgCount'
     })
   }

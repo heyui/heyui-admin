@@ -1,15 +1,14 @@
-<style lang='less'>
-</style>
+<style lang="less"></style>
 <template>
   <div class="h-panel frame-page">
     <div class="h-panel-bar">
       <span class="h-panel-title">代码编辑器</span>
     </div>
     <div class="h-panel-bar">
-      <SwitchList v-model="mode" :datas="datas" @input="change"></SwitchList>
+      <SwitchList v-model="mode" :datas="datas" @change="change"></SwitchList>
     </div>
     <div class="h-panel-body">
-      <CodeEditor v-model="value" :mode="mode"/>
+      <CodeEditor v-model="value" :mode="mode" />
     </div>
   </div>
 </template>
@@ -22,8 +21,7 @@ export default {
       datas: ['javascript', 'sql', 'markdown']
     };
   },
-  mounted() {
-  },
+  mounted() {},
   methods: {
     change() {
       this.value = {
@@ -33,8 +31,6 @@ export default {
       }[this.mode];
     }
   },
-  computed: {
-
-  }
+  computed: {}
 };
 </script>

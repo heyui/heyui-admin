@@ -13,6 +13,6 @@ Object.assign(vars, {
   'layout-sider-collapse-width': '70px',
   'menu-dark-color': '#001529',
   'menu-white-background-color': '#ecf8f2',
-  'sys-tabs-height': '45px'
+  'sys-tabs-height': '50px'
 });
 module.exports = vars;

@@ -1,29 +1,29 @@
 <style lang="less">
-  .markdown-editor-vue {
-    position: relative;
-    display: flex;
-    border: 1px solid #EEE;
-    border-radius: 5px;
+.markdown-editor-vue {
+  position: relative;
+  display: flex;
+  border: 1px solid #eee;
+  border-radius: 5px;
 
-    .markdown-show {
-      overflow: auto;
-      flex: 1;
-      height: 500px;
-      padding: 10px 20px;
-    }
-
-    .markdown-edit {
-      border-right: 1px solid #EEE;
-      width: 50%;
-    }
+  .markdown-show {
+    overflow: auto;
+    flex: 1;
+    height: 500px;
+    padding: 10px 20px;
   }
+
+  .markdown-edit {
+    border-right: 1px solid #eee;
+    width: 50%;
+  }
+}
 </style>
 
 <template>
   <div class="markdown-editor-vue">
     <div v-if="!readonly" class="markdown-edit">
       <div class="markdown-edit-header"></div>
-      <CodeEditor v-model="editValue" mode="markdown" @input="change" />
+      <CodeEditor v-model="editValue" mode="markdown" @change="change" />
     </div>
     <div v-html="html" class="markdown-show markdown-info-show"></div>
   </div>
@@ -34,7 +34,7 @@ import marked from 'marked';
 
 export default {
   props: {
-    value: String,
+    modelValue: String,
     readonly: {
       type: Boolean,
       default: true
@@ -47,7 +47,7 @@ export default {
     };
   },
   watch: {
-    'value': function (newVal, oldVal) {
+    modelValue: function (newVal, oldVal) {
       if (newVal !== oldVal) {
         this.parse();
       }
@@ -58,11 +58,11 @@ export default {
   },
   methods: {
     parse() {
-      this.editValue = this.value;
-      this.html = marked(this.value);
+      this.editValue = this.modelValue;
+      this.html = marked(this.modelValue);
     },
     change() {
-      this.$emit('input', this.editValue);
+      this.$emit('update:modelValue', this.editValue);
     }
   }
 };
