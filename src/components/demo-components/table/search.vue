@@ -21,6 +21,7 @@
   </div>
 </template>
 <script>
+import utils from '@common/utils';
 
 function initData() {
   let data = {
@@ -30,7 +31,7 @@ function initData() {
   };
   let list = [];
   for (let i = 1; i < 10; i++) {
-    list.push(Utils.extend({ id: i }, data));
+    list.push(utils.extend({ id: i }, data));
   }
   return list;
 }

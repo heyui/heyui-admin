@@ -1,5 +1,4 @@
-<style lang='less'>
-</style>
+<style lang="less"></style>
 <template>
   <div>
     <Layout class="app-frame" v-if="!loading" :siderCollapsed="siderCollapsed" :siderFixed="layoutConfig.siderFixed">
@@ -8,7 +7,7 @@
       </Sider>
       <Layout :headerFixed="layoutConfig.headerFixed">
         <HHeader theme="white">
-          <appHead @openSetting="openSetting=true" :layoutConfig="layoutConfig"></appHead>
+          <appHead @openSetting="openSetting = true" :layoutConfig="layoutConfig"></appHead>
         </HHeader>
         <SysTabs v-if="layoutConfig.showSystab" homePage="Home"></SysTabs>
         <Content>
@@ -23,8 +22,8 @@
         </Content>
       </Layout>
     </Layout>
-    <Modal v-model="openSetting" type="drawer-right">
-      <appLayoutSetting :layoutConfig="layoutConfig"></appLayoutSetting>
+    <Modal v-model="openSetting" type="drawer-right" title="系统布局配置">
+      <appLayoutSetting :initLayoutConfig="layoutConfig"></appLayoutSetting>
     </Modal>
   </div>
 </template>
@@ -34,9 +33,11 @@ import appHead from './app-header';
 import appMenu from './app-menu';
 import appFooter from './app-footer';
 import SysTabs from '../common/sys-tabs';
-import store from 'js/vuex/store';
-import { mapState } from 'vuex';
-import { fullMenuKeys, isAuthPage } from 'js/config/menu-config';
+import { fullMenuKeys, isAuthPage } from '@js/config/menu-config';
+import G from 'hey-global';
+import Request from '@common/request';
+import utils from '@common/utils';
+import { loading, heyuiConfig } from 'heyui';
 
 export default {
   data() {
@@ -54,40 +55,36 @@ export default {
   mounted() {
     // 如果无后台数据，将此处屏蔽
     this.init();
-
-    // 如果无后台数据，将此处打开
-    // this.loading = false;
-
-    const listener = G.addlistener('SYS_MENU_REFRESH', () => {
+    this.listener = G.addlistener('SYS_MENU_REFRESH', () => {
       this.initMenu();
     });
-    this.$once('hook:beforeDestroy', function () {
-      G.removelistener(listener);
-    });
+  },
+  beforeUnmount() {
+    G.removelistener(this.listener);
   },
   methods: {
     init() {
-      this.$Loading('加载中');
-      R.User.info().then(resp => {
+      loading('加载中');
+      Request.User.info().then(resp => {
         if (resp.ok) {
           resp.body.avatar = require('../../images/avatar.png');
           G.set('account', resp.body);
-          store.dispatch('updateAccount', resp.body);
+          this.$store.dispatch('updateAccount', resp.body);
           this.initDict();
           this.initMenu();
         }
       });
     },
     initDict() {
-      R.Dict.get().then(resp => {
+      Request.Dict.get().then(resp => {
         if (resp.ok) {
           let dicts = resp.body;
           for (let dict of dicts) {
-            HeyUI.addDict(dict.name, dict.data);
+            heyuiConfig.addDict(dict.name, dict.data);
           }
         }
         this.loading = false;
-        this.$Loading.close();
+        loading.close();
       });
     },
     updateLayoutConfig({ key, value }) {
@@ -95,13 +92,13 @@ export default {
     },
     initMenu() {
       // 如果使用权限配置，配合后端获取请求的数据
-      // R.Account.menus().then(resp => {
+      // Request.Account.menus().then(resp => {
       //   if (resp.ok) {
       //     this.menus = getMenus(resp.body);
       //     this.menuSelect();
       //   }
       // });
-      let menus = Utils.getLocal2Json('SYS_CONFIG_MENU') || fullMenuKeys;
+      let menus = utils.getLocal2Json('SYS_CONFIG_MENU') || fullMenuKeys;
       G.set('SYS_MENUS', menus);
       G.trigger('SYS_MENU_UPDATE');
       if (!isAuthPage(this.$route.name)) {
@@ -110,7 +107,9 @@ export default {
     }
   },
   computed: {
-    ...mapState(['siderCollapsed'])
+    siderCollapsed() {
+      return this.$store.state.siderCollapsed;
+    }
   },
   components: {
     appHead,

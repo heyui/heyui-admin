@@ -1,14 +1,13 @@
-// import 'core-js/stable';
-// import 'regenerator-runtime/runtime';
-import '@babel/polyfill';
-import Vue from 'vue';
-import App from 'components/App';
-
-import heyuiConfig from 'js/config/heyui-config';
-import routerConfig from 'js/config/router-config';
-import store from 'js/vuex/store';
-import 'js/vue/components';
-import 'js/vue/filters';
+import { createApp } from 'vue';
+import App from '@components/App';
+import heyui from 'heyui';
+import initHeyui from '@js/config/heyui-config';
+import router from '@js/config/router-config';
+import store from '@js/vuex/store';
+import initComponents from '@js/vue/components';
+import initFilters from '@js/vue/filters';
+import initDirectives from '@js/vue/directives';
+import '@js/vue/filters';
 
 require('./css/app.less');
 
@@ -18,16 +17,14 @@ require('./css/app.less');
 // 使用mock文件， 自己开发的时候请删除
 require('./mock/index');
 
-// HeyUI已经设定为全局变量，无需引用
-// 设定全局变量请参考根目录下的hey.conf.js文件
+const app = createApp(App);
+app.use(heyui);
+app.use(store);
+app.use(router);
+initComponents(app);
+initFilters(app);
+initDirectives(app);
+initHeyui();
 
-heyuiConfig();
-Vue.use(HeyUI);
-
-const router = routerConfig();
-
-export default new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app');
+app.mount('#app');
+export default app;

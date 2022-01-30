@@ -1,11 +1,9 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import G from 'hey-global';
+import { createStore } from 'vuex';
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default createStore({
   state: {
-    User: {},
+    user: {},
     msgCount: {
       messages: 2
     },
@@ -13,7 +11,7 @@ export default new Vuex.Store({
   },
   mutations: {
     updateAccount(state, data) {
-      state.User = data;
+      state.user = data;
     },
     updateSiderCollapse(state, isShow) {
       setTimeout(() => {
@@ -38,7 +36,7 @@ export default new Vuex.Store({
   },
   getters: {
     account: state => {
-      return state.User;
+      return state.user;
     },
     siderCollapsed: state => {
       return state.siderCollapsed;

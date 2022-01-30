@@ -77,7 +77,11 @@
 </template>
 <script>
 
-import { fullMenus } from 'js/config/menu-config';
+import { fullMenus } from '@js/config/menu-config';
+import G from 'hey-global';
+import Request from '@common/request';
+import utils from '@common/utils';
+import { message } from 'heyui';
 
 export default {
   data() {
@@ -93,7 +97,7 @@ export default {
         dataMode: 'list',
         parentName: 'parent',
         getTotalDatas(callback) {
-          R.Management.users().then(resp => {
+          Request.Management.users().then(resp => {
             if (resp.ok) {
               callback(resp.body);
             }
@@ -117,7 +121,7 @@ export default {
       this.getData(r);
     },
     getRoles() {
-      R.Management.roles().then(resp => {
+      Request.Management.roles().then(resp => {
         if (resp.ok) {
           this.roles = resp.body;
           if (this.roles.length) {
@@ -132,14 +136,14 @@ export default {
     },
     save() {
       // 如果使用权限配置，配合后端获取请求的数据
-      // R.Account.saveRoleConfig({roleId: this.role.id, menus: this.menus, roles: this.roles}).then(resp => {
+      // Request.Account.saveRoleConfig({roleId: this.role.id, menus: this.menus, roles: this.roles}).then(resp => {
       //   if (resp.ok) {
-      //      this.$Message.success('保存成功');
+      //      message.success('保存成功');
       //      G.trigger('SYS_MENU_REFRESH');
       //   }
       // });
-      Utils.saveLocal('SYS_CONFIG_MENU', this.menus);
-      this.$Message.success('保存成功');
+      utils.saveLocal('SYS_CONFIG_MENU', this.menus);
+      message.success('保存成功');
       G.trigger('SYS_MENU_REFRESH');
     }
   },

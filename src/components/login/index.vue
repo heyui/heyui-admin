@@ -1,7 +1,7 @@
 <style lang="less">
 @gradient-color: #3788ee;
 @bg-color: #f7f8fa;
-@title-color:#3a3a3a;
+@title-color: #3a3a3a;
 @text-color: #7e7e7e;
 @placeholder-color: #7e7e7e;
 .login-vue {
@@ -20,12 +20,12 @@
     transform: translate(-50%, -50%);
     .login-content {
       letter-spacing: 2px;
-      background: #FFF;
+      background: #fff;
       padding: 70px 30px 20px;
       box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
       border-radius: 3px;
       box-sizing: border-box;
-      >div {
+      > div {
         margin: 30px 0;
         &.login-input {
           position: relative;
@@ -34,7 +34,7 @@
             color: @placeholder-color;
             top: 6px;
             font-size: 16px;
-            transition: all .2s;
+            transition: all 0.2s;
             left: 0;
             pointer-events: none;
           }
@@ -49,14 +49,15 @@
             box-shadow: inset 0 0 0 1000px #fff;
             outline: none;
             box-sizing: border-box;
-            transition: .3s;
+            transition: 0.3s;
             font-weight: 200;
             &:focus {
               border-bottom-color: @gradient-color;
               box-shadow: inset 0 0 0 1000px #fff;
             }
           }
-          input:focus + .placeholder, .placeholder.fixed{
+          input:focus + .placeholder,
+          .placeholder.fixed {
             font-size: 13px;
             top: -16px;
           }
@@ -72,14 +73,13 @@
           margin: -16px 0px 40px;
           font-weight: 200;
         }
-
       }
       > .buttonDiv {
         margin-top: 45px;
         .h-btn {
           padding: 12px 0;
           font-size: 18px;
-          opacity: .8;
+          opacity: 0.8;
           border-radius: 3px;
           background: @gradient-color;
           border-color: @gradient-color;
@@ -109,24 +109,25 @@
       <div class="login-content">
         <div class="login-title">管理系统</div>
         <div class="login-name login-input">
-          <input type="text" name="username" v-model="login.username" autocomplete="off"/>
-          <span class="placeholder" :class="{fixed: login.username != '' && login.username != null}">用户名</span>
+          <Input type="text" name="username" v-model="login.username" autocomplete="off" />
+          <span class="placeholder" :class="{ fixed: login.username != '' && login.username != null }">用户名</span>
         </div>
         <div class="login-password login-input">
-          <input type="password" name="password" v-model="login.password" @keyup.enter="submit" autocomplete="off"/>
-          <span class="placeholder" :class="{fixed: login.password != '' && login.password != null}">密码</span>
+          <Input type="password" name="password" v-model="login.password" @keyup.enter="submit" autocomplete="off" />
+          <span class="placeholder" :class="{ fixed: login.password != '' && login.password != null }">密码</span>
         </div>
         <div class="buttonDiv">
           <Button :loading="loading" block color="primary" size="l" @click="submit">登录</Button>
         </div>
       </div>
-      <p class="copyright"> Copyright © 2019 vvpvvp - <a href="https://www.heyui.top/">heyui.top</a></p>
+      <p class="copyright">Copyright © 2019 vvpvvp - <a href="https://www.heyui.top/">heyui.top</a></p>
     </div>
   </div>
 </template>
 <script>
-
-import Login from 'model/login/Login';
+import Login from '@model/login/Login';
+import Request from '@common/request';
+import utils from '@common/utils';
 
 export default {
   data() {
@@ -135,15 +136,14 @@ export default {
       loading: false
     };
   },
-  mounted() {
-  },
+  mounted() {},
   methods: {
     submit() {
       this.loading = true;
-      R.Login.login(Login.dispose(this.login)).then(resp => {
+      Request.Login.login(Login.dispose(this.login)).then(resp => {
         if (resp.ok) {
           let msg = resp.body;
-          Utils.saveLocal('token', msg.value);
+          utils.saveLocal('token', msg.value);
           window.location = '/';
         }
         this.loading = false;

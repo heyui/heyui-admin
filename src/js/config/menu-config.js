@@ -1,3 +1,6 @@
+import G from 'hey-global';
+import utils from '@common/utils';
+
 const fullMenus = [
   {
     title: 'Dashboard',
@@ -12,7 +15,7 @@ const fullMenus = [
   },
   {
     title: '列表应用',
-    key: 'tablelist',
+    key: 'TableList',
     icon: 'icon-grid-2',
     children: [
       {
@@ -27,7 +30,7 @@ const fullMenus = [
   },
   {
     title: '表单应用',
-    key: 'form-folder',
+    key: 'FormFolder',
     icon: 'icon-paper',
     children: [
       {
@@ -42,7 +45,7 @@ const fullMenus = [
   },
   {
     title: '模糊匹配',
-    key: 'AutoComplete-folder',
+    key: 'AutoCompleteFolder',
     icon: 'icon-disc',
     children: [
       {
@@ -79,7 +82,8 @@ const fullMenus = [
       {
         title: 'Markdown编辑器',
         key: 'MarkdownEditor'
-      }, {
+      },
+      {
         title: '百度地图',
         key: 'BaiduMap'
       }
@@ -102,10 +106,25 @@ const fullMenus = [
         title: '权限设置',
         key: 'Authorization'
       }
-      // {
-      //   title: '用户管理',
-      //   key: 'Users'
-      // }
+    ]
+  },
+  {
+    title: '错误页面',
+    key: 'ErrorPages',
+    icon: 'icon-ban',
+    children: [
+      {
+        title: '系统错误',
+        key: 'SystemError'
+      },
+      {
+        title: '权限错误',
+        key: 'PermissionError'
+      },
+      {
+        title: '找不到页面',
+        key: 'NotfoundError'
+      }
     ]
   }
 ];
@@ -117,7 +136,7 @@ const getMenus = function (menuIdList = []) {
 let getAuthMenu = (menus, menuIdList) => {
   let configMenu = [];
   for (let menu of menus) {
-    let m = Utils.copy(menu);
+    let m = utils.copy(menu);
     if (menuIdList.indexOf(m.key) > -1) {
       configMenu.push(m);
     }

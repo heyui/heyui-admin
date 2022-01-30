@@ -67,7 +67,7 @@ export default {
     type: Function,
     default: null
   },
-  value: {
+  modelValue: {
     type: String
   },
   onLoad: {
@@ -138,7 +138,7 @@ export default {
   scrollMargin: {
     type: Array,
     default: function () {
-      return [ 0, 0, 0, 0 ];
+      return [0, 0, 0, 0];
     }
   },
   annotations: {

@@ -1,12 +1,13 @@
 import axios from 'axios';
 import qs from 'qs';
-import Utils from './utils';
+import utils from './utils';
+import { message } from 'heyui';
 
 const DefaultParam = { repeatable: false };
 
 let ajax = {
   PREFIX: '/api',
-  Author: Utils.getAuthor() || 'heyui',
+  Author: utils.getAuthor() || 'heyui',
   requestingApi: new Set(),
   extractUrl: function (url) {
     return url ? url.split('?')[0] : '';
@@ -63,7 +64,7 @@ let ajax = {
     }, extendParam);
   },
   ajax: function (param, extendParam) {
-    let params = Utils.extend({}, DefaultParam, param, extendParam || {});
+    let params = utils.extend({}, DefaultParam, param, extendParam || {});
     params.crossDomain = params.url.indexOf('http') === 0;
     let url = params.url;
     if (!params.crossDomain) {
@@ -79,7 +80,7 @@ let ajax = {
     }
     let header = {
       author: this.Author,
-      Authorization: Utils.getLocal('token')
+      Authorization: utils.getLocal('token')
     };
     let defaultParam = {
       headers: header,
@@ -95,7 +96,7 @@ let ajax = {
       defaultParam.headers = {};
     }
     let that = this;
-    params = Utils.extend({}, defaultParam, params);
+    params = utils.extend({}, defaultParam, params);
     return new Promise((resolve) => {
       return axios.request(params).then((response) => {
         that.deleteRequest(params.url);
@@ -111,11 +112,11 @@ let ajax = {
             return;
           }
           if (status == 500) {
-            HeyUI.$Message.error('后台异常');
+            message.error('后台异常');
           } else if (status == 404) {
-            HeyUI.$Message.error('请求不存在');
+            message.error('请求不存在');
           } else if (status != 200) {
-            HeyUI.$Message.error(data._msg || '请求异常');
+            message.error(data._msg || '请求异常');
           }
         }
         data.ok = data.status == 200;

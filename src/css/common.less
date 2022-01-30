@@ -1,6 +1,6 @@
 .font-size(@var, @size) {
   .font@{var} {
-    font-size: @size  !important;
+    font-size: @size !important;
   }
 }
 
@@ -18,7 +18,6 @@
   font-weight: bold;
 }
 
-
 .common-page-tabs-bar {
   position: relative;
   margin-bottom: 2px;
@@ -34,27 +33,27 @@
 }
 
 .common-filter-select {
-  height:32px;
-  background:rgba(0,0,0,0.04);
-  border-radius:2px;
-  color:rgba(0,0,0,0.65);
-  .h-select-value-single, .h-select-placeholder {
-    height:32px;
-    line-height:32px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 2px;
+  color: rgba(0, 0, 0, 0.65);
+  .h-select-value-single,
+  .h-select-placeholder {
+    height: 32px;
+    line-height: 32px;
   }
 }
 
-
 .common-status-filter-tabs {
-  border: 1px solid fade( @primary-color, 10%);
-  background-color: fade( @primary-color, 5%);
+  border: 1px solid fade(@primary-color, 10%);
+  background-color: fade(@primary-color, 5%);
   border-radius: 2px;
 
-  >div {
+  > div {
     position: relative;
     padding: 20px 22px;
 
-    >p {
+    > p {
       margin: 0;
       line-height: 22px;
       text-align: center;
@@ -75,7 +74,7 @@
     }
 
     &:after {
-      content: "";
+      content: '';
       border-right: 1px dashed #979797;
       position: absolute;
       top: 24px;
@@ -85,7 +84,7 @@
     }
 
     &:before {
-      content: "";
+      content: '';
       background: @primary-color;
       position: absolute;
       height: 0;
@@ -93,12 +92,11 @@
       left: 22px;
       right: 22px;
       border-radius: 3px;
-      transition: .3s;
+      transition: 0.3s;
     }
 
     &:hover,
     &.h-tabs-selected {
-
       .code,
       .name {
         color: @primary-color;
@@ -113,13 +111,13 @@
   }
 
   &.last-float-right {
-    >div:nth-last-child(2) {
+    > div:nth-last-child(2) {
       &:after {
         content: none;
       }
     }
 
-    >div:last-child {
+    > div:last-child {
       float: right;
 
       &:after {
@@ -128,7 +126,6 @@
     }
   }
 }
-
 
 .common-list-container {
   .common-list-item {
@@ -150,7 +147,7 @@
   padding: 0 25px;
   font-size: 18px;
   > .h-tabs-item {
-    padding: 24px 0px;
+    padding: 19px 0px;
     + div {
       margin-left: 30px;
     }
@@ -180,7 +177,7 @@
 
     .subframe-title {
       font-size: 20px;
-      color: rgba(0, 0, 0, .85);
+      color: rgba(0, 0, 0, 0.85);
       line-height: 28px;
       font-weight: 500;
       margin-bottom: 12px;
@@ -189,7 +186,7 @@
 }
 
 .error-page {
-  height: calc(~"100vh - @{layout-header-height} -100px");
+  height: calc(~'100vh - @{layout-header-height} -100px');
   text-align: center;
   .background-image {
     height: 35vh;
@@ -211,11 +208,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: hsla(0,0%,44%,.06);
+  background-color: hsla(0, 0%, 44%, 0.06);
   border-radius: 12px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: @primary-color;
-  border-radius: 12px
+  border-radius: 12px;
 }

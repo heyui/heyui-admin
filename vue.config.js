@@ -3,10 +3,11 @@ const webpack = require('webpack');
 const globalVars = require('./src/css/var.js');
 
 module.exports = {
+  assetsDir: 'src/images',
   pages: {
     index: {
       entry: 'src/app.js',
-      template: 'index.html',
+      template: 'src/index.html',
       filename: 'index.html',
       chunks: ['chunk-vendors', 'chunk-common', 'index']
     }
@@ -14,29 +15,21 @@ module.exports = {
   css: {
     loaderOptions: {
       less: {
-        globalVars
+        lessOptions: { globalVars }
       }
     }
   },
   configureWebpack: {
     resolve: {
       alias: {
-        model: path.resolve(__dirname, 'src/js/model/'),
-        js: path.resolve(__dirname, 'src/js/'),
-        components: path.resolve(__dirname, 'src/components/')
+        '@': path.resolve(__dirname, 'src/'),
+        '@components': path.resolve(__dirname, 'src/components/'),
+        '@common': path.resolve(__dirname, 'src/js/common/'),
+        '@model': path.resolve(__dirname, 'src/js/model/'),
+        '@js': path.resolve(__dirname, 'src/js/')
       }
     },
-    plugins: [
-      new webpack.ProvidePlugin({
-        Utils: [path.resolve(__dirname, 'src/js/common/utils'), 'default'],
-        Manba: 'manba',
-        HeyUI: 'heyui',
-        Model: 'js-model',
-        G: 'hey-global',
-        log: 'hey-log',
-        R: [path.resolve(__dirname, 'src/js/common/request'), 'default']
-      })
-    ]
+    plugins: [new webpack.ProvidePlugin({})]
   },
   devServer: {
     // proxy: {

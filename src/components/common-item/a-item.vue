@@ -1,4 +1,4 @@
-<style lang='less'>
+<style lang="less">
 .a-item-vue {
   padding: 20px 0;
   margin: 0 10px;
@@ -20,7 +20,7 @@
   <div class="a-item-vue">
     <Skeleton active :loading="loading">
       <p class="title">{{item.title}}</p>
-      <p class="tags"><TagInput v-model="item.tags" readonly></TagInput></p>
+      <p class="tags"><TagInput :updateValue="item.tags" readonly></TagInput></p>
       <pre class="desc">{{item.desc}}</pre>
     </Skeleton>
   </div>

@@ -15,8 +15,8 @@
       <div class="h-panel-body">
         <Form :label-width="110" mode="twocolumn" :model="data" :rules="validationRules" ref="form" showErrorTip>
           <FormItem label="输入框" prop="input">
-            <input type="text" v-model="data.input" placeholder="请输入15/18位的字符串" />
-            <template slot="error" slot-scope="props">
+            <Input type="text" v-model="data.input" placeholder="请输入15/18位的字符串" />
+            <template v-slot:error="props">
               <!-- *type*: base, combine, async -->
               <span class="link" v-if="props.type == 'async'">+++++++错误的特殊提示+++++++</span>
             </template>
@@ -29,19 +29,19 @@
           </FormItem>
           <FormItem label="只读" readonly>只读数据</FormItem>
           <FormItem label="数字" prop="number">
-            <input type="text" v-model="data.number" />
+            <Input type="text" v-model="data.number" />
           </FormItem>
           <FormItem label="邮箱" prop="email">
-            <input type="text" v-model="data.email" />
+            <Input type="text" v-model="data.email" />
           </FormItem>
           <FormItem label="网址" prop="url">
-            <input type="text" v-model="data.url" />
+            <Input type="text" v-model="data.url" />
           </FormItem>
           <FormItem label="电话" prop="tel">
-            <input type="text" v-model="data.tel" />
+            <Input type="text" v-model="data.tel" />
           </FormItem>
           <FormItem label="手机号码" prop="mobile">
-            <input type="text" v-model="data.mobile" />
+            <Input type="text" v-model="data.mobile" />
           </FormItem>
           <FormItem label="金额" :required="true">
             <div class="h-input-group">
@@ -49,11 +49,11 @@
                 <Select v-model="data.select1" :datas="param1" :no-border="true" :null-option="false"></Select>
               </div>
               <FormItem prop="money.min" label="起始金额" :show-label="false">
-                <input type="text" placeholder="起始金额" v-model="data.money.min" />
+                <Input type="text" placeholder="起始金额" v-model="data.money.min" />
               </FormItem>
               <span class="h-input-addon">-</span>
               <FormItem prop="money.max" label="结束金额" :show-label="false">
-                <input type="text" placeholder="结束金额" v-model="data.money.max" />
+                <Input type="text" placeholder="结束金额" v-model="data.money.max" />
               </FormItem>
               <span class="h-input-addon">K</span>
             </div>
@@ -74,7 +74,7 @@
             <Rate v-model="data.rate" :show-text="true"></Rate>
           </FormItem>
           <FormItem label="多文本" :single="true" prop="textarea">
-            <textarea rows="3" v-autosize v-wordcount="50" v-model="data.textarea"></textarea>
+            <Textarea rows="3" v-autosize v-wordcount="50" v-model="data.textarea"></Textarea>
           </FormItem>
           <FormItem label="单选" prop="radio">
             <Radio v-model="data.radio" :datas="dataParam"></Radio>
@@ -90,25 +90,20 @@
             验证的字段即可以是things[0]（代表独立的数据验证），也可以是things[]（代表整个数组的数据验证）
            -->
           <FormItem label="自定义规则" prop="things[0]" required>
-            <input type="text" v-model="data.things[0]" />
+            <Input type="text" v-model="data.things[0]" />
           </FormItem>
-          <FormItem label="分类选择" prop="category">
-            <Category :option="categoryParam" type="key" v-model="data.category"></Category>
-          </FormItem>
-          <FormItemList>
-            <FormItem v-for="(item, index) of data.inputs" :key="item" :label="'输入框'+(index+1)" :prop="'inputs['+index+'].value'">
-              <Row type="flex">
-                <Cell class="flex1">
-                <input type="text" v-model="item.value" />
-                </Cell>
-                <Cell class="text-right" v-width="50">
+          <FormItem v-for="(item, index) of data.inputs" :key="item" :label="'输入框' + (index + 1)" :prop="'inputs[' + index + '].value'">
+            <Row type="flex">
+              <Cell class="flex1">
+                <Input type="text" v-model="item.value" />
+              </Cell>
+              <Cell class="text-right" style="width: 50px">
                 <Poptip @confirm="remove(index)" content="确定删除？">
                   <Button text-color="red" :no-border="true" icon="h-icon-trash"></Button>
                 </Poptip>
-                </Cell>
-              </Row>
-            </FormItem>
-          </FormItemList>
+              </Cell>
+            </Row>
+          </FormItem>
           <FormItem :single="true">
             <Button size="s" text-color="blue" @click="add">添加输入框</Button>
           </FormItem>
@@ -123,8 +118,10 @@
   </div>
 </template>
 <script>
-import FormModel from 'model/Form';
+import FormModel from '@model/Form';
 import categoryList from './components/datas/data5';
+import { message } from 'heyui';
+
 export default {
   data() {
     return {
@@ -136,13 +133,6 @@ export default {
         3: '其他'
       },
       param1: ['美金', '人民币', '卢布'],
-      categoryParam: {
-        title: '测试',
-        keyName: 'id',
-        titleName: 'name',
-        dataMode: 'tree',
-        datas: categoryList
-      },
       isLoading: false,
       validationRules: {
         rules: {
@@ -162,7 +152,6 @@ export default {
         },
         required: [
           'autocomplete',
-          'category',
           'select2',
           'select3',
           'inputs[].value',
@@ -205,7 +194,7 @@ export default {
     submit() {
       let validResult = this.$refs.form.valid();
       if (validResult.result) {
-        this.$Message('验证成功');
+        message('验证成功');
         this.isLoading = true;
         setTimeout(() => {
           this.isLoading = false;

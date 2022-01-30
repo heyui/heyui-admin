@@ -11,6 +11,8 @@
 
 <script>
 import debounce from 'lodash.debounce';
+import G from 'hey-global';
+import { toRaw } from 'vue';
 
 /** index.simple 包含以下四种图表
   require("./lib/chart/line");
@@ -42,31 +44,38 @@ export default {
   },
   watch: {
     options() {
-      this.chart.setOption(this.options);
+      if (this.chart) {
+        toRaw(this.chart).setOption(this.options);
+      }
     }
   },
   methods: {
     init() {
-      let chart = this.chart = echarts.init(this.$el, theme, this.initOption);
-      this.chart.setOption(this.options);
+      const chart = echarts.init(this.$el, theme, this.initOption);
+      this.chart = chart;
+      chart.setOption(this.options);
 
-      this.resizeHanlder = debounce(() => {
-        chart.resize();
-      }, 100, { leading: true });
+      this.resizeHanlder = debounce(
+        () => {
+          if (chart) {
+            chart.resize();
+          }
+        },
+        100,
+        { leading: true }
+      );
       window.addEventListener('resize', this.resizeHanlder);
-      this.listener = G.addlistener('page_resize', () => {
-        chart.resize();
-      });
+      this.listener = G.addlistener('page_resize', this.resizeHanlder);
     }
   },
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener('resize', this.resizeHanlder);
     G.removelistener(this.listener);
-    this.chart.dispose();
+    if (this.chart) {
+      toRaw(this.chart).dispose();
+    }
     this.chart = null;
   },
-  computed: {
-
-  }
+  computed: {}
 };
 </script>

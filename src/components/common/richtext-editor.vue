@@ -1,9 +1,7 @@
-<style lang="less">
-</style>
+<style lang="less"></style>
 
 <template>
-  <div class="rich-text-editor-vue">
-  </div>
+  <div class="rich-text-editor-vue"></div>
 </template>
 
 <script>
@@ -13,7 +11,7 @@ import '../../css/richtext-editor.less';
 export default {
   name: 'RichTextEditor',
   props: {
-    value: {
+    modelValue: {
       type: String,
       default: ''
     },
@@ -28,7 +26,7 @@ export default {
   },
   data() {
     return {
-      stashValue: this.value
+      stashValue: this.modelValue
     };
   },
   methods: {
@@ -37,12 +35,12 @@ export default {
     }
   },
   watch: {
-    value() {
-      if (this.editor && this.value != this.stashValue) {
-        if (this.value == null) {
+    modelValue() {
+      if (this.editor && this.modelValue != this.stashValue) {
+        if (this.modelValue == null) {
           this.editor.txt.clear();
         } else {
-          this.editor.txt.html(this.value);
+          this.editor.txt.html(this.modelValue);
         }
       }
     }
@@ -51,15 +49,15 @@ export default {
     this.editor = new WangEditor(this.$el);
     // 开启图片复制
     this.editor.customConfig.uploadImgShowBase64 = true;
-    this.editor.customConfig.onchange = (html) => {
+    this.editor.customConfig.onchange = html => {
       let text = this.editor.txt.text();
       if (this.cache) localStorage.editorCache = html;
-      let value = this.stashValue = this.type === 'html' ? html : text;
-      this.$emit('input', value);
+      let value = (this.stashValue = this.type === 'html' ? html : text);
+      this.$emit('update:modelValue', value);
       this.$emit('change', html, text);
     };
     this.editor.create();
-    let html = this.value || localStorage.editorCache;
+    let html = this.modelValue || localStorage.editorCache;
     if (html) this.editor.txt.html(html);
   }
 };
