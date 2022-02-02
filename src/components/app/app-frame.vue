@@ -34,9 +34,9 @@ import appMenu from './app-menu';
 import appFooter from './app-footer';
 import SysTabs from '../common/sys-tabs';
 import { fullMenuKeys, isAuthPage } from '@js/config/menu-config';
-import G from 'hey-global';
 import Request from '@common/request';
 import utils from '@common/utils';
+import { mapState } from 'vuex';
 import { loading, heyuiConfig } from 'heyui';
 
 export default {
@@ -55,12 +55,6 @@ export default {
   mounted() {
     // 如果无后台数据，将此处屏蔽
     this.init();
-    this.listener = G.addlistener('SYS_MENU_REFRESH', () => {
-      this.initMenu();
-    });
-  },
-  beforeUnmount() {
-    G.removelistener(this.listener);
   },
   methods: {
     init() {
@@ -68,7 +62,6 @@ export default {
       Request.User.info().then(resp => {
         if (resp.ok) {
           resp.body.avatar = require('../../images/avatar.png');
-          G.set('account', resp.body);
           this.$store.dispatch('updateAccount', resp.body);
           this.initDict();
           this.initMenu();
@@ -98,10 +91,9 @@ export default {
       //     this.menuSelect();
       //   }
       // });
-      let menus = utils.getLocal2Json('SYS_CONFIG_MENU') || fullMenuKeys;
-      G.set('SYS_MENUS', menus);
-      G.trigger('SYS_MENU_UPDATE');
-      if (!isAuthPage(this.$route.name)) {
+      let menuKeys = utils.getLocal2Json('SYS_CONFIG_MENU') || fullMenuKeys;
+      this.$store.dispatch('updateMenuKeys', menuKeys);
+      if (!isAuthPage(menuKeys, this.$route.name)) {
         this.$router.replace({ name: 'PermissionError' });
       }
     }
@@ -109,7 +101,8 @@ export default {
   computed: {
     siderCollapsed() {
       return this.$store.state.siderCollapsed;
-    }
+    },
+    ...mapState(['menus'])
   },
   components: {
     appHead,

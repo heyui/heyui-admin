@@ -141,7 +141,6 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex';
 import appHeaderMessage from './modules/app-header-message';
 import utils from '@common/utils';
 import { onMounted, onUnmounted } from 'vue';
@@ -198,7 +197,7 @@ export default {
       window.open('https://github.com/heyui/heyui-admin');
     },
     goBook() {
-      window.open('https://heyui.github.io/heyui-admin-docs');
+      window.open('https://heyui.github.io/heyui-admin-v2-docs');
     },
     trigger(data) {
       if (data == 'logout') {

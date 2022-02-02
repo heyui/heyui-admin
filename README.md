@@ -18,31 +18,33 @@
 
 </div>
 
-简体中文 | [English](./README_en.md)
-
 ## 介绍
 
-heyui-admin 是一个成熟的企业应用解决方案，基于 vue2.0 和 heyui 组件库的中后端系统。
+heyui-admin 2.0 是一个成熟的企业应用解决方案，基于 vue3.0 和 heyui2.0 组件库的中后端系统。
 
 这是一个成熟的前端开发解决方案，你可以使用这个架构完成几乎 90%的前端开发工作。
+
+heyui admin 1.0 版本的代码请参考：[heyui admin 1.0版本](https://github.com/heyui/heyui-admin/tree/v1)
+
+heyui 2.0 文档请参考：[heyui 2.0 版本](https://v2.heyui.top)
 
 ## 在线示例
 
 我们启动了线上的项目，方便用户查看 heyui-admin 的实际使用效果。
 
-[在线预览](http://admin.heyui.top)
+[在线预览](https://admin.heyui.top)
 
 ## 教学文档
 
 我们为 heyui-admin 提供了相关的教程说明，如果你在使用的过程中有疑问，建议先查阅相关文档。
 
-[教学文档](https://heyui.github.io/heyui-admin-docs)
+[教学文档](https://heyui.github.io/heyui-admin-v2-docs)
 
 ## 准备
 
 项目基于以下依赖:
 
-- [hey-ui](https://www.heyui.top/)
+- [heyui](https://v2.heyui.top/)
 - [vue](https://cn.vuejs.org/index.html)
 - [vuex](https://vuex.vuejs.org/zh-cn/)
 - [vue-router](https://router.vuejs.org/zh-cn/)
@@ -118,46 +120,24 @@ heyui-admin 是一个成熟的企业应用解决方案，基于 vue2.0 和 heyui
 
 ## 开始
 
-### 使用 hey-cli
-
-需要全局安装 hey-cli@1.13.0+
-
-**我们建议使用[hey-cli](https://github.com/heyui/hey-cli)脚手架。**
-
-```bash
-# clone the project
-git clone https://github.com/heyui/heyui-admin.git
-
-cd heyui-admin
-
-# install dependency
-npm install
-
-# develop, 你需要首先安装 hey-cli
-hey dev
-```
-
-系统将自动打开页面 http://localhost:9012, 或者你可以通过 hey.conf.js 文件修改端口号.
-
-
 ### 使用 vue-cli
 
-需要全局安装 vue-cli@3.0.0+
+需要全局安装 vue-cli@4.0.0+
 
 ```bash
 # clone the project
 git clone https://github.com/heyui/heyui-admin.git
 
 cd heyui-admin
-
-# 将vue-cli文件夹内的文件复制到根目录。
-mv -f ./vue-cli/* ./
 
 # install dependency
 npm install
 
 # develop
-npm run serve
+npm run dev
+
+# build
+npm run build
 ```
 
 ## 开发

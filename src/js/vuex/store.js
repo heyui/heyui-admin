@@ -1,5 +1,5 @@
-import G from 'hey-global';
 import { createStore } from 'vuex';
+import { getMenus } from '@js/config/menu-config';
 
 export default createStore({
   state: {
@@ -7,15 +7,22 @@ export default createStore({
     msgCount: {
       messages: 2
     },
-    siderCollapsed: false
+    menus: [],
+    menuKeys: [],
+    siderCollapsed: false,
+    pageResizeCount: 0
   },
   mutations: {
+    updateMenus(state, data) {
+      state.menus = getMenus(data);
+      state.menuKeys = data;
+    },
     updateAccount(state, data) {
       state.user = data;
     },
     updateSiderCollapse(state, isShow) {
       setTimeout(() => {
-        G.trigger('page_resize');
+        state.pageResizeCount += 1;
       }, 600);
       state.siderCollapsed = isShow;
     },
@@ -24,14 +31,17 @@ export default createStore({
     }
   },
   actions: {
-    updateAccount(context, data) {
-      context.commit('updateAccount', data);
+    updateMenuKeys({ commit }, data) {
+      commit('updateMenus', data);
     },
-    updateSiderCollapse(context, data) {
-      context.commit('updateSiderCollapse', data);
+    updateAccount({ commit }, data) {
+      commit('updateAccount', data);
     },
-    updateMsgCount(context, data) {
-      context.commit('updateMsgCount', data);
+    updateSiderCollapse({ commit }, data) {
+      commit('updateSiderCollapse', data);
+    },
+    updateMsgCount({ commit }, data) {
+      commit('updateMsgCount', data);
     }
   },
   getters: {

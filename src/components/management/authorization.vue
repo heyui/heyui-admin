@@ -1,4 +1,4 @@
-<style lang='less'>
+<style lang="less">
 .authorization-vue {
   .authorization-frame {
     display: flex;
@@ -22,7 +22,8 @@
       .role-item {
         padding: 5px 10px;
         border-bottom: @border;
-        &.selected,&:hover {
+        &.selected,
+        &:hover {
           background: @gray4-color;
           cursor: pointer;
         }
@@ -48,22 +49,38 @@
     <div class="h-panel-body">
       <div class="authorization-frame">
         <div class="role-container">
-          <div v-for="r of roles" :key="r.id" class="role-item" :class="{selected: role == r}" @click="changeRole(r)">
-            <p class="title">{{r.name}}</p>
-            <p class="desc">{{r.description}}</p>
+          <div v-for="r of roles" :key="r.id" class="role-item" :class="{ selected: role == r }" @click="changeRole(r)">
+            <p class="title">{{ r.name }}</p>
+            <p class="desc">{{ r.description }}</p>
           </div>
         </div>
         <div class="menu-container">
-          <div style="margin-bottom: 10px;">
-            <Button color="primary" size="s" @click="$refs.menu.chooseAll();$refs.menu.expandAll()">全选</Button>
-            <Button size="s" @click="menus = []" >清空</Button>
+          <div style="margin-bottom: 10px">
+            <Button
+              color="primary"
+              size="s"
+              @click="
+                $refs.menu.chooseAll();
+                $refs.menu.expandAll();
+              "
+              >全选</Button
+            >
+            <Button size="s" @click="menus = []">清空</Button>
           </div>
           <Tree :option="menuOption" multiple choose-mode="some" v-model="menus" ref="menu"></Tree>
         </div>
         <div class="users-container">
-          <div style="margin-bottom: 10px;">
-            <Button color="primary" size="s" @click="$refs.user.chooseAll();$refs.user.expandAll()">全选</Button>
-            <Button size="s" @click="users = []" >清空</Button>
+          <div style="margin-bottom: 10px">
+            <Button
+              color="primary"
+              size="s"
+              @click="
+                $refs.user.chooseAll();
+                $refs.user.expandAll();
+              "
+              >全选</Button
+            >
+            <Button size="s" @click="users = []">清空</Button>
           </div>
           <Tree :option="userOption" multiple ref="user" v-model="users"></Tree>
         </div>
@@ -76,9 +93,7 @@
   </div>
 </template>
 <script>
-
 import { fullMenus } from '@js/config/menu-config';
-import G from 'hey-global';
 import Request from '@common/request';
 import utils from '@common/utils';
 import { message } from 'heyui';
@@ -132,23 +147,21 @@ export default {
       });
     },
     getData() {
-      this.menus = G.get('SYS_MENUS');
+      this.menus = this.$store.state.menuKeys;
     },
     save() {
       // 如果使用权限配置，配合后端获取请求的数据
       // Request.Account.saveRoleConfig({roleId: this.role.id, menus: this.menus, roles: this.roles}).then(resp => {
       //   if (resp.ok) {
+      //      this.$store.dispatch('updateMenuKeys', this.menus);
       //      message.success('保存成功');
-      //      G.trigger('SYS_MENU_REFRESH');
       //   }
       // });
       utils.saveLocal('SYS_CONFIG_MENU', this.menus);
+      this.$store.dispatch('updateMenuKeys', this.menus);
       message.success('保存成功');
-      G.trigger('SYS_MENU_REFRESH');
     }
   },
-  computed: {
-
-  }
+  computed: {}
 };
 </script>

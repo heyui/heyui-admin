@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import demoComponents from './demo-components';
-import { isAuthPage } from '@js/config/menu-config';
 import { loadingBar } from 'heyui';
 
 const routeConfig = {
@@ -71,10 +70,6 @@ const router = createRouter({
 let isFirstRouter = true;
 
 router.beforeEach((to, from, next) => {
-  if (!isFirstRouter && !isAuthPage(to.name)) {
-    next({ name: 'PermissionError' });
-    return;
-  }
   loadingBar.start();
   if (to.meta && to.meta.title) {
     document.title = to.meta.title + ' - 管理应用';

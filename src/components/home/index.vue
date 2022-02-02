@@ -36,12 +36,12 @@
       <Cell :xs="24" :sm="24" :md="24" :lg="16" :xl="16">
         <div class="h-panel">
           <div class="relative">
-            <Tabs class="common-panel-tabs" v-model="type" :datas="{type1: '数据走势', type2: '数据分布'}"></Tabs>
-            <div class="middle-right" style="right: 25px;"><span class="text-hover" @click="openMore">查看更多</span></div>
+            <Tabs class="common-panel-tabs" v-model="type" :datas="{ type1: '数据走势', type2: '数据分布' }"></Tabs>
+            <div class="middle-right" style="right: 25px"><span class="text-hover" @click="openMore">查看更多</span></div>
           </div>
           <div class="home-part-body">
-            <Chart :options="data1" v-if="type=='type1'" key="type1"></Chart>
-            <Chart :options="data3" v-if="type=='type2'" key="type2"></Chart>
+            <Chart :options="data1" v-if="type == 'type1'" key="type1"></Chart>
+            <Chart :options="data3" v-if="type == 'type2'" key="type2"></Chart>
           </div>
         </div>
       </Cell>
@@ -50,55 +50,24 @@
           <div class="h-panel-bar">
             <div class="h-panel-title">订单统计</div>
             <div class="h-panel-right">
-              <span class="gray-color">总共达成</span><i class="h-split"></i><span class="font20 primary-color">200</span><i class="h-split"></i
-              ><span class="gray-color">W</span>
+              <span class="gray-color">总共达成</span><Space /><span class="font20 primary-color">200</span><Space /><span class="gray-color">W</span>
             </div>
           </div>
           <div class="h-panel-body progress-div home-part-body">
             <p>
-              <Progress :percent="99" color="green"
-                ><template v-slot:title
-                  >订单状态</template
-                ><template v-slot:text
-                  >4个</template
-                ></Progress
-              >
+              <Progress :percent="99" color="green"><template v-slot:title>订单状态</template><template v-slot:text>4个</template></Progress>
             </p>
             <p>
-              <Progress :percent="88" color="blue"
-                ><template v-slot:title
-                  >订单状态</template
-                ><template v-slot:text
-                  >0个</template
-                ></Progress
-              >
+              <Progress :percent="88" color="blue"><template v-slot:title>订单状态</template><template v-slot:text>0个</template></Progress>
             </p>
             <p>
-              <Progress :percent="55" color="red"
-                ><template v-slot:title
-                  >订单状态</template
-                ><template v-slot:text
-                  >0个</template
-                ></Progress
-              >
+              <Progress :percent="55" color="red"><template v-slot:title>订单状态</template><template v-slot:text>0个</template></Progress>
             </p>
             <p>
-              <Progress :percent="77" color="blue"
-                ><template v-slot:title
-                  >订单状态</template
-                ><template v-slot:text
-                  >0个</template
-                ></Progress
-              >
+              <Progress :percent="77" color="blue"><template v-slot:title>订单状态</template><template v-slot:text>0个</template></Progress>
             </p>
             <p>
-              <Progress :percent="66" color="yellow"
-                ><template v-slot:title
-                  >订单状态</template
-                ><template v-slot:text
-                  >0个</template
-                ></Progress
-              >
+              <Progress :percent="66" color="yellow"><template v-slot:title>订单状态</template><template v-slot:text>0个</template></Progress>
             </p>
           </div>
         </div>
@@ -125,7 +94,7 @@
               <Cell :width="10" class="text-right">
                 <h-circle :percent="76" :stroke-width="10" :size="90">
                   <p>
-                    <span class="font28">{{parseInt(123*76/100)}}</span
+                    <span class="font28">{{ parseInt((123 * 76) / 100) }}</span
                     ><span class="gray-color"> / 123</span>
                   </p>
                 </h-circle>
@@ -138,7 +107,7 @@
               <Cell :width="10" class="text-right">
                 <h-circle :percent="99" :stroke-width="10" :size="90" color="green">
                   <p>
-                    <span class="font28">{{parseInt(123*76/100)}}</span
+                    <span class="font28">{{ parseInt((123 * 76) / 100) }}</span
                     ><span class="gray-color"> / 123</span>
                   </p>
                 </h-circle>
@@ -151,7 +120,7 @@
               <Cell :width="10" class="text-right">
                 <h-circle :percent="22" :stroke-width="10" :size="90" color="red">
                   <p>
-                    <span class="font28">{{parseInt(123*76/100)}}</span
+                    <span class="font28">{{ parseInt((123 * 76) / 100) }}</span
                     ><span class="gray-color"> / 123</span>
                   </p>
                 </h-circle>

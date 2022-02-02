@@ -81,7 +81,7 @@
   </DropdownCustom>
 </template>
 <script>
-import { mapGetters } from 'vuex';
+import { mapState } from 'vuex';
 import Request from '@common/request';
 
 export default {
@@ -106,7 +106,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
+    ...mapState({
       user: 'user',
       msgCount: 'msgCount'
     })

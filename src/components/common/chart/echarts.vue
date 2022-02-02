@@ -11,7 +11,7 @@
 
 <script>
 import debounce from 'lodash.debounce';
-import G from 'hey-global';
+import { mapState } from 'vuex';
 import { toRaw } from 'vue';
 
 /** index.simple 包含以下四种图表
@@ -47,6 +47,9 @@ export default {
       if (this.chart) {
         toRaw(this.chart).setOption(this.options);
       }
+    },
+    pageResizeCount() {
+      this.resizeHandler();
     }
   },
   methods: {
@@ -55,7 +58,7 @@ export default {
       this.chart = chart;
       chart.setOption(this.options);
 
-      this.resizeHanlder = debounce(
+      this.resizeHandler = debounce(
         () => {
           if (chart) {
             chart.resize();
@@ -64,18 +67,18 @@ export default {
         100,
         { leading: true }
       );
-      window.addEventListener('resize', this.resizeHanlder);
-      this.listener = G.addlistener('page_resize', this.resizeHanlder);
+      window.addEventListener('resize', this.resizeHandler);
     }
   },
   beforeUnmount() {
-    window.removeEventListener('resize', this.resizeHanlder);
-    G.removelistener(this.listener);
+    window.removeEventListener('resize', this.resizeHandler);
     if (this.chart) {
       toRaw(this.chart).dispose();
     }
     this.chart = null;
   },
-  computed: {}
+  computed: {
+    ...mapState(['pageResizeCount'])
+  }
 };
 </script>

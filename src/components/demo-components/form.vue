@@ -46,7 +46,7 @@
           <FormItem label="金额" :required="true">
             <div class="h-input-group">
               <div class="h-input-addon">
-                <Select v-model="data.select1" :datas="param1" :no-border="true" :null-option="false"></Select>
+                <Select v-model="data.select1" :datas="param1" :no-border="true" placeholder="请选择"></Select>
               </div>
               <FormItem prop="money.min" label="起始金额" :show-label="false">
                 <Input type="text" placeholder="起始金额" v-model="data.money.min" />

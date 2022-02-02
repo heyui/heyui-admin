@@ -1,4 +1,3 @@
-import G from 'hey-global';
 import utils from '@common/utils';
 
 const fullMenus = [
@@ -160,8 +159,7 @@ const getKeys = function (menus) {
 
 let fullMenuKeys = getKeys(fullMenus);
 
-const isAuthPage = function (name) {
-  let menus = G.get('SYS_MENUS') || [];
+const isAuthPage = function (menus, name) {
   if (fullMenuKeys.indexOf(name) > -1 && menus.indexOf(name) == -1) {
     return false;
   }

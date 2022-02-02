@@ -120,7 +120,7 @@
           <Button :loading="loading" block color="primary" size="l" @click="submit">登录</Button>
         </div>
       </div>
-      <p class="copyright">Copyright © 2019 vvpvvp - <a href="https://www.heyui.top/">heyui.top</a></p>
+      <p class="copyright">Copyright © {{ nowYear }} vvpvvp - <a href="https://v2.heyui.top" target="_blank">heyui 2.0</a></p>
     </div>
   </div>
 </template>
@@ -133,7 +133,8 @@ export default {
   data() {
     return {
       login: Login.parse({}),
-      loading: false
+      loading: false,
+      nowYear: new Date().getFullYear()
     };
   },
   mounted() {},

@@ -2,6 +2,7 @@ import SubMenu from '@components/common/sub-menu';
 import SearchFilter from '@components/common/search-filter';
 import AItem from '@components/common-item/a-item';
 import BItem from '@components/common-item/b-item';
+import Upload from '@components/common/upload';
 import { defineAsyncComponent } from 'vue';
 
 export default app => {
@@ -9,6 +10,7 @@ export default app => {
   app.component('AItem', AItem);
   app.component('BItem', BItem);
   app.component('SearchFilter', SearchFilter);
+  app.component('Upload', Upload);
   app.component(
     'Chart',
     defineAsyncComponent(() => import('@components/common/chart'))

@@ -8,7 +8,7 @@
   <div class="account-info-vue">
     <Form :model="acc" :rules="rules" ref="form" showErrorTip>
       <FormItem label="头像" prop="avatar">
-        <!-- <Qiniu :options="options" type="image" data-type="url" v-model="acc.avatar"></Qiniu> -->
+        <Upload display-type="image" data-type="url" v-model="acc.avatar" />
       </FormItem>
       <FormItem label="姓名" prop="name">
         <Input type="text" v-model="acc.name" />
@@ -54,12 +54,6 @@ export default {
       rules: {
         required: ['name', 'email', 'org'],
         email: ['email']
-      },
-      options: {
-        max_file_size: '1mb',
-        filters: {
-          mime_types: [{ title: 'Image files', extensions: 'jpg,gif,png' }]
-        }
       },
       saveloading: false
     };

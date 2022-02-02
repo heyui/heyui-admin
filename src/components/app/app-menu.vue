@@ -36,47 +36,36 @@
   </div>
 </template>
 <script>
-import { onUnmounted } from 'vue';
 import { mapState } from 'vuex';
 import appLogo from './app-logo';
-import { getMenus } from '@js/config/menu-config';
-import G from 'hey-global';
 
 export default {
   props: {
     theme: String
   },
   data() {
-    return {
-      menus: []
-    };
+    return {};
   },
   watch: {
     $route() {
+      this.menuSelect();
+    },
+    menus() {
       this.menuSelect();
     }
   },
   mounted() {
     this.init();
-    this.listener = G.addlistener('SYS_MENU_REFRESH', () => {
-      this.init();
-    });
-  },
-  beforeUnmount() {
-    G.removelistener(this.listener);
   },
   computed: {
-    ...mapState(['siderCollapsed']),
+    ...mapState(['siderCollapsed', 'menus']),
     menuMode() {
       return this.siderCollapsed ? 'collapse' : 'vertical';
     }
   },
   methods: {
     init() {
-      this.menus = getMenus(G.get('SYS_MENUS'));
-      this.$nextTick(() => {
-        this.menuSelect();
-      });
+      this.menuSelect();
     },
     menuSelect() {
       if (this.$route.name) {
