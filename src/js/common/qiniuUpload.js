@@ -14,5 +14,5 @@ export const upload = async file => {
   const resp = await axios.post('//upload-z2.qiniup.com', formData, {
     headers: { 'Content-Type': 'multipart/form-data' }
   });
-  return `//img.heyui.top/${resp.data.key}`;
+  return `//www.heyui.top/qiniu/img/${resp.data.key}`;
 };
