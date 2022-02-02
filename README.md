@@ -135,39 +135,19 @@ npm install
 
 # develop
 npm run dev
-
-# build
-npm run build
 ```
 
-## 开发
-
-**hey.conf.js**，将反向代理地址修改至真正的项目后端地址.
-
-```js
-devServer: {
-  "proxy": {
-    "/api": {
-      //proxy address
-      "target": "http://umock.ch-un.com"
-    }
-  },
-  historyApiFallback: true
-},
-```
 
 ## 构建
 
-我们建议所有构建环境使用相同的代码，具体方案请参考开发文档。
-
-```
+```bash
 # build
-hey build
+npm run  build
 ```
 
 ## 浏览器支持
 
-现代浏览器以及 Internet Explorer 9+.
+现代浏览器.
 
 **系统已经自动安装配置好 polyfill.**
 
