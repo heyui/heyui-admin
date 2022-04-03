@@ -53,6 +53,7 @@
     "less": "^4.1.1",
     "less-loader": "^7.3.0",
     "lint-staged": "^10.5.4",
-    "mockjs": "^1.0.1-beta3"
+    "mockjs": "^1.0.1-beta3",
+    "vue-loader-v16": "^16.0.0-beta.5.4"
   }
 }
