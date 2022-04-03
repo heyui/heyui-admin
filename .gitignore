@@ -1,3 +1,4 @@
 node_modules
 docs/_book
 dist
+package-lock.json
