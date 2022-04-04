@@ -38,7 +38,7 @@ heyui 2.0 文档请参考：[heyui 2.0 版本](https://v2.heyui.top)
 
 我们为 heyui-admin 提供了相关的教程说明，如果你在使用的过程中有疑问，建议先查阅相关文档。
 
-[教学文档](https://heyui.github.io/heyui-admin-v2-docs)
+[教学文档](http://docs.v2.heyui.top)
 
 ## 准备
 

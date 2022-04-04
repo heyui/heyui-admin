@@ -197,7 +197,7 @@ export default {
       window.open('https://github.com/heyui/heyui-admin');
     },
     goBook() {
-      window.open('https://heyui.github.io/heyui-admin-v2-docs');
+      window.open('http://docs.v2.heyui.top');
     },
     trigger(data) {
       if (data == 'logout') {
